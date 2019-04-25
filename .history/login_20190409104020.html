@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浦口公安局</title>
+
+    <link rel="stylesheet" href="css/reset.css?v=1.0.0">
+    <link rel="stylesheet" href="css/login.css?v=1.0.0">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="login_logo">
+            <div class="login_top">
+                <img src="img/logo.png" alt="">
+                <p>南京市浦口区公安分局</p>
+            </div>
+            <!-- 登录界面 -->
+            <div class="login_bot">
+                <div class="bird"></div>
+
+                <!-- 选择登录角色 -->
+                <div class="role" v-show="isrole">
+                    <ul class="role_uu">
+                        <li @click="goOrder">
+                            <img src="img/组 2.png" alt="">
+                            <p>接单员登录</p>
+                        </li>
+                        <li @click="goPolice">
+                            <img src="img/组 3.png" alt="">
+                            <p>警员登录</p>
+                        </li>
+                        <li @click="goMatron">
+                            <img src="img/组 4.png" alt="">
+                            <p>管理登录</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 警员登录 -->
+                <div class="police" v-show="ispolice">
+                    <h4>警员登录</h4>
+                    <ul class="police_uu">
+                        <li>
+                            <label for="">IP地址：</label>
+                            <input type="text" id="name1" disabled  v-model="ip">
+                        </li>
+                        <li>
+                            <label for="">姓名：</label>
+                            <input type="text" v-model="Pname">
+                        </li>
+                        <li>
+                            <label for="">密码：</label>
+                            <input type="password" v-model="Ppsw">
+                        </li>
+                    </ul>
+                    <button class="enter" @click="policeEnter">登录</button>
+                    <span class="other" @click="goBack">其他登录</span>
+                </div>
+
+                <!-- 管理登录 -->
+                <div class="matron" v-show="ismatron">
+                    <h4>管理员登录</h4>
+                    <ul class="matron_uu">
+                        <li>
+                            <label for="">账号：</label>
+                            <input type="text">
+                        </li>
+                        <li>
+                            <label for="">密码：</label>
+                            <input type="password">
+                        </li>
+                    </ul>
+                    <button class="enter">登录</button>
+                    <span class="other" @click="goBack">其他登录</span>
+                </div>
+
+                <!-- 接单员登录 -->
+                <div class="order" v-show="isorder">
+                    <h4>接单员登录</h4>
+                    <ul class="matron_uu">
+                        <li>
+                            <label for="">账号：</label>
+                            <input type="text" v-model="Oname">
+                        </li>
+                        <li>
+                            <label for="">密码：</label>
+                            <input type="password" v-model="Opsw">
+                        </li>
+                    </ul>
+                    <button class="enter" @click="orderEnter">登录</button>
+                    <span class="other" @click="goBack">其他登录</span>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </div>
+</body>
+
+</html>
+
+<script src="js/jquery.min.js?v=1.0.0"></script>
+<script src="js/vue.js?v=1.0.0"></script>
+<script src="js/api.js?v=1.0.0"></script>
+<script src="js/getIpAdd.js"></script>
+<script src="js/login.js?v=1.0.1"></script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>

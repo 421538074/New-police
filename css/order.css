@@ -1,0 +1,171 @@
+/* 头部 */
+.order_header {
+    width: 100%;
+    height: 100px;
+    background: rgba(29, 85, 152, 1);
+}
+
+.order_nav {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.order_nav img {
+    margin-left: 23px;
+}
+
+/* 内容 */
+.order_banner {
+    display: flex;
+}
+
+.order_left {
+    width: 244px;
+    /* height: 870px; */
+    height: calc(100vh - 100px);
+    background: rgba(29, 85, 152, 1);
+}
+
+.order_left img {
+    width: 191px;
+    height: 45px;
+    margin: 26px 0 84px 23px;
+}
+
+.order_uu li {
+    width: 244px;
+    height: 65px;
+    font-size: 22px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(239, 239, 239, 1);
+    line-height: 28px;
+    text-align: center;
+    line-height: 65px;
+    cursor: pointer;
+}
+
+
+
+.order_name {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+    justify-content: flex-end;
+}
+
+.order_name span {
+    font-size: 18px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 18px;
+    margin-left: 24px;
+}
+
+/* order_main */
+.order_main {
+    padding: 34px 52px 0 31px;
+    /* width: 813px; */
+    height: 730px;
+    background: rgba(255, 255, 255, 1);
+    margin: 56px 0 0 30px;
+    position: relative;
+
+}
+
+.order_main h4 {
+    font-size: 22px;
+    font-family: PingFangSC-Medium;
+    color: rgba(0, 0, 0, 1);
+    line-height: 31px;
+    margin-bottom: 25px;
+}
+
+/* table */
+table {
+    /* width: 813px; */
+    border: 2px solid rgba(0, 0, 0, 1);
+}
+
+th {
+    height: 53px;
+    font-size: 16px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    background: #1D5598;
+    color: white;
+}
+
+td {
+    height: 54px;
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    text-align: center;
+    padding: 5px;
+    line-height: 20px;
+}
+
+
+tr td span {
+    width: 100%;
+    height: 48px;
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 16px;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+tr,
+th,
+td {
+    border: 2px solid rgba(0, 0, 0, 1);
+    vertical-align: middle;
+}
+
+.order_table {
+    height: 585px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+
+
+
+.on {
+    background: #043978;
+}
+
+.active {
+    background: #F0F0F0;
+}
+
+.red {
+    color: red;
+}
+
+
+.receive {
+    display: inline-block;
+    width: 58px;
+    height: 32px;
+    background: url(../img/jiedan.png)no-repeat;
+    background-size: 100% 100%;
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(254, 254, 255, 1);
+    line-height: 32px;
+    cursor: pointer;
+}

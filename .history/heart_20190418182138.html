@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浦口公安局</title>
+    <link rel="stylesheet" href="css/reset.css?v=1.0.7">
+    <link rel="stylesheet" href="css/header.css?v=1.0.7">
+    <link rel="stylesheet" href="css/heart.css?v=1.0.7">
+
+    <link rel="stylesheet" type="text/css" href="css/page/zxf_page.css?v=1.0.7" />
+</head>
+
+<body>
+
+    <div id="app" v-cloak>
+        <div class="heart_top">
+            <!-- 头部 -->
+            <cp-banner :userName="userName" @go-answer="goAnswer" @go-name="goname"></cp-banner>
+        </div>
+
+
+
+        <!-- 内容 -->
+        <div class="heart_main">
+            <div class="nav_out">
+                <div class="nav container">
+                    <ul class="nav_uu">
+                        <li><a href="index.html">首页</a></li>
+                        <li class="blue" data-to="go1">插件中心</li>
+                        <li data-to="go2">音乐中心</li>
+                        <li data-to="go3">书籍中心</li>
+                        <li data-to="go4">教程中心</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 插件中心 -->
+            <div class="plug_out">
+                <div class="plug container">
+                    <p id="go1"></p>
+                    <h4>插件中心</h4>
+                    <ul class="plug_uu">
+                        <li class="pointer" v-for="(item,index) in plugList.slice(0,10)" @click="openChange(item.id)">
+                            <span><img :src="item.picture | filterImg" alt=""></span>
+                            <p>{{item.name}}</p>
+                        </li>
+                    </ul>
+                    <div v-if="plugList.length > 10" class="zxf" v-show="isPage"></div>
+                </div>
+            </div>
+
+            <!-- 音乐中心 -->
+            <div class="music_out">
+                <div class="music container">
+                    <p id="go2"></p>
+                    <h4>音乐中心</h4>
+                    <div class="music_nav">
+                        <div class="music_one" v-for="item in musicSort">
+                            <div class="music_wrap clearfix">
+                                <h5>{{item.name}}</h5>
+                                <!-- <img src="img/播放1.png" alt=""> -->
+                            </div>
+                            
+                            <ul class="music_uu">
+                                <li v-for="(arr,index) in musicList[item.id]" 
+                                :class="{musicColor: Color==arr.id}"
+                                    @click="ColorChange(arr.id)">
+                                    <p>{{arr.name}}</p>
+                                    <div class="music_img">
+                                        <span></span>
+                                        <span @click="musicDown(arr.data_url)"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div v-if="musicSort.length > 8" class="music_btn">
+                                <button @click="reduce(item.id)">上一页</button>
+                                <button @click="add(item.id)">下一页</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+            <!-- 书籍中心 -->
+            <div class="book_out">
+                <div class="book container">
+                    <p id="go3"></p>
+                    <div class="book_left">
+                        <div class="book_left_text">
+                            书籍中心
+                        </div>
+                        <div class="book_left_tag">
+                            <ul class="book_left_uu">
+                                <li v-for="(item,index) in bookSort" :class="{white:index==current1}"
+                                    @click="bookChange(item.id,index)">
+                                    {{item.name}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="book_right">
+                        <div class="book_right_top">
+                            <input placeholder="输入书籍关键字" type="text" v-model="text" @keydown.enter="Osearch">
+                            <span @click="Osearch(index)"></span>
+                        </div>
+
+                        <div class="book_right_bot">
+                            <ul class="book_uu">
+                                <li class="pointer" v-for="(item,index) in bookList" @click="bookDown(item.id)">
+                                    <span><img :src="item.picture | filterImg" alt=""></span>
+                                    <p>{{item.name}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 分页 -->
+                        <cp-page v-if="bookList.length > 8" :total="total" :current-page='current' @pagechange="pagechange"></cp-page>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- 教程中心 -->
+            <div class="toutor_out">
+                <div class="book container" id="go4">
+                    <div class="book_left">
+                        <div class="book_left_text">
+                            教程中心
+                        </div>
+                        <div class="book_left_tag">
+                            <ul class="book_left_uu">
+                                <li v-for="(item,index) in tutorialSort" :class="{white:index==number}"
+                                    @click="turtorChange(index,item.id)">{{item.name}}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="book_right">
+                        <div class="book_right_top">
+                            <input placeholder="输入教程关键字" type="text" v-model="text1" @keydown.enter="Tsearch">
+                            <span @click="Tsearch"></span>
+                        </div>
+
+                        <div class="book_right_bot" v-if="!hide">
+                            <ul class="book_uu">
+                                <li class="pointer" v-for="(item,index) in tutorialList1" @click="openChange(item.id)">
+                                    <span><img :src="item.picture | filterImg" alt=""></span>
+                                    <p>{{item.name}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="book_right_bot" v-if="hide">
+                            <ul class="book_uu">
+                                <li class="pointer" v-for="(item,index) in tutorialList" @click="Tdown(item.id)">
+                                    <span><img src="" alt=""></span>
+                                    <p>{{item.name}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 分页 -->
+                        <cp-page v-if="tutorialList.length > 8" :total="totalone" :current-page='currentone' @pagechange="pagechangeOne"></cp-page>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- 弹框 -->
+        <div class="shade" v-show="isshade">
+            <!-- 书籍 -->
+            <div class="book_shade" v-show="isbook">
+                <div class="book_name">
+                        <img :src="picture | filterImg" >
+                    <div class="book_name_right">
+                        <p>{{name}}</p>
+                        <p>{{create_at | filterTime}}</p>
+                    </div>
+
+                </div>
+                <div class="book_btn">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- 插件 -->
+            <div class="book_shade" v-show="isplug">
+                <div class="book_name">
+                    <img :src="picture | filterImg" >
+
+                    <div class="book_name_right">
+                        <p>{{name}}</p>
+                        <p>{{create_at | filterTime}}</p>
+                    </div>
+
+                </div>
+                <div class="plug_btn pointer" @click="upDown()">
+                    <span></span>
+                </div>
+            </div>
+            <!-- 教程 -->
+            <div class="book_shade" v-show="istotur">
+                <div class="book_name">
+                    <span>
+                            <img :src="picture | filterImg" >
+                    </span>
+                    <div class="book_name_right">
+                        <p>{{Tname}}</p>
+                        <!-- <p>{{create_at | filterTime}}</p> -->
+                    </div>
+
+                </div>
+                <p class="book_shade_content">
+                    {{Tdescription}}
+                </p>
+                <div class="totur_btn" @click="upDown()">
+                    查看
+                </div>
+            </div>
+
+            <!-- 修改密码 -->
+            <div class="pass" v-show="ispass">
+                <div class="pass_top">
+                    修改密码
+                </div>
+                <div class="pass_bot">
+                    <ul class="pass_uu">
+                        <li>
+                            <span>原密码：</span>
+                            <input type="password" v-model="Opsw">
+                        </li>
+                        <li>
+                            <span>新密码：</span>
+                            <input type="password" v-model="Npsw">
+                        </li>
+                        <li>
+                            <span>重新输入密码：</span>
+                            <input type="password" v-model="Tpsw">
+                        </li>
+                    </ul>
+                    <p @click="editChange">确认</p>
+                </div>
+            </div>
+            <div class="close pointer" @click="goClose">
+            </div>
+        </div>
+        <audio ref="myPlayer">
+            <source :src="musicListSelf[currentMusicIndex]">
+        </audio>
+        <button @click="playMusic" class="test-music">播放</button>
+        <button @click="nextMusic" class="next-music">下一首</button>
+    </div>
+
+
+</body>
+
+</html>
+
+<script src="js/jquery.min.js?v=1.0.7"></script>
+<script src="js/vue.js?v=1.0.7"></script>
+<script src="js/components.js?v=1.0.7"></script>
+<script src="js/api.js?v=1.0.7"></script>
+<script type="text/javascript" src="js/pagejs/zxf_page.js?v=1.0.7"></script>
+<script type="text/javascript" src="js/heart.js"></script>

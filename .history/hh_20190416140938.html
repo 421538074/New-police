@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/reset.css">
+
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="app">
+        <div class="index_header">
+            <div class="index_content container">
+                <div @click="goHome" class="index_left pointer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class=" index_right">
+                    <span>首页</span>
+                    <span class="white">应用中心</span>
+                    <span>我的主页</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="js/jquery.min.js?v=1.0.6"></script>
+<script src="js/vue.js?v=1.0.6"></script>
+<script src="js/components.js"></script>
+<script>
+    var xm = new Vue({
+        el: "#app",
+        data: {
+            list: [{
+                    text: "哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
+                },
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+            ]
+        },
+        filters: {
+            ellipsis(value) {
+                if (!value) return ''
+                if (value.length > 10) {
+                    return value.slice(0, 4) + '...'
+                }
+                return value
+            }
+        },
+        methods: {
+            goHome() {
+                window.location.href="index.html";
+            }
+        },
+        filters: {
+            filterTime(time) {
+                var date = new Date(time * 1000);
+                var year = date.getFullYear();
+                var month = date.getMonth() + 1;
+                var day = date.getDate();
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var seconds = date.getSeconds();
+                if (month < 10) {
+                    month = "0" + month;
+                }
+                if (day < 10) {
+                    day = "0" + day;
+                }
+                if (hours < 10) {
+                    hours = "0" + hours;
+                }
+                if (minutes < 10) {
+                    minutes = "0" + minutes;
+                }
+                if (seconds < 10) {
+                    seconds = "0" + seconds;
+                }
+                return year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+            }
+        },
+
+    })
+</script>

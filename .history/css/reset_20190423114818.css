@@ -1,0 +1,242 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+/* table, */
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+
+
+body,
+html {
+	/* font-size: calc(100vw / 19.2);  */
+	background: #efefef;
+}
+
+
+[v-cloak] {
+	display: none;
+}
+
+.container {
+	/* width: 12rem; */
+	margin: 0 auto;
+}
+
+body {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.pointer{
+	cursor: pointer;
+}
+
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+.alert-mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+	height: 100%;
+	z-index: 9999;
+}
+.alert-body {
+	position: relative;
+    width: 500px;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 5px;
+	height: 140px;
+	top: -280px;
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+p.alert-title, p.alert-msg {
+	font-size: 15px;
+	height: 40px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+p.alert-title{
+    background: rgba(0,0,0,.03);
+}
+button.alert-close {
+    width: 100%;
+    border: none;
+    height: 40px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+    color: #fff;
+	background: rgba(126, 206, 244, 1);
+	cursor: pointer;
+	outline: 0;
+}
+
+@font-face {
+	font-family: 'myFont';
+	src: url(../font/PingFangSC-Regular.ttf)
+}
+*{
+	font-family: myFont !important;
+}

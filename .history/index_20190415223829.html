@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浦口公安局</title>
+    <link rel="stylesheet" href="css/reset.css?v=1.0.2">
+    <link rel="stylesheet" href="css/index.css?v=1.0.5">
+    <link rel="stylesheet" type="text/css" href="css/page/zxf_page.css?v=1.0.2" />
+    <link rel="stylesheet" href="css/page/iconfont.css?v=1.0.2">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+
+<body>
+
+    <div id="app" v-cloak>
+        <div class="index_header">
+            <div class="index_content container">
+                <div @click="goHome" class="index_left pointer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <!-- <img src="img/首页logo.png" alt=""> -->
+                </div>
+                <div class="header_mid">
+                    <input @keydown.enter="searchChange" class="search" type="text" v-model="keyWords"
+                        placeholder="搜索关键词">
+                    <span @click="searchChange"></span>
+                </div>
+                <div class="header_img pointer" @click="goAnswer">
+                    <img src="img/信息.png" alt="">
+                    <span v-if="length>0?isnum:!isnum">{{length}}</span>
+                </div>
+                <div class="header_name pointer">
+                    <span @click="goname">{{userName}}</span>
+                </div>
+                <!-- 通知 -->
+                <div class="answer">
+                    <span class="answer_sp"></span>
+                    <ul v-if="list.length != 0" class="answer_uu" @click="goUser">
+                        <li v-for="item in list">
+                            {{item.nickname}} <span>评论了你的</span> {{item.title}}
+                            {{item.content}}
+                        </li>
+                        <li v-for="item in replaylist">
+                            {{item.nickname}} <span>回复你</span>{{item.title}}
+                        </li>
+                    </ul>
+                    <ul v-else class="answer_uu">
+                        <p class="no-notice">暂无通知</p>
+                    </ul>
+                </div>
+                <!-- 个人中心 -->
+                <div class="header_two">
+                    <span></span>
+                    <ul class="header_two_uu">
+                        <li @click="gouser">我的主页</li>
+                        <li @click="quitChange">退出登录</li>
+                        <li @click="goPass">修改密码</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="content">
+            <div class="content_main container">
+                <div class="content_left">
+                    <div class="banner">
+                        <ul class="banner_uu">
+                            <li :class="{active:index == currentIndex}" v-for="(item,index) in ForumCate.slice(0, 4)"
+                                @click="bannerChange(index)">
+                                {{item.title}}
+                            </li>
+                            <div class="banner_more" v-show="ismore">
+                                <span></span>
+                                <ul class="more_uu">
+                                    <li v-for="(item,index) in ForumCate.slice(4)" :class="{active:index == numIndex}"
+                                        @click="banner(index)">
+                                        {{item.title}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </div>
+
+                    <div class="content_scroll">
+                        <div class="content_list" v-for="(item,index) in titleList">
+                            <h4>{{item.title}}</h4>
+
+                            <div class="content_mid">
+                                <img :src="item.picture.indexOf('http') != -1 ? item.picture : 'http://police.pzhkj.cn'+item.picture"
+                                    alt="" class="mid_img" v-if="item.picture!=null && item.picture != ''"
+                                    v-show="pIndex !==index">
+                                <div>
+                                    <p class="content_text" @click="readChange(item,index)"
+                                        :class="{entable:postIndex == index}" v-html="filterImg(item.content)"></p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+
+                            <div class="comment">
+                                <p>发布于{{item.create_at}}</p>
+                                <ul>
+                                    <li class="read" @click="readChange(item,index)">
+                                        <template v-if="getCharaLength(item.content)">
+                                            <span v-if="postIndex != index">阅读全文</span>
+                                            <span v-else>收起全文</span>
+                                            <img src="img/icon-01 (2).png" alt="" v-if="postIndex != index">
+                                            <img src="img/icon-01 (1).png" alt="" v-else>
+                                        </template>
+                                    </li>
+                                    <li @click="likePostOrComment(item.id,'',0)" class="pointer">
+                                        <img v-if="item.status == 0" src="img/icon-06.png" class="icon-like">
+                                        <img v-else src="img/icon-07.png" class="icon-like">
+                                        <span>{{item.records}}赞</span>
+                                    </li>
+                                    <li @click="comChange(index)">
+                                        <img src="img/评论.png" alt="">
+                                        <span v-show="!iscomment">{{item.comment_list.length}}条评论</span>
+                                        <span v-show="iscomment">收起评论</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="comment_main" v-cloak v-show="commentActive ==index">
+                                <div class="comment_list" v-for="(comment,index) in item.comment_list">
+                                    <h5>{{comment.nickname}} 评论：</h5>
+                                    <p v-html="comment.content"></p>
+                                    <div class="reply">
+                                        <span class="pointer" @click="likePostOrComment('',comment.id,0)">
+                                            <img v-if="comment.status == 0" src="img/icon-06.png" alt="">
+                                            <img v-else src="img/icon-07.png" alt="">
+                                            {{comment.phraise}}赞
+                                        </span>
+                                        <span @click="lookchange(item.id,comment.id)" class="pointer">查看回复</span>
+                                        <span @click="gospeak(index)" class="pointer">回复</span>
+                                    </div>
+
+                                    <div class="reply_one" v-if="currentActive==index">
+                                        <input type="text" :placeholder="'回复'+comment.nickname+':'"
+                                            v-model="replyComment">
+                                        <!-- <img src="img/表情.png" alt=""> -->
+                                        <span @click="commentChange(comment.post_id,comment.id,comment.uid)">发布</span>
+                                    </div>
+                                </div>
+
+                                <div class="comment_inp">
+                                    <input placeholder="想说点什么？" type="text" v-model="Pcomment">
+                                    <!-- <img src="img/表情.png" alt=""> -->
+                                    <span @click="commentChange(item.id)">发布</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 未搜索到 -->
+                    <div class="content_img" v-show="isNone">
+                        <img src="img/矢量智能对象.png" alt="">
+                        <p>没有找到符合条件的结果</p>
+                    </div>
+                </div>
+                <div class="content_right">
+                    <!-- 论坛报备 -->
+                    <div class="content_make">
+                        <ul class="make_uu">
+                            <li @click="writeReply">
+                                <img src="img/论坛.png" alt="">
+                                <p>写论坛</p>
+                            </li>
+                            <li @click="reportChange">
+                                <img src="img/报备.png" alt="">
+                                <p>去报备</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 应用中心 -->
+                    <div class="appCenter">
+                        <!--<h4>应用中心</h4>-->
+                        <div class="app_logo">
+                            <ul class="app_uu" @click="appChange">
+                                <li>
+                                    <a href="heart.html#go1">
+                                        <img src="img/icon-08.png" alt="">
+                                        <p>插件中心</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="heart.html#go2">
+                                        <img src="img/icon-09.png" alt="">
+                                        <p>音乐中心</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="heart.html#go3">
+                                        <img src="img/icon-10.png" alt="">
+                                        <p>书籍中心</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="heart.html#go4">
+                                        <img src="img/icon-11.png" alt="">
+                                        <p>教程中心</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="heart.html#go4">
+                                        <img src="img/icon-12.png" alt="">
+                                        <p>研判工具</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="heart.html#go4">
+                                        <img src="img/icon-13.png" alt="">
+                                        <p>技战法</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 所有报备列表 -->
+                    <div class="report">
+                        <div class="report_banner">
+                            <ul>
+                                <li :class="{black:!isshow}" class="repari-title" @click="tagChange">所有报备</li>
+                                <li :class="{black:isshow}" class="repari-title" @click="tagChange">我的报备</li>
+                            </ul>
+                        </div>
+
+                        <div class="report_list">
+                            <ul class="report_list_uu">
+                                <li>
+                                    <p class="sub-title">报备内容</p>
+                                    <p class="sub-title">报备情况</p>
+                                    <p class="sub-title">处理人</p>
+                                </li>
+                                <li v-for="(item,index) in allList">
+                                    <span><a class="title-blue">·{{item.title}}</a>
+                                        - <a class="title-blue">{{item.user}}</a>
+                                        于 <a class="title-blue">{{item.create_at}}</a>提交了报备
+                                    </span>
+                                    <span :class="{red:item.status==0,blue:item.status==null}">
+                                        {{item.status==0?"正在处理":(item.status == 1 ? "已处理":"未处理")}}
+                                    </span>
+                                    <span>{{item.name}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 遮罩 -->
+        <div class="shade" v-cloak v-show="isshade">
+            <!-- 报备 -->
+            <div class="case" v-show="isCase">
+                <div class="case_title">
+                    报备
+                </div>
+                <div class="case_main">
+                    <ul class="case_uu">
+                        <li>
+                            <label for="">报备类型：</label>
+                            <select name="" id="myselect">
+                                <option value="index" v-for="(item,index) in repairSorts" :key=index>
+                                    {{item.name}}
+                                </option>
+                            </select>
+                        </li>
+                        <li>
+                            <label class="case_main_one">报备内容：</label>
+                            <textarea class="wishContent" maxlength="60"></textarea>
+                            <span class="wordsNum">60字以内 0/60</span>
+                        </li>
+                    </ul>
+                    <span class="case_btn" @click="reChange"></span>
+                </div>
+            </div>
+
+            <!-- 审核中 -->
+            <div class="auditing" v-show="isauditing">
+                <img src="img/icon-14.png" alt="">
+                <p>创建完成，正在审核中...</p>
+                <span></span>
+            </div>
+
+            <!-- 全部报备 -->
+            <div class="allReply" v-show="isall">
+                <div class="allReply_tag">
+                    <ul class="allReply_uu">
+                        <li :class="{on:!isstar}" @click="onli">所有报备</li>
+                        <li :class="{on:isstar}" @click="on">我的报备</li>
+                    </ul>
+                    <div class="allReply_table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="100">报备时间</th>
+                                    <th width="100">报备类型</th>
+                                    <th width="328">报备内容</th>
+                                    <th width="88">报备人</th>
+                                    <th width="92">报备状态</th>
+                                    <th width="100">接单人</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="item in repairList" v-if="!isstar">
+                                    <td>{{item.create_at | filterTime}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>
+                                        <span>{{item.content}}</span>
+                                    </td>
+                                    <td>{{item.user}}</td>
+                                    <td :class="{red:item.status==0,blue:item.status==1}">
+                                        {{item.status==0?"待接单":(item.status == 1 ? "待处理":"已处理")}}
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <!-- 我的报备 -->
+                                <tr v-for="(item,index) in repairList" v-if="isstar">
+                                    <td>{{item.create_at | filterTime}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>
+                                        <span>{{item.content}}</span>
+                                    </td>
+                                    <td>{{item.user}}</td>
+                                    <td :class="{red:item.status==0,blue:item.status==1}">
+                                        {{item.status==0?"待接单":(item.status == 1 ? "待处理":"已处理")}}
+                                    </td>
+                                    <td @click="Repair(index)"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- <div class="zxf_pagediv"></div> -->
+                </div>
+            </div>
+
+            <!-- 查看回复 -->
+            <div class="see" v-show="isspeak">
+                <div class="see_text">
+                    <div class="see_text_top">
+                        <h4>{{currentComment.nickname}}</h4>
+                        <span>{{currentComment.create_at | filterTime}}</span>
+                    </div>
+                    <p v-html="currentComment.content"></p>
+                </div>
+                <div class="see_main">
+                    <template v-if="seelist.length == 0">
+                        <p class="no-replay">暂无回复</p>
+                    </template>
+                    <template v-else>
+                        <ul class="see_uu" v-for="(item,index) in seelist">
+                            <li>
+                                <div class="see_uu_one">
+                                    <h4>{{item.nickname}}<span class="replay-cha">回复</span>{{item.comment_user}}</h4>
+                                    <span>{{item.create_at | filterTime}}</span>
+                                </div>
+                                <p v-html="item.content"></p>
+                                <div class="see_uu_three">
+                                    <div @click="likePostOrComment('',item.id,1)" class="see_uu_btn pointer">
+                                        <img v-if="item.status == 0" src="img/icon-06.png" alt="">
+                                        <img v-else src="img/icon-07.png" alt="">
+                                        <span>{{item.phraise}}赞</span>
+                                    </div>
+                                    <span @click="gospeak1(index)" class="pointer">回复</span>
+                                </div>
+                                <div class="see_inp" v-show="oneIndex == index">
+                                    <input v-model="replyComment" type="text">
+                                    <span></span>
+                                    <span class="pointer"
+                                        @click="commentChange(currentPostId,item.id,item.uid,1)">发布</span>
+                                </div>
+                            </li>
+
+                    </template>
+                    <!-- 子集 -->
+
+                    <template>
+                        <!-- <li v-for="(part,index) in item.child" class="list_two">
+                                <div class="see_uu_one">
+                                    <h4>{{part.nickname}}回复了{{part.comment_user}}</h4>
+                                    <span>{{part.create_at | filterTime}}</span>
+                                </div>
+                                <p v-html="part.content"></p>
+                                <div class="see_uu_three">
+                                    <div @click="likePostOrComment('',part.id,1)" class="see_uu_btn pointer">
+                                        <img v-if="part.status == 0" src="img/icon-06.png" alt="">
+                                        <img v-else src="img/icon-07.png" alt="">
+                                        <span>{{part.phraise}}赞</span>
+                                    </div>
+                                    <span @click="gospeak2(index)" class="pointer">回复</span>
+                                </div>
+                                <div class="see_inp" v-show="twoIndex == index">
+                                    <input v-model="replyComment" type="text">
+                                    <span></span>
+                                    <span class="pointer" @click="commentChange(currentPostId,item.id,item.uid,1)">发布</span>
+                                </div>
+                            </li> -->
+                    </template>
+                    </ul>
+                </div>
+            </div>
+            <!-- 修改密码 -->
+            <div class="pass" v-show="ispass">
+                <div class="pass_top">
+                    修改密码
+                </div>
+                <div class="pass_bot">
+                    <ul class="pass_uu">
+                        <li>
+                            <span>原密码：</span>
+                            <input type="password" v-model="Opsw">
+                        </li>
+                        <li>
+                            <span>新密码：</span>
+                            <input type="password" v-model="Npsw">
+                        </li>
+                        <li>
+                            <span>重新输入密码：</span>
+                            <input type="password" v-model="Tpsw">
+                        </li>
+                    </ul>
+                    <p @click="editChange">确认</p>
+                </div>
+            </div>
+
+
+            <div class="close pointer" @click="goClose">
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
+<script src="js/jquery.min.js?v=1.0.0"></script>
+<script src="js/vue.js?v=1.0.0"></script>
+<script src="js/components.js?v=1.0.0"></script>
+<script type="text/javascript" src="js/pagejs/zxf_page.js?v=1.0.0"></script>
+<script src="js/api.js?v=1.0.0"></script>
+<script src="kindeditor/kindeditor-all-min.js"></script>
+<script src="kindeditor/zh-CN.js"></script>
+<script src="js/index.js?v=1.0.3"></script>
+<script type="text/javascript">
+    //翻页
+    $(".zxf_pagediv").createPage({
+        pageNum: 5,
+        current: 1,
+        backfun: function (e) {}
+    });
+</script>

@@ -1,0 +1,595 @@
+.nav_out {
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+    position: fixed;
+    z-index: 11;
+}
+
+.nav {
+    height: 60px;
+
+}
+
+.nav_uu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.nav_uu li {
+    font-size: 18px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    margin: 0 20px;
+    height: 90%;
+    line-height: 60px;
+    border-bottom: 4px solid white;
+    cursor: pointer;
+}
+
+.blue {
+    border-bottom: 4px solid #1D5598 !important;
+    border-radius: 2px;
+}
+
+
+
+/* 插件中心 */
+.plug_out {
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+}
+
+.plug {
+    height: 456px;
+    padding-top: 32px;
+    margin-top: 62px;
+    position: relative;
+}
+
+.plug h4,
+.music h4 {
+    font-size: 18px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 23px;
+    margin: 0 0 41px 21px;
+}
+
+.plug_uu {
+    display: flex;
+    padding: 0 69px 0 47px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    height: 318px;
+}
+
+.plug_uu li {
+    text-align: center;
+    font-size: 18px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 23px;
+    width: 20%;
+    margin-bottom: 10px;
+}
+
+/* .plug_uu li:nth-child(-n+6) {
+    margin-bottom: 34px;
+}
+
+.plug_uu li:nth-child(6) {
+    margin-right: 0;
+}
+
+.plug_uu li:nth-child(12) {
+    margin-right: 0;
+} */
+
+.plug_uu li span {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    /* background: rgba(29, 85, 152, 1); */
+    margin-bottom: 10px;
+}
+
+.plug_uu li span img {
+    width: 100%;
+    height: 100%;
+}
+
+ul.plug_uu p {
+    font-size: 14px;
+}
+
+/* 音乐中心 */
+.music_out {
+    width: 100%;
+}
+
+.music {
+    height: 546px;
+    padding-top: 40px;
+    position: relative;
+}
+
+.music_nav {
+    display: flex;
+    padding-left: 94px;
+}
+
+.music_one {
+    width: 300px;
+    height: 430px;
+    margin-right: 66px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+    border-radius: 4px;
+}
+
+.music_one:last-child {
+    margin-right: 0;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+
+.music_nav h5 {
+    font-size: 18px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 23px;
+    float: left;
+}
+
+.music_wrap {
+    margin: 29px 7px 20px 21px;
+}
+
+.music_wrap img {
+    width: 90px;
+    height: 26px;
+    float: right;
+}
+
+
+.music_uu {
+    height: 325px;
+    overflow: hidden;
+}
+
+.music_uu p {
+    width: 140px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.music_uu li {
+    height: 40px;
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 20px;
+    padding-left: 14px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 40px;
+}
+
+.musicColor {
+    background: #F7F7F7 !important;
+    color: #84A4FE !important;
+}
+
+.music_img span:nth-child(1) {
+    display: inline-block;
+    width: 12px;
+    height: 13px;
+    background: url(../img/开始1.png)no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.music_img span:nth-child(2) {
+    display: inline-block;
+    width: 15px;
+    height: 14px;
+    background: url(../img/xiazai1.png)no-repeat;
+    background-size: 100% 100%;
+    margin: 0 15px 0 14px;
+    cursor: pointer;
+}
+
+.music_btn {
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.music_btn button {
+    font-size: 16px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(121, 121, 121, 1);
+    border: 0;
+    outline: none;
+    line-height: 23px;
+    background: white;
+}
+
+/* 书籍中心 */
+.book_out {
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+}
+
+.toutor_out {
+    width: 100%;
+}
+
+.book {
+    height: 690px;
+    display: flex;
+    position: relative;
+}
+
+.book_left {
+    /* width: 25%; */
+}
+
+.book_left_text {
+    font-size: 18px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 23px;
+
+    margin: 59px 0 40px 21px;
+}
+
+.book_left_tag {
+    width: 100%;
+    overflow: hidden;
+}
+
+.book_left_uu {
+    width: 112%;
+    height: 500px;
+    overflow-y: scroll;
+
+}
+
+.book_left_uu li {
+    height: 40px;
+    font-size: 16px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #797979;
+    line-height: 40px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.book_right_top {
+    position: relative;
+    margin: 59px 177px 58px 105px;
+}
+
+.book_right_top input {
+    width: 580px;
+    height: 36px;
+    font-size: 14px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #9B9B9B;
+    outline: none;
+    padding-left: 30px;
+}
+
+.book_right_top span {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url(../img/sousuo.png)no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    left: 0;
+    top: 6px;
+}
+
+.book_uu {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 15px 94px;
+    height: 442px;
+    overflow: hidden;
+}
+
+.book_uu li {
+    text-align: center;
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 18px;
+    margin: 0 77px 32px 0;
+}
+
+.book_uu li span {
+    display: inline-block;
+    width: 120px;
+    height: 160px;
+    background: rgba(29, 85, 152, 1);
+    margin-bottom: 19px;
+}
+
+.book_uu li span img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/* 遮罩 */
+.shade {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1111;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.book_shade {
+    width: 280px;
+    height: 445px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 27px 18px 0 21px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.book_name span {
+    display: inline-block;
+    width: 100px;
+    height: 134px;
+    background: rgba(239, 239, 239, 1);
+    margin-right: 22px;
+}
+
+.book_name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.book_name span img {
+    width: 100%;
+    height: 100%;
+}
+.book_name img {
+    width: 60%;
+}
+.book_name p:nth-child(1) {
+    font-size: 24px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    margin: 52px 0 39px 0;
+}
+
+.book_name p:nth-child(2) {
+    font-size: 18px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(121, 121, 121, 1);
+}
+
+.book_shade_content {
+    height: 162px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    margin: 36px 0 44px 0;
+}
+
+.book_btn span:nth-child(1) {
+    display: inline-block;
+    width: 120px;
+    height: 32px;
+    background: url(../img/在线预览.png)no-repeat;
+    background-size: 100% 100%;
+    margin-right: 32px;
+}
+
+.book_btn span:nth-child(2) {
+    display: inline-block;
+    width: 120px;
+    height: 32px;
+    background: url(../img/下载.png)no-repeat;
+    background-size: 100% 100%;
+}
+
+.plug_btn {
+    text-align: center
+}
+
+.plug_btn span {
+    display: inline-block;
+    width: 221px;
+    height: 32px;
+    background: url(../img/下载1.png)no-repeat;
+    background-size: 100% 100%;
+}
+
+
+.book_right {
+    position: relative;
+    width: 75%;
+}
+
+#btn {
+    position: relative;
+    bottom: 0;
+    left: 34%;
+}
+
+
+
+.index_header {
+    position: fixed;
+    z-index: 111;
+}
+
+.heart_main {
+    padding-top: 74px;
+}
+
+#go1 {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -152px;
+}
+
+#go2 {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -152px;
+}
+
+#go3 {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -152px;
+}
+
+
+.white {
+    color: black !important;
+}
+
+.totur_btn {
+    width: 221px;
+    height: 32px;
+    background: rgba(126, 206, 244, 1);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    line-height: 32px;
+    margin: 0 auto;
+}
+
+.heart_top {
+    width: 100%;
+    position: fixed;
+    z-index: 111;
+}
+
+/* 关闭 */
+.close {
+    width: 30px;
+    height: 30px;
+    background: url(../img/错.png)no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 40px;
+    right: 50px;
+}
+
+
+/* 修改密码 */
+.pass {
+    width: 600px;
+    height: 360px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pass_top {
+    height: 64px;
+    font-size: 24px;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+    line-height: 64px;
+    text-align: center;
+    border-bottom: 1px solid #B8B8B8;
+}
+
+.pass_uu li {
+    text-align: center;
+    font-size: 18px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 18px;
+    margin-top: 35px;
+}
+
+.pass_uu li span {
+    display: inline-block;
+    width: 126px;
+    text-align: right;
+}
+
+.pass_uu li input {
+    width: 256px;
+    height: 26px;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(229, 229, 229, 1);
+    outline: none;
+}
+
+.pass_bot p {
+    width: 231px;
+    height: 28px;
+    background: rgba(126, 206, 244, 1);
+    border-radius: 5px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 18px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(254, 254, 254, 1);
+    margin: 46px auto;
+}

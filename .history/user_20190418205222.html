@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浦口公安局</title>
+    <link rel="stylesheet" href="css/reset.css?v=1.0.7">
+    <link rel="stylesheet" href="css/user.css?v=1.0.7">
+    <link rel="stylesheet" href="css/header.css?v=1.0.7">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- 头部 -->
+        <div class="user_header">
+            <cp-banner :userName="userName" @go-answer="goAnswer" @go-name="goname"></cp-banner>
+        </div>
+
+
+        <!-- 内容 -->
+        <div class="user_content container">
+            <div class="user_content_left">
+                <p>{{userName}}</p>
+            </div>
+            <div class="user_content_right">
+                <ul class="user_ul clearfix">
+                    <li>
+                        <p>登录积分</p>
+                        <p>{{login}}</p>
+                    </li>
+                    <li>
+                        <p>发布积分</p>
+                        <p>{{post}}</p>
+                    </li>
+                    <li>
+                        <p>获赞积分</p>
+                        <p>{{phraise}}</p>
+                    </li>
+                    <li>
+                        <p>总积分</p>
+                        <p>{{intergrals}}</p>
+                    </li>
+                    <li>
+                        <p>当前排名</p>
+                        <p>{{currentSort}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="user_title container">
+            <div class="user_title_left">
+                <div class="user_title_banner">
+                    <ul>
+                        <li :class="{blue:isone}" @click="userTag">发布</li>
+                        <li :class="{blue:!isone}" @click="userTag">回复</li>
+                        <li :class="" @click="userTag">报备</li>
+                    </ul>
+                </div>
+                <!-- 发布 -->
+                <div class="user_title_content" v-show="isone">
+                    <div class="content_list" v-for="(item,index) in titleList">
+                        <div class="user_delete">
+                            <h4>{{item.title}}</h4>
+                            <span class="user-btn" v-if="isdetele !=index" @click="TagDetele(index)">删除</span>
+                            <div class="user-delete" v-else>
+                                <span>确认删除</span>
+                                <span @click="cancel"></span>
+                                <span @click="deteleChange(item.id)"></span>
+                            </div>
+                        </div>
+                        <div class="content_mid">
+                            <img :src="item.picture.indexOf('http') != -1 ? item.picture : 'http://police.pzhkj.cn'+item.picture"
+                                alt="" class="mid_img" v-if="item.picture != null && item.picture != ''"
+                                v-show="pIndex !==index">
+                            <div>
+                                <p class="content_text" :class="{entable:postIndex == index}"
+                                    v-html="filterContent(item.content)"></p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="comment">
+                            <p>发布于{{item.create_at}}</p>
+                            <ul>
+                                <li class="read" @click="readChange(item,index)">
+                                    <template v-if="getCharaLength(item.content)">
+                                        <span v-if="postIndex != index">阅读全文</span>
+                                        <span v-else>收起全文</span>
+                                        <img src="img/icon-01 (2).png" alt="" v-if="postIndex != index">
+                                        <img src="img/icon-01 (1).png" alt="" v-else>
+                                    </template>
+                                </li>
+                                <!-- <li @click="likePostOrComment(item.id,'',0)" class="pointer">
+                                    <img v-if="item.status == 0" src="img/icon-06.png" class="icon-like">
+                                    <img v-else src="img/icon-07.png" class="icon-like">
+                                    <span>{{item.records}}赞</span>
+                                </li> -->
+                                <li @click="comChange(index)">
+                                    <img src="img/评论.png" alt="">
+                                    <span v-show="!iscomment">{{item.comment_list.length}}条评论</span>
+                                    <span v-show="iscomment">收起评论</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 评论 -->
+                        <div class="comment_main" v-cloak v-show="commentActive ==index">
+                            <div class="comment_list" v-for="(comment,index) in item.comment_list">
+                                <h5>{{comment.nickname}} 评论：</h5>
+                                <p>
+                                    {{comment.content}}
+                                </p>
+                                <div class="reply">
+                                    <span class="pointer" @click="openSelect1(index)">
+                                        <img v-if="comment.status == 0" src="img/空星.png" alt="" class="icon-like">
+                                        <img v-else src="img/实星.png" alt="" class="icon-like">
+                                        <span v-if="comment.status == 0">点评</span>
+                                        <span v-else>已点评</span>
+
+                                        <!-- 点赞弹框 -->
+                                        <div class="comment-ul" v-show="Colorindex1 ==index"
+                                            @click="likePostOrComment('',comment.id,0)">
+                                            <div class="comment-one" @click="selectChange(num)"
+                                                v-for="(items,num) in arr" :class="{Colorone:ind==num}">
+                                                <img class="comment-img" :src="items.avter" alt="">
+                                                <span class="comment-test">{{items.title}}</span>
+                                            </div>
+                                        </div>
+                                    </span>
+                                    <span @click="lookchange(item.id,comment.id)" class="pointer">查看回复</span>
+                                    <span @click="gospeak(index)" class="pointer">回复</span>
+                                </div>
+                                <div class="reply_one" v-if="currentActive==index">
+                                    <input type="text" :placeholder="'回复'+comment.nickname+':'" v-model="replyComment">
+                                    <span @click="commentChange(item.id,comment.id,item.uid)">发布</span>
+                                </div>
+                            </div>
+                            <div class="comment_inp">
+                                <input placeholder="想说点什么？" type="text" v-model="Pcomment">
+                                <span @click="commentChange(item.id)">发布</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 没有发布 -->
+                    <div class="user_none" v-if="isthree">
+                    </div>
+                </div>
+                <!-- pinglun -->
+                <div class="agree" v-show="!isone">
+                    <div class="agree_one" v-for="(item,index) in commentList">
+                        <h4>{{item.nickname}}评论我 <span>{{item.comment_content}}</span></h4>
+                        <p class="pp" v-html="filterContent(item.content)"></p>
+                        <div class="agree_img">
+                            <ul class="agree_uu">
+                                <!-- <li>
+                                    <img src="img/icon-06.png" alt="">
+                                    <span>{{item.records}}赞</span>
+                                </li> -->
+                                <li @click="agreeChange(index,0)">
+                                    <img src="img/评论.png" alt="">
+                                    <span>回复</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 回复 -->
+                        <div class="agree_inp" v-if="currentActive==index && currentType == 0">
+                            <input :placeholder="'回复' + item.nickname + ':'" type="text" v-model="replyComment">
+                            <span @click="commentChange(item.id,item.comment_id,item.uid,1)">发送</span>
+                        </div>
+                    </div>
+                    <div class="agree_one" v-for="(item,index) in replayList">
+                        <h4>{{item.nickname}}回复我 <span>{{item.comment_content}}</span></h4>
+                        <p class="pp" v-html="filterContent(item.content)"></p>
+                        <div class="agree_img">
+                            <ul class="agree_uu">
+                                <!-- <li>
+                                    <img src="img/icon-06.png" alt="">
+                                    <span>点赞</span>
+                                </li> -->
+                                <li @click="agreeChange(index,1)">
+                                    <img src="img/评论.png" alt="">
+                                    <span>回复</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- 回复 -->
+                        <div class="agree_inp" v-if="currentActive==index && currentType == 1">
+                            <input v-model="replyComment" :placeholder="'回复' + item.nickname + ':'" type="text">
+                            <span @click="commentChange(item.id,item.comment_id,item.uid,1)">发送</span>
+                        </div>
+                    </div>
+
+                    <!-- 没有回复 -->
+                    <div class="no-replay-wrapper" v-if="istwo">
+                        <div class="agree_none no-replay">
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右边 -->
+            <div class="user_title_right">
+                <div class="user_right_wrap clearfix">
+                    <h4>积分排行</h4>
+                    <div class="wrap_tab" @click="wrapChange">
+                        <span></span>
+                        <span class="tab">{{tgp}}</span>
+                    </div>
+
+                    <div class="wrap_box" v-show="isWrap">
+                        <ul class="wrap_ul">
+                            <li data-type="0" class="Wrap_active">按总积分排序</li>
+                            <li data-type="1">按登录积分排序</li>
+                            <li data-type="2">按发布积分排序</li>
+                            <li data-type="3">按获赞积分排序</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="user_table">
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>登录积分</th>
+                            <th>发布积分</th>
+                            <th>获赞积分</th>
+                            <th>总积分</th>
+                        </tr>
+                        <tr v-for="(item,index) in userlist">
+                            <td class="td_name">{{index+1}}.{{item.nickname}}</td>
+                            <td>{{item.login==null?'0':item.login}}</td>
+                            <td>{{item.post==null?'0':item.post}}</td>
+                            <td>{{item.phraise==null?'0':item.phraise}}</td>
+                            <td>{{item.intergral==null?'0':item.intergral}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 遮罩 -->
+        <div class="shade" v-cloak v-show="isshade">
+            <!-- 查看回复 -->
+            <div class="see" v-show="isspeak">
+                <div class="see_text">
+                    <div class="see_text_top">
+                        <h4>{{currentComment.nickname}}</h4>
+                        <span>{{currentComment.create_at | filterTime}}</span>
+                    </div>
+                    <p v-html="currentComment.content"></p>
+                </div>
+                <div class="see_main">
+                    <template v-if="seelist.length == 0">
+                        <p class="no-replay">暂无回复</p>
+                    </template>
+                    <template v-else>
+                        <ul class="see_uu" v-for="(item,index) in seelist">
+                            <li>
+                                <div class="see_uu_one">
+                                    <h4>{{item.nickname}}<span class="replay-cha">回复</span>{{item.comment_user}}</h4>
+                                    <span>{{item.create_at | filterTime}}</span>
+                                </div>
+                                <p v-html="filterContent(item.content)"></p>
+                                <div class="see_uu_three">
+                                    <div @click=" openSelect(index)" class="see_uu_btn pointer">
+                                        <img v-if="item.status == 0" src="img/空星.png" alt="" class="icon-like">
+                                        <img v-else src="img/实星.png" alt="" class="icon-like">
+                                        <span v-if="item.status == 0">点评</span>
+                                        <span v-else>已点评</span>
+
+                                        <!-- 点赞弹框 -->
+                                        <div class="comment-ul comment-ul-one" v-show="Colorindex ==index"
+                                            @click="likePostOrComment('',item.id,1)">
+                                            <div class="comment-one" @click="selectChange(num)"
+                                                v-for="(items,num) in arr" :class="{Colorone:ind==num}">
+                                                <img class="comment-img" :src="items.avter" alt="">
+                                                <span class="comment-test">{{items.title}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span @click="gospeak1(index)" class="pointer">回复</span>
+                                </div>
+                                <div class="see_inp" v-show="oneIndex == index">
+                                    <input v-model="replyComment" type="text">
+                                    <span></span>
+                                    <span class="pointer"
+                                        @click="commentChange(currentPostId,item.id,item.uid,1)">发布</span>
+                                </div>
+                            </li>
+                            <!-- 子集 -->
+                            <li v-for="(part,index) in item.child" class="list_two">
+                                <div class="see_uu_one">
+                                    <h4>{{part.nickname}}回复{{part.comment_user}}</h4>
+                                    <span>{{part.create_at | filterTime}}</span>
+                                </div>
+                                <p v-html="filterContent(part.content)"></p>
+                                <div class="see_uu_three">
+                                    <div @click="openSelect2(index)" class="see_uu_btn pointer">
+                                        <img v-if="part.status == 0" src="img/空星.png" alt="" class="icon-like">
+                                        <img v-else src="img/实星.png" alt="" class="icon-like">
+                                        <span v-if="part.status == 0">点评</span>
+                                        <span v-else>已点评</span>
+
+                                        <!-- 点赞弹框 -->
+                                        <div class="comment-ul comment-ul-one" v-show="Colorindex2 ==index"
+                                            @click="likePostOrComment('',part.id,1)">
+                                            <div class="comment-one" @click="selectChange(num)"
+                                                v-for="(items,num) in arr" :class="{Colorone:ind==num}">
+                                                <img class="comment-img" :src="items.avter" alt="">
+                                                <span class="comment-test">{{items.title}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span @click="gospeak2(index)" class="pointer">回复</span>
+                                </div>
+                                <div class="see_inp" v-show="twoIndex == index">
+                                    <input v-model="replyComment" type="text">
+                                    <span></span>
+                                    <span class="pointer"
+                                        @click="commentChange(currentPostId,item.id,item.uid,1)">发布</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </template>
+
+                </div>
+            </div>
+            <!-- 修改密码 -->
+            <div class="pass" v-show="ispass">
+                <div class="pass_top">
+                    修改密码
+                </div>
+                <div class="pass_bot">
+                    <ul class="pass_uu">
+                        <li>
+                            <span>原密码：</span>
+                            <input type="password" v-model="Opsw">
+                        </li>
+                        <li>
+                            <span>新密码：</span>
+                            <input type="password" v-model="Npsw">
+                        </li>
+                        <li>
+                            <span>重新输入密码：</span>
+                            <input type="password" v-model="Tpsw">
+                        </li>
+                    </ul>
+                    <p @click="editChange">确认</p>
+                </div>
+            </div>
+            <div class="close" @click="goClose">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="js/jquery.min.js?v=1.0.7"></script>
+<script src="js/vue.js?v=1.0.7"></script>
+<script src="js/components.js?v=1.0.7"></script>
+<script src="js/api.js?v=1.0.7"></script>
+<script src="js/user.js?v=1.0.7"></script>

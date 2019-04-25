@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea id="editor_id" name="content" style="width:700px;height:300px;">
+			
+		</textarea>
+		<script src="./kindeditor-all-min.js?v=1.0.6" type="text/javascript" charset="utf-8"></script>
+		<script src="./lang/zh-CN.js?v=1.0.6" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			KindEditor.ready(function(K) {
+                window.editor = K.create('#editor_id',{
+					items : ['bold','italic','underline','fontsize','image']
+				});
+			});
+		</script>
+	</body>
+</html>

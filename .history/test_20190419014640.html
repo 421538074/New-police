@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <audio id="aaa">
+        <source src="music/灰色 - 绿茶.mp3">
+    </audio>
+    <button class="play" onclick="play()">播放</button>
+    <button class="pause" onclick="pause()">暂停</button>
+    <script>
+    var player = document.getElementById('aaa');
+    function play(){
+        console.log(player.src);
+    }
+    </script>
+</body>
+</html>

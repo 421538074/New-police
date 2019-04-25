@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浦口公安局</title>
+    <link rel="stylesheet" href="css/reset.css?v=1.0.0">
+    <link rel="stylesheet" href="css/order.css?v=1.0.0">
+    <link rel="stylesheet" type="text/css" href="css/page/zxf_page.css?v=1.0.0" />
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="order_header">
+            <div class="order_nav container">
+                <img src="img/首页logo.png" alt="">
+                <div class="order_name">
+                    <span><img src="" alt=""></span>
+                    <span>张三</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="order_banner container">
+            <div class="order_left">
+                <ul class="order_uu">
+                    <li :class="{on:isstar}" @click="onli">所有报备</li>
+                    <li :class="{on:!isstar}" @click="on">我的报备</li>
+                </ul>
+            </div>
+            <div class="order_right">
+                <div class="order_main">
+                    <h4>所有报备</h4>
+                    <div class="order_table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="100">报备时间</th>
+                                    <th width="100">报备类型</th>
+                                    <th width="328">报备内容</th>
+                                    <th width="88">报备人</th>
+                                    <th width="92">报备状态</th>
+                                    <th width="100">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(item,index) in list" v-if="show" :class="{'active':index%2==1}">
+                                    <td>{{item.create_at | filterTime}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>
+                                        <span>{{item.content}}</span>
+                                    </td>
+                                    <td>{{item.user}}</td>
+                                    <td :class="{red:item.status==0}">
+                                        {{item.status==0?"未接单":"接单"}}
+                                    </td>
+                                    <td @click="Repair(index)">接单</td>
+                                </tr>
+                                <tr v-for="(item,index) in list" v-if="!show" :class="{'active':index%2==1}">
+                                    <td>{{item.create_at | filterTime}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>
+                                        <span>{{item.content}}</span>
+                                    </td>
+                                    <td>{{item.user}}</td>
+                                    <td :class="{red:item.status==0}">
+                                        {{item.status==0?"未完成":"已完成"}}
+                                    </td>
+                                    <td @click="Repair(index)">完成</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- <div class="zxf_pagediv"></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="js/jquery.min.js?v=1.0.0"></script>
+<script src="js/vue.js?v=1.0.0"></script>
+<script type="text/javascript" src="js/pagejs/zxf_page.js?v=1.0.0"></script>
+<script src="js/api.js?v=1.0.0"></script>
+<script src="js/order.js?v=1.0.0"></script>
+<script type="text/javascript">
+    //翻页
+    $(".zxf_pagediv").createPage({
+        pageNum: 5,
+        current: 1,
+        backfun: function (e) {}
+    });
+</script>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浦口公安局</title>
+    <link rel="stylesheet" href="css/reset.css?v=1.0.2">
+    <link rel="stylesheet" href="css/write.css?v=1.0.2">
+    <link rel="stylesheet" href="css/header.css?v=1.0.2">
+</head>
+
+<body>
+
+    <div id="app" v-cloak>
+        <!-- 论谈 -->
+        <div>
+            <div class="forum">
+                <div class="form_top">
+                    <div class="center">
+                        <h3>写论坛</h3>
+                        <div class="form_top_right">
+                            <div class="form_btn" @click="fromShow">
+                                <img src="img/飞机.png" alt="">
+                                <span>发布</span>
+                            </div>
+                            <div class="form_more" v-show="show">
+                                <p></p>
+                                <h4>选择话题类别</h4>
+                                <ul class="form_more_uu">
+                                    <li v-for="(item,index) in ForumCate" :class="{sky:changeRed == index,pointer:true}"
+                                        @click="btnChange(item.id,index)">
+                                        {{item.title}}
+                                    </li>
+                                    <div class="clearflow"></div>
+                                </ul>
+
+                                <div class="forum_btn" @click="pulishChange"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum_main">
+                    <ul class="forum_main_uu">
+                        <li>
+                            <div class="form_img pointer" @click="upChange($event)">
+                                <img src="" alt="" class="backimg"  id="OImg">
+
+                                <img class="Img" src="img/相机.png" alt="" v-show="show1">
+                                <span v-show="show1">添加标题</span>
+
+                                <input id="file" hidden type="file" @change="downImg" class="invisible">
+                            </div>
+
+                        </li>
+                        <li>
+                            <input type="text" v-model="Ptitle" placeholder="请输入标题">
+                        </li>
+                        <li>
+                            <div class="forum_content" @click="showChange">
+                                <textarea placeholder="请输入标题" v-model="Pcontent" id="Ftext" cols="30" rows="10">
+                                    
+                                </textarea>
+                            </div>
+                            <!-- <span class="Ttest" v-if="tshow">请输入正文</span> -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <cp-case :text="哈哈哈哈" v-if="ishide"></cp-case>
+    </div>
+
+
+</body>
+
+</html>
+<script src="js/jquery.min.js?v=1.0.0"></script>
+<script src="js/vue.js?v=1.0.0"></script>
+<script src="js/components.js?v=1.0.0"></script>
+<script type="text/javascript" src="js/pagejs/zxf_page.js?v=1.0.0"></script>
+<script src="js/api.js?v=1.0.0"></script>
+<script src="kindeditor/kindeditor-all-min.js"></script>
+<script src="kindeditor/zh-CN.js"></script>
+<script src="js/write.js?v=1.0.0"></script>
