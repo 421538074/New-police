@@ -6,39 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>浦口公安局</title>
-    <link rel="stylesheet" href="css/reset.css?v=1.0.9">
+    <!-- <link rel="stylesheet" href="css/reset.css?v=1.0.9"> -->
     <link rel="stylesheet" href="css/calendar.css">
-    <link rel="stylesheet" href="css/index.css?v=1.0.9">
-    <link rel="stylesheet" type="text/css" href="css/page/zxf_page.css?v=1.0.9" />
-    <link rel="stylesheet" href="css/page/iconfont.css?v=1.0.9">
+    <!-- <link rel="stylesheet" href="css/index.css?v=1.0.9"> -->
+    <link rel="stylesheet" href="css/base.css?v=1.0.9">
+    <link rel="stylesheet" href="css/N-index.css?v=1.0.0">
+    <!-- <link rel="stylesheet" type="text/css" href="css/page/zxf_page.css?v=1.0.9" /> -->
+    <!-- <link rel="stylesheet" href="css/page/iconfont.css?v=1.0.9"> -->
     <link rel="stylesheet" href="css/common.css">
+    <script src="js/avalon/respond.src.js"></script>
+
 </head>
 
 <body>
 
-    <div id="app" v-cloak>
+    <div ms-controller="app">
         <div class="index_header">
             <div class="index_content">
-                <div @click="goHome" class="index_left pointer">
+                <div ms-click="goHome" class="index_left">
                 </div>
-                <!-- <div class="header_mid">
-                    <input @keydown.enter="searchChange" class="search" type="text" v-model="keyWords"
-                        placeholder="搜索关键词">
-                    <span @click="searchChange"></span>
-                </div> -->
-                <div class="header_name pointer">
-                    <div class="header_img" @click="goAnswer" v-if="this.userName">
+                <div class="header_name">
+                    <div class="header_img" ms-click="goAnswer" ms-if="this.userName">
                         <img src="img/信息.png" alt="">
-                        <span v-if="length>0?isnum:!isnum">{{length}}</span>
+                        <span ms-if="length>0?isnum:!isnum">{{length}}</span>
                     </div>
-                    <div class="header_enter" v-else>
-                        <a @click="Enter">登录 | </a>
-                        <a @click="Resgiter">注册</a>
+                    <div class="header_enter" ms-if="this.userName==''">
+                        <a ms-click="Enter">登录 | </a>
+                        <a ms-click="Resgiter">注册</a>
                     </div>
-                    <span @click="goname" class="name" v-if="this.userName">{{userName}}</span>
+                    <span ms-click="goname" class="name" ms-if="this.userName">{{userName}}</span>
                 </div>
                 <!-- 通知 -->
-                <div class="answer">
+                <!-- <div class="answer">
                     <span class="answer_sp"></span>
                     <ul v-if="replaylist.length != 0" class="answer_uu" >
                         <li v-for="(item,index) in replaylist" @click="goUser1(item.id)">
@@ -48,47 +47,48 @@
                     <ul v-else class="answer_uu">
                         <p class="no-notice">暂无通知</p>
                     </ul>
-                </div>
+                </div> -->
                 <!-- 个人中心 -->
-                <div class="header_two">
+                <!-- <div class="header_two">
                     <span></span>
                     <ul class="header_two_uu">
                         <li @click="gouser">个人中心</li>
                         <li @click="quitChange">退出登录</li>
                         <li @click="goPass">修改密码</li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
 
 
         <div class="content">
-            <div class="content_main container">
+            <div class="content_main container clearfix">
                 <div class="content_left">
                     <div class="banner">
-                        <ul class="banner_uu">
-                            <li :class="{active:index == currentIndex}" v-for="(item,index) in ForumCate.slice(0, 4)"
-                                @click="bannerChange(index,item.id)">
+                        <ul class="banner_uu clearfix">
+                            <li ms-class="{active:index == currentIndex}" ms-for="item in ForumCate.slice(0, 4)"
+                                ms-click="bannerChange(index,item.id)">
                                 {{item.title}}
                             </li>
                             <div class="header_mid">
-                                <input @keydown.enter="searchChange" class="search" type="text" v-model="keyWords"
+                                <input ms-keydown.enter="searchChange" class="search" type="text" ms-duplex="keyWords"
                                     placeholder="搜索关键词">
-                                <span @click="searchChange"></span>
+                                <span ms-click="searchChange"></span>
                             </div>
-                            <div class="banner_more" v-show="ismore">
+                            <!-- <div class="banner_more" v-show="ismore">
                                 <span></span>
                                 <ul class="more_uu">
-                                    <li v-for="(item,index) in ForumCate.slice(4)" :class="{active:index == numIndex}"
-                                        @click="banner(index,item.id)">
+                                    <li ms-for="item in ForumCate.slice(4)"
+                                        ms-class="{active:index == numIndex}" ms-click="banner(index,item.id)">
                                         {{item.title}}
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </ul>
                     </div>
 
-                    <div class="content_scroll">
+
+                    <!-- <div class="content_scroll">
                         <div class="content_list" v-for="(item,index) in titleList">
                             <div class="title-and-time">
                                 <h4>{{item.title}}</h4>
@@ -139,7 +139,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- 评论 -->
+                            评论
                             <div class="comment_main" v-cloak
                                 v-show="commentActive ==index && currentPostId == item.id">
                                 <div class="comment_list" v-for="(comment,index) in item.comment_list">
@@ -182,18 +182,19 @@
 
                             </div>
                         </div>
-                        <!-- 未搜索到 -->
+                        未搜索到
                         <div class="content_img" v-show="isNone">
                             <img src="img/矢量智能对象.png" alt="">
                             <p>没有找到符合条件的结果</p>
                         </div>
-                    </div>
+                    </div>-->
 
                 </div>
+
                 <div class="content_right">
                     <!-- 论坛报备 -->
                     <div class="content_make">
-                        <ul class="make_uu">
+                        <ul class="make_uu clearfix">
                             <li @click="writeReply">
                                 <img src="img/论坛.png" alt="">
                                 <p>发表观点</p>
@@ -209,7 +210,7 @@
                     <div class="appCenter">
                         <h4>应用中心</h4>
                         <div class="app_logo">
-                            <ul class="app_uu" @click="appChange">
+                            <ul class="app_uu clearfix" @click="appChange">
                                 <li>
                                     <a href="heart.html#go1">
                                         <img src="img/icon-08.png" alt="">
@@ -240,7 +241,7 @@
                                         <p>研判工具</p>
                                     </a>
                                 </li>
-                                <li>
+                                <li >
                                     <a href="heart.html#go4">
                                         <img src="img/icon-13.png" alt="">
                                         <p>技战法</p>
@@ -252,9 +253,9 @@
 
                     <!-- 所有报备列表 -->
                     <div class="report">
-                        <div class="report-title-wrapper">
+                        <div class="report-title-wrapper clearfix">
                             <p class="report-title">报备中心</p>
-                            <div @click="toggleCalendar" class="show-calendar">
+                            <div @click="toggleCalendar" class="show-calendar clearfix">
                                 <img src="img/calendar.png" class="calendar-icon">
                                 <p class="show-datae">{{showDate}}</p>
                             </div>
@@ -265,34 +266,33 @@
                         <div id="repair-chart">
 
                         </div>
-                        <div class="repair-category-wrapper">
-                            <div class="repair-category-item">
+                        <div class="repair-category-wrapper clearfix">
+                            <div class="repair-category-item repair-one">
                                 <p class="title">本日报备数</p>
                                 <p class="show-counts">{{repairInfo.today}}</p>
                             </div>
-                            <div class="repair-category-item">
+                            <div class="repair-category-item repair-second">
                                 <p class="title">本周报备数</p>
                                 <p class="show-counts">{{repairInfo.week}}</p>
                             </div>
-                            <div class="repair-category-item">
+                            <div class="repair-category-item repair-thire">
                                 <p class="title">本月报备数</p>
                                 <p class="show-counts">{{repairInfo.month}}</p>
                             </div>
-                            <div class="repair-category-item">
+                            <div class="repair-category-item repair-four">
                                 <p class="title">总报备数</p>
                                 <p class="show-counts">{{repairInfo.total}}</p>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
         </div>
 
-        <!-- 遮罩 -->
+        <!-- 遮罩
         <div class="shade" v-cloak v-show="isshade">
-            <!-- 报备 -->
+            报备
             <div class="case" v-show="isCase">
                 <div class="case_title">
                     报备
@@ -317,7 +317,7 @@
                 </div>
             </div>
 
-            <!-- 查看回复 -->
+            查看回复
             <div class="see" v-show="isspeak">
                 <div class="see_text">
                     <div class="see_text_top">
@@ -369,7 +369,7 @@
                                         @click="commentChange(currentPostId,item.id,item.uid,1)">发布</span>
                                 </div>
                             </li>
-                            <!-- 子集 -->
+                            子集
                             <li v-for="(part,index) in item.child" class="list_two">
                                 <div class="see_uu_one">
                                     <h4>{{part.nickname}}回复了{{part.comment_user}}</h4>
@@ -405,7 +405,7 @@
                     </ul>
                 </div>
             </div>
-            <!-- 修改密码 -->
+            修改密码
             <div class="pass" v-show="ispass">
                 <div class="pass_top">
                     修改密码
@@ -432,7 +432,7 @@
 
             <div class="close" @click="goClose">
             </div>
-        </div>
+        </div> -->
 
     </div>
 
@@ -440,24 +440,24 @@
 </body>
 
 </html>
-<script src="js/jquery.min.js?v=1.0.9"></script>
-<script src="js/vue.js?v=1.0.9"></script>
-<script src="js/components.js?v=1.0.9"></script>
-<script src="js/pagejs/zxf_page.js?v=1.0.9"></script>
+<script src="js/jquery1.9.0.js"></script>
+<!-- <script src="js/jquery.min.js?v=1.0.9"></script> -->
+<!-- <script src="js/vue.js?v=1.0.9"></script> -->
+
+<script src="js/avalon/avalon.js"></script>
+
+<!-- <script src="js/components.js?v=1.0.9"></script> -->
+<!-- <script src="js/pagejs/zxf_page.js?v=1.0.9"></script> -->
 <script src="js/api.js?v=1.0.9"></script>
-<script src="kindeditor/kindeditor-all-min.js"></script>
-<script src="kindeditor/zh-CN.js"></script>
+<!-- <script src="kindeditor/kindeditor-all-min.js"></script> -->
+<!-- <script src="kindeditor/zh-CN.js"></script> -->
 <script src="js/echarts.min.js"></script>
 <script src="js/echarts-gl.min.js"></script>
 <script src="js/calendar.js"></script>
-<script src="js/getIpAdd.js"></script>
-<script src="js/index.js?v=1.0.9"></script>
+<!-- <script src="js/getIpAdd.js"></script> -->
+<!-- <script src="js/index.js?v=1.0.9"></script> -->
+<script src="js/N-index.js"></script>
+<script src="js/rem.js"></script>
 
 <script>
-    //翻页
-    $(".zxf_pagediv").createPage({
-        pageNum: 5,
-        current: 1,
-        backfun: function (e) { }
-    });
 </script>

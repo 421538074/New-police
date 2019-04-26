@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!--[if lt IE 8]>-->
+    <script src="http://www.json.org/json2.js"></script>
+    <!--<![endif]-->
+</head>
+<style>
+    .hh {
+        background: skyblue;
+    }
+
+    .ss {
+        width: 200px;
+        height: 50px;
+        background-image: url(img/logo.png) no-repeat;
+        background-size: 100%;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/logo.png', sizingMethod='scale');
+    }
+</style>
+
+<body>
+    <div class="hh" ms-controller="app">
+        <div class="ss"
+            style="filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/logo.png',sizingMethod='scale');">
+        </div>
+        <ul>
+            <li ms-for="k in arr">{{k.title}}</li>
+        </ul>
+        <p>{{k.a}}</p>
+        <p ms-click="get"></p>
+        <p>{{@s}}</p>
+        <p></p>
+    </div>
+</body>
+
+</html>
+<script src="js/jquery1.9.0.js"></script>
+<script src="js/api.js?v=1.0.9"></script>
+<script src="js/avalon/avalon.js"></script>
+<!-- <script src="js/avalon.js"></script> -->
+<script>
+    var vm = avalon.define({
+        $id: "app",
+        a: '333',
+        s: 'xxx',
+        aaa: "XXXX",
+        toggle: false,
+        arr: []
+        // get: function () {
+        //     console.log(111)
+        //     this.s = "哈哈哈"
+        // }
+
+    });
+    // vm.arr = [{ a: 2 }, { a: 4 }]
+
+    getStart();
+    function getStart() {
+        $.ajaxSetup({
+            url: "".concat(api, "/index/api/getForumCate"),
+            cache: false,
+            dataType: 'json',
+            type: 'post',
+            contentType: 'text/plain',
+            async: false, // must be set to false
+            success: function (data, success) {
+                var temp = res.result;
+                temp.splice(3, 0, {
+                    title: "更多"
+                });
+                vm.arr = temp;
+            }
+        })
+    }
+</script>
