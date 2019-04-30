@@ -188,13 +188,9 @@ ul.plug_uu p {
     color: #000;
     line-height: 20px;
     padding-left: 14px;
+    display: flex;
+    justify-content: space-between;
     line-height: 40px;
-    position: relative;
-}
-.music_img {
-    position: absolute;
-    right: 0;
-    top: 0;
 }
 .music_uu li:hover{
     color:#84A4FE;
@@ -214,21 +210,17 @@ ul.plug_uu p {
     cursor: pointer;
 }
 
-.music_img span.download {
+.music_img span:nth-child(2) {
     display: inline-block;
     width: 15px;
     height: 14px;
     background: url(../img/xiazai1.png)no-repeat;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/xiazai1.png', sizingMethod='scale');
     background-size: 100% 100%;
     margin: 0 15px 0 14px;
     cursor: pointer;
 }
 
 span.play-icon{
-    display: inline-block;
-    height: 13px;
-    width: 12px;
     background: url(../img/开始1.png) no-repeat;
     background-size: 100% 100%;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/开始1.png', sizingMethod='scale');
@@ -446,7 +438,6 @@ span.pause-icon{
     width: 120px;
     height: 32px;
     background: url(../img/在线预览.png)no-repeat;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/在线预览.png', sizingMethod='scale');
     background-size: 100% 100%;
     margin-right: 32px;
 }
@@ -456,7 +447,6 @@ span.pause-icon{
     width: 120px;
     height: 32px;
     background: url(../img/下载.png)no-repeat;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/下载.png', sizingMethod='scale');
     background-size: 100% 100%;
 }
 
@@ -469,7 +459,6 @@ span.pause-icon{
     width: 221px;
     height: 32px;
     background: url(../img/下载1.png)no-repeat;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/下载.png', sizingMethod='scale');
     background-size: 100% 100%;
 }
 

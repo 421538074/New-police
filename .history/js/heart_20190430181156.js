@@ -79,10 +79,10 @@ var xm = avalon.define({
     this.Color = musicId;
     this.musicListSelf = [];
 
-    if (myPlayer.src == '' || myPlayer.src != "".concat(api, "/").concat(url)) {
-      myPlayer.src = "".concat(api, "/").concat(url);
+    if (this.$refs.myPlayer.src == '' || this.$refs.myPlayer.src != "".concat(api, "/").concat(url)) {
+      this.$refs.myPlayer.src = "".concat(api, "/").concat(url);
 
-      myPlayer.oncanplay = function () {
+      this.$refs.myPlayer.oncanplay = function () {
         _this.totalTime = _this.$refs.myPlayer.duration;
       };
 
@@ -93,7 +93,7 @@ var xm = avalon.define({
     this.countInterval(false);
   },
   pauseMusic: function pauseMusic(catId, musicId, url) {
-    myPlayer.pause();
+    this.$refs.myPlayer.pause();
     this.pausedId = musicId;
     this.currentCateId = -1;
     this.Color = -1;
@@ -108,7 +108,7 @@ var xm = avalon.define({
     } else {
       // 暂停
       this.currentCateId = -1;
-      myPlayer.pause();
+      this.$refs.myPlayer.pause();
     }
   },
   nextMusic: function nextMusic() {
@@ -119,19 +119,19 @@ var xm = avalon.define({
     }
 
     this.Color = this.musicListSelf[this.currentMusicIndex].id;
-    myPlayer.src = "".concat(api, "/").concat(this.musicListSelf[this.currentMusicIndex].data_url);
+    this.$refs.myPlayer.src = "".concat(api, "/").concat(this.musicListSelf[this.currentMusicIndex].data_url);
     this.countInterval(true);
   },
   countInterval: function countInterval(flag) {
     var _this2 = this;
 
     if (flag) {
-      myPlayer.load();
+      this.$refs.myPlayer.load();
 
-      myPlayer.oncanplay = function () {
+      this.$refs.myPlayer.oncanplay = function () {
         _this2.totalTime = _this2.$refs.myPlayer.duration;
 
-        myPlayer.play();
+        _this2.$refs.myPlayer.play();
 
         _this2.playedTime = 0;
         clearInterval(interval);
@@ -144,8 +144,8 @@ var xm = avalon.define({
         }, 1000);
       };
     } else {
-      this.totalTime = myPlayer.duration;
-      myPlayer.play();
+      this.totalTime = this.$refs.myPlayer.duration;
+      this.$refs.myPlayer.play();
 
       if (!interval) {
         interval = setInterval(function () {

@@ -214,7 +214,7 @@ ul.plug_uu p {
     cursor: pointer;
 }
 
-.music_img span.download {
+.music_img span:nth-child(2) {
     display: inline-block;
     width: 15px;
     height: 14px;

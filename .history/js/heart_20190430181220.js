@@ -131,7 +131,7 @@ var xm = avalon.define({
       myPlayer.oncanplay = function () {
         _this2.totalTime = _this2.$refs.myPlayer.duration;
 
-        myPlayer.play();
+        _this2.$refs.myPlayer.play();
 
         _this2.playedTime = 0;
         clearInterval(interval);

@@ -67,8 +67,8 @@
                                     <p>{{arr.name}}</p>
                                     <div class="music_img">
                                         <span class="pause-icon" ms-if="Color==arr.id && currentCateId == item.id" ms-click="pauseMusic(item.id,arr.id,arr.data_url)"></span>
-                                        <span class="play-icon " ms-if="!(Color==arr.id && currentCateId == item.id)" ms-click="playMusic(item.id,arr.id,arr.data_url)"></span>
-                                        <span class="download" ms-click="musicDown(arr.data_url)"></span>
+                                        <span class="play-icon download" ms-if="!(Color==arr.id && currentCateId == item.id)" ms-click="playMusic(item.id,arr.id,arr.data_url)"></span>
+                                        <span ms-click="musicDown(arr.data_url)"></span>
                                     </div>
                                 </li>
                             </ul>
@@ -251,7 +251,7 @@
             <div class="close pointer" ms-click="goClose">
             </div>
         </div>
-        <embed height="200" ms-attr="{src:musicListSelf[currentMusicIndex]}" id="my-player">
+        <embed ms-attr="{src:musicListSelf[currentMusicIndex]}" id="myPlayer">
         </embed>
     </div>
 
