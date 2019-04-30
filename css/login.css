@@ -1,163 +1,172 @@
 body,
 html {
-    font-size: calc(100vw / 19.2);
+    /* font-size: 100px; */
+}
+
+@media screen and (max-width:1200px) {
+    body {
+        font-size: 100px;
+    }
 }
 
 .login_logo {
     width: 100%;
-    height: 100vh;
-    background: url(../img/背景.png)no-repeat;
+    /* height: 100%; */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(../img/背景.png) no-repeat;
     background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/背景.png', sizingMethod='scale');
 }
 
-/* @media screen and (max-width:1200px) {
-    body{
-        width: 1200px;
-    }
-} */
+
 
 .login_top {
     text-align: center;
-    padding-top: 1.25rem;
+    padding-top: 125px;
 }
 
 .login_top img {
-    width: 1.38rem;
-    height: 1.39rem;
+    width: 138px;
+    height: 139px;
 }
 
 .login_top p {
-    font-size: 0.36rem;
+    font-size: 36px;
     font-family: FZLTCHK--GBK1-0;
     font-weight: 600;
-    color: rgba(255, 255, 255, 1);
-    line-height: 0.36rem;
-    text-shadow: 0rem 0.08rem 0.14rem rgba(35, 21, 24, 0.35);
+    color: white;
+    line-height: 36px;
+    text-shadow: 0px 8px 14px #231815;
+    behavior: url(css/PIE/PIE.htc);
 }
 
 .login_bot {
-    width: 5.26rem;
-    height: 3.8rem;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0rem 0.08rem 0.14rem 0.04rem rgba(35, 21, 24, 0.35);
-    border-radius: 0.2rem;
-    margin: 0.63rem auto;
+    width: 526px;
+    height: 380px;
+    background: white;
+    box-shadow: 0px 8px 14px 4px #231815;
+    border-radius: 20px;
+    behavior: url(css/PIE/PIE.htc);
+    margin: 63px auto;
     position: relative;
 }
 
 .bird {
-    width: 0.72rem;
-    height: 0.67rem;
-    background: url(../img/鸟.png)no-repeat;
+    width: 72px;
+    height: 67px;
+    background: url(../img/鸟.png) no-repeat;
     background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/鸟.png', sizingMethod='scale');
     position: absolute;
-    top: 0.28rem;
-    right: 0.16rem;
+    top: 28px;
+    right: 16px;
 }
 
 /* 选择登录角色 */
 .role_uu {
-    display: flex;
-    padding: 1.03rem 0 0 0.34rem;
+    padding: 120px 0 0 34px;
 }
 
 .role_uu li {
+    float: left;
     text-align: center;
-    font-size: 0.18rem;
+    font-size: 18px;
     font-family: PingFangSC-Regular;
     font-weight: 500;
-    color: rgba(0, 0, 0, 1);
-    line-height: 0.24rem;
-    margin-right: 0.44rem;
+    color: black;
+    line-height: 24px;
+    margin-right: 44px;
     cursor: pointer;
 }
 
-.role_uu li:nth-child(3) {
-    margin-right: 0;
+li.role-lis {
+    margin-right: 0 !important;
 }
 
 .role_uu li img {
-    width: 1.21rem;
-    height: 1.21rem;
+    width: 121px;
+    height: 121px;
 }
 
 /* 警员登录 */
 .police {
-    padding: 0.43rem 0 0 0;
+    padding: 43px 0 0 0;
     line-height: 0;
     height: 90%;
 }
 
 .police h4 {
-    font-size: 0.24rem;
+    font-size: 24px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
-    line-height: 0.24rem;
+    color: black;
+    line-height: 24px;
     text-align: center;
-    margin-bottom: 0.45rem;
+    margin-bottom: 45px;
 }
 
 .police_uu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
     height: 58%;
+    margin-left: 12%;
 }
 
 .Pul {
-    margin-left: 0.68rem;
+    margin-left: 68px;
     height: 53%;
-    padding-top: 0.2rem;
+    padding-top: 20px;
 }
 
 .police_uu li {
-    font-size: 0.2rem;
+    font-size: 20px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
-    line-height: 0.24rem;
-    margin-bottom: 0.4rem;
+    color: black;
+    line-height: 24px;
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
 }
 
 .Pul li {
-    margin-bottom: 0.63rem;
+    margin-bottom: 63px;
 }
 
 .police_uu li input {
-    width: 2.4rem;
-    height: 0.28rem;
-    background: rgba(242, 242, 242, 1);
-    border: 1px solid rgba(203, 201, 201, 1);
+    width: 240px;
+    height: 28px;
+    background: #F2F2F2;
+    border: 1px solid #CBC9C9;
     outline: none;
-    padding-left: 0.1rem;
+    padding-left: 10px;
 }
 
 .police_uu li label {
     display: inline-block;
-    width: 1rem;
+    width: 100px;
     text-align: right;
     white-space: nowrap;
 }
 
 .enter {
-    width: 1.69rem;
-    height: 0.37rem;
-    background: url(../img/圆角矩形.png)no-repeat;
+    width: 169px;
+    height: 37px;
+    background: url(../img/圆角矩形.png) no-repeat;
     background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/圆角矩形.png', sizingMethod='scale');
     outline: none;
     border: 0;
     cursor: pointer;
-    margin-left: 4%;
-    font-size: 0.18rem;
+    margin-left: 10%;
+    font-size: 18px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(255, 255, 255, 1);
+    color: white;
     text-align: center;
-    line-height: 0.37rem;
+    line-height: 37px;
 }
 
 .enter:hover,
@@ -167,38 +176,43 @@ html {
 }
 
 .role-a {
-    color: rgba(169, 169, 169, 1);
+    color: #A9A9A9;
 }
+
 .other {
-    font-size: 0.14rem;
+    float: right;
+    width: 20%;
+    text-align: center;
+    font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(169, 169, 169, 1);
-    line-height: 0.24rem;
-    margin-left: 4%;
+    color: #A9A9A9;
+    line-height: 37px;
     cursor: pointer;
     white-space: nowrap;
 }
-a.not-now-login {
-    color: rgba(169, 169, 169, 1);
+
+a.role-a {
+    color: #A9A9A9;
 }
+
 /* 管理登录 */
 /* 接单员登录 */
 .matron,
 .order {
-    padding: 0.43rem 0 0 0;
+    padding: 43px 0 0 0;
     line-height: 0;
 }
 
 .matron h4,
 .order h4 {
-    font-size: 0.24rem;
+    font-size: 24px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
-    line-height: 0.24rem;
+    color: black;
+    line-height: 24px;
     text-align: center;
-    margin-bottom: 0.68rem;
+    margin-bottom: 68px;
 }
 
 .matron_uu {
@@ -206,23 +220,23 @@ a.not-now-login {
 }
 
 .matron_uu li {
-    font-size: 0.2rem;
+    font-size: 20px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
-    line-height: 0.24rem;
-    margin-bottom: 0.63rem;
+    color: black;
+    line-height: 24px;
+    margin-bottom: 063px;
     display: flex;
     align-items: center;
 }
 
 .matron_uu li input {
-    width: 2.5rem;
-    height: 0.28rem;
-    background: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(203, 201, 201, 1);
+    width: 250px;
+    height: 28px;
+    background: white;
+    border: 1px solid #CBC9C9;
     outline: none;
-    padding-left: 0.1rem;
+    padding-left: 10px;
 }
 
 .police_uu li input {
@@ -230,11 +244,14 @@ a.not-now-login {
 }
 
 .role_register {
-    font-size: 0.14rem;
+    float: left;
+    width: 24%;
+    text-align: center;
+    font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(169, 169, 169, 1);
-    line-height: 0.24rem;
+    color: #A9A9A9;
+    line-height: 37px;
     cursor: pointer;
 }
 
@@ -245,15 +262,268 @@ a.not-now-login {
 .enterone {
     margin-left: 34%;
 }
+
 .login-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 0.2rem;
+    padding: 0 15px;
+    line-height: 37px;
 }
-.register-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 0.2rem;
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1024px) {
+    .login_logo {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: url(../img/背景.png) no-repeat;
+        background-size: 100% 100%;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/背景.png', sizingMethod='scale');
+    }
+
+    .login_top {
+        text-align: center;
+        padding-top: 66px;
+    }
+
+    .login_top img {
+        width: 73px;
+        height: 74px;
+    }
+
+    .login_top p {
+        font-size: 20px;
+        font-family: FZLTCHK--GBK1-0;
+        font-weight: 600;
+        color: white;
+        line-height: 20px;
+        text-shadow: 0px 8px 14px #231815;
+        behavior: url(css/PIE/PIE.htc);
+    }
+
+    .login_bot {
+        width: 280px;
+        height: 205px;
+        background: white;
+        box-shadow: 0px 8px 14px 4px #231815;
+        border-radius: 20px;
+        behavior: url(css/PIE/PIE.htc);
+        margin: 34px auto;
+        position: relative;
+    }
+
+    .bird {
+        width: 38px;
+        height: 35px;
+        background: url(../img/鸟.png) no-repeat;
+        background-size: 100% 100%;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/鸟.png', sizingMethod='scale');
+        position: absolute;
+        top: 14px;
+        right: 8px;
+    }
+
+    /* 选择登录角色 */
+    .role_uu {
+        padding: 57px 0 0 22px;
+    }
+
+    .role_uu li {
+        float: left;
+        text-align: center;
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 500;
+        color: black;
+        line-height: 12px;
+        margin-right: 23px;
+        cursor: pointer;
+    }
+
+    li.role-lis {
+        margin-right: 0 !important;
+    }
+
+    .role_uu li img {
+        width: 64px;
+        height: 64px;
+    }
+
+    /* 警员登录 */
+    .police {
+        padding: 22px 0 0 0;
+        line-height: 0;
+        height: 90%;
+    }
+
+    .police h4 {
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: black;
+        line-height: 24px;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .police_uu {
+        height: 58%;
+        margin-left: 12%;
+    }
+
+    .Pul {
+        margin-left: 36px;
+        height: 53%;
+        padding-top: 10px;
+    }
+
+    .police_uu li {
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: black;
+        line-height: 20px;
+        margin-bottom: 24px;
+    }
+
+    .police_uu li input {
+        width: 155px;
+        height: 17px;
+        background: #F2F2F2;
+        border: 1px solid #CBC9C9;
+        outline: none;
+        padding-left: 10px;
+    }
+
+    .police_uu li label {
+        display: inline-block;
+        width: 53px;
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    .enter {
+        float: left;
+        width: 90px;
+        height: 20px;
+        background: url(../img/圆角矩形.png) no-repeat;
+        background-size: 100% 100%;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/圆角矩形.png', sizingMethod='scale');
+        outline: none;
+        border: 0;
+        cursor: pointer;
+        margin-left: 10%;
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: white;
+        text-align: center;
+        line-height: 20px;
+    }
+
+    .enter:hover,
+    .other:hover,
+    .role-a:hover {
+        color: #71bbf0;
+    }
+
+    .role-a {
+        color: #A9A9A9;
+    }
+
+    .other {
+        float: right;
+        width: 20%;
+        text-align: center;
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: #A9A9A9;
+        line-height: 20px;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    a.role-a {
+        color: #A9A9A9;
+    }
+
+    /* 管理登录 */
+    /* 接单员登录 */
+    .matron,
+    .order {
+        padding: 23px 0 0 0;
+        line-height: 0;
+    }
+
+    .matron h4,
+    .order h4 {
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: black;
+        line-height: 20px;
+        text-align: center;
+        margin-bottom: 36px;
+    }
+
+    .matron_uu {
+        margin-left: 17%;
+    }
+
+    .matron_uu li {
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: black;
+        line-height: 20px;
+        margin-bottom: 27px;
+    }
+
+    .matron_uu li input {
+        width: 133px;
+        height: 15px;
+        background: white;
+        border: 1px solid #CBC9C9;
+        outline: none;
+        padding-left: 10px;
+    }
+
+    .police_uu li input {
+        z-index: 5;
+    }
+
+    .role_register {
+        float: left;
+        width: 24%;
+        text-align: center;
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: #A9A9A9;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    .role {
+        text-align: right;
+    }
+
+    .enterone {
+        margin-left: 34%;
+    }
+
+    .login-wrapper {
+        line-height: 20px;
+    }
+
 }

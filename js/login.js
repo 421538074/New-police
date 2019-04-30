@@ -94,6 +94,32 @@ var xm = new Vue({
           }
         }
       });
+    },
+    poloceRegister: function () {
+      var that = this;
+      if (this.Gpsw == this.Ggpsw) {
+        $.ajax({
+          type: "post",
+          url: "".concat(api, "/index/api/getRegister"),
+          async: true,
+          data: {
+            nickname: this.Gname,
+            password: this.Gpsw
+          },
+          dataType: 'json',
+          success: function success(res) {
+            sessionStorage.setItem("username", that.Pname);
+            // if (res.code == 1) {
+            //   window.location.href = 'index.html';
+            // } else {
+            //   warn.alert(res.msg);
+            // }
+          }
+        });
+      }else {
+        warn.alert("密码不一致");
+      }
+
     }
   },
   created: function created() {// getIpAdd((ip) => {

@@ -82,10 +82,10 @@ var indexPage = {
     grouplist: function grouplist() {
       // 获取分页页码
       var len = this.page,
-          temp = [],
-          list = [],
-          count = Math.floor(this.pagegroup / 2),
-          center = this.current;
+        temp = [],
+        list = [],
+        count = Math.floor(this.pagegroup / 2),
+        center = this.current;
 
       if (len <= this.pagegroup) {
         while (len--) {
@@ -146,10 +146,10 @@ var indexCase = {
   prop: ['text'],
   template: "\n    <div class=\"pBox\">\n        <div class=\"tBox\">\n            <span>\u8B66\u544A</span>\n        </div>\n        <div class=\"mBox\">\n            <span>{{text}}</span>\n        </div>\n        <div class=\"bBox\">\n            <span @click=\"back\">\u786E\u8BA4</span>\n        </div>\n    </div>\n    ",
   methods: {
-    data: function data() {},
+    data: function data() { },
     back: function back() {
       this.$emit("back");
     }
   },
-  created: function created() {}
+  created: function created() { }
 };

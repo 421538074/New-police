@@ -336,7 +336,7 @@ var xm = new Vue({
               _this4.currentActive = -1;
             }
           },
-          error: function error(err) {}
+          error: function error(err) { }
         });
       } else {
         if (this.Pcomment !== "") {
@@ -400,7 +400,7 @@ var xm = new Vue({
             });
           }
         },
-        error: function error(err) {}
+        error: function error(err) { }
       });
     },
     getCharaLength: function getCharaLength(str) {
@@ -454,7 +454,8 @@ var xm = new Vue({
         }
       });
     }
-  }, "filterImg", function filterImg(value) {
+  }, 
+  "filterImg", function filterImg(value) {
     if (!value) return '';
 
     if (value.length > 300) {

@@ -32,7 +32,7 @@
 .header_name {
     float: right;
     font-size: 2.4em;
-    margin-right: 17%;
+    margin-right: 20%;
     float: right;
 }
 
@@ -40,15 +40,17 @@
     font-size: 0.5em;
     color: white;
     white-space: nowrap;
+    cursor: pointer;
 }
 
 .header_img {
     float: left;
     width: 2em;
     height: 2em;
-    margin: 1em 3em 0 0;
+    margin: 1em 4em 0 0;
     position: relative;
     font-size: 12px;
+    cursor: pointer;
 }
 
 .header_img span {
@@ -77,6 +79,7 @@
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: white;
+    cursor: pointer;
 }
 
 .header_enter a {
@@ -683,8 +686,11 @@ p.create-time {
     /* behavior: url(css/PIE/PIE.htc); */
     background-color: white;
     position: absolute;
-    top: 20%;
-    left: 20%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
 }
 
 .case_title {
@@ -773,10 +779,11 @@ p.create-time {
     border-radius: 10px;
     /* behavior: url(css/PIE/PIE.htc); */
     position: absolute;
-    top: 30%;
-    left: 30%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
 }
 
 p.no-replay {
@@ -791,8 +798,8 @@ p.no-replay {
 }
 
 .see_main {
-    min-height: 50px;
-    overflow: scroll;
+    max-height: 610px;
+    overflow-y: scroll;
 }
 
 .see::-webkit-scrollbar {
@@ -805,13 +812,8 @@ p.no-replay {
     padding: 25px 15px;
 }
 
-.see_text_top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .see_text_top h4 {
+    float: left;
     font-size: 15px;
     font-family: PingFangSC-Medium;
     font-weight: 500;
@@ -820,6 +822,7 @@ p.no-replay {
 }
 
 .see_text_top span {
+    float: right;
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
@@ -850,13 +853,8 @@ p.no-replay {
     margin-bottom: 22px;
 }
 
-.see_uu_one {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .see_uu_one h4 {
+    float: left;
     font-size: 15px;
     font-family: PingFangSC-Medium;
     font-weight: 500;
@@ -864,13 +862,17 @@ p.no-replay {
     line-height: 28px;
 }
 
+span.replay-spa {
+    float: right;
+}
+
 .see_uu_one span {
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(126, 125, 125, 1);
     line-height: 28px;
-    margin-right: 12px;
+    color: #8590ab;
+    margin: 0 5px;
 }
 
 .see_uu li p {
@@ -887,16 +889,15 @@ p.no-replay {
 }
 
 .see_uu_three {
-    display: flex;
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(132, 131, 131, 1);
     line-height: 28px;
-    justify-content: flex-end;
 }
 
 .see_uu_btn {
+    float: right;
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
@@ -904,7 +905,12 @@ p.no-replay {
     line-height: 24px;
     display: flex;
     align-items: center;
-    margin-right: 65px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+span.see-spa {
+    float: right;
     cursor: pointer;
 }
 
@@ -923,16 +929,6 @@ p.no-replay {
     padding-left: 10px;
 }
 
-.see_inp span:nth-child(2) {
-    display: inline-block;
-    width: 21px;
-    height: 20px;
-    /* background: url(../img/表情.png)no-repeat; */
-    background-size: 100% 100%;
-    position: absolute;
-    right: 92px;
-    top: 5px;
-}
 
 .see_inp span:nth-child(3) {
     display: inline-block;
@@ -948,16 +944,129 @@ p.no-replay {
     margin-left: 12px;
 }
 
+/* 回复弹框的子集 */
+.list_two {
+    padding-left: 62px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+/* 关闭 */
+.close {
+    width: 30px;
+    height: 30px;
+    background: url(../img/错.png)no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    cursor: pointer;
+}
 
 
 
+/* 头部弹框 */
+/* 通知 */
+.answer {
+    width: 322px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 3px 3px 8px 1px rgba(126, 126, 126, 1);
+    behavior: url(css/PIE/PIE.htc);
+    border-radius: 4px;
+    position: absolute;
+    top: 100%;
+    right: 14%;
+    height: auto;
+    display: none;
+}
 
+.answer_uu li span {
+    color: black;
+    font-size: 14px;
+}
 
+.answer_uu {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 11px 26px 0 16px;
+    max-height: 294px;
+    overflow-y: scroll;
 
+}
 
+.answer_uu::-webkit-scrollbar {
+    width: 0;
+}
 
+.answer_uu li {
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(29, 85, 152, 1);
+    line-height: 23px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #B8B8B8;
+    margin-bottom: 7px;
+    cursor: pointer;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
 
+.answer p {
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 23px;
+    text-align: right;
+    margin-right: 26px;
+    cursor: pointer;
+}
 
+/* 个人中心 */
+.header_two {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 3px 3px 8px 1px rgba(126, 126, 126, 1);
+    behavior: url(css/PIE/PIE.htc);
+    border-radius: 4px;
+    position: absolute;
+    top: 105%;
+    right: 19%;
+    display: none;
+}
+
+.header_two span {
+    position: absolute;
+    top: -14px;
+    right: 30px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-width: 0 9px 15px;
+    border-style: solid;
+    border-color: transparent transparent white;
+}
+
+.header_two_uu {
+    padding-top: 10px;
+}
+
+.header_two_uu li {
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+    line-height: 23px;
+    margin-bottom: 7px;
+    cursor: pointer;
+    padding: 0 14px 0 11px;
+}
 
 
 
@@ -1058,7 +1167,7 @@ p.no-replay {
     .header_name {
         float: right;
         font-size: 2.4em;
-        margin-right: 17%;
+        margin-right: 9%;
         height: 80%;
         line-height: 5px;
     }
@@ -1067,6 +1176,7 @@ p.no-replay {
         font-size: 14px;
         color: white;
         white-space: nowrap;
+        cursor: pointer;
     }
 
     .header_img {
@@ -1076,6 +1186,7 @@ p.no-replay {
         margin: 0.2em 3em 0 0;
         position: relative;
         font-size: 12px;
+        cursor: pointer;
     }
 
     .header_img span {
@@ -1105,6 +1216,7 @@ p.no-replay {
         font-family: PingFangSC-Regular;
         font-weight: 400;
         color: white;
+        cursor: pointer;
     }
 
     .header_enter a {
@@ -1658,8 +1770,11 @@ p.no-replay {
         /* behavior: url(css/PIE/PIE.htc); */
         background-color: white;
         position: absolute;
-        top: 20%;
-        left: 20%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
     }
 
     .case_title {

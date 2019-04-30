@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div id="app" v-cloak>
+    <div ms-controller="app">
         <div class="login_logo">
             <div class="login_top">
                 <img src="img/警徽.png" alt="">
@@ -23,17 +23,17 @@
                 <div class="bird"></div>
 
                 <!-- 选择登录角色 -->
-                <div class="role" v-show="isrole">
-                    <ul class="role_uu">
-                        <li @click="goOrder">
+                <div class="role" ms-visible="isrole">
+                    <ul class="role_uu clearfix">
+                        <li ms-click="goOrder">
                             <img src="img/组 2.png" alt="">
                             <p>接单员登录</p>
                         </li>
-                        <li @click="goPolice">
+                        <li ms-click="goPolice">
                             <img src="img/组 3.png" alt="">
                             <p>警员登录</p>
                         </li>
-                        <li @click="goMatron">
+                        <li class="role-lis" ms-click="goMatron">
                             <img src="img/组 4.png" alt="">
                             <p>管理登录</p>
                         </li>
@@ -41,29 +41,29 @@
                 </div>
 
                 <!-- 警员登录 -->
-                <div class="police" v-show="ispolice">
+                <div class="police" ms-visible="ispolice">
                     <h4>警员登录</h4>
                     <ul class="police_uu Pul">
                         <li>
                             <label for="">昵称：</label>
-                            <input type="text" v-model="Pname">
+                            <input type="text" ms-duplex="Pname">
                         </li>
                         <li>
                             <label for="">密码：</label>
-                            <input type="password" v-model="Ppsw">
+                            <input type="password" ms-duplex="Ppsw">
                         </li>
                     </ul>
                     <div class="login-wrapper">
                         <span class="role_register" >
-                            <span @click="goRegister" class="role-a">注册 / </span><a href="index.html" class="role-a">暂不注册</a>
+                            <span ms-click="goRegister" class="role-a">注册 / </span><a href="index.html" class="role-a">暂不注册</a>
                         </span>
-                        <button class="enter" @click="policeEnter">登录</button>
-                        <span class="other" @click="goBack">其他登录</span>
+                        <button class="enter" ms-click="policeEnter">登录</button>
+                        <span class="other" ms-click="goBack">其他登录</span>
                     </div>
                 </div>
 
                 <!-- 管理登录 -->
-                <div class="matron" v-show="ismatron">
+                <div class="matron" ms-visible="ismatron">
                     <h4>管理员登录</h4>
                     <ul class="matron_uu">
                         <li>
@@ -76,49 +76,49 @@
                         </li>
                     </ul>
                     <button class="enter">登录</button>
-                    <span class="other" @click="goBack">其他登录</span>
+                    <span class="other" ms-click="goBack">其他登录</span>
                 </div>
 
                 <!-- 接单员登录 -->
-                <div class="order" v-show="isorder">
+                <div class="order" ms-visible="isorder">
                     <h4>接单员登录</h4>
                     <ul class="matron_uu">
                         <li>
                             <label for="">账号：</label>
-                            <input type="text" v-model="Oname">
+                            <input type="text" ms-duplex="Oname">
                         </li>
                         <li>
                             <label for="">密码：</label>
-                            <input type="password" v-model="Opsw">
+                            <input type="password" ms-duplex="Opsw">
                         </li>
                     </ul>
-                    <button type="button" class="enter enterone" @click="orderEnter">登录</button>
-                    <span class="other" @click="goBack">其他登录</span>
+                    <button type="button" class="enter enterone" ms-click="orderEnter">登录</button>
+                    <span class="other" ms-click="goBack">其他登录</span>
                 </div>
 
                 <!-- 注册 -->
-                <div class="register police" v-show="isregister">
+                <div class="register police" ms-visible="isregister">
                     <h4>警员注册</h4>
                     <ul class="police_uu">
                         <li>
                             <label for="">昵称：</label>
-                            <input type="text" v-model="Gname">
+                            <input type="text" ms-duplex="Gname">
                         </li>
                         <li>
                             <label for="">密码：</label>
-                            <input type="text" v-model="Gpsw">
+                            <input type="text" ms-duplex="Gpsw">
                         </li>
                         <li>
                             <label for="">确认密码：</label>
-                            <input type="password" v-model="Ggpsw">
+                            <input type="password" ms-duplex="Ggpsw">
                         </li>
                     </ul>
                     <div class="register-wrapper">
                         <div class="block"></div>
-                        <button class="enter enterone" @click="policeEnter">注册</button>
-                        <span class="other" >
-                            <span @click="goEnter" class="role-a">登录 / </span>
-                            <a class="not-now-login" href="index.html" class="role-a">暂不登录</a>
+                        <button class="enter enterone" ms-click="poloceRegister">注册</button>
+                        <span class="other" style="width:24%">
+                            <span ms-click="goEnter" class="role-a">登录 / </span>
+                            <a  href="index.html" class="role-a">暂不登录</a>
                         </span>
                     </div>
                 </div>
@@ -132,9 +132,10 @@
 
 </html>
 
-<script src="js/jquery.min.js?v=1.0.9"></script>
-<script src="js/vue.js?v=1.0.9"></script>
+<script src="js/jquery1.9.0.js"></script>
+<script src="js/avalon/avalon.js"></script>
 <script src="js/api.js?v=1.0.9"></script>
 <script src="js/getIpAdd.js"></script>
-<script src="js/login.js?v=1.0.9"></script>
+<script src="js/N-login.js?v=1.0.9"></script>
 <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script src="js/rem.js"></script>
