@@ -1,6 +1,6 @@
 .index_header {
     width: 100%;
-    height: 5em;
+    height: 72px;
     position: fixed;
     z-index: 11;
     top: 0;
@@ -12,17 +12,18 @@
 }
 
 .index_content {
-    height: 80%;
-    padding-top: 0.5em;
+    /* height: 80%;
+    padding-top: 0.5em; */
     position: relative;
-    line-height: 3.2em;
+    line-height: 72px;
 }
 
 .index_left {
     float: left;
+    width: 254px;
+    height: 35px;
+    margin-top: 20px;
     display: inline-block;
-    width: 23em;
-    height: 80%;
     margin-left: 20%;
     background: url(../img/logo.png)no-repeat;
     background-size: 100% 100%;
@@ -777,11 +778,10 @@ p.create-time {
     max-height: 75%;
     background: white;
     border-radius: 10px;
-    /* behavior: url(css/PIE/PIE.htc); */
+    behavior: url(css/PIE/PIE.htc);
     position: absolute;
-    top: 0;
+    top: 15%;
     left: 0;
-    bottom: 0;
     right: 0;
     margin: auto;
 }
@@ -1135,7 +1135,7 @@ span.see-spa {
 
     .index_header {
         width: 100%;
-        height: 2.6em;
+        height: 42px;
         position: fixed;
         z-index: 11;
         top: 0;
@@ -1147,17 +1147,17 @@ span.see-spa {
     }
 
     .index_content {
-        height: 80%;
-        padding-top: 0.5em;
+        height: 100%;
         position: relative;
-        line-height: 1.5em;
+        line-height: 42px;
     }
 
     .index_left {
         float: left;
         display: inline-block;
-        width: 13em;
-        height: 80%;
+        width: 200px;
+        height: 30px;
+        margin-top: 6px;
         margin-left: 10%;
         background: url(../img/logo.png)no-repeat;
         background-size: 100% 100%;
@@ -1168,8 +1168,8 @@ span.see-spa {
         float: right;
         font-size: 2.4em;
         margin-right: 9%;
-        height: 80%;
-        line-height: 5px;
+        height: 100%;
+        line-height: 25px;
     }
 
     .header_name .name {
@@ -1183,7 +1183,7 @@ span.see-spa {
         float: left;
         width: 1.2em;
         height: 1.3em;
-        margin: 0.2em 3em 0 0;
+        margin: 1em 3em 0 0;
         position: relative;
         font-size: 12px;
         cursor: pointer;
@@ -1211,10 +1211,10 @@ span.see-spa {
     }
 
     .header_enter {
-        line-height: 2em;
         font-size: 12px;
         font-family: PingFangSC-Regular;
         font-weight: 400;
+        line-height: 42px;
         color: white;
         cursor: pointer;
     }
@@ -1222,11 +1222,6 @@ span.see-spa {
     .header_enter a {
         color: white;
     }
-
-
-
-
-
     .container {
         width: 920px;
         margin: 0 auto;

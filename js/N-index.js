@@ -712,7 +712,7 @@ var vm = avalon.define({
         _this15.length = res.data.replay.length;
       }
     });
-    this.userName = sessionStorage.getItem("username");
+    // this.userName = sessionStorage.getItem("username");
     getIpAdd(function (ip) {
       _this15.ip = ip;
     });

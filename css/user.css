@@ -113,7 +113,7 @@ div.user-test span {
 .user_title_banner {
     width: 730px;
     height: 66px;
-    background: rgba(255, 255, 255, 1);
+    background: white;
 }
 
 .user_title_banner ul {
@@ -126,7 +126,7 @@ div.user-test span {
     font-size: 18px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 66px;
     height: 90%;
     width: 76px;
@@ -139,9 +139,9 @@ div.user-test span {
 .user_title_right {
     float: right;
     width: 387px;
-    height: 451px;
+    height: auto;
     background: white;
-    padding: 28px 30px 0 21px;
+    padding: 28px 30px 10px 21px;
 }
 
 .user_title_right h4 {
@@ -167,7 +167,7 @@ div.user-test span {
     color: black;
 }
 
-.wrap_tab span:nth-child(1) {
+.wrap-img {
     display: inline-block;
     width: 14px;
     height: 10px;
@@ -183,8 +183,8 @@ div.user-test span {
     top: 30px;
     width: 121px;
     height: 100px;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0px 1px 5px 0px rgba(94, 94, 94, 0.66);
+    background: white;
+    box-shadow: 0px 1px 5px 0px #5E5E5E;
     border-radius: 2px;
 }
 
@@ -201,12 +201,12 @@ div.user-test span {
 }
 
 .Wrap_active {
-    background: rgba(241, 241, 241, 1) !important;
+    background: #F1F1F1 !important;
     color: black !important;
 }
 
 .user_table {
-    height: 420px;
+    max-height: 420px;
     overflow: hidden;
 }
 
@@ -219,7 +219,7 @@ th {
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 36px;
     text-align: center;
 }
@@ -228,7 +228,7 @@ td {
     font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 36px;
     text-align: center;
 }
@@ -245,36 +245,21 @@ td {
 
 .content_list {
     width: 679px;
-    background: rgba(255, 255, 255, 1);
+    background: white;
     padding: 30px 31px 5px 20px;
     margin-bottom: 9px;
 }
 
-.content_nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 21px;
-}
-
-.content_nav span {
-    font-size: 16px;
-    font-family: PingFangSC-Regular;
-    font-weight: 400;
-    color: rgba(121, 121, 121, 1);
-    cursor: pointer;
-}
 
 .content_list h4 {
     float: left;
-    width: 80%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 18px;
     font-family: PingFangSC-Medium;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 1);
+    font-weight: 600;
+    color: black;
     line-height: 18px;
 }
 
@@ -293,7 +278,7 @@ td {
 }
 
 .user-delete {
-    float: left;
+    float: right;
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
@@ -333,7 +318,7 @@ td {
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 28px;
     text-indent: 30px;
     word-break: break-all;
@@ -358,14 +343,14 @@ td {
 .comment p {
     float: left;
     font-size: 14px;
+    line-height: 28px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(132, 132, 132, 1);
+    color: #848484;
 }
 
 .comment ul {
     float: right;
-    margin-top: 7px;
 }
 
 .comment ul li {
@@ -375,8 +360,6 @@ td {
     font-weight: 400;
     color: #797979;
     line-height: 24px;
-    display: flex;
-    align-items: center;
     cursor: pointer;
     margin: 0 10px;
 }
@@ -385,7 +368,7 @@ td {
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(29, 85, 152, 1);
+    color: #1D5598;
     line-height: 24px;
 }
 
@@ -398,7 +381,7 @@ td {
 /* 评论框 */
 .comment_main {
     width: 626px;
-    border: 1px solid rgba(170, 170, 170, 1);
+    border: 1px solid #DADADA;
     margin: 30px 0;
     padding: 24px 34px 22px 24px;
 }
@@ -412,7 +395,7 @@ td {
     font-size: 15px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(132, 132, 132, 1);
+    color: #333333;
     line-height: 24px;
 }
 
@@ -420,9 +403,9 @@ td {
     font-size: 15px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 28px;
-    text-indent: 2rem;
+    text-indent: 25px;
 }
 
 
@@ -430,14 +413,16 @@ td {
     font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(132, 132, 132, 1);
+    color: #333;
     line-height: 24px;
 }
 
 .reply {
-    display: flex;
-    justify-content: flex-end;
     margin-bottom: 10px;
+}
+
+.reply-one {
+    float: right;
 }
 
 .reply span {
@@ -445,7 +430,12 @@ td {
 }
 
 .reply-two {
-    margin: 0 27px;
+    float: right;
+    margin: 0 20px;
+}
+
+.reply-three {
+    float: right;
 }
 
 .reply_one {
@@ -459,8 +449,8 @@ td {
     float: left;
     width: 80%;
     height: 28px;
-    background: rgba(242, 242, 242, 1);
-    border: 1px solid rgba(203, 201, 201, 1);
+    background: #F2F2F2;
+    border: 1px solid #CBC9C9;
     outline: none;
     padding: 0 0 0 10px;
 }
@@ -489,8 +479,8 @@ td {
 .comment_inp input {
     width: 558px;
     height: 28px;
-    background: rgba(242, 242, 242, 1);
-    border: 1px solid rgba(203, 201, 201, 1);
+    background: #F2F2F2;
+    border: 1px solid #CBC9C9;
     outline: none;
     padding-left: 10px;
 }
@@ -507,19 +497,16 @@ td {
     display: inline-block;
     width: 63px;
     height: 28px;
-    background: rgba(29, 85, 152, 1);
+    background: #1D5598;
     text-align: center;
     line-height: 28px;
     font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(255, 255, 255, 1);
+    color: white;
     margin-left: 12px;
     cursor: pointer;
 }
-
-
-
 
 
 /* 回复 */
@@ -529,7 +516,7 @@ td {
 
 .agree_one {
     width: 680px;
-    background: rgba(255, 255, 255, 1);
+    background: white;
     padding: 30px 30px 15px 20px;
     margin-bottom: 10px;
 }
@@ -538,7 +525,7 @@ td {
     font-size: 18px;
     font-family: PingFangSC-Medium;
     font-weight: 500;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 23px;
     margin-bottom: 20px;
 }
@@ -551,9 +538,8 @@ td {
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 28px;
-
 }
 
 .agree_one .pp {
@@ -567,16 +553,15 @@ td {
 }
 
 .agree_uu {
-    display: flex;
-    justify-content: flex-end;
     margin-top: 10px;
 }
 
 .agree_uu li {
+    float: right;
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(121, 121, 121, 1);
+    color: #797979;
     line-height: 20px;
     display: flex;
     align-items: center;
@@ -598,8 +583,8 @@ td {
 .agree_inp input {
     width: 80%;
     height: 28px;
-    background: rgba(242, 242, 242, 1);
-    border: 1px solid rgba(203, 201, 201, 1);
+    background: #F2F2F2;
+    border: 1px solid #CBC9C9;
     padding-left: 15px;
 }
 
@@ -607,24 +592,22 @@ td {
     display: inline-block;
     width: 63px;
     height: 28px;
-    background: rgba(29, 85, 152, 1);
+    background: #1D5598;
     text-align: center;
     font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(255, 255, 255, 1);
+    color: white;
     line-height: 28px;
     margin-left: 12px;
 }
 
-
-/*  */
 .user_none {
     width: 153px;
     height: 159px;
     background: url(../img/fabu.png)no-repeat;
     background-size: 100% 100%;
-    /* margin: 90px auto 0; */
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/fabu.png', sizingMethod='scale');
     margin: 0 auto;
 }
 
@@ -634,6 +617,7 @@ td {
     height: 165px;
     background: url(../img/none.png)no-repeat;
     background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/none.png', sizingMethod='scale');
     margin: 90px auto 0;
 }
 
@@ -652,7 +636,8 @@ img.icon-like {
     height: 100%;
     position: fixed;
     top: 0;
-    background: rgba(0, 0, 0, 0.5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000, endColorstr=#7F000000);
+    background-color: rgba(0, 0, 0, .5);
     z-index: 1111;
 }
 
@@ -660,16 +645,14 @@ img.icon-like {
 .see {
     width: 700px;
     max-height: 75%;
-    background: rgba(255, 255, 255, 1);
+    background: white;
     border-radius: 10px;
+    behavior: url(css/PIE/PIE.htc);
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow-x: hidden;
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
+    top: 15%;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .see::-webkit-scrollbar {
@@ -677,8 +660,8 @@ img.icon-like {
 }
 
 .see_main {
-    min-height: 50px;
-    overflow: scroll;
+    max-height: 610px;
+    overflow-y: scroll;
 }
 
 .see_text {
@@ -687,25 +670,21 @@ img.icon-like {
     padding: 25px 15px;
 }
 
-.see_text_top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .see_text_top h4 {
+    float: left;
     font-size: 15px;
     font-family: PingFangSC-Medium;
     font-weight: 500;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 28px;
 }
 
 .see_text_top span {
+    float: right;
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(126, 125, 125, 1);
+    color: #7E7D7D;
     line-height: 28px;
 }
 
@@ -714,7 +693,7 @@ img.icon-like {
     font-size: 15px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 28px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -732,25 +711,21 @@ img.icon-like {
     margin-bottom: 22px;
 }
 
-.see_uu_one {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .see_uu_one h4 {
+    float: left;
     font-size: 15px;
     font-family: PingFangSC-Medium;
     font-weight: 500;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 28px;
 }
 
-.see_uu_one span {
+.see-text-spa {
+    float: right;
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(126, 125, 125, 1);
+    color: #7E7D7D;
     line-height: 28px;
     margin-right: 12px;
 }
@@ -760,7 +735,7 @@ img.icon-like {
     font-size: 15px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 28px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -774,25 +749,21 @@ span.replay-cha {
 }
 
 .see_uu_three {
-    display: flex;
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(132, 131, 131, 1);
+    color: #848383;
     line-height: 28px;
-    justify-content: flex-end;
 }
 
-.see_uu_btn {
+span.btn-test {
+    float: right;
+    cursor: pointer;
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(121, 121, 121, 1);
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    margin-right: 65px;
-    cursor: pointer;
+    color: #797979;
+    margin-left: 40px;
 }
 
 .see_inp {
@@ -801,8 +772,12 @@ span.replay-cha {
     text-align: center;
 }
 
+.comment-ul {
+    float: right;
+}
+
 .see_inp input {
-    width: 82%;
+    width: 84%;
     height: 28px;
     background: rgba(242, 242, 242, 1);
     border: 1px solid rgba(203, 201, 201, 1);
@@ -810,90 +785,18 @@ span.replay-cha {
     padding-left: 10px;
 }
 
-.see_inp span:nth-child(2) {
-    display: inline-block;
-    width: 21px;
-    height: 20px;
-    /* background: url(../img/表情.png)no-repeat; */
-    background-size: 100% 100%;
-    position: absolute;
-    right: 16%;
-    top: 5px;
-}
-
-.see_inp span:nth-child(3) {
+.pointer-one {
     display: inline-block;
     width: 63px;
     height: 28px;
-    background: rgba(29, 85, 152, 1);
+    background: #1D5598;
     font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(255, 255, 255, 1);
+    color: white;
     line-height: 28px;
     text-align: center;
     margin-left: 12px;
-}
-
-/* 修改密码 */
-.pass {
-    width: 600px;
-    height: 360px;
-    background: rgba(255, 255, 255, 1);
-    border-radius: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.pass_top {
-    height: 64px;
-    font-size: 24px;
-    font-family: PingFangSC-Medium;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 1);
-    line-height: 64px;
-    text-align: center;
-    border-bottom: 1px solid #B8B8B8;
-}
-
-.pass_uu li {
-    text-align: center;
-    font-size: 18px;
-    font-family: PingFangSC-Regular;
-    font-weight: 400;
-    color: rgba(0, 0, 0, 1);
-    line-height: 18px;
-    margin-top: 35px;
-}
-
-.pass_uu li span {
-    display: inline-block;
-    width: 126px;
-    text-align: right;
-}
-
-.pass_uu li input {
-    width: 256px;
-    height: 26px;
-    background: rgba(255, 255, 255, 1);
-    border: 1px solid rgba(229, 229, 229, 1);
-    outline: none;
-}
-
-.pass_bot p {
-    width: 231px;
-    height: 28px;
-    background: rgba(126, 206, 244, 1);
-    border-radius: 5px;
-    text-align: center;
-    line-height: 28px;
-    font-size: 18px;
-    font-family: PingFangSC-Regular;
-    font-weight: 400;
-    color: rgba(254, 254, 254, 1);
-    margin: 46px auto;
 }
 
 .close {
@@ -911,24 +814,8 @@ span.replay-cha {
     padding-left: 62px;
 }
 
-.user_push {
-    display: inline-block;
-    width: 153px;
-    height: 159px;
-    background: url(../img/没有发布.png)no-repeat;
-    background-size: 100% 100%;
-    margin: 94px 0 0 227px;
-}
 
-.user_img {
-    display: inline-block;
-    width: 153px;
-    height: 159px;
-    background: url(../img/没有回复.png)no-repeat;
-    background-size: 100% 100%;
-}
 
-/*  */
 
 
 p.no-replay {
@@ -987,7 +874,7 @@ table {
 
 .Htr {
     height: 30px;
-    background: rgba(148, 210, 255, 1);
+    background: #94D2FF;
 }
 
 .Tcolor {

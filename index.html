@@ -26,7 +26,7 @@
                 <div ms-click="goHome" class="index_left">
                 </div>
                 <div class="header_name">
-                    <div class="header_img" ms-click="goAnswer" ms-if="this.userName">
+                    <div class="header_img" ms-click="goAnswer" ms-if="this.userName!=''">
                         <img src="img/信息.png" alt="">
                         <span ms-if="length>0?isnum:!isnum">{{length}}</span>
                     </div>
@@ -34,7 +34,7 @@
                         <a ms-click="Enter">登录 | </a>
                         <a ms-click="Resgiter">注册</a>
                     </div>
-                    <span ms-click="goname" class="name" ms-if="this.userName!=''">{{userName}}</span>
+                    <span ms-click="goname" class="name" ms-if="this.userName!=''">{{userName}}战法四年</span>
                 </div>
                 <!-- 通知 -->
                 <div class="answer">
@@ -97,7 +97,7 @@
                             <div class="content_mid clearfix">
                                 <img ms-attr="{src:item.picture.indexOf('http') != -1 ? item.picture : 'http://police.pzhkj.cn'+item.picture}"
                                     alt="" class="mid_img" ms-if="item.picture!=null && item.picture != ''"
-                                    ms-visible="pIndex !==index">
+                                    ms-if="pIndex !==index">
                                 <div>
                                     <p class="content_text" ms-class="{entable:postIndex == index}"
                                         ms-html="filterImg(item.content)">

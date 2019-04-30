@@ -159,6 +159,13 @@ html {
 	margin: 0 auto;
 }
 
+@media only screen and (max-width: 1024px) {
+	.container {
+		width: 920px !important;
+		margin: 0 auto;
+	}
+}
+
 .ms-controller {
 	visibility: hidden
 }

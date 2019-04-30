@@ -6,26 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>浦口公安局</title>
+
     <link rel="stylesheet" href="css/base.css?v=1.0.9">
     <link rel="stylesheet" href="css/user.css?v=1.0.9">
+    <link rel="stylesheet" href="css/user1024.css">
     <link rel="stylesheet" href="css/header.css?v=1.0.9">
+
 </head>
 
 <body>
     <div ms-controller="app">
         <!-- 头部 -->
         <div class="user_header">
-            <div class="user_banner">
+            <div class="user_banner container">
                 <img src="img/logo.png" alt="" class="user-img">
                 <div class="user-test">
-                    <span>首页</span>
-                    <span class="user-two">应用中心</span>
-                    <span class="userColor">个人中心</span>
+                    <span ms-click="Goindex">首页</span>
+                    <span class="user-two" ms-click="Goheat">应用中心</span>
+                    <span class="userColor" ms-click="gouser">个人中心</span>
                 </div>
             </div>
             <!-- <cp-banner :userName="userName" ms-go-answer="goAnswer" ms-go-name="goname"></cp-banner> -->
         </div>
-
 
         <!-- 内容 -->
         <div class="user_content container clearfix">
@@ -81,15 +83,15 @@
                         </div>
                         <div class="content_mid clearfix">
                             <img ms-attr="{src:item.picture.indexOf('http') != -1 ? item.picture : 'http://police.pzhkj.cn'+item.picture}"
-                                alt="" class="mid_img" ms-if="item.picture!=null && item.picture != ''"
-                                ms-visible="pIndex !==index">
+                                alt="" class="mid_img" ms-visible="pIndex !==index"
+                                ms-if="item.picture!=null && item.picture != ''">
                             <div>
-                                <p class="content_text" :class="{entable:postIndex == index}"
+                                <p class="content_text" ms-class="{entable:postIndex == index}"
                                     ms-html="filterContent(item.content)"></p>
                             </div>
                         </div>
 
-                        <div class="comment clearfix" style="line-height:31px">
+                        <div class="comment clearfix" style="line-height:28px">
                             <p>发布于{{item.create_at}}</p>
                             <ul class="clearfix">
                                 <li class="read" ms-click="readChange(item,index)">
@@ -115,25 +117,25 @@
                                 <p>
                                     {{comment.content}}
                                 </p>
-                                <div class="reply">
-                                    <span class="reply-one">
-                                        <div class="comment-ul clearfix">
-                                            <div class="comment-one" ms-click="likePostOrComment('',comment.id,0,1)">
-                                                <img class="comment-img" src="img/好.png" alt="">
-                                                <span class="comment-test">{{comment.type1}}好</span>
-                                            </div>
-                                            <div class="comment-one" ms-click="likePostOrComment('',comment.id,0,2)">
-                                                <img class="comment-img" src="img/一般.png" alt="">
-                                                <span class="comment-test">{{comment.type2}}一般</span>
-                                            </div>
-                                            <div class="comment-one" ms-click="likePostOrComment('',comment.id,0,3)">
-                                                <img class="comment-img" src="img/坏.png" alt="">
-                                                <span class="comment-test">{{comment.type3}}不感兴趣</span>
-                                            </div>
-                                        </div>
-                                    </span>
-                                    <span  ms-click="lookchange(item.id,comment.id)" class="reply-two">查看回复</span>
+                                <div class="reply clearfix">
                                     <span ms-click="gospeak(index)" class="reply-three">回复</span>
+                                    <span ms-click="lookchange(item.id,comment.id)" class="reply-two">查看回复</span>
+                                    <span class="reply-one">
+                                            <div class="comment-ul clearfix">
+                                                <div class="comment-one" ms-click="likePostOrComment('',comment.id,0,1)">
+                                                    <img class="comment-img" src="img/好.png" alt="">
+                                                    <span class="comment-test">{{comment.type1}}好</span>
+                                                </div>
+                                                <div class="comment-one" ms-click="likePostOrComment('',comment.id,0,2)">
+                                                    <img class="comment-img" src="img/一般.png" alt="">
+                                                    <span class="comment-test">{{comment.type2}}一般</span>
+                                                </div>
+                                                <div class="comment-one" ms-click="likePostOrComment('',comment.id,0,3)">
+                                                    <img class="comment-img" src="img/坏.png" alt="">
+                                                    <span class="comment-test">{{comment.type3}}不感兴趣</span>
+                                                </div>
+                                            </div>
+                                        </span>
                                 </div>
                                 <div class="reply_one clearfix" ms-if="currentActive==index">
                                     <input type="text" placeholder="'回复'+comment.nickname+':'" ms-duplex="replyComment">
@@ -148,8 +150,11 @@
                     </div>
 
                     <!-- 没有发布 -->
-                    <div class="user_none" ms-visible="isthree">
+                    <div class="no-replay-wrapper" ms-visible="isthree">
+                        <div class="user_none">
+                        </div>
                     </div>
+
                 </div>
                 <!-- pinglun -->
                 <div class="agree" ms-visible="isone1">
@@ -158,7 +163,7 @@
                             <span>{{item.comment_content}}</span></h4>
                         <p class="pp" ms-html="filterContent(item.content)"></p>
                         <div class="agree_img">
-                            <ul class="agree_uu">
+                            <ul class="agree_uu clearfix">
                                 <li ms-click="agreeChange(index,0)">
                                     <img src="img/评论.png" alt="">
                                     <span>回复</span>
@@ -174,7 +179,7 @@
                         <h4>{{item.nickname}}回复我 <span>{{item.comment_content}}</span></h4>
                         <p class="pp" ms-html="filterContent(item.content)"></p>
                         <div class="agree_img">
-                            <ul class="agree_uu">
+                            <ul class="agree_uu clearfix">
                                 <li ms-click="agreeChange(index,1)">
                                     <img src="img/评论.png" alt="">
                                     <span>回复</span>
@@ -221,7 +226,7 @@
                     <div class="sort-wrapper clearfix">
                         <h4>积分排行</h4>
                         <div class="wrap_tab" ms-click="wrapChange">
-                            <span></span>
+                            <span class="wrap-img"></span>
                             <span class="tab">{{tgp}}</span>
                         </div>
                     </div>
@@ -238,18 +243,18 @@
                 <div class="user_table">
                     <table>
                         <tr>
-                            <th></th>
-                            <th>登录积分</th>
-                            <th>发布积分</th>
-                            <th>获赞积分</th>
-                            <th>总积分</th>
+                            <th class="user_th" width="22%"></th>
+                            <th class="user_th" width="20%">登录积分</th>
+                            <th class="user_th" width="20%">发布积分</th>
+                            <th class="user_th" width="20%">获赞积分</th>
+                            <th class="user_th" width="16%">总积分</th>
                         </tr>
                         <tr ms-for="(index,item) in userlist">
-                            <td class="td_name">{{index+1}}.{{item.nickname}}</td>
-                            <td>{{item.login==null?'0':item.login}}</td>
-                            <td>{{item.post==null?'0':item.post}}</td>
-                            <td>{{item.phraise==null?'0':item.phraise}}</td>
-                            <td>{{item.intergral==null?'0':item.intergral}}</td>
+                            <td class="td_name Ttd">{{index+1}}.{{item.nickname}}</td>
+                            <td class="Ttd">{{item.login==null?'0':item.login}}</td>
+                            <td class="Ttd">{{item.post==null?'0':item.post}}</td>
+                            <td class="Ttd">{{item.phraise==null?'0':item.phraise}}</td>
+                            <td class="Ttd">{{item.intergral==null?'0':item.intergral}}</td>
                         </tr>
                     </table>
                 </div>
@@ -259,98 +264,93 @@
 
         <!-- 遮罩 -->
         <!-- 查看回复 -->
-        <!-- <div class="shade" v-cloak ms-visible="isshade">
+        <div class="shade" ms-visible="isshade">
             <div class="see" ms-visible="isspeak">
                 <div class="see_text">
-                    <div class="see_text_top">
-                        <h4 :class="{Hcolor:currentComment.nickname==undefined}">
+                    <div class="see_text_top clearfix">
+                        <h4 ms-class="{Hcolor:currentComment.nickname==undefined}">
                             {{currentComment.nickname?currentComment.nickname:"【未注册用户】"}}</h4>
-                        <span>{{currentComment.create_at | filterTime}}</span>
+                        <span>{{currentComment.create_at | date("yyyy-MM-dd HH:mm:ss")}}</span>
                     </div>
-                    <p ms-html="currentComment.content"></p>
+                    <!-- <p ms-html="currentComment.content">哈啊啊啊和</p> -->
+                    <p>哈啊啊啊和</p>
                 </div>
                 <div class="see_main">
-                    <template ms-if="seelist.length == 0">
+                    <div ms-if="seelist.length == 0">
                         <p class="no-replay">暂无回复</p>
-                    </template>
-                    <template v-else>
-                        <ul class="see_uu" v-for="(item,index) in seelist">
+                    </div>
+                    <div ms-if="seelist.length != 0">
+                        <ul class="see_uu" ms-for="(index,item) in seelist">
                             <li>
-                                <div class="see_uu_one">
-                                    <h4 :class="{Hcolor:item.comment_user==undefined}">{{item.nickname}}<span
+                                <div class="see_uu_one clearfix">
+                                    <h4 ms-class="{Hcolor:item.comment_user==undefined}">{{item.nickname}}<span
                                             class="replay-cha">回复</span>{{item.comment_user?item.comment_user:"【未注册用户】"}}
                                     </h4>
-                                    <span>{{item.create_at | filterTime}}</span>
+                                    <span class="see-text-spa">{{item.create_at | date("yyyy-MM-dd HH:mm:ss")}}</span>
                                 </div>
                                 <p ms-html="filterContent(item.content)"></p>
-                                <div class="see_uu_three">
-                                    <div class="see_uu_btn pointer">
-                                        <div class="comment-ul">
-                                            <div class="comment-one" ms-click="likePostOrComment('',item.id,1,1)">
-                                                <img class="comment-img" src="img/好.png" alt="">
-                                                <span class="comment-test">{{item.type1}}好</span>
-                                            </div>
-                                            <div class="comment-one" ms-click="likePostOrComment('',item.id,1,2)">
-                                                <img class="comment-img" src="img/一般.png" alt="">
-                                                <span class="comment-test">{{item.type2}}一般</span>
-                                            </div>
-                                            <div class="comment-one" ms-click="likePostOrComment('',item.id,1,3)">
-                                                <img class="comment-img" src="img/坏.png" alt="">
-                                                <span class="comment-test">{{item.type3}}不感兴趣</span>
-                                            </div>
+                                <div class="see_uu_three clearfix">
+                                    <span ms-click="gospeak1(index)" class="btn-test">回复</span>
+                                    <div class="comment-ul">
+                                        <div class="comment-one" ms-click="likePostOrComment('',item.id,1,1)">
+                                            <img class="comment-img" src="img/好.png" alt="">
+                                            <span class="comment-test">{{item.type1}}好</span>
+                                        </div>
+                                        <div class="comment-one" ms-click="likePostOrComment('',item.id,1,2)">
+                                            <img class="comment-img" src="img/一般.png" alt="">
+                                            <span class="comment-test">{{item.type2}}一般</span>
+                                        </div>
+                                        <div class="comment-one" ms-click="likePostOrComment('',item.id,1,3)">
+                                            <img class="comment-img" src="img/坏.png" alt="">
+                                            <span class="comment-test">{{item.type3}}不感兴趣</span>
                                         </div>
                                     </div>
-                                    <span ms-click="gospeak1(index)" class="pointer">回复</span>
                                 </div>
                                 <div class="see_inp" ms-visible="oneIndex == index">
                                     <input ms-duplex="replyComment" type="text">
-                                    <span></span>
-                                    <span class="pointer"
+                                    <span class="pointer-one"
                                         ms-click="commentChange(currentPostId,item.id,item.uid,1)">发布</span>
                                 </div>
                             </li>
-                            子集
-                            <li v-for="(part,index) in item.child" class="list_two">
-                                <div class="see_uu_one">
-                                    <h4>{{part.nickname}}回复{{part.comment_user}}</h4>
-                                    <span>{{part.create_at | filterTime}}</span>
+                            <!-- 子集 -->
+                            <li ms-for="(index,part) in item.child" class="list_two">
+                                <div class="see_uu_one clearfix">
+                                    <h4>{{part.nickname}} <span class="replay-cha">回复</span>{{part.comment_user}}</h4>
+                                    <span class="see-text-spa">{{part.create_at | date("yyyy-MM-dd HH:mm:ss")}}</span>
                                 </div>
                                 <p ms-html="filterContent(part.content)"></p>
-                                <div class="see_uu_three">
-                                    <div class="see_uu_btn pointer">
-                                        <div class="comment-ul">
-                                            <div class="comment-one" ms-click="likePostOrComment('',part.id,1,1)">
-                                                <img class="comment-img" src="img/好.png" alt="">
-                                                <span class="comment-test">{{part.type1}}好</span>
-                                            </div>
-                                            <div class="comment-one" ms-click="likePostOrComment('',part.id,1,2)">
-                                                <img class="comment-img" src="img/一般.png" alt="">
-                                                <span class="comment-test">{{part.type2}}一般</span>
-                                            </div>
-                                            <div class="comment-one" ms-click="likePostOrComment('',part.id,1,3)">
-                                                <img class="comment-img" src="img/坏.png" alt="">
-                                                <span class="comment-test">{{part.type3}}不感兴趣</span>
-                                            </div>
+                                <div class="see_uu_three clearfix">
+                                    <span ms-click="gospeak2(index)" class="btn-test">回复</span>
+                                    <div class="comment-ul">
+                                        <div class="comment-one" ms-click="likePostOrComment('',part.id,1,1)">
+                                            <img class="comment-img" src="img/好.png" alt="">
+                                            <span class="comment-test">{{part.type1}}好</span>
+                                        </div>
+                                        <div class="comment-one" ms-click="likePostOrComment('',part.id,1,2)">
+                                            <img class="comment-img" src="img/一般.png" alt="">
+                                            <span class="comment-test">{{part.type2}}一般</span>
+                                        </div>
+                                        <div class="comment-one" ms-click="likePostOrComment('',part.id,1,3)">
+                                            <img class="comment-img" src="img/坏.png" alt="">
+                                            <span class="comment-test">{{part.type3}}不感兴趣</span>
                                         </div>
                                     </div>
-                                    <span ms-click="gospeak2(index)" class="pointer">回复</span>
                                 </div>
                                 <div class="see_inp" ms-visible="twoIndex == index">
                                     <input ms-duplex="replyComment" type="text">
-                                    <span></span>
-                                    <span class="pointer"
+                                    <span class="pointer-one"
                                         ms-click="commentChange(currentPostId,item.id,item.uid,1)">发布</span>
                                 </div>
                             </li>
                         </ul>
-                    </template>
+                        </d>
 
+                    </div>
                 </div>
             </div>
             <div class="close" ms-click="goClose">
             </div>
-        </div> -->
-    </div>
+        </div>
 </body>
 
 </html>
