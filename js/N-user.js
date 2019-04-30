@@ -8,8 +8,6 @@ var vm = avalon.define({
     isent: true,
     //查看文章
     iscomment: false,
-    //评论
-    isreply: false,
     //回复
     isspeak: false,
     //查看回复
@@ -33,75 +31,75 @@ var vm = avalon.define({
     isWrap: false,
     //排名切换
     titleList: [
-        {
-            content: "今天大菠萝降价",
-            create_at: "2019-04-19 02:37:37",
-            first: "0",
-            // first_end_time: null,
-            // first_start_time: null,
-            id: 91,
-            info_id: 8,
-            picture: "http://police.pzhkj.cn/uploads/1555612632.jpg",
-            records: 2,
-            status: "0",
-            title: "大菠萝",
-            type1: 0,
-            type2: 2,
-            type3: 0,
-            uid: 5,
-            comment_list: [
-                {
-                    comment_id: 0,
-                    comment_uid: 0,
-                    content: "好的啊",
-                    create_at: 1555614409,
-                    id: 113,
-                    ip: "192.168.2.112",
-                    is_read: 0,
-                    nickname: null,
-                    post_id: 91,
-                    status: "0",
-                    type1: 0,
-                    type2: 0,
-                    type3: 2,
-                    uid: 0,
-                },
-                {
-                    comment_id: 0,
-                    comment_uid: 0,
-                    content: "好的啊",
-                    create_at: 1555614409,
-                    id: 113,
-                    ip: "192.168.2.112",
-                    is_read: 0,
-                    nickname: null,
-                    post_id: 91,
-                    status: "0",
-                    type1: 0,
-                    type2: 0,
-                    type3: 2,
-                    uid: 0,
-                },
-            ],
+        // {
+        //     content: "今天大菠萝降价",
+        //     create_at: "2019-04-19 02:37:37",
+        //     first: "0",
+        //     // first_end_time: null,
+        //     // first_start_time: null,
+        //     id: 91,
+        //     info_id: 8,
+        //     picture: "http://police.pzhkj.cn/uploads/1555612632.jpg",
+        //     records: 2,
+        //     status: "0",
+        //     title: "大菠萝",
+        //     type1: 0,
+        //     type2: 2,
+        //     type3: 0,
+        //     uid: 5,
+        //     comment_list: [
+        //         {
+        //             comment_id: 0,
+        //             comment_uid: 0,
+        //             content: "好的啊",
+        //             create_at: 1555614409,
+        //             id: 113,
+        //             ip: "192.168.2.112",
+        //             is_read: 0,
+        //             nickname: null,
+        //             post_id: 91,
+        //             status: "0",
+        //             type1: 0,
+        //             type2: 0,
+        //             type3: 2,
+        //             uid: 0,
+        //         },
+        //         {
+        //             comment_id: 0,
+        //             comment_uid: 0,
+        //             content: "好的啊",
+        //             create_at: 1555614409,
+        //             id: 113,
+        //             ip: "192.168.2.112",
+        //             is_read: 0,
+        //             nickname: null,
+        //             post_id: 91,
+        //             status: "0",
+        //             type1: 0,
+        //             type2: 0,
+        //             type3: 2,
+        //             uid: 0,
+        //         },
+        //     ],
 
-        },
-        {
-            content: "今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价",
-            create_at: "2019-04-19 02:37:37",
-            first: "0",
-            // first_end_time: null,
-            // first_start_time: null,
-            id: 91,
-            info_id: 8,
-            picture: "http://police.pzhkj.cn/uploads/1555612632.jpg",
-            records: 2,
-            status: "0",
-            title: "大菠萝",
-            type1: 0,
-            type2: 2,
-            type3: 0,
-            uid: 5,
-        }
+        // },
+        // {
+        //     content: "今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价今天大菠萝降价",
+        //     create_at: "2019-04-19 02:37:37",
+        //     first: "0",
+        //     // first_end_time: null,
+        //     // first_start_time: null,
+        //     id: 91,
+        //     info_id: 8,
+        //     picture: "http://police.pzhkj.cn/uploads/1555612632.jpg",
+        //     records: 2,
+        //     status: "0",
+        //     title: "大菠萝",
+        //     type1: 0,
+        //     type2: 2,
+        //     type3: 0,
+        //     uid: 5,
+        // }
     ],
     list: [],
     comlist: [],
@@ -111,15 +109,47 @@ var vm = avalon.define({
             post: '22',
             phraise: '33',
             intergral: '44'
-        },
-        {
-            login: "11",
-            post: '22',
-            phraise: '33',
-            intergral: '44'
         }
     ],
-    seelist: [],
+    seelist: [
+        {
+            comment_id: 113,
+            comment_uid: 0,
+            comment_user: null,
+            content: "好个屁",
+            create_at: 1556506643,
+            id: 114,
+            ip: "",
+            is_read: 0,
+            nickname: "丁毅",
+            post_id: 91,
+            status: "0",
+            type1: 0,
+            type2: 0,
+            type3: 0,
+            uid: 5,
+            child: [
+                {
+                    comment_id: 114,
+                    comment_uid: 5,
+                    comment_user: "丁毅",
+                    content: "不许说脏话",
+                    create_at: 1556506658,
+                    id: 115,
+                    ip: "",
+                    is_read: 0,
+                    nickname: "丁毅",
+                    post_id: 91,
+                    status: "0",
+                    type1: 0,
+                    type2: 0,
+                    type3: 0,
+                    uid: 5,
+                }
+            ]
+        
+        }
+    ],
     //查看回复
     replayList: [],
     //回复
@@ -128,7 +158,7 @@ var vm = avalon.define({
         {
             comment_content: "uuu",
             comment_id: 20,
-            content: "国家大事",
+            content: "国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事国家大事",
             nickname: "丁毅",
             post_id: 77,
             title: "关于国家安全，习近平这些话字字千钧",
@@ -220,10 +250,11 @@ var vm = avalon.define({
         //跳转我的主页
         window.location.href = "user.html";
     },
-    goPass: function goPass() {
-        //修改密码
-        this.isshade = true;
-        this.ispass = true;
+    Goindex:function(){
+        window.location.href = "index.html";
+    },
+    Goheat:function(){
+        window.location.href = "heart.html";
     },
     editChange: function editChange() {
         var _this = this;

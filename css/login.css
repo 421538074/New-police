@@ -311,8 +311,8 @@ a.role-a {
     }
 
     .login_bot {
-        width: 280px;
-        height: 205px;
+        width: 330px;
+        height: 230px;
         background: white;
         box-shadow: 0px 8px 14px 4px #231815;
         border-radius: 20px;
@@ -334,7 +334,7 @@ a.role-a {
 
     /* 选择登录角色 */
     .role_uu {
-        padding: 57px 0 0 22px;
+        padding: 72px 0 0 44px;
     }
 
     .role_uu li {
@@ -477,7 +477,7 @@ a.role-a {
     }
 
     .matron_uu {
-        margin-left: 17%;
+        margin-left: 20%;
     }
 
     .matron_uu li {
@@ -519,11 +519,17 @@ a.role-a {
     }
 
     .enterone {
-        margin-left: 34%;
+        margin-left: 36%;
     }
 
     .login-wrapper {
         line-height: 20px;
     }
 
+    .other-one {
+        margin-right:10px;
+    }
+    .register-wrapper {
+        margin-top: 10px;
+    }
 }
