@@ -89,6 +89,34 @@ var vm = avalon.define({
                 }
             }
         });
+    },
+    poloceRegister: function () {
+        var that = this;
+        if (this.Gpsw == this.Ggpsw) {
+            $.ajax({
+                type: "post",
+                url: "".concat(api, "/index/api/getRegister"),
+                async: true,
+                data: {
+                    nickname: this.Gname,
+                    password: this.Gpsw
+                },
+                dataType: 'json',
+                success: function success(res) {
+                    console.log(res)
+                    if (res.code == 1) {
+                        that.Gname=''
+                        that.Gpsw=''
+                        that.Ggpsw=''
+                        // window.location.href = 'index.html';
+                        warn.alert(res.msg);
+                    }
+                }
+            });
+        } else {
+            warn.alert("密码不一致");
+        }
+
     }
 });
 jQuery.support.cors = true

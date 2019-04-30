@@ -96,6 +96,7 @@ var xm = new Vue({
       });
     },
     poloceRegister: function () {
+      console.log(11)
       var that = this;
       if (this.Gpsw == this.Ggpsw) {
         $.ajax({
@@ -108,7 +109,7 @@ var xm = new Vue({
           },
           dataType: 'json',
           success: function success(res) {
-            sessionStorage.setItem("username", that.Pname);
+           console.log(res)
             // if (res.code == 1) {
             //   window.location.href = 'index.html';
             // } else {

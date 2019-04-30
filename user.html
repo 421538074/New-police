@@ -186,7 +186,7 @@
                             <span ms-click="commentChange(item.id,item.comment_id,item.uid,1)">发送</span>
                         </div>
                     </div>
-                    没有回复
+                    <!-- 没有回复 -->
                     <div class="no-replay-wrapper" ms-visible="istwo">
                         <div class="agree_none no-replay">
                         </div>
@@ -194,7 +194,7 @@
                 </div>
 
                 <!-- 报备 -->
-                <!-- <div class="base" ms-visible="isone2">
+                <div class="base" ms-visible="isone2">
                     <table>
                         <thead>
                             <tr class="Htr">
@@ -205,7 +205,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(item,index) in baseList" ms-class="{'Tcolor':index%2==1}">
+                            <tr ms-for="(index,item) in baseList" ms-class="{'Tcolor':index%2==1}">
                                 <td>{{item.title}}</td>
                                 <td>{{item.content}}</td>
                                 <td>{{item.create_at}}</td>
@@ -213,7 +213,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div> -->
+                </div>
             </div>
             <!-- 右边 -->
             <div class="user_title_right">

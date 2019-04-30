@@ -136,6 +136,18 @@ var vm = avalon.define({
             type2: 0,
             type3: 1,
             uid: 5,
+        },
+        {
+            comment_content: "hhh",
+            comment_id: 107,
+            content: "今天大菠萝降价",
+            nickname: null,
+            post_id: 91,
+            title: "大菠萝",
+            type1: 0,
+            type2: 0,
+            type3: 1,
+            uid: 0,
         }
     ],
     //回复
@@ -172,7 +184,32 @@ var vm = avalon.define({
     tgp: '按总积分排序',
     currentSort: 0,
     currentType: -1,
-    baseList: [],
+    baseList: [
+        {
+            content: "测试",
+            create_at: "2019-04-19 11:19:24",
+            name: null,
+            police_name: "丁毅",
+            status: null,
+            title: "监控设备",
+        },
+        {
+            content: "测试",
+            create_at: "2019-04-19 11:19:24",
+            name: null,
+            police_name: "丁毅",
+            status: null,
+            title: "监控设备",
+        },
+        {
+            content: "测试",
+            create_at: "2019-04-19 11:19:24",
+            name: null,
+            police_name: "丁毅",
+            status: null,
+            title: "监控设备",
+        }
+    ],
     isone1: false,
     isone2: false,
     wrapChange: function wrapChange(key) {
