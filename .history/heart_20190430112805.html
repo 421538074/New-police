@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浦口公安局</title>
+    <link rel="stylesheet" href="css/reset.css?v=1.0.9">
+    <link rel="stylesheet" href="css/header.css?v=1.0.9">
+    <link rel="stylesheet" href="css/heart.css?v=1.0.9">
+    <link rel="stylesheet" type="text/css" href="css/page/zxf_page.css?v=1.0.9" />
+</head>
+
+<body>
+
+    <div id="app" v-cloak>
+        <!-- 头部 -->
+        <!-- <cp-banner :userName="userName"></cp-banner> -->
+        <!-- 内容 -->
+        <div class="heart_main">
+            <div class="nav_out">
+                <div class="nav container">
+                    <ul class="nav_uu">
+                        <li><a href="index.html">首页</a></li>
+                        <li class="blue" data-to="go1">插件中心</li>
+                        <li data-to="go2">音乐中心</li>
+                        <li data-to="go3">书籍中心</li>
+                        <li data-to="go4">教程中心</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 插件中心 -->
+            <div class="plug_out">
+                <div class="plug container">
+                    <p id="go1"></p>
+                    <h4>插件中心</h4>
+                    <ul class="plug_uu">
+                        <li class="pointer" ms-for="(index,item) in plugList.slice(0,10)" ms-click="openChange(item.id)">
+                            <span><img :src="item.picture | filterImg" alt=""></span>
+                            <p>{{item.name}}</p>
+                        </li>
+                    </ul>
+                    <div ms-if="plugList.length > 10" class="zxf" ms-visible="isPage"></div>
+                </div>
+            </div>
+
+            <!-- 音乐中心 -->
+            <div class="music_out">
+                <div class="music container">
+                    <p id="go2"></p>
+                    <h4>音乐中心</h4>
+                    <div class="music_nav">
+                        <div class="music_one" ms-for="(key,item) in musicSort">
+                            <div class="music_wrap clearfix">
+                                <h5>{{item.name}}</h5>
+                                <div ms-if="currentCateId != item.id" class="all-play" ms-click="allPlay(item.id,true)"></div>
+                                <div v-else class="all-play pause" ms-click="allPlay(item.id,false)"></div>
+                                <!-- <img src="img/播放1.png" alt=""> -->
+                            </div>
+                            
+                            <ul class="music_uu">
+                                <li ms-for="(index,arr) in musicList[item.id]" 
+                                :class="{musicColor: Color==arr.id && currentCateId == item.id}">
+                                    <p>{{arr.name}}</p>
+                                    <div class="music_img">
+                                        <span class="pause-icon" ms-if="Color==arr.id && currentCateId == item.id" ms-click="pauseMusic(item.id,arr.id,arr.data_url)"></span>
+                                        <span class="play-icon" v-else ms-click="playMusic(item.id,arr.id,arr.data_url)"></span>
+                                        <span ms-click="musicDown(arr.data_url)"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div ms-if="musicSort.length > 8" class="music_btn">
+                                <button ms-click="reduce(item.id)">上一页</button>
+                                <button ms-click="add(item.id)">下一页</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+            <!-- 书籍中心 -->
+            <div class="book_out">
+                <div class="book container">
+                    <p id="go3"></p>
+                    <div class="book_left">
+                        <div class="book_left_text">
+                            书籍中心
+                        </div>
+                        <div class="book_left_tag">
+                            <ul class="book_left_uu">
+                                <li ms-for="(index,item) in bookSort" :class="{white:index==current1}"
+                                    ms-click="bookChange(item.id,index)">
+                                    {{item.name}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="book_right">
+                        <div class="book_right_top">
+                            <input placeholder="输入书籍关键字" type="text" ms-duplex="text" ms-on-enter="Osearch">
+                            <span ms-click="Osearch(index)"></span>
+                        </div>
+
+                        <div class="book_right_bot">
+                            <ul class="book_uu">
+                                <li class="pointer" ms-for="(index,item) in bookList" ms-click="bookDown(item.id)">
+                                    <span><img ms-attr="{src:item.picture}" alt=""></span>
+                                    <p>{{item.name}}</p>
+                                </li>
+                                <div class="no-tools-wrapper" ms-if="bookList.length == 0">
+                                    <img src="img/no-tools.png">
+                                    <p class="tips-content">空空如也~</p>
+                                </div>
+                            </ul>
+                        </div>
+                        <!-- 分页 -->
+                        <!-- <cp-page ms-if="bookList.length > 8" :attr={'current-page':current,total:total} @pagechange="pagechange"></cp-page> -->
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- 教程中心 -->
+            <div class="toutor_out">
+                <div class="book container" id="go4">
+                    <div class="book_left">
+                        <div class="book_left_text">
+                            教程中心
+                        </div>
+                        <div class="book_left_tag">
+                            <ul class="book_left_uu">
+                                <li ms-for="(index,item) in tutorialSort" :class="{white:index==number}"
+                                    ms-click="turtorChange(index,item.id)">{{item.name}}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="book_right">
+                        <div class="book_right_top">
+                            <input placeholder="输入教程关键字" type="text" ms-duplex="text1" ms-on-enter="Tsearch">
+                            <span ms-click="Tsearch"></span>
+                        </div>
+
+                        <div class="book_right_bot" ms-if="!hide">
+                            <ul class="book_uu">
+                                <li class="pointer" ms-for="(index,item) in tutorialList1" ms-click="openChange(item.id)">
+                                    <span><img ms-attr="{src:item.picture | filterImg}" alt=""></span>
+                                    <p>{{item.name}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="book_right_bot" ms-if="hide">
+                            <ul class="book_uu">
+                                <li class="pointer" ms-for="(index,item) in tutorialList" ms-click="Tdown(item.id)">
+                                    <span><img src="" alt=""></span>
+                                    <p>{{item.name}}</p>
+                                </li>
+                                <div class="no-tools-wrapper" ms-if="tutorialList.length == 0">
+                                    <img src="img/no-tools.png">
+                                    <p class="tips-content">空空如也~</p>
+                                </div>
+                            </ul>
+                        </div>
+                        <!-- 分页 -->
+                        <!-- <cp-page ms-if="tutorialList.length > 8" :total="totalone" :current-page='currentone' @pagechange="pagechangeOne"></cp-page> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- 弹框 -->
+        <div class="shade" ms-visible="isshade">
+            <!-- 书籍 -->
+            <div class="book_shade" ms-visible="isbook">
+                <div class="book_name">
+                        <img ms-attr="{src:picture | filterImg}" >
+                    <div class="book_name_right">
+                        <p>{{name}}</p>
+                    </div>
+                </div>
+                <div class="book_btn">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <!-- 插件 -->
+            <div class="book_shade" ms-visible="isplug">
+                <div class="book_name">
+                    <img ms-attr="{src:picture | filterImg}">
+
+                    <div class="book_name_right">
+                        <p>{{name}}</p>
+                    </div>
+
+                </div>
+                <div class="plug_btn pointer" ms-click="upDown()">
+                    <span></span>
+                </div>
+            </div>
+            <!-- 教程 -->
+            <div class="book_shade" ms-visible="istotur">
+                <div class="book_name">
+                    <span>
+                            <img ms-attr="{src:picture | filterImg}" >
+                    </span>
+                    <div class="book_name_right">
+                        <p>{{Tname}}</p>
+                        <!-- <p>{{create_at | filterTime}}</p> -->
+                    </div>
+
+                </div>
+                <div class="totur_btn" ms-click="upDown()">
+                    查看
+                </div>
+            </div>
+
+            <!-- 修改密码 -->
+            <div class="pass" ms-visible="ispass">
+                <div class="pass_top">
+                    修改密码
+                </div>
+                <div class="pass_bot">
+                    <ul class="pass_uu">
+                        <li>
+                            <span>原密码：</span>
+                            <input type="password" ms-duplex="Opsw">
+                        </li>
+                        <li>
+                            <span>新密码：</span>
+                            <input type="password" ms-duplex="Npsw">
+                        </li>
+                        <li>
+                            <span>重新输入密码：</span>
+                            <input type="password" ms-duplex="Tpsw">
+                        </li>
+                    </ul>
+                    <p ms-click="editChange">确认</p>
+                </div>
+            </div>
+            <div class="close pointer" ms-click="goClose">
+            </div>
+        </div>
+        <embed ms-attr="{src:musicListSelf[currentMusicIndex]}" id="myPlayer">
+        </embed>
+    </div>
+
+
+</body>
+
+</html>
+
+<script src="js/jquery.min.js?v=1.0.9"></script>
+<!-- <script src="js/vue.js?v=1.0.9"></script> -->
+<script src="js/avalon/avalon.js"></script>
+<script src="js/components.js?v=1.0.9"></script>
+<script src="js/api.js?v=1.0.9"></script>
+<script type="text/javascript" src="js/pagejs/zxf_page.js?v=1.0.9"></script>
+<script type="text/javascript" src="js/heart.js"></script>
