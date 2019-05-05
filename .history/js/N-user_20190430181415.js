@@ -75,7 +75,30 @@ var vm = avalon.define({
     currentSort: 0,
     currentType: -1,
     baseList: [
-       
+        {
+            content: "测试",
+            create_at: "2019-04-19 11:19:24",
+            name: null,
+            police_name: "丁毅",
+            status: null,
+            title: "监控设备",
+        },
+        {
+            content: "测试",
+            create_at: "2019-04-19 11:19:24",
+            name: null,
+            police_name: "丁毅",
+            status: null,
+            title: "监控设备",
+        },
+        {
+            content: "测试",
+            create_at: "2019-04-19 11:19:24",
+            name: null,
+            police_name: "丁毅",
+            status: null,
+            title: "监控设备",
+        }
     ],
     isone1: false,
     isone2: false,

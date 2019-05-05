@@ -356,7 +356,6 @@ var xm = avalon.define({
         success: function success(res) {
           _this5.hide = false;
           _this5.tutorialList1 = res.data;
-          console.log(_this5.tutorialList1);
         }
       });
     }
@@ -563,6 +562,7 @@ var xm = avalon.define({
       dataType: 'json',
       success: function success(res) {
         _this13.bookList = res.data;
+        console.log(_this13);
       }
     });
   },
@@ -582,7 +582,6 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
-        _this14.hide =false;
         _this14.tutorialList1 = res.data;
       }
     });

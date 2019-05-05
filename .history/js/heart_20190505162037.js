@@ -356,7 +356,6 @@ var xm = avalon.define({
         success: function success(res) {
           _this5.hide = false;
           _this5.tutorialList1 = res.data;
-          console.log(_this5.tutorialList1);
         }
       });
     }
@@ -439,10 +438,14 @@ var xm = avalon.define({
     var url = sessionStorage.getItem('url');
     url = url.replace("\"", "").replace("\"", "");;
     var down = api + "/" + url; // console.log(down)
+    // var $form = $('<form></form>');
+    // $form.attr('action', down);
+    // $form.appendTo($('body'));
+    // $form.submit();
+
     var downloadLink = document.createElement('a');
     downloadLink.href = down;
     downloadLink.download = this.name;
-    document.body.appendChild(downloadLink);
     downloadLink.click();
   },
   pagechange: function pagechange(currentPage) {
@@ -546,10 +549,7 @@ var xm = avalon.define({
     alink.download = this.imgs;
     alink.click();
   },
-  Osearch: function Osearch(e) {
-    if(e.keyCode != 13) {
-      return;
-    }
+  Osearch: function Osearch() {
     var _this13 = this;
 
     $.ajax({
@@ -566,10 +566,7 @@ var xm = avalon.define({
       }
     });
   },
-  Tsearch: function Tsearch(e) {
-    if(e.keyCode != 13) {
-      return;
-    }
+  Tsearch: function Tsearch() {
     var _this14 = this;
 
     $.ajax({
@@ -582,7 +579,6 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
-        _this14.hide =false;
         _this14.tutorialList1 = res.data;
       }
     });

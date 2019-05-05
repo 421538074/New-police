@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/heart.css?v=1.0.9">
     <link rel="stylesheet" type="text/css" href="css/page/zxf_page.css?v=1.0.9" />
     <script src="js/avalon/respond.src.js"></script>
+    <!-- <script src="js/html5media.min.js"></script> -->
+    <script src="//api.html5media.info/1.2.2/html5media.min.js"></script>
 </head>
 
 <body>
@@ -67,7 +69,7 @@
                                     <p>{{arr.name}}</p>
                                     <div class="music_img">
                                         <span class="pause-icon" ms-if="Color==arr.id && currentCateId == item.id" ms-click="pauseMusic(item.id,arr.id,arr.data_url)"></span>
-                                        <span class="play-icon" ms-if="!(Color==arr.id && currentCateId == item.id)" ms-click="playMusic(item.id,arr.id,arr.data_url)"></span>
+                                        <span class="play-icon " ms-if="!(Color==arr.id && currentCateId == item.id)" ms-click="playMusic(item.id,arr.id,arr.data_url)"></span>
                                         <span class="download" ms-click="musicDown(arr.data_url)"></span>
                                     </div>
                                 </li>
@@ -104,7 +106,7 @@
                     </div>
                     <div class="book_right">
                         <div class="book_right_top">
-                            <input placeholder="输入书籍关键字" type="text" ms-duplex="text" ms-on-keyup="Osearch">
+                            <input placeholder="输入书籍关键字" type="text" ms-duplex="text" ms-on-enter="Osearch">
                             <span ms-click="Osearch(index)"></span>
                         </div>
 
@@ -145,7 +147,7 @@
 
                     <div class="book_right">
                         <div class="book_right_top">
-                            <input placeholder="输入教程关键字" type="text" ms-duplex="text1" ms-on-keyup="Tsearch">
+                            <input placeholder="输入教程关键字" type="text" ms-duplex="text1" ms-on-enter="Tsearch">
                             <span ms-click="Tsearch"></span>
                         </div>
 
@@ -185,7 +187,7 @@
                 <div class="book_name">
                         <img ms-attr="{src:'book_shad'picture}" >
                     <div class="book_name_right">
-                        <p class="book_name_title">{{name}}</p>
+                        <p>{{name}}</p>
                     </div>
                 </div>
                 <div class="book_btn">
@@ -200,7 +202,7 @@
                     <img ms-attr="{src:'http://police.pzhkj.cn' + picture}">
 
                     <div class="book_name_right">
-                        <p class="book_name_title">{{name}}</p>
+                        <p>{{name}}</p>
                     </div>
 
                 </div>
@@ -215,7 +217,7 @@
                         <img ms-attr="{src:'http://police.pzhkj.cn' + picture}" >
                     </span>
                     <div class="book_name_right">
-                        <p class="book_name_title">{{Tname}}</p>
+                        <p>{{Tname}}</p>
                         <!-- <p>{{create_at | filterTime}}</p> -->
                     </div>
 
@@ -251,7 +253,7 @@
             <div class="close pointer" ms-click="goClose">
             </div>
         </div>
-        <audio hidden id="my-player" controls preload>
+        <audio id="my-player" controls preload>
             <source ms-attr="{src:musicListSelf[currentMusicIndex]}">
         </audio>
     </div>

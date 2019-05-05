@@ -356,7 +356,6 @@ var xm = avalon.define({
         success: function success(res) {
           _this5.hide = false;
           _this5.tutorialList1 = res.data;
-          console.log(_this5.tutorialList1);
         }
       });
     }
@@ -546,10 +545,7 @@ var xm = avalon.define({
     alink.download = this.imgs;
     alink.click();
   },
-  Osearch: function Osearch(e) {
-    if(e.keyCode != 13) {
-      return;
-    }
+  Osearch: function Osearch() {
     var _this13 = this;
 
     $.ajax({
@@ -566,10 +562,7 @@ var xm = avalon.define({
       }
     });
   },
-  Tsearch: function Tsearch(e) {
-    if(e.keyCode != 13) {
-      return;
-    }
+  Tsearch: function Tsearch() {
     var _this14 = this;
 
     $.ajax({
@@ -582,7 +575,6 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
-        _this14.hide =false;
         _this14.tutorialList1 = res.data;
       }
     });

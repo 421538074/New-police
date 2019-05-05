@@ -341,13 +341,14 @@ span.pause-icon{
 }
 
 .book_uu {
+    display: flex;
+    flex-wrap: wrap;
     margin: 0 0 15px 94px;
     height: 442px;
     overflow: hidden;
 }
 
 .book_uu li {
-    display: inline-block;
     text-align: center;
     font-size: 14px;
     font-family: PingFangSC-Regular;
@@ -361,7 +362,7 @@ span.pause-icon{
     display: inline-block;
     width: 120px;
     height: 160px;
-    background:#1D55C0;
+    background: rgba(29, 85, 152, 1);
     margin-bottom: 19px;
 }
 
@@ -411,7 +412,7 @@ span.pause-icon{
 .book_name img {
     width: 60%;
 }
-.book_name p.book_name_title {
+.book_name p:nth-child(1) {
     font-size: 24px;
     font-family: PingFangSC-Regular;
     font-weight: 400;

@@ -7,8 +7,6 @@ avalon.filters.filterTime = function filterTime(time) {
 };
 avalon.component('cp-banner', indexBanner);
 var myPlayer = document.getElementById('my-player');
-//IE8单独的embed播放器
-var myPlayerIE = '';
 var xm = avalon.define({
   $id: "app",
   isbook: false,
@@ -81,58 +79,38 @@ var xm = avalon.define({
     this.Color = musicId;
     this.musicListSelf = [];
 
-    if(isIE()) {
-      // IE player
-      if(myPlayerIE != '') {
-        myPlayerIE.pause();
-      }
-      $('body embed').remove();
-      myPlayerIE = document.createElement('embed');
-      myPlayerIE.src = "".concat(api, "/").concat(url);
-      myPlayerIE.height = 0;
-      document.body.appendChild(myPlayerIE);
-    }
-    else {
-      if (myPlayer.src == '' || myPlayer.src != "".concat(api, "/").concat(url)) {
-        myPlayer.src = "".concat(api, "/").concat(url);
-  
-        myPlayer.oncanplay = function () {
-          _this.totalTime = myPlayer.duration;
-        };
-  
-        clearInterval(interval);
-        this.playedTime = 0;
-      }
+    if (myPlayer.src == '' || myPlayer.src != "".concat(api, "/").concat(url)) {
+      myPlayer.src = "".concat(api, "/").concat(url);
+
+      myPlayer.oncanplay = function () {
+        _this.totalTime = myPlayer.duration;
+      };
+
+      clearInterval(interval);
+      this.playedTime = 0;
     }
 
     this.countInterval(false);
   },
   pauseMusic: function pauseMusic(catId, musicId, url) {
-    if(isIE()) {
-      // IE player
-      myPlayerIE.pause();
-    }
-    else {
-      myPlayer.pause();
-    }
+    myPlayer.pause();
     this.pausedId = musicId;
     this.currentCateId = -1;
     this.Color = -1;
   },
   allPlay: function allPlay(key, flag) {
+    if(isIE()) {
+      this.allPlayIE();
+      return;
+    }
     if (flag) {
-      this.currentCateId = key; //全部播放this.countInterval(true);
+      this.currentCateId = key; //全部播放
       this.musicListSelf = this.musicList[key];
       this.currentMusicIndex = -1;
       this.nextMusic();
     } else {
       // 暂停
       this.currentCateId = -1;
-      // IE player
-      if (isIE()) {
-        myPlayerIE.pause();
-        return;
-      }
       myPlayer.pause();
     }
   },
@@ -143,76 +121,33 @@ var xm = avalon.define({
       this.currentMusicIndex += 1;
     }
     this.Color = this.musicListSelf[this.currentMusicIndex].id;
-    // IE player
-    if (isIE()) {
-      // 移除embed媒体元素
-      if(myPlayerIE != '') {
-        myPlayerIE.pause();
-      }
-      $('body embed').remove();
-      myPlayerIE = document.createElement('embed');
-      myPlayerIE.src = "".concat(api, "/").concat(this.musicListSelf[this.currentMusicIndex].data_url);
-      myPlayerIE.height = 0;
-      document.body.appendChild(myPlayerIE);
-    } else {
-      myPlayer.src = "".concat(api, "/").concat(this.musicListSelf[this.currentMusicIndex].data_url);
-    }
+    myPlayer.src = "".concat(api, "/").concat(this.musicListSelf[this.currentMusicIndex].data_url);
     this.countInterval(true);
   },
   countInterval: function countInterval(flag) {
     var _this2 = this;
 
     if (flag) {
-      // 下一首
-      if (isIE()) {
-        // IE player
-        //轮询查询歌曲时间总长
-        if (myPlayerIE.duration == undefined || myPlayerIE.duration == 0) {
-          var intervalTemp = setInterval(function () {
-            if (myPlayerIE.duration != undefined && myPlayerIE.duration != 0) {
-              _this2.totalTime = myPlayerIE.duration;
-              clearInterval(intervalTemp);
-              _this2.playedTime = 0;
-              clearInterval(interval);
-              interval = setInterval(function () {
-                _this2.playedTime += 1;
-                if (_this2.playedTime >= _this2.totalTime) {
-                  _this2.nextMusic();
-                }
-              }, 1000);
-            }
-          }, 50);
-        }
+      myPlayer.load();
 
-      } else {
-        myPlayer.load();
+      myPlayer.oncanplay = function () {
+        _this2.totalTime = myPlayer.duration;
 
-        myPlayer.oncanplay = function () {
-          _this2.totalTime = myPlayer.duration;
-
-          myPlayer.play();
-
-          _this2.playedTime = 0;
-          clearInterval(interval);
-          interval = setInterval(function () {
-            _this2.playedTime += 1;
-
-            if (_this2.playedTime >= _this2.totalTime) {
-              _this2.nextMusic();
-            }
-          }, 1000);
-        };
-      }
-    } else {
-      // 暂停/播放
-      if(!isIE()) {
-        this.totalTime = myPlayer.duration;
         myPlayer.play();
-      }
-      else {
-        // IE player
-        myPlayerIE.play();
-      }
+
+        _this2.playedTime = 0;
+        clearInterval(interval);
+        interval = setInterval(function () {
+          _this2.playedTime += 1;
+
+          if (_this2.playedTime >= _this2.totalTime) {
+            _this2.nextMusic();
+          }
+        }, 1000);
+      };
+    } else {
+      this.totalTime = myPlayer.duration;
+      myPlayer.play();
 
       if (!interval) {
         interval = setInterval(function () {
@@ -227,6 +162,12 @@ var xm = avalon.define({
         }, 1000);
       }
     }
+  },
+  allPlayIE:function allPlayIE() {
+    var emPlayer = '<embed src="musci/玄觞、双笙 - 千梦.mp3"></embed>';
+    $('body').append(emPlayer);
+    console.log(emPlayer);
+    emPlayer.play();
   },
   goClose: function goClose() {
     //关闭遮罩
@@ -356,7 +297,6 @@ var xm = avalon.define({
         success: function success(res) {
           _this5.hide = false;
           _this5.tutorialList1 = res.data;
-          console.log(_this5.tutorialList1);
         }
       });
     }
@@ -439,10 +379,14 @@ var xm = avalon.define({
     var url = sessionStorage.getItem('url');
     url = url.replace("\"", "").replace("\"", "");;
     var down = api + "/" + url; // console.log(down)
+    // var $form = $('<form></form>');
+    // $form.attr('action', down);
+    // $form.appendTo($('body'));
+    // $form.submit();
+
     var downloadLink = document.createElement('a');
     downloadLink.href = down;
     downloadLink.download = this.name;
-    document.body.appendChild(downloadLink);
     downloadLink.click();
   },
   pagechange: function pagechange(currentPage) {
@@ -450,6 +394,7 @@ var xm = avalon.define({
 
     //书籍分页
     var book_id = sessionStorage.getItem('book_id');
+    console.log(book_id);
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/bookList"),
@@ -460,6 +405,7 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
+        console.log(res);
         _this9.bookList = res.data;
         _this9.total = res.data.length;
       }
@@ -480,6 +426,7 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
+        console.log(res);
         _this10.tutorialList = res.data;
         _this10.totalone = res.data.length;
       }
@@ -523,7 +470,7 @@ var xm = avalon.define({
       return;
     }
 
-    
+    console.log(this.message);
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/muisicList"),
@@ -534,6 +481,7 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
+        console.log(res);
         _this12.musicList[id] = res.data;
       }
     });
@@ -544,12 +492,10 @@ var xm = avalon.define({
     var alink = document.createElement("a");
     alink.href = "".concat(api, "/").concat(data_url);
     alink.download = this.imgs;
+    console.log(alink.download);
     alink.click();
   },
-  Osearch: function Osearch(e) {
-    if(e.keyCode != 13) {
-      return;
-    }
+  Osearch: function Osearch() {
     var _this13 = this;
 
     $.ajax({
@@ -562,14 +508,12 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
+        console.log(res);
         _this13.bookList = res.data;
       }
     });
   },
-  Tsearch: function Tsearch(e) {
-    if(e.keyCode != 13) {
-      return;
-    }
+  Tsearch: function Tsearch() {
     var _this14 = this;
 
     $.ajax({
@@ -582,7 +526,7 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
-        _this14.hide =false;
+        console.log(res);
         _this14.tutorialList1 = res.data;
       }
     });
@@ -669,6 +613,7 @@ $(".zxf").createPage({
   current: 1,
   backfun: function backfun(e) {
     var page = e.current;
+    console.log(page);
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/pluginList"),
@@ -701,6 +646,6 @@ function isIE() {
   }
   return flag;
 }
-
 jQuery.support.cors = true
 xm.created();
+console.log(xm);

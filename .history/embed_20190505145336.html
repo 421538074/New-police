@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="js/jquery1.9.0.js" type="text/javascript" charset="utf-8"></script>
+		<button class="pause" onclick="stop()">暂停</button>
+		<button class="player" onclick="play()">开始</button>
+		<button class="changeSrc" onclick="changeSrc()">切换</button>
+		<!-- <embed width="300" height="100" mastersound id="player" autostart="false" src="media/test.mp3"></embed> -->
+		<script type="text/javascript">
+			$('body').append('<embed id="my-player" src="" height="0"></embed>');
+			// var player = document.getElementById('player');
+			// document.body.appendChild(player);
+			function stop() {
+				player.stop();
+			}
+			
+			function play() {
+				var player = document.createElement('embed');
+				player.src = 'media/test.mp3';
+				// document.body.appendChild(player);
+				
+				$('body').append(player);
+				console.log(player.duration);
+				player.stop();
+			}
+		</script>
+	</body>
+</html>

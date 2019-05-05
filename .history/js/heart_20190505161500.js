@@ -83,9 +83,7 @@ var xm = avalon.define({
 
     if(isIE()) {
       // IE player
-      if(myPlayerIE != '') {
-        myPlayerIE.pause();
-      }
+      myPlayerIE.pause();
       $('body embed').remove();
       myPlayerIE = document.createElement('embed');
       myPlayerIE.src = "".concat(api, "/").concat(url);
@@ -146,9 +144,7 @@ var xm = avalon.define({
     // IE player
     if (isIE()) {
       // 移除embed媒体元素
-      if(myPlayerIE != '') {
-        myPlayerIE.pause();
-      }
+      myPlayerIE.pause();
       $('body embed').remove();
       myPlayerIE = document.createElement('embed');
       myPlayerIE.src = "".concat(api, "/").concat(this.musicListSelf[this.currentMusicIndex].data_url);
@@ -176,6 +172,7 @@ var xm = avalon.define({
               clearInterval(interval);
               interval = setInterval(function () {
                 _this2.playedTime += 1;
+                console.log(_this2.playedTime,_this2.totalTime);
                 if (_this2.playedTime >= _this2.totalTime) {
                   _this2.nextMusic();
                 }
@@ -356,7 +353,6 @@ var xm = avalon.define({
         success: function success(res) {
           _this5.hide = false;
           _this5.tutorialList1 = res.data;
-          console.log(_this5.tutorialList1);
         }
       });
     }
@@ -439,10 +435,14 @@ var xm = avalon.define({
     var url = sessionStorage.getItem('url');
     url = url.replace("\"", "").replace("\"", "");;
     var down = api + "/" + url; // console.log(down)
+    // var $form = $('<form></form>');
+    // $form.attr('action', down);
+    // $form.appendTo($('body'));
+    // $form.submit();
+
     var downloadLink = document.createElement('a');
     downloadLink.href = down;
     downloadLink.download = this.name;
-    document.body.appendChild(downloadLink);
     downloadLink.click();
   },
   pagechange: function pagechange(currentPage) {
@@ -450,6 +450,7 @@ var xm = avalon.define({
 
     //书籍分页
     var book_id = sessionStorage.getItem('book_id');
+    console.log(book_id);
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/bookList"),
@@ -460,6 +461,7 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
+        console.log(res);
         _this9.bookList = res.data;
         _this9.total = res.data.length;
       }
@@ -480,6 +482,7 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
+        console.log(res);
         _this10.tutorialList = res.data;
         _this10.totalone = res.data.length;
       }
@@ -523,7 +526,7 @@ var xm = avalon.define({
       return;
     }
 
-    
+    console.log(this.message);
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/muisicList"),
@@ -534,6 +537,7 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
+        console.log(res);
         _this12.musicList[id] = res.data;
       }
     });
@@ -544,12 +548,10 @@ var xm = avalon.define({
     var alink = document.createElement("a");
     alink.href = "".concat(api, "/").concat(data_url);
     alink.download = this.imgs;
+    console.log(alink.download);
     alink.click();
   },
-  Osearch: function Osearch(e) {
-    if(e.keyCode != 13) {
-      return;
-    }
+  Osearch: function Osearch() {
     var _this13 = this;
 
     $.ajax({
@@ -562,14 +564,12 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
+        console.log(res);
         _this13.bookList = res.data;
       }
     });
   },
-  Tsearch: function Tsearch(e) {
-    if(e.keyCode != 13) {
-      return;
-    }
+  Tsearch: function Tsearch() {
     var _this14 = this;
 
     $.ajax({
@@ -582,7 +582,7 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
-        _this14.hide =false;
+        console.log(res);
         _this14.tutorialList1 = res.data;
       }
     });
@@ -669,6 +669,7 @@ $(".zxf").createPage({
   current: 1,
   backfun: function backfun(e) {
     var page = e.current;
+    console.log(page);
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/pluginList"),

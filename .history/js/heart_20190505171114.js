@@ -582,7 +582,6 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
-        _this14.hide =false;
         _this14.tutorialList1 = res.data;
       }
     });
