@@ -1,121 +1,115 @@
-"use strict";
-
-var xm = new Vue({
-  el: "#app",
-  data: {
-    show: false,
-    show1: true,
-    show2: false,
-    tshow: true,
-    ForumCate: [],
-    //论坛分类
-    changeRed: -1,
-    Ptitle: '',
-    //论坛标题
-    Pcontent: '',
-    //论坛内容
-    Pcomment: '',
-    //评论内容
-    keyWords: '',
-    //搜索关键词
-    replyComment: '',
-    //回复评论的内容,
-    currentComment: {},
-    //当前查看的评论,
-    currentPostId: '',
-    currentCommentId: '',
-    selectedCatId: '',
-    postIndex: -1,
-    isCreated: false,
-    //是否创建了富文本
-    KindEditor: '',
-    avtar: '',
-    // text: '哈哈哈',
-    ishide: false
+var vm = avalon.define({
+  $id: "app",
+  show: false,
+  show1: true,
+  show2: false,
+  tshow: true,
+  ForumCate: [{title:'科技'},{title:'社会'},{title:'社会'}],
+  //论坛分类
+  changeRed: -1,
+  Ptitle: '',
+  //论坛标题
+  Pcontent: '',
+  //论坛内容
+  Pcomment: '',
+  //评论内容
+  keyWords: '',
+  //搜索关键词
+  replyComment: '',
+  //回复评论的内容,
+  currentComment: {},
+  //当前查看的评论,
+  currentPostId: '',
+  currentCommentId: '',
+  selectedCatId: '',
+  postIndex: -1,
+  isCreated: false,
+  //是否创建了富文本
+  KindEditor: '',
+  avtar: '',
+  ishide: false,
+  fromShow: function fromShow() {
+    this.show = !this.show;
+    $("css3-container").css("display", "block")
   },
-  methods: {
-    fromShow: function fromShow() {
-      this.show = !this.show;
-    },
-    btnChange: function btnChange(selectedCatId, index) {
-      //写论坛 点击添加颜色
-      this.changeRed = index;
-      this.selectedCatId = selectedCatId;
-    },
-    pulishChange: function pulishChange() {
-      var _this = this;
+  btnChange: function btnChange(selectedCatId, index) {
+    //写论坛 点击添加颜色
+    this.changeRed = index;
+    this.selectedCatId = selectedCatId;
+  },
+  pulishChange: function pulishChange() {
+    var _this = this;
 
-      //发布论坛
-      if (this.Ptitle.trim() == '') {
-        warn.alert('请输入标题!'); // this.text = "请输入标题"
-        // this.ishide = true
-        // console.log(this.percentList)
+    //发布论坛
+    if (this.Ptitle.trim() == '') {
+      warn.alert('请输入标题!'); // this.text = "请输入标题"
+      // this.ishide = true
+      // console.log(this.percentList)
 
-        return false;
-      } else if (editor.html().trim() == '') {
-        warn.alert('请输入内容!');
-        return false;
-      } else if (this.selectedCatId == '') {
-        warn.alert('请选择分类标签');
-        return false;
-      }
-
-      $.ajax({
-        type: "post",
-        url: "".concat(api, "/index/api/publishPost"),
-        data: {
-          info_id: this.selectedCatId,
-          title: this.Ptitle,
-          content: editor.html(),
-          picture: this.avtar
-        },
-        dataType: 'json',
-        success: function success(res) {
-          _this.allList = res.data;
-          _this.selectedCatId = '';
-          _this.Ptitle = '';
-          _this.Pcontent = '';
-          window.location.href = "index.html";
-        }
-      });
-    },
-    upChange: function upChange(event) {
-      $(event.target).find('input.invisible').click();
-    },
-    downImg: function downImg() {
-      var that = this;
-      var img1 = event.target.files[0];
-      console.log(img1);
-      var formData = new FormData();
-      formData.append('file', img1);
-      $.ajax({
-        type: "post",
-        url: "".concat(api, "/index/api/postImage"),
-        data: formData,
-        processData: false,
-        async: false,
-        contentType: false,
-        dataType: "json",
-        success: function success(res) {
-          if (res.code == 1) {
-            that.show1 = false;
-            that.show2 = true;
-          }
-
-          var image = res.res;
-          image = image.replace(".", "");
-          xm.avtar = "".concat(api).concat(image);
-        }
-      });
-    },
-    showChange: function showChange() {
-      this.tshow = false;
+      return false;
+    } else if (editor.html().trim() == '') {
+      warn.alert('请输入内容!');
+      return false;
+    } else if (this.selectedCatId == '') {
+      warn.alert('请选择分类标签');
+      return false;
     }
+
+    $.ajax({
+      type: "post",
+      url: "".concat(api, "/index/api/publishPost"),
+      data: {
+        info_id: this.selectedCatId,
+        title: this.Ptitle,
+        content: editor.html(),
+        picture: this.avtar
+      },
+      dataType: 'json',
+      success: function success(res) {
+        _this.allList = res.data;
+        _this.selectedCatId = '';
+        _this.Ptitle = '';
+        _this.Pcontent = '';
+        window.location.href = "index.html";
+      }
+    });
+  },
+  upChange: function upChange(event) {
+    $(event.target).find('input.invisible').click();
+  },
+  downImg: function downImg() {
+    var that = this;
+    var img1 = event.target.files[0];
+    console.log(img1);
+    var formData = new FormData();
+    formData.append('file', img1);
+    $.ajax({
+      type: "post",
+      url: "".concat(api, "/index/api/postImage"),
+      data: formData,
+      processData: false,
+      async: false,
+      contentType: false,
+      dataType: "json",
+      success: function success(res) {
+        if (res.code == 1) {
+          that.show1 = false;
+          that.show2 = true;
+        }
+
+        var image = res.res;
+        image = image.replace(".", "");
+        xm.avtar = "".concat(api).concat(image);
+      }
+    });
+  },
+  showChange: function showChange() {
+    this.tshow = false;
   },
   created: function created() {
     var _this2 = this;
 
-    this.$nextTick(function () {
+    // this.$nextTick(function () {
       KindEditor.ready(function (K) {
         _this2.KindEditor = K;
         window.editor = _this2.KindEditor.create('#Ftext', {
@@ -143,7 +137,8 @@ var xm = new Vue({
           }
         });
       });
-    }); // 获取论坛分类
+    // });
+     // 获取论坛分类
 
     $.ajax({
       type: "post",
@@ -157,7 +152,7 @@ var xm = new Vue({
       }
     });
   },
-  components: {
-    "cp-case": indexCase
-  }
-});
+})
+
+vm.created();
+

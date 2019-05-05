@@ -75,30 +75,6 @@ var vm = avalon.define({
     currentSort: 0,
     currentType: -1,
     baseList: [
-        {
-            content: "测试",
-            create_at: "2019-04-19 11:19:24",
-            name: null,
-            police_name: "丁毅",
-            status: null,
-            title: "监控设备",
-        },
-        {
-            content: "测试",
-            create_at: "2019-04-19 11:19:24",
-            name: null,
-            police_name: "丁毅",
-            status: null,
-            title: "监控设备",
-        },
-        {
-            content: "测试",
-            create_at: "2019-04-19 11:19:24",
-            name: null,
-            police_name: "丁毅",
-            status: null,
-            title: "监控设备",
-        }
     ],
     isone1: false,
     isone2: false,
@@ -110,10 +86,10 @@ var vm = avalon.define({
         //跳转我的主页
         window.location.href = "user.html";
     },
-    Goindex:function(){
+    Goindex: function () {
         window.location.href = "index.html";
     },
-    Goheat:function(){
+    Goheat: function () {
         window.location.href = "heart.html";
     },
     editChange: function editChange() {

@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>浦口公安局</title>
-    <link rel="stylesheet" href="css/reset.css?v=1.0.9">
+    <link rel="stylesheet" href="css/base.css?v=1.0.9">
     <link rel="stylesheet" href="css/order.css?v=1.0.9">
     <link rel="stylesheet" type="text/css" href="css/page/zxf_page.css?v=1.0.9" />
 </head>
 
 <body>
 
-    <div id="app">
+    <div ms-controller="app">
         <div class="order_header">
             <div class="order_nav container">
                 <img src="img/首页logo.png" alt="">
@@ -24,11 +24,11 @@
         </div>
 
 
-        <div class="order_banner container">
+        <div class="order_banner container clearfix">
             <div class="order_left">
                 <ul class="order_uu">
-                    <li :class="{on:isstar}" @click="onli(0)">接单</li>
-                    <li :class="{on:!isstar}" @click="onli(1)">我的接单</li>
+                    <li ms-class="{on:isstar}" ms-click="onli(0)">接单</li>
+                    <li ms-class="{on:!isstar}" ms-click="onli(1)">我的接单</li>
                 </ul>
             </div>
             <div class="order_right">
@@ -43,33 +43,45 @@
                                     <th width="328">报备内容</th>
                                     <th width="88">报备人</th>
                                     <th width="92">报备状态</th>
-                                    <th width="108" v-if="!isstar">接单时间</th>
+                                    <th width="108" ms-if="!isstar">接单时间</th>
                                     <th width="100">操作</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="(item,index) in list" v-if="show" :class="{'active':index%2==1}">
-                                    <td>{{item.create_at | filterTime}}</td>
+                                <tr ms-for="(index,item) in list" ms-if="show" ms-class="{'active':index%2==1}">
+                                    <td>{{item.create_at | date("yyyy-MM-dd HH:mm:ss")}}</td>
                                     <td>{{item.name}}</td>
                                     <td>{{item.content}}</td>
                                     <td>{{item.user}}</td>
-                                    <td :class="{red:item.status==0}">
+                                    <td ms-class="{red:item.status==0}">
                                         {{item.status==0?"未接单":"接单"}}
                                     </td>
-                                    <td @click="Repair(item.id)">
+                                    <td ms-click="Repair(item.id)">
                                         <span class="receive">接单</span>
                                     </td>
                                 </tr>
-                                <tr v-for="(item,index) in list1" v-if="!show" :class="{'active':index%2==1}">
+                                <tr ms-for="(index,item) in list" ms-if="show" ms-class="{'active':index%2==1}">
+                                    <td>{{item.create_at | date("yyyy-MM-dd HH:mm:ss")}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.content}}</td>
+                                    <td>{{item.user}}</td>
+                                    <td ms-class="{red:item.status==0}">
+                                        {{item.status==0?"未接单":"接单"}}
+                                    </td>
+                                    <td ms-click="Repair(item.id)">
+                                        <span class="receive">接单</span>
+                                    </td>
+                                </tr>
+                                <tr ms-for="(index,item) in list1" ms-if="!show" ms-class="{'active':index%2==1}">
                                     <td>{{item.create_at | filterTime}}</td>
                                     <td>{{item.name}}</td>
                                     <td>{{item.content}}</td>
                                     <td>{{item.user}}</td>
-                                    <td :class="{red:item.status==0}">
+                                    <td ms-class="{red:item.status==0}">
                                         {{item.status==0?"未完成":"已完成"}}
                                     </td>
                                     <td>{{item.repair_at | filterTime}}</td>
-                                    <td @click="Service(item.id,item.one_id)">
+                                    <td ms-click="Service(item.id,item.one_id)">
                                         <span class="receive">完成</span>
                                     </td>
                                 </tr>
@@ -85,8 +97,9 @@
 </body>
 
 </html>
-<script src="js/jquery.min.js?v=1.0.9"></script>
-<script src="js/vue.js?v=1.0.9"></script>
+<script src="js/jquery1.9.0.js"></script>
+<!-- <script src="js/vue.js?v=1.0.9"></script> -->
+<script src="js/avalon/avalon.js"></script>
 <script type="text/javascript" src="js/pagejs/zxf_page.js?v=1.0.9"></script>
 <script src="js/api.js?v=1.0.9"></script>
 <script src="js/order.js?v=1.0.9"></script>

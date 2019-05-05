@@ -1069,64 +1069,11 @@ span.see-spa {
 }
 
 
+/* 
 
+栅格栏布局1024
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 @media only screen and (max-width: 1024px) {
     html {
@@ -1222,6 +1169,7 @@ span.see-spa {
     .header_enter a {
         color: white;
     }
+
     .container {
         width: 920px;
         margin: 0 auto;
