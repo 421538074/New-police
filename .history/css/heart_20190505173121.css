@@ -692,48 +692,47 @@ p.tips-content {
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/暂停.png', sizingMethod='scale');
     background-size: 100% 100%;
 }
-@media only screen and (max-width: 1024px) {
-    .user_header {
-        width: 100%;
-        background: url(../img/banner.png) no-repeat;
-        background-size: 100% 100%;
-        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/banner.png', sizingMethod='scale');
-        height: 42px;
-        position: fixed;
-        z-index: 11;
-        top: 0;
-    }
+.user_header {
+    width: 100%;
+    background: url(../img/banner.png) no-repeat;
+    background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/banner.png', sizingMethod='scale');
+    height: 72px;
+    position: fixed;
+    z-index: 11;
+    top: 0;
+}
 
-    .user_banner {
-        width: 920px;
-        height: 100%;
-        margin: 0 auto;
-        line-height: 42px;
-    }
+.user_banner {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    line-height: 72px;
+}
 
-    .index_left {
-        float: left;
-        width: 200px;
-        height: 30px;
-        margin-top: 6px;
-    }
+img.index_left{
+    float: left;
+    width: 254px;
+    height: 35px;
+    margin-top: 20px;
+}
 
-    div.user-test {
-        float: right;
-    }
+div.user-test {
+    float: right;
+}
 
-    div.user-test span {
-        font-size: 16px;
-        font-family: PingFangSC-Regular;
-        font-weight: 400;
-        color: #C1CFFF;
-        cursor: pointer;
-    }
+div.user-test span {
+    font-size: 18px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #C1CFFF;
+    cursor: pointer;
+}
 
-    .user-two {
-        margin: 0 30px 0 57px;
-    }
+.user-two {
+    margin: 0 48px 0 75px;
+}
 
-    .userColor {
-        color: white !important;
-    }
+.userColor {
+    color: white !important;
+}

@@ -195,13 +195,12 @@
     content: '';
     display: block;
 }
-.index_left {
+/* .index_left {
     display: inline-block;
-    width: 254px;
-    height: 35px;
+    width: 23em;
+    height: 80%;
     margin-left: 20%;
-    margin-top: 20px;
     background: url(../img/logo.png)no-repeat;
     background-size: 100% 100%;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/logo.png', sizingMethod='scale');
-}
+} */
