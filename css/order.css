@@ -22,8 +22,8 @@
 .order_left {
     float: left;
     width: 21%;
-    height: calc(100vh - 80px);
-    /* height: 851px; */
+    /* height: calc(100vh - 80px); */
+    height: 851px;
     background: #1D5598;
 }
 
