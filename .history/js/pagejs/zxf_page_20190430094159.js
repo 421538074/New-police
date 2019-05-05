@@ -52,6 +52,8 @@
 				}
 				/*尾部*/
 				// obj.append('<span>'+'共'+'<b>'+pageinit.pageNum+'</b>'+'页'+'</span>');
+		
+			
 			}());
 		},
 		bindEvent:function(obj,pageinit){

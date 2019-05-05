@@ -664,7 +664,7 @@ $('.nav_uu').on('click', 'li', function (e) {
 }); // 插件
 
 var length = sessionStorage.getItem("length");
-$(".zxf").createPage({
+var obj = $(".zxf").createPage({
   pageNum: Math.ceil(length / 8),
   current: 1,
   backfun: function backfun(e) {
@@ -684,7 +684,7 @@ $(".zxf").createPage({
     });
   }
 });
-
+console.log(obj);
 
 /**
  * 测试ie8

@@ -52,10 +52,13 @@
 				}
 				/*尾部*/
 				// obj.append('<span>'+'共'+'<b>'+pageinit.pageNum+'</b>'+'页'+'</span>');
+		
+			
 			}());
 		},
 		bindEvent:function(obj,pageinit){
 			return (function(){
+				
 				obj.on("click","a.prebtn",function(){
 					var cur = parseInt(obj.children("span.current").text());
 					var current = $.extend(pageinit, {"current":cur-1});
@@ -72,7 +75,7 @@
 						pageinit.backfun(current);
 					}
 				});
-				obj.on("click","a.nextbtn",function(){
+				$(obj).on("click","a.nextbtn",function(){
 					var cur = parseInt(obj.children("span.current").text());
 					var current = $.extend(pageinit, {"current":cur+1});
 					zp.addhtml(obj,current);
@@ -80,6 +83,7 @@
 						pageinit.backfun(current);
 					}
 				});
+				console.log(obj);
 			}());
 		}
 	}

@@ -52,6 +52,8 @@
 				}
 				/*尾部*/
 				// obj.append('<span>'+'共'+'<b>'+pageinit.pageNum+'</b>'+'页'+'</span>');
+		
+			
 			}());
 		},
 		bindEvent:function(obj,pageinit){
@@ -73,6 +75,7 @@
 					}
 				});
 				obj.on("click","a.nextbtn",function(){
+					alert('下一页')
 					var cur = parseInt(obj.children("span.current").text());
 					var current = $.extend(pageinit, {"current":cur+1});
 					zp.addhtml(obj,current);

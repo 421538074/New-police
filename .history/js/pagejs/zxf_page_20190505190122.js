@@ -56,6 +56,9 @@
 		},
 		bindEvent:function(obj,pageinit){
 			return (function(){
+				obj.click(function(){
+					alert('click');
+				})
 				obj.on("click","a.prebtn",function(){
 					var cur = parseInt(obj.children("span.current").text());
 					var current = $.extend(pageinit, {"current":cur-1});

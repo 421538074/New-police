@@ -59,7 +59,7 @@
 
 .plug h4,
 .music h4 {
-    font-size: 16px;
+    font-size: 18px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: #000;
@@ -157,7 +157,7 @@ ul.plug_uu p {
 }
 
 .music_nav h5 {
-    font-size: 16px;
+    font-size: 18px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: #000;
@@ -291,7 +291,7 @@ span.pause-icon {
 }
 
 .book_left_text {
-    font-size: 16px;
+    font-size: 18px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: #000;
@@ -314,7 +314,7 @@ span.pause-icon {
 
 .book_left_uu li {
     height: 40px;
-    font-size: 14px;
+    font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: #797979;
@@ -397,21 +397,12 @@ span.pause-icon {
     z-index: 1111;
 }
 
-@media screen and (max-width:1024px) {
-    .book_shade {
-        top: 15%;
-    }
-}
-@media screen and (min-width:1025px) {
-    .book_shade {
-        top: 30%;
-    }
-}
 .book_shade {
     width: 280px;
     height: 445px;
     background: white;
     position: absolute;
+    top: 30%;
     left: 40%;
     padding: 27px 18px 0 21px;
 }

@@ -52,10 +52,13 @@
 				}
 				/*尾部*/
 				// obj.append('<span>'+'共'+'<b>'+pageinit.pageNum+'</b>'+'页'+'</span>');
+		
+				console.log(obj.html());
 			}());
 		},
 		bindEvent:function(obj,pageinit){
 			return (function(){
+				
 				obj.on("click","a.prebtn",function(){
 					var cur = parseInt(obj.children("span.current").text());
 					var current = $.extend(pageinit, {"current":cur-1});
@@ -80,6 +83,7 @@
 						pageinit.backfun(current);
 					}
 				});
+				console.log(obj);
 			}());
 		}
 	}

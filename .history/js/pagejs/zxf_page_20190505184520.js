@@ -52,11 +52,14 @@
 				}
 				/*尾部*/
 				// obj.append('<span>'+'共'+'<b>'+pageinit.pageNum+'</b>'+'页'+'</span>');
+		
+			
 			}());
 		},
 		bindEvent:function(obj,pageinit){
 			return (function(){
 				obj.on("click","a.prebtn",function(){
+					alert(666)
 					var cur = parseInt(obj.children("span.current").text());
 					var current = $.extend(pageinit, {"current":cur-1});
 					zp.addhtml(obj,current);
@@ -65,6 +68,7 @@
 					}
 				});
 				obj.on("click","a.zxfPagenum",function(){
+					alert(666)
 					var cur = parseInt($(this).text());
 					var current = $.extend(pageinit, {"current":cur});
 					zp.addhtml(obj,current);

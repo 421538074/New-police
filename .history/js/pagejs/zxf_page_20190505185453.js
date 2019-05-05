@@ -1,6 +1,7 @@
 (function($){
 	var zp = {
 		init:function(obj,pageinit){
+			console.log(obj);
 			return (function(){
 				zp.addhtml(obj,pageinit);
 				zp.bindEvent(obj,pageinit);
@@ -52,6 +53,8 @@
 				}
 				/*尾部*/
 				// obj.append('<span>'+'共'+'<b>'+pageinit.pageNum+'</b>'+'页'+'</span>');
+		
+			
 			}());
 		},
 		bindEvent:function(obj,pageinit){

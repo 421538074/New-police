@@ -80,6 +80,7 @@
 						pageinit.backfun(current);
 					}
 				});
+				console.log(obj);
 			}());
 		}
 	}

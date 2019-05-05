@@ -56,6 +56,7 @@
 		},
 		bindEvent:function(obj,pageinit){
 			return (function(){
+				console.log(obj.html());
 				obj.on("click","a.prebtn",function(){
 					var cur = parseInt(obj.children("span.current").text());
 					var current = $.extend(pageinit, {"current":cur-1});
@@ -80,6 +81,7 @@
 						pageinit.backfun(current);
 					}
 				});
+				console.log(obj);
 			}());
 		}
 	}
