@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0022)http://blog.csdn.net/electroniXtar/ -->
+
 <html lang="en">
 
 <head>
@@ -172,7 +172,7 @@
                                     </div>
 
                                     <div class="reply_one" ms-visible="currentActive==index">
-                                        <input type="text" placeholder="'回复'+(comment.nickname?comment.nickname:'')+':'"
+                                        <input type="text" ms-attr="{placeholder:'回复'+(comment.nickname?comment.nickname:'')+':'}" 
                                             ms-duplex="replyComment">
                                         <span class="comment-btn"
                                             ms-click="commentChange(comment.post_id,comment.id,comment.uid)">发布</span>
@@ -443,6 +443,7 @@
 </html>
 <script src="js/jquery1.9.0.js"></script>
 <script src="js/avalon/avalon.js"></script>
+<script src="js/placeholder.js"></script>
 <script src="js/api.js?v=1.0.9"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/echarts-gl.min.js"></script>
