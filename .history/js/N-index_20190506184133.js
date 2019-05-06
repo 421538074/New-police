@@ -583,7 +583,8 @@ var vm = avalon.define({
   //文章点赞
   likePostOrComment: function likePostOrComment(post_id, comment_id, type, typeId) {
     var _this12 = this;
-
+    _this12.testC()
+    return;
     if (this.userName) {
       this.ip = "";
     } else {
@@ -875,7 +876,6 @@ function initCalendar() {
   var mySchedule = new Schedule({
     el: '#schedule-box',
     clickCb: function clickCb(y, m, d) {
-      alert(777);
       //点击日期
       vm.toggleCalendar();
       getRepairList(y + '/' + m + '/' + d);

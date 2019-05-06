@@ -598,8 +598,8 @@ var vm = avalon.define({
       type: 'post',
       dataType: 'json',
       data: {
-        post_id: post_id,
-        comment_id: comment_id,
+        post_id: 1,
+        comment_id: 1,
         ip: this.ip,
         type: typeId
       },
@@ -875,7 +875,6 @@ function initCalendar() {
   var mySchedule = new Schedule({
     el: '#schedule-box',
     clickCb: function clickCb(y, m, d) {
-      alert(777);
       //点击日期
       vm.toggleCalendar();
       getRepairList(y + '/' + m + '/' + d);

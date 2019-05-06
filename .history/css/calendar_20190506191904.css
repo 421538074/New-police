@@ -20,16 +20,11 @@ ul {
 }
 .schedule-hd div {
     display: inline-block;
-    width: 30%;
-}
-div.right-wrapper{
-    text-align: right;
 }
 
 .today {
     flex: 1;
     text-align: center;
-    width: 40%;
 }
 
 .ul-box {
@@ -81,7 +76,6 @@ div.right-wrapper{
 
 .boxshaw {
     box-shadow: 2px 2px 15px 2px #e3e3e3;
-    behavior: url(css/PIE/PIE.htc);
 }
 
 .selected-style {
@@ -133,8 +127,7 @@ div.right-wrapper{
 }
 
 span.pre-year {
-    background: url(../img/pre-year.png)no-repeat;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/pre-year.png', sizingMethod='scale');
+    background: url(../img/pre-year.png);
     background-size: 100% 100%;
     width: 10px;
     cursor:pointer;
@@ -144,8 +137,7 @@ span.pre-year {
 }
 
 span.pre-month {
-    background: url(../img/pre-month.png)no-repeat;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/pre-month.png', sizingMethod='scale');
+    background: url(../img/pre-month.png);
     background-size: 100% 100%;
     width: 10px;
     cursor:pointer;
@@ -154,8 +146,7 @@ span.pre-month {
 }
 
 span.next-month {
-    background: url(../img/next-month.png)no-repeat;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/next-month.png', sizingMethod='scale');
+    background: url(../img/next-month.png);
     background-size: 100% 100%;
     width: 10px;
     cursor:pointer;
@@ -164,8 +155,7 @@ span.next-month {
 }
 
 span.next-year {
-    background: url(../img/next-year.png)no-repeat;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/next-year.png', sizingMethod='scale');
+    background: url(../img/next-year.png);
     background-size: 100% 100%;
     width: 10px;
     cursor:pointer;

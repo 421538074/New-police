@@ -875,7 +875,6 @@ function initCalendar() {
   var mySchedule = new Schedule({
     el: '#schedule-box',
     clickCb: function clickCb(y, m, d) {
-      alert(777);
       //点击日期
       vm.toggleCalendar();
       getRepairList(y + '/' + m + '/' + d);

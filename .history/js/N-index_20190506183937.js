@@ -606,7 +606,6 @@ var vm = avalon.define({
       success: function success(res) {
         if (type == 1) {
           //弹窗评论点赞
-          
           _this12.lookchange(_this12.currentPostId, _this12.currentCommentId);
         } else {
           if (_this12.currentIndex == 3) {
@@ -875,7 +874,6 @@ function initCalendar() {
   var mySchedule = new Schedule({
     el: '#schedule-box',
     clickCb: function clickCb(y, m, d) {
-      alert(777);
       //点击日期
       vm.toggleCalendar();
       getRepairList(y + '/' + m + '/' + d);
