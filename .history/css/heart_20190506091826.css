@@ -697,10 +697,9 @@ p.tips-content {
 }
 
 .all-play.pause:hover {
-    /* background: url(../img/暂停.png)no-repeat; */
-    background: red;
-    /* filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/暂停.png', sizingMethod='scale'); */
-    /* background-size: 100% 100%; */
+    background: url(../img/暂停.png)no-repeat;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/暂停.png', sizingMethod='scale');
+    background-size: 100% 100%;
 }
 @media only screen and (max-width: 1024px) {
     .user_header {
@@ -747,7 +746,3 @@ p.tips-content {
     .userColor {
         color: white !important;
     }
-}
-div.page-book,div.page-teach{
-    text-align: center;
-}

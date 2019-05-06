@@ -506,9 +506,9 @@ $(".wrap_ul li").each(function (index) {
     $(this).click(function () {
         $("li.Wrap_active").removeClass("Wrap_active");
         $(this).addClass("Wrap_active");
-        xm.tgp = $(this).text();
+        vm.tgp = $(this).text();
         sortByCat($(this).attr('data-type'));
-        xm.isWrap = false;
+        vm.isWrap = false;
     });
 });
 $(function () {
@@ -536,7 +536,7 @@ function sortByCat(key) {
             break;
     }
 
-    xm.userlist.sort(function (a, b) {
+    vm.userlist.sort(function (a, b) {
         return b[key] - a[key];
     });
 }

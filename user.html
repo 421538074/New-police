@@ -11,9 +11,7 @@
     <link rel="stylesheet" href="css/user.css?v=1.0.9">
     <link rel="stylesheet" href="css/user1024.css">
     <link rel="stylesheet" href="css/header.css?v=1.0.9">
-
     <!-- <link href="css/user1024.css" media="screen and (max-width: 1024px)" rel="stylesheet"/> -->
-
     <script src="js/avalon/respond.src.js"></script>
 
 </head>
@@ -36,29 +34,29 @@
         <!-- 内容 -->
         <div class="user_content container clearfix">
             <div class="user_content_left">
-                <p>哈哈</p>
+                <p>{{userName}}</p>
             </div>
             <div class="user_content_right">
                 <ul class="user_ul clearfix">
                     <li>
                         <p>登录积分</p>
-                        <p>11</p>
+                        <p>{{login}}</p>
                     </li>
                     <li>
                         <p>发布积分</p>
-                        <p>22</p>
+                        <p>{{post}}</p>
                     </li>
                     <li>
                         <p>获赞积分</p>
-                        <p>33</p>
+                        <p>{{phraise}}</p>
                     </li>
                     <li>
                         <p>总积分</p>
-                        <p>44</p>
+                        <p>{{intergrals}}</p>
                     </li>
                     <li>
                         <p>当前排名</p>
-                        <p>66</p>
+                        <p>{{currentSort}}</p>
                     </li>
                 </ul>
             </div>
@@ -88,7 +86,7 @@
                         <div class="content_mid clearfix">
                             <img ms-attr="{src:item.picture.indexOf('http') != -1 ? item.picture : 'http://police.pzhkj.cn'+item.picture}"
                                 alt="" class="mid_img" ms-visible="pIndex !==index"
-                                ms-if="item.picture!=null && item.picture != ''">
+                                v-if="item.picture!=null && item.picture != ''">
                             <div>
                                 <p class="content_text" ms-class="{entable:postIndex == index}"
                                     ms-html="filterContent(item.content)"></p>
@@ -108,7 +106,7 @@
                                 </li>
                                 <li ms-click="comChange(index)">
                                     <img src="img/评论.png" alt="">
-                                    <span ms-visible="!iscomment">条评论</span>
+                                    <span ms-visible="!iscomment">{{item.comment_list.length}}条评论</span>
                                     <span ms-visible="iscomment">收起评论</span>
                                 </li>
                             </ul>
@@ -125,21 +123,21 @@
                                     <span ms-click="gospeak(index)" class="reply-three">回复</span>
                                     <span ms-click="lookchange(item.id,comment.id)" class="reply-two">查看回复</span>
                                     <span class="reply-one">
-                                            <div class="comment-ul clearfix">
-                                                <div class="comment-one" ms-click="likePostOrComment('',comment.id,0,1)">
-                                                    <img class="comment-img" src="img/好.png" alt="">
-                                                    <span class="comment-test">{{comment.type1}}好</span>
-                                                </div>
-                                                <div class="comment-one" ms-click="likePostOrComment('',comment.id,0,2)">
-                                                    <img class="comment-img" src="img/一般.png" alt="">
-                                                    <span class="comment-test">{{comment.type2}}一般</span>
-                                                </div>
-                                                <div class="comment-one" ms-click="likePostOrComment('',comment.id,0,3)">
-                                                    <img class="comment-img" src="img/坏.png" alt="">
-                                                    <span class="comment-test">{{comment.type3}}不感兴趣</span>
-                                                </div>
+                                        <div class="comment-ul clearfix">
+                                            <div class="comment-one" ms-click="likePostOrComment('',comment.id,0,1)">
+                                                <img class="comment-img" src="img/好.png" alt="">
+                                                <span class="comment-test">{{comment.type1}}好</span>
                                             </div>
-                                        </span>
+                                            <div class="comment-one" ms-click="likePostOrComment('',comment.id,0,2)">
+                                                <img class="comment-img" src="img/一般.png" alt="">
+                                                <span class="comment-test">{{comment.type2}}一般</span>
+                                            </div>
+                                            <div class="comment-one" ms-click="likePostOrComment('',comment.id,0,3)">
+                                                <img class="comment-img" src="img/坏.png" alt="">
+                                                <span class="comment-test">{{comment.type3}}不感兴趣</span>
+                                            </div>
+                                        </div>
+                                    </span>
                                 </div>
                                 <div class="reply_one clearfix" ms-if="currentActive==index">
                                     <input type="text" placeholder="'回复'+comment.nickname+':'" ms-duplex="replyComment">
@@ -179,7 +177,7 @@
                             <span ms-click="commentChange(item.id,item.comment_id,item.uid,1)">发送</span>
                         </div>
                     </div>
-                    <div class="agree_one" v-for="(item,index) in replayList">
+                    <div class="agree_one" ms-for="(index,item) in replayList">
                         <h4>{{item.nickname}}回复我 <span>{{item.comment_content}}</span></h4>
                         <p class="pp" ms-html="filterContent(item.content)"></p>
                         <div class="agree_img">
@@ -276,8 +274,7 @@
                             {{currentComment.nickname?currentComment.nickname:"【未注册用户】"}}</h4>
                         <span>{{currentComment.create_at | date("yyyy-MM-dd HH:mm:ss")}}</span>
                     </div>
-                    <!-- <p ms-html="currentComment.content">哈啊啊啊和</p> -->
-                    <p>哈啊啊啊和</p>
+                    <p ms-html="currentComment.content"></p>
                 </div>
                 <div class="see_main">
                     <div ms-if="seelist.length == 0">
@@ -363,6 +360,7 @@
 
 <script src="js/jquery1.9.0.js"></script>
 <script src="js/avalon/avalon.js"></script>
+<!-- <script src="dist/avalon.js"></script> -->
 <!-- <script src="js/vue.js?v=1.0.9"></script> -->
 <!-- <script src="js/components.js?v=1.0.9"></script> -->
 <script src="js/api.js?v=1.0.9"></script>
