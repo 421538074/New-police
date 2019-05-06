@@ -634,12 +634,12 @@ var xm = avalon.define({
           initPagation();
         }
         sessionStorage.setItem('lengthBook',JSON.stringify(res.data.book.list.length));
-        _this15.bookLength = res.data.book.list.length;
+        // _this15.bookLength = res.data.book.list.length;
         if(!isInitPageBook) {
           initPagationBook();
         }
         sessionStorage.setItem('lengthTeach',JSON.stringify(res.data.tutorial.list.lenth));
-        _this15.teachLength = res.data.tutorial.list.length;
+        // _this15.teachLength = res.data.tutorial.list.length;
         if(!isInitPageTeach) {
           initPagationTeach();
         }
@@ -682,6 +682,28 @@ $('.nav_uu').on('click', 'li', function (e) {
     scrollTop: $('#' + id).offset().top
   }, 800);
 }); // 插件
+
+var length = sessionStorage.getItem("length");
+$(".zxf").createPage({
+  pageNum: Math.ceil(length / 8),
+  current: 1,
+  backfun: function backfun(e) {
+    var page = e.current;
+    $.ajax({
+      type: "post",
+      url: "".concat(api, "/index/api/pluginList"),
+      async: true,
+      data: {
+        page: page,
+        tool_id: 1
+      },
+      dataType: 'json',
+      success: function success(res) {
+        xm.plugList = res.data;
+      }
+    });
+  }
+});
 
 
 /**
@@ -774,34 +796,6 @@ function initPagationTeach() {
     }
   });
   isInitPageTeach = true;
-}
-
-/**
- * 初始化分页器
- */
-function initPagation() {
-  var length = sessionStorage.getItem("length");
-  $(".zxf").createPage({
-    pageNum: Math.ceil(length / 8),
-    current: 1,
-    backfun: function backfun(e) {
-      var page = e.current;
-      $.ajax({
-        type: "post",
-        url: "".concat(api, "/index/api/pluginList"),
-        async: true,
-        data: {
-          page: page,
-          tool_id: 1
-        },
-        dataType: 'json',
-        success: function success(res) {
-          xm.plugList = res.data;
-        }
-      });
-    }
-  });
-  isInitPage = true;
 }
 
 jQuery.support.cors = true

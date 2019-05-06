@@ -24,8 +24,8 @@ var xm = avalon.define({
   ispass: false,
   plugList: [],
   pluginLength:0,
-  bookLength:0,
-  teachLength:0,
+  bookLength:10,
+  teachLength:10,
   bookList: [],
   tutorialList: [],
   musicList: [],
@@ -683,6 +683,28 @@ $('.nav_uu').on('click', 'li', function (e) {
   }, 800);
 }); // 插件
 
+var length = sessionStorage.getItem("length");
+$(".zxf").createPage({
+  pageNum: Math.ceil(length / 8),
+  current: 1,
+  backfun: function backfun(e) {
+    var page = e.current;
+    $.ajax({
+      type: "post",
+      url: "".concat(api, "/index/api/pluginList"),
+      async: true,
+      data: {
+        page: page,
+        tool_id: 1
+      },
+      dataType: 'json',
+      success: function success(res) {
+        xm.plugList = res.data;
+      }
+    });
+  }
+});
+
 
 /**
  * 测试ie8
@@ -774,34 +796,6 @@ function initPagationTeach() {
     }
   });
   isInitPageTeach = true;
-}
-
-/**
- * 初始化分页器
- */
-function initPagation() {
-  var length = sessionStorage.getItem("length");
-  $(".zxf").createPage({
-    pageNum: Math.ceil(length / 8),
-    current: 1,
-    backfun: function backfun(e) {
-      var page = e.current;
-      $.ajax({
-        type: "post",
-        url: "".concat(api, "/index/api/pluginList"),
-        async: true,
-        data: {
-          page: page,
-          tool_id: 1
-        },
-        dataType: 'json',
-        success: function success(res) {
-          xm.plugList = res.data;
-        }
-      });
-    }
-  });
-  isInitPage = true;
 }
 
 jQuery.support.cors = true

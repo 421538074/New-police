@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0022)http://blog.csdn.net/electroniXtar/ -->
 <html lang="en">
 
 <head>
@@ -18,7 +17,7 @@
 
     <div ms-controller="app">
         <!-- 头部 -->
-        <wbr ms-attr="{userName:userName}" ms-widget="{is:'cp-banner'}" />
+        <wbr ms-widget="{is:'cp-banner'}" />
         <!-- 内容 -->
         <div class="heart_main">
             <div class="nav_out">
@@ -44,7 +43,7 @@
                             <p>{{item.name}}</p>
                         </li>
                     </ul>
-                    <div ms-if="pluginLength > 10" class="zxf" ms-visible="isPage"></div>
+                    <div ms-if="plugList.length > 10" class="zxf" ms-visible="isPage"></div>
                 </div>
             </div>
 
@@ -122,7 +121,7 @@
                             </ul>
                         </div>
                         <!-- 分页 -->
-                        <div ms-if="bookLength > 8" class="page-book"></div>
+                        
                     </div>
                 </div>
             </div>
@@ -171,7 +170,7 @@
                             </ul>
                         </div>
                         <!-- 分页 -->
-                        <div ms-if="teachLength > 8" class="page-teach"></div>
+                        <!-- <cp-page ms-if="tutorialList.length > 8" :total="totalone" :current-page='currentone' @pagechange="pagechangeOne"></cp-page> -->
                     </div>
                 </div>
             </div>

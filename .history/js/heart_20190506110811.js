@@ -24,8 +24,8 @@ var xm = avalon.define({
   ispass: false,
   plugList: [],
   pluginLength:0,
-  bookLength:0,
-  teachLength:0,
+  bookLength:10,
+  teachLength:10,
   bookList: [],
   tutorialList: [],
   musicList: [],
@@ -633,7 +633,7 @@ var xm = avalon.define({
         if(!isInitPage) {
           initPagation();
         }
-        sessionStorage.setItem('lengthBook',JSON.stringify(res.data.book.list.length));
+        sessionStorage.setItem('lengthBook',JOSN.stringify(res.data.book.list.length));
         _this15.bookLength = res.data.book.list.length;
         if(!isInitPageBook) {
           initPagationBook();
@@ -682,6 +682,28 @@ $('.nav_uu').on('click', 'li', function (e) {
     scrollTop: $('#' + id).offset().top
   }, 800);
 }); // 插件
+
+var length = sessionStorage.getItem("length");
+$(".zxf").createPage({
+  pageNum: Math.ceil(length / 8),
+  current: 1,
+  backfun: function backfun(e) {
+    var page = e.current;
+    $.ajax({
+      type: "post",
+      url: "".concat(api, "/index/api/pluginList"),
+      async: true,
+      data: {
+        page: page,
+        tool_id: 1
+      },
+      dataType: 'json',
+      success: function success(res) {
+        xm.plugList = res.data;
+      }
+    });
+  }
+});
 
 
 /**
@@ -774,34 +796,6 @@ function initPagationTeach() {
     }
   });
   isInitPageTeach = true;
-}
-
-/**
- * 初始化分页器
- */
-function initPagation() {
-  var length = sessionStorage.getItem("length");
-  $(".zxf").createPage({
-    pageNum: Math.ceil(length / 8),
-    current: 1,
-    backfun: function backfun(e) {
-      var page = e.current;
-      $.ajax({
-        type: "post",
-        url: "".concat(api, "/index/api/pluginList"),
-        async: true,
-        data: {
-          page: page,
-          tool_id: 1
-        },
-        dataType: 'json',
-        success: function success(res) {
-          xm.plugList = res.data;
-        }
-      });
-    }
-  });
-  isInitPage = true;
 }
 
 jQuery.support.cors = true
