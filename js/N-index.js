@@ -94,6 +94,7 @@ var vm = avalon.define({
     total: 0
   },
 
+
   Resgiter: function Resgiter() {
     window.location.href = "login.html";
   },
@@ -173,11 +174,12 @@ var vm = avalon.define({
     //产看文章
     if (this.postIndex != index) {
       this.postIndex = index;
+      $(".content_list:eq("+index+") .mid_img").css("display","none")
     } else {
       this.postIndex = -1;
-    }
+      $(".content_list:eq("+index+") .mid_img").css("display","block")
 
-    this.pIndex = this.pIndex == index ? -1 : index;
+    }
   },
   comChange: function comChange(postId, index) {
     //查看评论
@@ -353,6 +355,7 @@ var vm = avalon.define({
     }
   },
   banner: function banner(index, id) {
+    $(".content_list .mid_img").css("display", "block")
     var _this7 = this;
     this.currentIndex = 3;
     this.ismore = false;
@@ -392,6 +395,7 @@ var vm = avalon.define({
     });
   },
   bannerChange: function bannerChange(index) {
+    $(".content_list .mid_img").css("display", "block")
     var _this8 = this;
 
     // 获取论坛分类
@@ -648,6 +652,7 @@ var vm = avalon.define({
   },
   getCharaLength: function getCharaLength(str) {
     return str.replace(/[\u0391-\uFFE5]/g, "aa").length > 239;
+    
   },
   filterImg: function filterImg(content) {
     var reg = /style="[^\"]*?"/g;
@@ -713,7 +718,6 @@ var vm = avalon.define({
       }
     });
     this.userName = sessionStorage.getItem("username");
-    console.log(this.userName)
     getIpAdd(function (ip) {
       _this15.ip = ip;
     });

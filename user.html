@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0022)http://blog.csdn.net/electroniXtar/ -->
 <html lang="en">
 
 <head>
@@ -18,7 +17,7 @@
 </head>
 
 <body>
-    <div ms-controller="app">
+    <div ms-controller="app" class="ms-controller">
         <!-- 头部 -->
         <div class="user_header">
             <div class="user_banner container">
@@ -86,8 +85,7 @@
                         </div>
                         <div class="content_mid clearfix">
                             <img ms-attr="{src:item.picture.indexOf('http') != -1 ? item.picture : 'http://police.pzhkj.cn'+item.picture}"
-                                alt="" class="mid_img" ms-visible="pIndex !==index"
-                                v-if="item.picture!=null && item.picture != ''">
+                                alt="" class="mid_img" ms-if="item.picture!=null && item.picture != ''">
                             <div>
                                 <p class="content_text" ms-class="{entable:postIndex == index}"
                                     ms-html="filterContent(item.content)"></p>
