@@ -62,10 +62,7 @@
 }
 
 .order_name {
-    display: flex;
-    align-items: center;
     margin-right: 8px;
-    justify-content: flex-end;
 }
 
 .order_name span {

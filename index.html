@@ -325,7 +325,7 @@
                     <div class="see_text_top clearfix">
                         <h4 ms-class="{Hcolor:currentComment.nickname==undefined}">
                             {{currentComment.nickname?currentComment.nickname:"【未注册用户】"}}</h4>
-                        <span>{{currentComment.create_at | date("yyyy-MM-dd HH:mm:ss")}}</span>
+                        <span>{{currentComment.create_at | filterTime}}</span>
                     </div>
                     <p ms-html="currentComment.content"></p>
                 </div>
@@ -342,7 +342,7 @@
                                         <span class="replay-cha">回复</span>
                                         {{item.comment_user?item.comment_user:"【未注册用户】"}}
                                     </h4>
-                                    <span class="replay-spa">{{"item.create_at" | date("yyyy-MM-dd HH:mm:ss")}}</span>
+                                    <span class="replay-spa">{{item.create_at | filterTime}}</span>
                                 </div>
                                 <p ms-html="item.content"></p>
                                 <div class="see_uu_three clearfix">
@@ -375,7 +375,7 @@
                             <li ms-for="(index,part) in item.child" class="list_two">
                                 <div class="see_uu_one clearfix">
                                     <h4>{{part.nickname}} <span class="replay-cha">回复</span>{{part.comment_user}}</h4>
-                                    <span class="replay-spa">{{part.create_at | date("yyyy-MM-dd HH:mm:ss")}}</span>
+                                    <span class="replay-spa">{{part.create_at | filterTime}}</span>
                                 </div>
                                 <p ms-html="part.content"></p>
                                 <div class="see_uu_three clearfix">

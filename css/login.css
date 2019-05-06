@@ -127,8 +127,6 @@ li.role-lis {
     color: black;
     line-height: 24px;
     margin-bottom: 40px;
-    display: flex;
-    align-items: center;
 }
 
 .Pul li {
@@ -228,8 +226,6 @@ a.role-a {
     color: black;
     line-height: 24px;
     margin-bottom: 063px;
-    display: flex;
-    align-items: center;
 }
 
 .matron_uu li input {

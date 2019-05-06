@@ -285,9 +285,6 @@ css3-container {
     margin-top: 28px;
     padding: 0 0 0 49px;
     padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .app_uu li {
@@ -898,9 +895,6 @@ span.replay-spa {
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(121, 121, 121, 1);
-    line-height: 24px;
-    display: flex;
-    align-items: center;
     margin-right: 30px;
     cursor: pointer;
 }
@@ -1373,9 +1367,6 @@ span.see-spa {
         margin-top: 20px;
         padding: 0 0 0 49px;
         padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
     }
 
     .app_uu li {
