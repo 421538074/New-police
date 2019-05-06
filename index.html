@@ -145,12 +145,12 @@
                                     </p>
                                     <div class="reply clearfix">
                                         <span ms-click="gospeak(index)" class="pointer">回复</span>
-                                        <span ms-click="lookchange(item.id,comment.id)"
+                                        <span ms-click="lookchange(item.id,comment.id,index)"
                                             class="reply-test-third">查看回复</span>
                                         <span>
                                             <div class="comment-ul clearfix">
                                                 <div class="comment-one"
-                                                    ms-click="likePostOrComment1('',comment.id,0,1)">
+                                                    ms-click="likePostOrComment1('',comment.id,0,1,item.id)">
                                                     <img class="comment-img" src="img/好.png" alt="">
                                                     <span class="comment-test">{{comment.type1}}好</span>
                                                 </div>
@@ -323,11 +323,11 @@
             <div class="see" ms-visible="isspeak">
                 <div class="see_text">
                     <div class="see_text_top clearfix">
-                        <h4 ms-class="{Hcolor:currentComment.nickname==undefined}">
-                            {{currentComment.nickname?currentComment.nickname:"【未注册用户】"}}</h4>
-                        <span>{{currentComment.create_at | filterTime}}</span>
+                        <h4 ms-class="{Hcolor:CommentList1.nickname==undefined}">
+                            {{CommentList1.nickname?CommentList.nickname:"【未注册用户】"}}</h4>
+                        <span>{{CommentList1.create_at | filterTime}}</span>
                     </div>
-                    <p ms-html="currentComment.content"></p>
+                    <p ms-html="CommentList1.content"></p>
                 </div>
                 <div class="see_main">
                     <div ms-if="seelist.length == 0">
