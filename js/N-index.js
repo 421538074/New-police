@@ -713,6 +713,7 @@ var vm = avalon.define({
       }
     });
     this.userName = sessionStorage.getItem("username");
+    console.log(this.userName)
     getIpAdd(function (ip) {
       _this15.ip = ip;
     });
