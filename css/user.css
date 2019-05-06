@@ -198,6 +198,7 @@ div.user-test span {
     color: #797979;
     line-height: 25px;
     text-align: center;
+    cursor: pointer;
 }
 
 .Wrap_active {
