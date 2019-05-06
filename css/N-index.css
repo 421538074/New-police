@@ -8,12 +8,10 @@
     background-size: 100% 100%;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/banner.png', sizingMethod='scale');
     -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/banner.png',
-        sizingMethod='scale');
+            sizingMethod='scale');
 }
 
 .index_content {
-    /* height: 80%;
-    padding-top: 0.5em; */
     position: relative;
     line-height: 72px;
 }
@@ -287,9 +285,6 @@ css3-container {
     margin-top: 28px;
     padding: 0 0 0 49px;
     padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .app_uu li {
@@ -332,6 +327,7 @@ p.report-title {
     border: 1px solid #BFBFBF;
     padding: 5px;
     margin-right: 10px;
+    line-height: 20px;
 }
 
 img.calendar-icon {
@@ -435,7 +431,8 @@ p.create-time {
 
 .mid_img {
     width: 158px;
-    height: 80px;
+    height: auto;
+    max-height: 80px;
     border-radius: 4px;
     margin-right: 10px;
     float: left;
@@ -775,7 +772,7 @@ p.create-time {
     max-height: 75%;
     background: white;
     border-radius: 10px;
-    behavior: url(css/PIE/PIE.htc);
+    /* behavior: url(css/PIE/PIE.htc); */
     position: absolute;
     top: 15%;
     left: 0;
@@ -899,9 +896,6 @@ span.replay-spa {
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(121, 121, 121, 1);
-    line-height: 24px;
-    display: flex;
-    align-items: center;
     margin-right: 30px;
     cursor: pointer;
 }
@@ -961,8 +955,6 @@ span.see-spa {
     right: 50px;
     cursor: pointer;
 }
-
-
 
 /* 头部弹框 */
 /* 通知 */
@@ -1066,6 +1058,70 @@ span.see-spa {
 }
 
 
+/* 修改密码 */
+.pass {
+    width: 600px;
+    height: 360px;
+    background: white;
+    border-radius: 20px;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+}
+
+.pass_top {
+    height: 64px;
+    font-size: 24px;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: black;
+    line-height: 64px;
+    text-align: center;
+    border-bottom: 1px solid #B8B8B8;
+}
+
+.pass_uu li {
+    text-align: center;
+    font-size: 18px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: black;
+    line-height: 18px;
+    margin-top: 35px;
+}
+
+.pass_uu li span {
+    display: inline-block;
+    width: 126px;
+    text-align: right;
+}
+
+.pass_uu li input {
+    width: 256px;
+    height: 26px;
+    background: white;
+    border: 1px solid #B8B8B8;
+    outline: none;
+}
+
+.pass_bot p {
+    width: 231px;
+    height: 28px;
+    background: #7ECEF4;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 18px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: white;
+    margin: 46px auto;
+}
+
+
 /* 
 
 栅格栏布局1024
@@ -1087,7 +1143,7 @@ span.see-spa {
         background-size: 100% 100%;
         filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/banner.png', sizingMethod='scale');
         -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/banner.png',
-            sizingMethod='scale');
+                sizingMethod='scale');
     }
 
     .index_content {
@@ -1215,7 +1271,7 @@ span.see-spa {
     .header_mid {
         position: relative;
         float: right;
-        margin: 0.7em 0.7em 0 0;
+        margin: 0.8em 0.7em 0 0;
     }
 
     .search {
@@ -1244,55 +1300,15 @@ span.see-spa {
         cursor: pointer;
     }
 
-
-
     /*更多 */
-    /* .banner_more {
+    .banner_more {
         background: white;
         box-shadow: 3px 3px 8px 1px rgba(126, 126, 126, 1);
+        behavior: url(css/PIE/PIE.htc);
         position: absolute;
-        left: 52%;
-        top: 1rem;
+        left: 42%;
+        top: 3rem;
     }
-
-
-    .banner_more span {
-        position: absolute;
-        top: -8px;
-        left: 30px;
-        display: block;
-        width: 0;
-        height: 0px;
-        content: '';
-        border-style: solid;
-        border-width: 11px;
-        border-color: #fff #fff transparent transparent;
-        transform: rotate(-45deg);
-        box-shadow: 4px -2px 2px #ccc;
-    }
-
-    .more_uu {
-        padding-top: 10px;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        max-width: 240px;
-    }
-
-    .more_uu li {
-        font-size: 24px;
-        font-family: PingFangSC-Medium;
-        font-weight: 500;
-        color: #333;
-        line-height: 24px;
-        padding: 10px 20px 10px;
-    }
-
-    .more_uu li.active {
-        color: #1D5598;
-        border: none !important;
-    } */
-
 
     /* youbian */
     .content_right {
@@ -1352,9 +1368,6 @@ span.see-spa {
         margin-top: 20px;
         padding: 0 0 0 49px;
         padding: 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
     }
 
     .app_uu li {
@@ -1459,7 +1472,6 @@ span.see-spa {
         border-left: 1px solid #EFEFEF;
         border-top: 1px solid #EFEFEF;
     }
-
 
     /* content_scroll */
     .content_scroll {
@@ -1794,5 +1806,168 @@ span.see-spa {
         cursor: pointer;
     }
 
+    /* 头部弹框 */
+    /* 通知 */
+    .answer {
+        width: 250px;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 3px 3px 8px 1px rgba(126, 126, 126, 1);
+        behavior: url(css/PIE/PIE.htc);
+        border-radius: 4px;
+        position: absolute;
+        top: 100%;
+        right: 3%;
+        height: auto;
+        display: none;
+    }
 
+    .answer_uu li span {
+        color: black;
+        font-size: 14px;
+    }
+
+    .answer_uu {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 11px 20px 0 16px;
+        max-height: 225px;
+        overflow-y: scroll;
+
+    }
+
+    .answer_uu::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .answer_uu li {
+        font-size: 14px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(29, 85, 152, 1);
+        line-height: 23px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #B8B8B8;
+        margin-bottom: 7px;
+        cursor: pointer;
+        word-break: break-all;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .answer p {
+        font-size: 14px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 1);
+        line-height: 23px;
+        text-align: right;
+        margin-right: 26px;
+        cursor: pointer;
+    }
+
+    /* 个人中心 */
+    .header_two {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 3px 3px 8px 1px rgba(126, 126, 126, 1);
+        behavior: url(css/PIE/PIE.htc);
+        border-radius: 4px;
+        position: absolute;
+        top: 115%;
+        right: 7%;
+        display: none;
+    }
+
+    .header_two span {
+        position: absolute;
+        top: -14px;
+        right: 30px;
+        display: block;
+        width: 0;
+        height: 0;
+        border-width: 0 9px 15px;
+        border-style: solid;
+        border-color: transparent transparent white;
+    }
+
+    .header_two_uu {
+        padding-top: 10px;
+    }
+
+    .header_two_uu li {
+        font-size: 14px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 1);
+        line-height: 23px;
+        margin-bottom: 7px;
+        cursor: pointer;
+        padding: 0 14px 0 11px;
+    }
+
+
+    /* 修改密码 */
+    .pass {
+        width: 470px;
+        height: 300px;
+        background: white;
+        border-radius: 20px;
+        position: absolute;
+        top: 25%;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+    }
+
+    .pass_top {
+        height: 48px;
+        font-size: 20px;
+        font-family: PingFangSC-Medium;
+        font-weight: 500;
+        color: black;
+        line-height: 48px;
+        text-align: center;
+        border-bottom: 1px solid #B8B8B8;
+    }
+
+    .pass_uu li {
+        text-align: center;
+        font-size: 16px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: black;
+        line-height: 18px;
+        margin: 25px 0 0 -75px;
+    }
+
+    .pass_uu li span {
+        display: inline-block;
+        width: 120px;
+        text-align: right;
+    }
+
+    .pass_uu li input {
+        width: 200px;
+        height: 26px;
+        background: white;
+        border: 1px solid #B8B8B8;
+        outline: none;
+    }
+
+    .pass_bot p {
+        width: 175px;
+        height: 28px;
+        background: #7ECEF4;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 28px;
+        font-size: 16px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: white;
+        margin: 30px auto 0;
+    }
 }

@@ -161,11 +161,11 @@ var vm = avalon.define({
         //产看文章
         if (this.postIndex != index) {
             this.postIndex = index;
+            $(".content_list:eq(" + index + ") .mid_img").css("display", "none")
         } else {
             this.postIndex = -1;
+            $(".content_list:eq(" + index + ") .mid_img").css("display", "block")
         }
-
-        this.pIndex = this.pIndex == index ? -1 : index;
     },
     goname: function goname() {
         //个人信息

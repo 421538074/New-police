@@ -84,7 +84,7 @@ var vm = avalon.define({
   // 回复评论条数
   //子级id
   subId: '',
-  // showDate: getNowDate(),
+  showDate: getNowDate(),
   ip: '',
   //报备信息
   repairInfo: {
@@ -93,6 +93,7 @@ var vm = avalon.define({
     month: 0,
     total: 0
   },
+
 
   Resgiter: function Resgiter() {
     window.location.href = "login.html";
@@ -173,11 +174,12 @@ var vm = avalon.define({
     //产看文章
     if (this.postIndex != index) {
       this.postIndex = index;
+      $(".content_list:eq(" + index + ") .mid_img").css("display", "none")
     } else {
       this.postIndex = -1;
-    }
+      $(".content_list:eq(" + index + ") .mid_img").css("display", "block")
 
-    this.pIndex = this.pIndex == index ? -1 : index;
+    }
   },
   comChange: function comChange(postId, index) {
     //查看评论
@@ -353,6 +355,7 @@ var vm = avalon.define({
     }
   },
   banner: function banner(index, id) {
+    $(".content_list .mid_img").css("display", "block")
     var _this7 = this;
     this.currentIndex = 3;
     this.ismore = false;
@@ -392,6 +395,7 @@ var vm = avalon.define({
     });
   },
   bannerChange: function bannerChange(index) {
+    $(".content_list .mid_img").css("display", "block")
     var _this8 = this;
 
     // 获取论坛分类
@@ -648,6 +652,7 @@ var vm = avalon.define({
   },
   getCharaLength: function getCharaLength(str) {
     return str.replace(/[\u0391-\uFFE5]/g, "aa").length > 239;
+
   },
   filterImg: function filterImg(content) {
     var reg = /style="[^\"]*?"/g;
@@ -722,6 +727,39 @@ var vm = avalon.define({
 jQuery.support.cors = true
 vm.created();
 
+
+avalon.filters.filterTime = function (time) {
+  var date = new Date(time * 1000);
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+
+  if (month < 10) {
+    month = "0" + month;
+  }
+
+  if (day < 10) {
+    day = "0" + day;
+  }
+
+  if (hours < 10) {
+    hours = "0" + hours;
+  }
+
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+
+  return year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+}
 
 
 //封装一个限制字数方法

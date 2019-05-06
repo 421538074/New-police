@@ -127,8 +127,6 @@ li.role-lis {
     color: black;
     line-height: 24px;
     margin-bottom: 40px;
-    display: flex;
-    align-items: center;
 }
 
 .Pul li {
@@ -142,6 +140,7 @@ li.role-lis {
     border: 1px solid #CBC9C9;
     outline: none;
     padding-left: 10px;
+    line-height: 28px;
 }
 
 .police_uu li label {
@@ -152,6 +151,7 @@ li.role-lis {
 }
 
 .enter {
+    float: left;
     width: 169px;
     height: 37px;
     background: url(../img/圆角矩形.png) no-repeat;
@@ -226,8 +226,6 @@ a.role-a {
     color: black;
     line-height: 24px;
     margin-bottom: 063px;
-    display: flex;
-    align-items: center;
 }
 
 .matron_uu li input {
@@ -267,15 +265,6 @@ a.role-a {
     padding: 0 15px;
     line-height: 37px;
 }
-
-
-
-
-
-
-
-
-
 
 @media only screen and (max-width: 1024px) {
     .login_logo {

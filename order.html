@@ -13,7 +13,7 @@
 
 <body>
 
-    <div ms-controller="app">
+    <div ms-controller="app" class="ms-controller">
         <div class="order_header">
             <div class="order_nav container">
                 <img src="img/首页logo.png" alt="">
@@ -49,7 +49,7 @@
                             </thead>
                             <tbody>
                                 <tr ms-for="(index,item) in list" ms-if="show" ms-class="{'active':index%2==1}">
-                                    <td>{{item.create_at | date("yyyy-MM-dd HH:mm:ss")}}</td>
+                                    <td>{{item.create_at | filterTime}}</td>
                                     <td>{{item.name}}</td>
                                     <td>{{item.content}}</td>
                                     <td>{{item.user}}</td>
@@ -61,7 +61,7 @@
                                     </td>
                                 </tr>
                                 <tr ms-for="(index,item) in list" ms-if="show" ms-class="{'active':index%2==1}">
-                                    <td>{{item.create_at | date("yyyy-MM-dd HH:mm:ss")}}</td>
+                                    <td>{{item.create_at | filterTime}}</td>
                                     <td>{{item.name}}</td>
                                     <td>{{item.content}}</td>
                                     <td>{{item.user}}</td>

@@ -184,51 +184,6 @@ body {
     height: 0;
     clear: both;
 }
-.alert-mask {
-    position: fixed;
-    left: 0;
-    top: 0;
-    background: rgba(0,0,0,0.3);
-    width: 100%;
-	height: 100%;
-	z-index: 9999;
-}
-.alert-body {
-	position: relative;
-    width: 500px;
-    background: #fff;
-    margin: 0 auto;
-    border-radius: 5px;
-	height: 140px;
-	top: -280px;
-	display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-}
-p.alert-title, p.alert-msg {
-	font-size: 15px;
-	height: 40px;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-}
-p.alert-title{
-    background: rgba(0,0,0,.03);
-}
-button.alert-close {
-    width: 100%;
-    border: none;
-    height: 40px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-    color: #fff;
-	background: rgba(126, 206, 244, 1);
-	cursor: pointer;
-	outline: 0;
-}
-
 @font-face {
 	font-family: 'myFont';
 	src: url(../font/PingFangSC-Regular.ttf) format('ttf'),
