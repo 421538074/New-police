@@ -46,13 +46,12 @@
 .index_right {
     height: 100%;
     margin-right: 57px;
-    position: absolute;
-    top: 50%;
-    right: 0;
+    display:flex;
+    align-items: center;
 }
 
 .index_right span {
-    font-size: 1rem;
+    font-size: 0.2rem;
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(193, 207, 255, 1);

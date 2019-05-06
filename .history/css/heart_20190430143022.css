@@ -3,28 +3,27 @@
     background: rgba(255, 255, 255, 1);
     position: fixed;
     z-index: 11;
-    height: 3em;
-    top:5em;
 }
 
 .nav {
-    height: 100%;
+    height: 10px;
 }
 
 .nav_uu {
+    display: flex;
+    align-items: center;
     height: 100%;
 }
 
 .nav_uu li {
-    font-size: 1em;
+    font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(0, 0, 0, 1);
     margin: 0 20px;
-    line-height: 2.8em;
+    line-height: 16px;
     border-bottom: 4px solid white;
     cursor: pointer;
-    display: inline-block;
 }
 
 .blue {

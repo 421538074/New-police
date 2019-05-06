@@ -97,7 +97,7 @@
                             <div class="content_mid clearfix">
                                 <img ms-attr="{src:item.picture.indexOf('http') != -1 ? item.picture : 'http://police.pzhkj.cn'+item.picture}"
                                     alt="" class="mid_img" 
-                                    ms-if="pIndex !==index">
+                                    ms-if="pIndex !==index && item.picture != null">
                                 <div>
                                     <p class="content_text" ms-class="{entable:postIndex == index}"
                                         ms-html="filterImg(item.content)">

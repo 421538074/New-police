@@ -14,9 +14,9 @@
 
 <body>
 
-    <div id="app">
+    <div id="app" v-cloak>
         <!-- 头部 -->
-        <wbr ms-attr="{userName:userName}" ms-widget="{is:'cp-banner'}" />
+        <!-- <cp-banner :userName="userName"></cp-banner> -->
         <!-- 内容 -->
         <div class="heart_main">
             <div class="nav_out">
@@ -37,7 +37,7 @@
                     <p id="go1"></p>
                     <h4>插件中心</h4>
                     <ul class="plug_uu">
-                        <li class="pointer" ms-for="(index,item) in plugList.slice(0,10)" ms-click="openChange(item.id)">
+                        <li class="pointer" ms-for="(item,index) in plugList.slice(0,10)" ms-click="openChange(item.id)">
                             <span><img :src="item.picture | filterImg" alt=""></span>
                             <p>{{item.name}}</p>
                         </li>
@@ -52,7 +52,7 @@
                     <p id="go2"></p>
                     <h4>音乐中心</h4>
                     <div class="music_nav">
-                        <div class="music_one" ms-for="(key,item) in musicSort">
+                        <div class="music_one" ms-for="(item,key) in musicSort">
                             <div class="music_wrap clearfix">
                                 <h5>{{item.name}}</h5>
                                 <div ms-if="currentCateId != item.id" class="all-play" ms-click="allPlay(item.id,true)"></div>
@@ -61,7 +61,7 @@
                             </div>
                             
                             <ul class="music_uu">
-                                <li ms-for="(index,arr) in musicList[item.id]" 
+                                <li ms-for="(arr,index) in musicList[item.id]" 
                                 :class="{musicColor: Color==arr.id && currentCateId == item.id}">
                                     <p>{{arr.name}}</p>
                                     <div class="music_img">
@@ -94,7 +94,7 @@
                         </div>
                         <div class="book_left_tag">
                             <ul class="book_left_uu">
-                                <li ms-for="(index,item) in bookSort" :class="{white:index==current1}"
+                                <li ms-for="(item,index) in bookSort" :class="{white:index==current1}"
                                     ms-click="bookChange(item.id,index)">
                                     {{item.name}}
                                 </li>
@@ -103,14 +103,14 @@
                     </div>
                     <div class="book_right">
                         <div class="book_right_top">
-                            <input placeholder="输入书籍关键字" type="text" ms-duplex="text" ms-on-enter="Osearch">
+                            <input placeholder="输入书籍关键字" type="text" ms-duplex="text" @keydown.enter="Osearch">
                             <span ms-click="Osearch(index)"></span>
                         </div>
 
                         <div class="book_right_bot">
                             <ul class="book_uu">
-                                <li class="pointer" ms-for="(index,item) in bookList" ms-click="bookDown(item.id)">
-                                    <span><img ms-attr="{src:item.picture | filterImg}" alt=""></span>
+                                <li class="pointer" ms-for="(item,index) in bookList" ms-click="bookDown(item.id)">
+                                    <span><img ms-attr="{src:item.picture}" alt=""></span>
                                     <p>{{item.name}}</p>
                                 </li>
                                 <div class="no-tools-wrapper" ms-if="bookList.length == 0">
@@ -136,7 +136,7 @@
                         </div>
                         <div class="book_left_tag">
                             <ul class="book_left_uu">
-                                <li ms-for="(index,item) in tutorialSort" :class="{white:index==number}"
+                                <li ms-for="(item,index) in tutorialSort" :class="{white:index==number}"
                                     ms-click="turtorChange(index,item.id)">{{item.name}}</li>
                             </ul>
                         </div>
@@ -144,13 +144,13 @@
 
                     <div class="book_right">
                         <div class="book_right_top">
-                            <input placeholder="输入教程关键字" type="text" ms-duplex="text1" ms-on-enter="Tsearch">
+                            <input placeholder="输入教程关键字" type="text" ms-duplex="text1" @keydown.enter="Tsearch">
                             <span ms-click="Tsearch"></span>
                         </div>
 
                         <div class="book_right_bot" ms-if="!hide">
                             <ul class="book_uu">
-                                <li class="pointer" ms-for="(index,item) in tutorialList1" ms-click="openChange(item.id)">
+                                <li class="pointer" ms-for="(item,index) in tutorialList1" ms-click="openChange(item.id)">
                                     <span><img ms-attr="{src:item.picture | filterImg}" alt=""></span>
                                     <p>{{item.name}}</p>
                                 </li>
@@ -158,7 +158,7 @@
                         </div>
                         <div class="book_right_bot" ms-if="hide">
                             <ul class="book_uu">
-                                <li class="pointer" ms-for="(index,item) in tutorialList" ms-click="Tdown(item.id)">
+                                <li class="pointer" ms-for="(item,index) in tutorialList" ms-click="Tdown(item.id)">
                                     <span><img src="" alt=""></span>
                                     <p>{{item.name}}</p>
                                 </li>
@@ -211,7 +211,7 @@
             <div class="book_shade" ms-visible="istotur">
                 <div class="book_name">
                     <span>
-                        <img ms-attr="{src:picture | filterImg}" >
+                            <img ms-attr="{src:picture | filterImg}" >
                     </span>
                     <div class="book_name_right">
                         <p>{{Tname}}</p>
@@ -250,8 +250,9 @@
             <div class="close pointer" ms-click="goClose">
             </div>
         </div>
-        <embed ms-attr="{src:musicListSelf[currentMusicIndex]}" id="myPlayer">
-        </embed>
+        <audio ref="myPlayer">
+            <source :src="musicListSelf[currentMusicIndex]">
+        </audio>
     </div>
 
 
@@ -259,7 +260,7 @@
 
 </html>
 
-<script src="js/jquery1.9.0.js"></script>
+<script src="js/jquery.min.js?v=1.0.9"></script>
 <!-- <script src="js/vue.js?v=1.0.9"></script> -->
 <script src="js/avalon/avalon.js"></script>
 <script src="js/components.js?v=1.0.9"></script>

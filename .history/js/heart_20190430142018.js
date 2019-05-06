@@ -12,7 +12,6 @@ avalon.filters.filterTime = function filterTime(time) {
 
     return "".concat(api).concat(img);
   }
-  avalon.component('cp-banner', indexBanner);
 var xm = avalon.define({
   $id: "#app",
   userName: '',

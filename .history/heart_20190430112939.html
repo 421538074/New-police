@@ -14,9 +14,9 @@
 
 <body>
 
-    <div id="app">
+    <div id="app" v-cloak>
         <!-- 头部 -->
-        <wbr ms-attr="{userName:userName}" ms-widget="{is:'cp-banner'}" />
+        <!-- <cp-banner :userName="userName"></cp-banner> -->
         <!-- 内容 -->
         <div class="heart_main">
             <div class="nav_out">
@@ -259,7 +259,7 @@
 
 </html>
 
-<script src="js/jquery1.9.0.js"></script>
+<script src="js/jquery.min.js?v=1.0.9"></script>
 <!-- <script src="js/vue.js?v=1.0.9"></script> -->
 <script src="js/avalon/avalon.js"></script>
 <script src="js/components.js?v=1.0.9"></script>

@@ -14,9 +14,9 @@
 
 <body>
 
-    <div id="app">
+    <div id="app" v-cloak>
         <!-- 头部 -->
-        <wbr ms-attr="{userName:userName}" ms-widget="{is:'cp-banner'}" />
+        <!-- <cp-banner :userName="userName"></cp-banner> -->
         <!-- 内容 -->
         <div class="heart_main">
             <div class="nav_out">
@@ -110,7 +110,7 @@
                         <div class="book_right_bot">
                             <ul class="book_uu">
                                 <li class="pointer" ms-for="(index,item) in bookList" ms-click="bookDown(item.id)">
-                                    <span><img ms-attr="{src:item.picture | filterImg}" alt=""></span>
+                                    <span><img ms-attr="{src:item.picture}" alt=""></span>
                                     <p>{{item.name}}</p>
                                 </li>
                                 <div class="no-tools-wrapper" ms-if="bookList.length == 0">
@@ -211,7 +211,7 @@
             <div class="book_shade" ms-visible="istotur">
                 <div class="book_name">
                     <span>
-                        <img ms-attr="{src:picture | filterImg}" >
+                            <img ms-attr="{src:picture | filterImg}" >
                     </span>
                     <div class="book_name_right">
                         <p>{{Tname}}</p>
@@ -250,7 +250,8 @@
             <div class="close pointer" ms-click="goClose">
             </div>
         </div>
-        <embed ms-attr="{src:musicListSelf[currentMusicIndex]}" id="myPlayer">
+        <embed id="myPlayer">
+            <source ms-attr="{src:musicListSelf[currentMusicIndex]}">
         </embed>
     </div>
 
@@ -259,7 +260,7 @@
 
 </html>
 
-<script src="js/jquery1.9.0.js"></script>
+<script src="js/jquery.min.js?v=1.0.9"></script>
 <!-- <script src="js/vue.js?v=1.0.9"></script> -->
 <script src="js/avalon/avalon.js"></script>
 <script src="js/components.js?v=1.0.9"></script>

@@ -12,7 +12,15 @@ avalon.filters.filterTime = function filterTime(time) {
 
     return "".concat(api).concat(img);
   }
-  avalon.component('cp-banner', indexBanner);
+  avalon.component('ms-a', {
+    template: '<button type="button">A</button>',
+    defaults: {
+       onInit:function(e){
+            c1 = e.vmodel
+        },
+        buttonText: "button"
+    }
+})
 var xm = avalon.define({
   $id: "#app",
   userName: '',

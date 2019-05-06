@@ -10,7 +10,9 @@
 
 .index_content {
     height: 80%;
-    padding-top: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .index_left {
@@ -46,13 +48,12 @@
 .index_right {
     height: 100%;
     margin-right: 57px;
-    position: absolute;
-    top: 50%;
-    right: 0;
+    display:flex;
+    align-items: center;
 }
 
 .index_right span {
-    font-size: 1rem;
+    font-size: 0.2rem;
     font-family: PingFangSC-Regular;
     font-weight: 400;
     color: rgba(193, 207, 255, 1);
@@ -194,8 +195,8 @@
 }
 .index_left {
     display: inline-block;
-    width: 23em;
-    height: 80%;
+    width: 4rem;
+    height: 60%;
     margin-left: 20%;
     background: url(../img/logo.png)no-repeat;
     background-size: 100% 100%;
