@@ -32,59 +32,30 @@
             el = document.querySelector(opt.el) || document.querySelector('body'),
             _this = this;
         var bindEvent = function (){
-            if(el.addEventListener) {
-                el.addEventListener('click',function(e){
-                    switch (e.target.id) {
-                        case 'nextMonth': 
-                            _this.nextMonthFun();
-                            break;
-                        case 'nextYear': 
-                            _this.nextYearFun();
-                            break;
-                        case 'prevMonth': 
-                            _this.prevMonthFun();
-                            break;
-                        case 'prevYear': 
-                            _this.prevYearFun();
-                            break;
-                        default:
-                            break;
-                    };
-                    if(e.target.className.indexOf('currentDate') > -1){
-                        opt.clickCb && opt.clickCb(year, month+1, e.target.innerHTML);
-                        selectedDate = e.target.title;
-                        day = e.target.innerHTML;
-                        render();
-                    }
-                },false)
-            }
-            else {
-                console.log(el);
-                el.attachEvent('onclick',function(){
-                    switch (window.event.srcElement.id) {
-                        case 'nextMonth': 
-                            _this.nextMonthFun();
-                            break;
-                        case 'nextYear': 
-                            _this.nextYearFun();
-                            break;
-                        case 'prevMonth': 
-                            _this.prevMonthFun();
-                            break;
-                        case 'prevYear': 
-                            _this.prevYearFun();
-                            break;
-                        default:
-                            break;
-                    };
-                    if(window.event.srcElement.className.indexOf('currentDate') > -1){
-                        opt.clickCb && opt.clickCb(year, month+1, e.target.innerHTML);
-                        selectedDate = e.target.title;
-                        day = e.target.innerHTML;
-                        render();
-                    }
-                },false)
-            }
+            $(el).click(function(e){
+                switch (e.target.id) {
+                    case 'nextMonth': 
+                        _this.nextMonthFun();
+                        break;
+                    case 'nextYear': 
+                        _this.nextYearFun();
+                        break;
+                    case 'prevMonth': 
+                        _this.prevMonthFun();
+                        break;
+                    case 'prevYear': 
+                        _this.prevYearFun();
+                        break;
+                    default:
+                        break;
+                };
+                if(e.target.className.indexOf('currentDate') > -1){
+                    opt.clickCb && opt.clickCb(year, month+1, e.target.innerHTML);
+                    selectedDate = e.target.title;
+                    day = e.target.innerHTML;
+                    render();
+                }
+            },false)
         }
         var init = function () {
             var scheduleHd = '<div class="schedule-hd">'+
@@ -93,7 +64,7 @@
                                     '<span class="pre-month" id="prevMonth"></span>'+
                                 '</div>'+
                                 '<div class="today">'+formartDate(year,month+1,day,'-')+'</div>'+
-                                '<div class="right-wrapper">'+
+                                '<div>'+
                                     '<span class="next-month" id="nextMonth"></span>'+
                                     '<span class="next-year" id="nextYear"></span>'+
                                 '</div>'+

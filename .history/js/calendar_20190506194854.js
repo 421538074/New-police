@@ -59,9 +59,8 @@
                 },false)
             }
             else {
-                console.log(el);
-                el.attachEvent('onclick',function(){
-                    switch (window.event.srcElement.id) {
+                el.attachEvent('onclick',function(e){
+                    switch (e.target.id) {
                         case 'nextMonth': 
                             _this.nextMonthFun();
                             break;
@@ -77,7 +76,7 @@
                         default:
                             break;
                     };
-                    if(window.event.srcElement.className.indexOf('currentDate') > -1){
+                    if(e.target.className.indexOf('currentDate') > -1){
                         opt.clickCb && opt.clickCb(year, month+1, e.target.innerHTML);
                         selectedDate = e.target.title;
                         day = e.target.innerHTML;

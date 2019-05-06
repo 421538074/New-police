@@ -257,7 +257,7 @@ var xm = avalon.define({
       $.ajax({
         type: "post",
         url: "".concat(api, "/index/api/changePwd"),
-        async: true,
+        
         data: {
           oldpassword: this.Opsw,
           newPassword: this.Npsw
@@ -290,7 +290,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/logout"),
-      async: true,
+      
       data: {},
       dataType: 'json',
       success: function success(res) {
@@ -313,7 +313,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/bookList"),
-      async: true,
+      
       data: {
         page: 1,
         book_id: book_id
@@ -340,7 +340,7 @@ var xm = avalon.define({
       $.ajax({
         type: "post",
         url: "".concat(api, "/index/api/tutorialList"),
-        async: true,
+        
         data: {
           page: 1,
           tutorial_id: tutorial_id
@@ -363,7 +363,7 @@ var xm = avalon.define({
       $.ajax({
         type: "post",
         url: "".concat(api, "/index/api/pluginList"),
-        async: true,
+        
         data: {
           page: 1,
           tool_id: index + 4
@@ -384,7 +384,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/toolDetail"),
-      async: true,
+      
       data: {
         tool_id: index
       },
@@ -409,7 +409,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/toolDetail"),
-      async: true,
+      
       data: {
         tool_id: index
       },
@@ -434,7 +434,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/tutorialDetail"),
-      async: true,
+      
       data: {
         tutorial_id: index
       },
@@ -469,7 +469,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/bookList"),
-      async: true,
+      
       data: {
         page: currentPage,
         book_id: book_id
@@ -489,7 +489,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/tutorialList"),
-      async: true,
+      
       data: {
         page: 1,
         tutorial_id: tutorial_id
@@ -517,7 +517,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/muisicList"),
-      async: true,
+      
       data: {
         page: this.message,
         music_id: id
@@ -543,7 +543,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/muisicList"),
-      async: true,
+      
       data: {
         page: this.message,
         music_id: id
@@ -571,7 +571,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/toolSearch"),
-      async: true,
+      
       data: {
         type: 1,
         keyWords: this.text
@@ -593,7 +593,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/toolSearch"),
-      async: true,
+      
       data: {
         type: 2,
         keyWords: this.text1
@@ -613,7 +613,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/toolCenter"),
-      async: false,
+      
       data: {},
       dataType: 'json',
       success: function success(res) {
@@ -662,7 +662,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/pluginList"),
-      async: false,
+      
       data: {
         page: 1,
         tool_id: 4
@@ -726,6 +726,7 @@ function initPagation() {
       $.ajax({
         type: "post",
         url: "".concat(api, "/index/api/pluginList"),
+        
         data: {
           page: page,
           tool_id: 1
@@ -750,6 +751,7 @@ function initPagationBook() {
       $.ajax({
         type: "post",
         url: "".concat(api, "/index/api/bookList"),
+        
         data: {
           page: page,
           book_id: book_id
@@ -772,14 +774,15 @@ function initPagationTeach() {
       var page = e.current;
       $.ajax({
         type: "post",
-        url: "".concat(api, "/index/api/tutorialList"),
+        url: "".concat(api, "/index/api/pluginList"),
+        
         data: {
           page: page,
-          tutorial_id: 1
+          tool_id: 1
         },
         dataType: 'json',
         success: function success(res) {
-          xm.tutorialList = res.data;
+          xm.tutorialList1 = res.data;
         }
       });
     }

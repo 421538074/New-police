@@ -41,12 +41,6 @@ var xm = avalon.define({
   tutorialList1: [],
   //研判工具
   current1: 0,
-  //总记录数
-  totalNums:{
-    plugin:0,
-    book:0,
-    teach:0
-  },
   number: 0,
   description: '',
   create_at: '',
@@ -304,12 +298,11 @@ var xm = avalon.define({
       }
     });
   },
-  bookChange: function bookChange(book_id, index,num) {
+  bookChange: function bookChange(book_id, index) {
     var _this4 = this;
 
     //书籍分类
     this.current1 = index;
-    _this4.totalNums.book = num;
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/bookList"),
@@ -324,17 +317,15 @@ var xm = avalon.define({
           _this4.bookList = res.data;
           _this4.total = res.data.length;
           sessionStorage.setItem('book_id', book_id);
-          initPagationBook();
         }
       }
     });
   },
-  turtorChange: function turtorChange(index, tutorial_id,num) {
+  turtorChange: function turtorChange(index, tutorial_id) {
     var _this5 = this;
 
     //教程分类
     this.number = index;
-    _this5.totalNums.teach = num;
 
     if (tutorial_id) {
       $.ajax({
@@ -356,7 +347,6 @@ var xm = avalon.define({
           _this5.tutorialList = res.data;
           _this5.totalone = res.data.length;
           sessionStorage.setItem('tutorial_id', tutorial_id);
-          initPagationTeach();
         }
       });
     } else {
@@ -501,18 +491,18 @@ var xm = avalon.define({
       }
     });
   },
-  add: function add(id,total) {
+  add: function add(id) {
     var _this11 = this;
 
     //音乐下一页
     this.musicList;
-    var num = Math.ceil(total / 8);
+    var num = Math.ceil(this.musicList[1].length / 7);
     this.message++;
 
-    if (this.message > num) {
-      this.message = num;
-      return;
-    }
+    // if (this.message > num) {
+    //   this.message = num;
+    //   return;
+    // }
 
     $.ajax({
       type: "post",
@@ -579,8 +569,6 @@ var xm = avalon.define({
       dataType: 'json',
       success: function success(res) {
         _this13.bookList = res.data;
-        _this13.totalNums.book = res.data.length;
-        initPagationBook();
       }
     });
   },
@@ -602,8 +590,6 @@ var xm = avalon.define({
       success: function success(res) {
         _this14.hide =false;
         _this14.tutorialList1 = res.data;
-        _this14.totalNums.teach = res.data.length;
-        initPagationTeach();
       }
     });
   },
@@ -613,25 +599,21 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/toolCenter"),
-      async: false,
+      async: true,
       data: {},
       dataType: 'json',
       success: function success(res) {
-        // 统计记录数
-        _this15.totalNums.plugin = res.data.plugin.num;
-        _this15.plugList = res.data.plugin.list;
+        _this15.plugList = res.data.plugin;
         _this15.musicList = res.data.music.list;
         _this15.musicSort = res.data.music.sort;
 
         _this15.bookChange(res.data.book.sort[0].id, 0);
-        _this15.totalNums.book = res.data.book.sort[0].num;
 
         _this15.bookSort = res.data.book.sort; // this.tutorialList = res.data.tutorial.list
 
         var temp = res.data.tutorial.sort;
 
         _this15.turtorChange(0, res.data.tutorial.sort[0].id);
-        _this15.totalNums.teach = res.data.tutorial.sort[0].num;
 
         _this15.tutorialSort = temp;
         _this15.total = res.data.book.list.length;
@@ -645,14 +627,18 @@ var xm = avalon.define({
         if (_this15.totalone < 8) {
           _this15.totalone = 8;
         }
+
+        sessionStorage.setItem('length', JSON.stringify(res.data.plugin.length));
         _this15.pluginLength = res.data.plugin.length;
         if(!isInitPage) {
           initPagation();
         }
+        sessionStorage.setItem('lengthBook',JSON.stringify(res.data.book.list.length));
         _this15.bookLength = res.data.book.list.length;
         if(!isInitPageBook) {
           initPagationBook();
         }
+        sessionStorage.setItem('lengthTeach',JSON.stringify(res.data.tutorial.list.lenth));
         _this15.teachLength = res.data.tutorial.list.length;
         if(!isInitPageTeach) {
           initPagationTeach();
@@ -662,7 +648,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/pluginList"),
-      async: false,
+      async: true,
       data: {
         page: 1,
         tool_id: 4
@@ -718,14 +704,16 @@ function isIE() {
  * 初始化分页器
  */
 function initPagation() {
+  var length = sessionStorage.getItem("length");
   $(".zxf").createPage({
-    pageNum: Math.ceil(xm.totalNums.plugin / 10),
+    pageNum: Math.ceil(length / 8),
     current: 1,
     backfun: function backfun(e) {
       var page = e.current;
       $.ajax({
         type: "post",
         url: "".concat(api, "/index/api/pluginList"),
+        async: true,
         data: {
           page: page,
           tool_id: 1
@@ -743,20 +731,21 @@ function initPagation() {
 function initPagationBook() {
   var book_id = sessionStorage.getItem('book_id');
   $(".page-book").createPage({
-    pageNum: Math.ceil(xm.totalNums.book / 8),
+    pageNum: Math.ceil(length / 8),
     current: 1,
     backfun: function backfun(e) {
       var page = e.current;
       $.ajax({
         type: "post",
         url: "".concat(api, "/index/api/bookList"),
+        async: true,
         data: {
           page: page,
           book_id: book_id
         },
         dataType: 'json',
         success: function success(res) {
-          xm.bookList = res.data;
+          xm.plugList = res.data;
         }
       });
     }
@@ -766,25 +755,55 @@ function initPagationBook() {
 
 function initPagationTeach() {
   $(".page-teach").createPage({
-    pageNum: Math.ceil(xm.totalNums.teach / 8),
+    pageNum: Math.ceil(length / 8),
+    current: 1,
+    backfun: function backfun(e) {
+      var page = e.current;
+      $.ajax({
+        type: "post",
+        url: "".concat(api, "/index/api/pluginList"),
+        async: true,
+        data: {
+          page: page,
+          tool_id: 1
+        },
+        dataType: 'json',
+        success: function success(res) {
+          xm.plugList = res.data;
+        }
+      });
+    }
+  });
+  isInitPageTeach = true;
+}
+
+/**
+ * 初始化分页器
+ */
+function initPagation() {
+  var length = sessionStorage.getItem("length");
+  var tutorial_id = sessionStorage.getItem('tutorial_id');
+  $(".zxf").createPage({
+    pageNum: Math.ceil(length / 8),
     current: 1,
     backfun: function backfun(e) {
       var page = e.current;
       $.ajax({
         type: "post",
         url: "".concat(api, "/index/api/tutorialList"),
+        async: true,
         data: {
           page: page,
-          tutorial_id: 1
+          tutorial_id: tutorial_id
         },
         dataType: 'json',
         success: function success(res) {
-          xm.tutorialList = res.data;
+          xm.plugList = res.data;
         }
       });
     }
   });
-  isInitPageTeach = true;
+  isInitPage = true;
 }
 
 jQuery.support.cors = true

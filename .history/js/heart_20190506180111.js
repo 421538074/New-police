@@ -775,7 +775,7 @@ function initPagationTeach() {
         url: "".concat(api, "/index/api/tutorialList"),
         data: {
           page: page,
-          tutorial_id: 1
+          tool_id: 1
         },
         dataType: 'json',
         success: function success(res) {

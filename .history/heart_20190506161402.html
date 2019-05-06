@@ -15,7 +15,7 @@
 
 <body>
 
-    <div ms-controller="app" class="ms-controller">
+    <div ms-controller="app">
         <!-- 头部 -->
         <wbr ms-attr="{userName:userName}" ms-widget="{is:'cp-banner'}" />
         <!-- 内容 -->
@@ -38,13 +38,12 @@
                     <p id="go1"></p>
                     <h4>插件中心</h4>
                     <ul class="plug_uu">
-                        <li class="pointer" ms-for="(index,item) in plugList.slice(0,10)"
-                            ms-click="openChange(item.id)">
+                        <li class="pointer" ms-for="(index,item) in plugList.slice(0,10)" ms-click="openChange(item.id)">
                             <span><img ms-attr="{src:('http://police.pzhkj.cn' + item.picture)}" alt=""></span>
                             <p>{{item.name}}</p>
                         </li>
                     </ul>
-                    <div ms-if="totalNums.plugin > 10" class="zxf" ms-visible="isPage"></div>
+                    <div ms-if="pluginLength > 10" class="zxf" ms-visible="isPage"></div>
                 </div>
             </div>
 
@@ -57,27 +56,26 @@
                         <div class="music_one" ms-for="(key,item) in musicSort">
                             <div class="music_wrap clearfix">
                                 <h5>{{item.name}}</h5>
-                                <div ms-if="currentCateId != item.id" class="all-play" ms-click="allPlay(item.id,true)">
-                                </div>
-                                <div ms-if="!(currentCateId != item.id)" class="all-play pause"
-                                    ms-click="allPlay(item.id,false)"></div>
+                                <div ms-if="currentCateId != item.id" class="all-play" ms-click="allPlay(item.id,true)"></div>
+                                <div ms-if="!(currentCateId != item.id)" class="all-play pause" ms-click="allPlay(item.id,false)"></div>
                                 <!-- <img src="img/播放1.png" alt=""> -->
                             </div>
-
+                            
                             <ul class="music_uu">
-                                <li ms-for="(index,arr) in musicList[item.id]"
-                                    ms-class="{musicColor: Color==arr.id && currentCateId == item.id}">
+                                <li ms-for="(index,arr) in musicList[item.id]" 
+                                ms-class="{musicColor: Color==arr.id && currentCateId == item.id}">
                                     <p>{{arr.name}}</p>
                                     <div class="music_img">
-                                        <span class="pause-icon" ms-visible="Color==arr.id && currentCateId == item.id" ms-click="pauseMusic(item.id,arr.id,arr.data_url)"></span>
-                                        <span class="play-icon" ms-visible="!(Color==arr.id && currentCateId == item.id)" ms-click="playMusic(item.id,arr.id,arr.data_url)"></span>
+                                        {{Color}}{{item}}
+                                        <span class="pause-icon" ms-if="Color==arr.id && currentCateId == item.id" ms-click="pauseMusic(item.id,arr.id,arr.data_url)"></span>
+                                        <span class="play-icon" ms-if="!(Color==arr.id && currentCateId == item.id)" ms-click="playMusic(item.id,arr.id,arr.data_url)"></span>
                                         <span class="download" ms-click="musicDown(arr.data_url)"></span>
                                     </div>
                                 </li>
                             </ul>
-                            <div class="music_btn" ms-if="item.num > 8">
+                            <div class="music_btn">
                                 <button class="pointer" ms-click="reduce(item.id)">上一页</button>
-                                <button class="pointer" ms-click="add(item.id,item.num)">下一页</button>
+                                <button class="pointer" ms-click="add(item.id)">下一页</button>
                             </div>
                         </div>
                     </div>
@@ -99,7 +97,7 @@
                         <div class="book_left_tag">
                             <ul class="book_left_uu">
                                 <li ms-for="(index,item) in bookSort" ms-class="{white:index==current1}"
-                                    ms-click="bookChange(item.id,index,item.num)">
+                                    ms-click="bookChange(item.id,index)">
                                     {{item.name}}
                                 </li>
                             </ul>
@@ -124,7 +122,7 @@
                             </ul>
                         </div>
                         <!-- 分页 -->
-                        <div ms-if="totalNums.book > 8" class="page-book"></div>
+                        <div ms-if="bookLength > 8" class="page-book"></div>
                     </div>
                 </div>
             </div>
@@ -141,7 +139,7 @@
                         <div class="book_left_tag">
                             <ul class="book_left_uu">
                                 <li ms-for="(index,item) in tutorialSort" ms-class="{white:index==number}"
-                                    ms-click="turtorChange(index,item.id,item.num)">{{item.name}}</li>
+                                    ms-click="turtorChange(index,item.id)">{{item.name}}</li>
                             </ul>
                         </div>
                     </div>
@@ -154,8 +152,7 @@
 
                         <div class="book_right_bot" ms-if="!hide">
                             <ul class="book_uu">
-                                <li class="pointer" ms-for="(index,item) in tutorialList1"
-                                    ms-click="openChange(item.id)">
+                                <li class="pointer" ms-for="(index,item) in tutorialList1" ms-click="openChange(item.id)">
                                     <span><img ms-attr="{src:'http://police.pzhkj.cn' + item.picture}" alt=""></span>
                                     <p>{{item.name}}</p>
                                 </li>
@@ -174,7 +171,7 @@
                             </ul>
                         </div>
                         <!-- 分页 -->
-                        <div ms-if="totalNums.teach > 8" class="page-teach"></div>
+                        <div ms-if="teachLength > 8" class="page-teach"></div>
                     </div>
                 </div>
             </div>
@@ -187,7 +184,7 @@
             <!-- 书籍 -->
             <div class="book_shade" ms-visible="isbook">
                 <div class="book_name">
-                    <img ms-attr="{src:'book_shad'picture}">
+                        <img ms-attr="{src:'book_shad'picture}" >
                     <div class="book_name_right">
                         <p class="book_name_title">{{name}}</p>
                     </div>
@@ -216,7 +213,7 @@
             <div class="book_shade" ms-visible="istotur">
                 <div class="book_name">
                     <span>
-                        <img ms-attr="{src:'http://police.pzhkj.cn' + picture}">
+                        <img ms-attr="{src:'http://police.pzhkj.cn' + picture}" >
                     </span>
                     <div class="book_name_right">
                         <p class="book_name_title">{{Tname}}</p>
@@ -226,6 +223,30 @@
                 </div>
                 <div class="totur_btn" ms-click="upDown()">
                     查看
+                </div>
+            </div>
+
+            <!-- 修改密码 -->
+            <div class="pass" ms-visible="ispass">
+                <div class="pass_top">
+                    修改密码
+                </div>
+                <div class="pass_bot">
+                    <ul class="pass_uu">
+                        <li>
+                            <span>原密码：</span>
+                            <input type="password" ms-duplex="Opsw">
+                        </li>
+                        <li>
+                            <span>新密码：</span>
+                            <input type="password" ms-duplex="Npsw">
+                        </li>
+                        <li>
+                            <span>重新输入密码：</span>
+                            <input type="password" ms-duplex="Tpsw">
+                        </li>
+                    </ul>
+                    <p ms-click="editChange">确认</p>
                 </div>
             </div>
             <div class="close pointer" ms-click="goClose">
