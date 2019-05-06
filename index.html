@@ -8,11 +8,8 @@
     <title>浦口公安局</title>
     <!-- <link rel="stylesheet" href="css/reset.css?v=1.0.9"> -->
     <link rel="stylesheet" href="css/calendar.css">
-    <!-- <link rel="stylesheet" href="css/index.css?v=1.0.9"> -->
     <link rel="stylesheet" href="css/base.css?v=1.0.9">
     <link rel="stylesheet" href="css/N-index.css?v=1.0.0">
-    <!-- <link rel="stylesheet" type="text/css" href="css/page/zxf_page.css?v=1.0.9" /> -->
-    <!-- <link rel="stylesheet" href="css/page/iconfont.css?v=1.0.9"> -->
     <link rel="stylesheet" href="css/common.css">
     <script src="js/avalon/respond.src.js"></script>
 
@@ -26,15 +23,15 @@
                 <div ms-click="goHome" class="index_left">
                 </div>
                 <div class="header_name">
-                    <div class="header_img" ms-click="goAnswer" ms-if="this.userName!=''">
+                    <div class="header_img" ms-click="goAnswer" ms-if="this.userName">
                         <img src="img/信息.png" alt="">
                         <span ms-if="length>0?isnum:!isnum">{{length}}</span>
                     </div>
-                    <div class="header_enter" ms-if="this.userName==''">
+                    <div class="header_enter" ms-if="this.userName==null">
                         <a ms-click="Enter">登录 | </a>
                         <a ms-click="Resgiter">注册</a>
                     </div>
-                    <span ms-click="goname" class="name" ms-if="this.userName!=''">{{userName}}战法四年</span>
+                    <span ms-click="goname" class="name" ms-if="this.userName">{{userName}}</span>
                 </div>
                 <!-- 通知 -->
                 <div class="answer">
@@ -446,13 +443,10 @@
 <script src="js/jquery1.9.0.js"></script>
 <script src="js/avalon/avalon.js"></script>
 <script src="js/api.js?v=1.0.9"></script>
-<!-- <script src="kindeditor/kindeditor-all-min.js"></script> -->
-<!-- <script src="kindeditor/zh-CN.js"></script> -->
 <script src="js/echarts.min.js"></script>
 <script src="js/echarts-gl.min.js"></script>
 <script src="js/calendar.js"></script>
 <script src="js/getIpAdd.js"></script>
-<!-- <script src="js/index.js?v=1.0.9"></script> -->
 <script src="js/N-index.js"></script>
 
 <script>
