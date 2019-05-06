@@ -22,7 +22,7 @@
     height: 35px;
     margin-top: 20px;
     display: inline-block;
-    margin-left: 20%;
+    margin-left: 1%;
     background: url(../img/logo.png)no-repeat;
     background-size: 100% 100%;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/logo.png', sizingMethod='scale');
@@ -31,7 +31,7 @@
 .header_name {
     float: right;
     font-size: 2.4em;
-    margin-right: 20%;
+    margin-right: 4%;
     float: right;
 }
 
