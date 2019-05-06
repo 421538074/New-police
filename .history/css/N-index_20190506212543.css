@@ -1824,7 +1824,6 @@ span.see-spa {
     }
     canvas{
         z-index: -1;
-        display: none;
     }
     .answer_uu li span {
         color: black;

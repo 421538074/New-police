@@ -853,14 +853,13 @@ function initRepairChart(data) {
       data: data,
       itemStyle: {
         normal: {
-          color:'#2b85e9'
-          // color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-          //   offset: 0,
-          //   color: '#71baf0'
-          // }, {
-          //   offset: 1,
-          //   color: '#2b85e9'
-          // }])
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+            offset: 0,
+            color: '#71baf0'
+          }, {
+            offset: 1,
+            color: '#2b85e9'
+          }])
         }
       }
     }]

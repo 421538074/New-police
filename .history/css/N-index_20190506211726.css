@@ -1822,10 +1822,7 @@ span.see-spa {
         height: auto;
         display: none;
     }
-    canvas{
-        z-index: -1;
-        display: none;
-    }
+
     .answer_uu li span {
         color: black;
         font-size: 14px;

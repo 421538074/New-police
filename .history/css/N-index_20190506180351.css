@@ -1432,8 +1432,6 @@ span.see-spa {
     div#repair-chart {
         width: 100%;
         height: 11em;
-        z-index: -1;
-        position: relative;
     }
 
     .repair-category-item {
@@ -1822,10 +1820,7 @@ span.see-spa {
         height: auto;
         display: none;
     }
-    canvas{
-        z-index: -1;
-        display: none;
-    }
+
     .answer_uu li span {
         color: black;
         font-size: 14px;

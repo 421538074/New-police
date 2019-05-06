@@ -18,6 +18,9 @@
 .index_left {
     margin-left: 9px;
 }
+canvas{
+    z-index: -1;
+}
 .index_left {
     display: inline-block;
     width: 4rem;
