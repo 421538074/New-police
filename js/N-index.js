@@ -84,7 +84,7 @@ var vm = avalon.define({
   // 回复评论条数
   //子级id
   subId: '',
-  // showDate: getNowDate(),
+  showDate: getNowDate(),
   ip: '',
   //报备信息
   repairInfo: {

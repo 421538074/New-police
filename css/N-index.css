@@ -327,6 +327,7 @@ p.report-title {
     border: 1px solid #BFBFBF;
     padding: 5px;
     margin-right: 10px;
+    line-height: 20px;
 }
 
 img.calendar-icon {
