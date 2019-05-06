@@ -18,10 +18,10 @@ div.zxf_pagediv span,div.zxf_pagediv a{
 	line-height: 30px;
 	border-radius: 3px;
 	display: inline-block;
-	margin: 0 10px;
 }
 .zxfPagenum{
 	color: #666;
+	background: #fff;
 	width: 40px;
 	height: 40px;
 	line-height: 40px;

@@ -23,9 +23,6 @@ var xm = avalon.define({
   istotur: false,
   ispass: false,
   plugList: [],
-  pluginLength:0,
-  bookLength:0,
-  teachLength:0,
   bookList: [],
   tutorialList: [],
   musicList: [],
@@ -629,17 +626,14 @@ var xm = avalon.define({
         }
 
         sessionStorage.setItem('length', JSON.stringify(res.data.plugin.length));
-        _this15.pluginLength = res.data.plugin.length;
         if(!isInitPage) {
           initPagation();
         }
-        sessionStorage.setItem('lengthBook',JSON.stringify(res.data.book.list.length));
-        _this15.bookLength = res.data.book.list.length;
+        sessionStorage.setItem('lengthBook',JOSN.stringify(res.data.book.list.length));
         if(!isInitPageBook) {
           initPagationBook();
         }
         sessionStorage.setItem('lengthTeach',JSON.stringify(res.data.tutorial.list.lenth));
-        _this15.teachLength = res.data.tutorial.list.length;
         if(!isInitPageTeach) {
           initPagationTeach();
         }

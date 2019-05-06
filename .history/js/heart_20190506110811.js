@@ -24,8 +24,8 @@ var xm = avalon.define({
   ispass: false,
   plugList: [],
   pluginLength:0,
-  bookLength:0,
-  teachLength:0,
+  bookLength:10,
+  teachLength:10,
   bookList: [],
   tutorialList: [],
   musicList: [],
@@ -633,7 +633,7 @@ var xm = avalon.define({
         if(!isInitPage) {
           initPagation();
         }
-        sessionStorage.setItem('lengthBook',JSON.stringify(res.data.book.list.length));
+        sessionStorage.setItem('lengthBook',JOSN.stringify(res.data.book.list.length));
         _this15.bookLength = res.data.book.list.length;
         if(!isInitPageBook) {
           initPagationBook();

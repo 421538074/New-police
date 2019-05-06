@@ -43,7 +43,7 @@
                             <p>{{item.name}}</p>
                         </li>
                     </ul>
-                    <div ms-if="pluginLength > 10" class="zxf" ms-visible="isPage"></div>
+                    <div ms-if="plugList.length > 10" class="zxf" ms-visible="isPage"></div>
                 </div>
             </div>
 
@@ -121,7 +121,7 @@
                             </ul>
                         </div>
                         <!-- 分页 -->
-                        <div ms-if="bookLength > 8" class="page-book"></div>
+                        <cp-page ms-if="bookList.length > 8" :attr={'current-page':current,total:total} @pagechange="pagechange"></cp-page>
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@
                             </ul>
                         </div>
                         <!-- 分页 -->
-                        <div ms-if="teachLength > 8" class="page-teach"></div>
+                        <!-- <cp-page ms-if="tutorialList.length > 8" :total="totalone" :current-page='currentone' @pagechange="pagechangeOne"></cp-page> -->
                     </div>
                 </div>
             </div>

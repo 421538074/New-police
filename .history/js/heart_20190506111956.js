@@ -634,12 +634,12 @@ var xm = avalon.define({
           initPagation();
         }
         sessionStorage.setItem('lengthBook',JSON.stringify(res.data.book.list.length));
-        _this15.bookLength = res.data.book.list.length;
+        // _this15.bookLength = res.data.book.list.length;
         if(!isInitPageBook) {
           initPagationBook();
         }
         sessionStorage.setItem('lengthTeach',JSON.stringify(res.data.tutorial.list.lenth));
-        _this15.teachLength = res.data.tutorial.list.length;
+        // _this15.teachLength = res.data.tutorial.list.length;
         if(!isInitPageTeach) {
           initPagationTeach();
         }

@@ -633,7 +633,7 @@ var xm = avalon.define({
         if(!isInitPage) {
           initPagation();
         }
-        sessionStorage.setItem('lengthBook',JSON.stringify(res.data.book.list.length));
+        sessionStorage.setItem('lengthBook',JOSN.stringify(res.data.book.list.length));
         _this15.bookLength = res.data.book.list.length;
         if(!isInitPageBook) {
           initPagationBook();
