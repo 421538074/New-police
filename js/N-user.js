@@ -30,25 +30,7 @@ var vm = avalon.define({
     isthree: false,
     isWrap: false,
     //排名切换
-    titleList: [
-        {
-            content: "今天大菠萝降价",
-            create_at: "2019-04-19 02:37:37",
-            first: "0",
-            first_end_time: null,
-            first_start_time: null,
-            id: 91,
-            info_id: 8,
-            picture: "http://police.pzhkj.cn/uploads/1555612632.jpg",
-            records: 2,
-            status: "0",
-            title: "大菠萝",
-            type1: 1,
-            type2: 1,
-            type3: 0,
-            uid: 5,
-        }
-    ],
+    titleList: [],
     list: [],
     comlist: [],
     userlist: [],
