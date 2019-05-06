@@ -18,7 +18,7 @@
 
     <div ms-controller="app" class="ms-controller">
         <div class="index_header">
-            <div class="index_content clearfix">
+            <div class="index_content container clearfix">
                 <div ms-click="goHome" class="index_left">
                 </div>
                 <div class="header_name">
@@ -113,7 +113,7 @@
                                     <li class="uu-lis" ms-click="comChange(item.id,index)">
                                         <div>
                                             <img src="img/评论.png" alt="">
-                                            <span ms-visible="!iscomment">{{item.comment_list.length}}条评论</span>
+                                            <span ms-visible="!iscomment">{{item.comment_num}}条评论</span>
                                             <span ms-visible="iscomment">收起评论</span>
                                         </div>
                                     </li>
@@ -136,9 +136,9 @@
                                 </ul>
                             </div>
                             <!-- 评论 -->
-                            <div class="comment_main" v-cloak
-                                ms-visible="commentActive ==index && currentPostId == item.id">
-                                <div class="comment_list" ms-for="(index,comment) in item.comment_list">
+                            <div class="comment_main" 
+                                ms-visible="commentActive ==index">
+                                <div class="comment_list" ms-for="(index,comment) in CommentList">
                                     <h5 ms-class="{Hcolor:comment.nickname==undefined}">
                                         {{comment.nickname?comment.nickname:"【未注册用户】"}} 评论：</h5>
                                     <p ms-html="comment.content">
@@ -150,17 +150,17 @@
                                         <span>
                                             <div class="comment-ul clearfix">
                                                 <div class="comment-one"
-                                                    ms-click="likePostOrComment('',comment.id,0,1)">
+                                                    ms-click="likePostOrComment1('',comment.id,0,1)">
                                                     <img class="comment-img" src="img/好.png" alt="">
                                                     <span class="comment-test">{{comment.type1}}好</span>
                                                 </div>
                                                 <div class="comment-one"
-                                                    ms-click="likePostOrComment('',comment.id,0,2)">
+                                                    ms-click="likePostOrComment1('',comment.id,0,2)">
                                                     <img class="comment-img" src="img/一般.png" alt="">
                                                     <span class="comment-test">{{comment.type2}}一般</span>
                                                 </div>
                                                 <div class="comment-one"
-                                                    ms-click="likePostOrComment('',comment.id,0,3)">
+                                                    ms-click="likePostOrComment1('',comment.id,0,3)">
                                                     <img class="comment-img" src="img/坏.png" alt="">
                                                     <span class="comment-test">{{comment.type3}}不感兴趣</span>
                                                 </div>

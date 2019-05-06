@@ -49,6 +49,8 @@ var vm = avalon.define({
   repairList: [],
   //所有报备
   replaylist: [],
+  // 评论
+  CommentList: [],
   current: 0,
   changeRed: -1,
   currentActive: -1,
@@ -183,8 +185,23 @@ var vm = avalon.define({
   },
   comChange: function comChange(postId, index) {
     //查看评论
+    var _this = this
     this.currentPostId = postId;
     this.commentActive = this.commentActive == index ? -1 : index;
+    $.ajax({
+      type: "post",
+      url: "".concat(api, "/index/api/getForumCommentList"),
+      async: true,
+      data: {
+        id: postId
+      },
+      dataType: 'json',
+      success: function success(res) {
+        console.log(res)
+        _this.CommentList = res.result;
+      }
+    });
+
   },
   goname: function goname() {
     //个人信息
@@ -288,6 +305,7 @@ var vm = avalon.define({
     $('#schedule-box').slideToggle(200);
   },
   lookchange: function lookchange(post_id, comment_id) {
+    console.log(11)
     var _this5 = this;
 
     //查看回复
@@ -295,13 +313,13 @@ var vm = avalon.define({
       this.ip = "";
     }
 
-    this.currentPostId = post_id;
-    this.currentCommentId = comment_id;
-    this.currentComment = this.titleList.filter(function (posts) {
-      return posts.id == post_id;
-    })[0].comment_list.filter(function (comments) {
-      return comments.id == comment_id;
-    })[0];
+    // this.currentPostId = post_id;
+    // this.currentCommentId = comment_id;
+    // this.currentComment = this.titleList.filter(function (posts) {
+    //   return posts.id == post_id;
+    // })[0].comment_list.filter(function (comments) {
+    //   return comments.id == comment_id;
+    // })[0];
     this.isshade = true;
     this.isspeak = true;
     $.ajax({
@@ -611,6 +629,57 @@ var vm = avalon.define({
           }
 
           _this12.bannerChange(_this12.currentIndex);
+        }
+      },
+      error: function error(err) { }
+    });
+  },
+  likePostOrComment1: function likePostOrComment1(post_id, comment_id, type, typeId) {
+    var _this12 = this;
+
+    if (this.userName) {
+      this.ip = "";
+    } else {
+      this.ip;
+    }
+
+    console.log(this.ip);
+    console.log(typeId);
+    var data = {};
+    $.ajax({
+      url: "".concat(api, "/index/api/phraisePost"),
+      type: 'post',
+      dataType: 'json',
+      data: {
+        post_id: post_id,
+        comment_id: comment_id,
+        ip: this.ip,
+        type: typeId
+      },
+      success: function success(res) {
+        if (type == 0) {
+          //弹窗评论点赞
+          $.ajax({
+            type: "post",
+            url: "".concat(api, "/index/api/getForumCommentList"),
+            async: true,
+            data: {
+              id: post_id
+            },
+            dataType: 'json',
+            success: function success(res) {
+              console.log(res)
+              _this12.CommentList = res.result;
+            }
+          });
+        } else {
+          // if (_this12.currentIndex == 3) {
+          //   _this12.banner(_this12.numIndex, _this12.ForumCate.slice(4)[_this12.numIndex].id);
+
+          //   return;
+          // }
+
+          // _this12.bannerChange(_this12.currentIndex);
         }
       },
       error: function error(err) { }

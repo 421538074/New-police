@@ -47,11 +47,11 @@
 }
 
 .index_right {
+    float: right;
     height: 100%;
-    margin-right: 57px;
-    position: absolute;
-    top: 50%;
-    right: 0;
+    margin-right: 1%;
+    line-height: 72px;
+    font-size: 18px;
 }
 
 .index_right span {
@@ -196,10 +196,11 @@
     display: block;
 }
 .index_left {
+    float: left;
     display: inline-block;
     width: 254px;
     height: 35px;
-    margin-left: 20%;
+    margin-left: 1%;
     margin-top: 20px;
     background: url(../img/logo.png)no-repeat;
     background-size: 100% 100%;
