@@ -772,14 +772,14 @@ function initPagationTeach() {
       var page = e.current;
       $.ajax({
         type: "post",
-        url: "".concat(api, "/index/api/tutorialList"),
+        url: "".concat(api, "/index/api/pluginList"),
         data: {
           page: page,
-          tutorial_id: 1
+          tool_id: 1
         },
         dataType: 'json',
         success: function success(res) {
-          xm.tutorialList = res.data;
+          xm.tutorialList1 = res.data;
         }
       });
     }

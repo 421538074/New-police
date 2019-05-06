@@ -579,8 +579,6 @@ var xm = avalon.define({
       dataType: 'json',
       success: function success(res) {
         _this13.bookList = res.data;
-        _this13.totalNums.book = res.data.length;
-        initPagationBook();
       }
     });
   },
@@ -602,8 +600,6 @@ var xm = avalon.define({
       success: function success(res) {
         _this14.hide =false;
         _this14.tutorialList1 = res.data;
-        _this14.totalNums.teach = res.data.length;
-        initPagationTeach();
       }
     });
   },
@@ -613,7 +609,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/toolCenter"),
-      async: false,
+      async: true,
       data: {},
       dataType: 'json',
       success: function success(res) {
@@ -662,7 +658,7 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/pluginList"),
-      async: false,
+      async: true,
       data: {
         page: 1,
         tool_id: 4
@@ -726,6 +722,7 @@ function initPagation() {
       $.ajax({
         type: "post",
         url: "".concat(api, "/index/api/pluginList"),
+        async: true,
         data: {
           page: page,
           tool_id: 1
@@ -750,6 +747,7 @@ function initPagationBook() {
       $.ajax({
         type: "post",
         url: "".concat(api, "/index/api/bookList"),
+        async: true,
         data: {
           page: page,
           book_id: book_id
@@ -772,14 +770,15 @@ function initPagationTeach() {
       var page = e.current;
       $.ajax({
         type: "post",
-        url: "".concat(api, "/index/api/tutorialList"),
+        url: "".concat(api, "/index/api/pluginList"),
+        async: true,
         data: {
           page: page,
-          tutorial_id: 1
+          tool_id: 1
         },
         dataType: 'json',
         success: function success(res) {
-          xm.tutorialList = res.data;
+          xm.tutorialList1 = res.data;
         }
       });
     }
