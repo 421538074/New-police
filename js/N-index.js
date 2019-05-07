@@ -51,7 +51,7 @@ var vm = avalon.define({
   replaylist: [],
   // 评论
   CommentList: [],
-  CommentList1:[],
+  CommentList1: [],
   current: 0,
   changeRed: -1,
   currentActive: -1,
@@ -186,7 +186,7 @@ var vm = avalon.define({
   },
   comChange: function comChange(postId, index) {
     //查看评论
-    sessionStorage.setItem("postId",postId)
+    sessionStorage.setItem("postId", postId)
     var _this = this
     this.currentPostId = postId;
     this.commentActive = this.commentActive == index ? -1 : index;
@@ -309,7 +309,7 @@ var vm = avalon.define({
   testC: function testC() {
     alert(1)
   },
-  lookchange: function lookchange(post_id, comment_id,index) {
+  lookchange: function lookchange(post_id, comment_id, index) {
     console.log(index)
     var _this5 = this;
 
@@ -544,7 +544,6 @@ var vm = avalon.define({
           if (type == 1) {
             _this10.oneIndex = -1;
             _this10.twoIndex = -1;
-
             _this10.lookchange(_this10.currentPostId, _this10.currentCommentId);
           } else {
             _this10.currentActive = -1;
@@ -565,8 +564,20 @@ var vm = avalon.define({
           dataType: 'json',
           success: function success(res) {
             _this10.Pcomment = "";
-
-            _this10.bannerChange(_this10.currentIndex);
+            $.ajax({
+              type: "post",
+              url: "".concat(api, "/index/api/getForumCommentList"),
+              async: true,
+              data: {
+                id: _this10.currentPostId
+              },
+              dataType: 'json',
+              success: function success(res) {
+                console.log(res)
+                _this10.CommentList = res.result;
+              }
+            });
+            // _this10.bannerChange(_this10.currentIndex);
           }
         });
       } else {
@@ -629,7 +640,7 @@ var vm = avalon.define({
       success: function success(res) {
         if (type == 1) {
           //弹窗评论点赞
-          
+
           _this12.lookchange(_this12.currentPostId, _this12.currentCommentId);
         } else {
           if (_this12.currentIndex == 3) {
@@ -645,7 +656,7 @@ var vm = avalon.define({
     });
   },
   likePostOrComment1: function likePostOrComment1(post_id, comment_id, type, typeId) {
-    var postId =sessionStorage.getItem("postId")
+    var postId = sessionStorage.getItem("postId")
     var _this12 = this;
     if (this.userName) {
       this.ip = "";
@@ -923,7 +934,7 @@ function initRepairChart(data) {
       data: data,
       itemStyle: {
         normal: {
-          color:'#2b85e9'
+          color: '#2b85e9'
           // color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
           //   offset: 0,
           //   color: '#71baf0'
