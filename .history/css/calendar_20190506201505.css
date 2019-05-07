@@ -11,9 +11,8 @@ ul {
     position: absolute;
     right: 15px;
     top: 60px;
-    background: #FFFFFF;
-    /* background: #00BDFF; */
-    z-index: 55556;
+    background: #fff;
+    z-index: 2;
 }
 
 .schedule-hd {
@@ -81,8 +80,9 @@ div.right-wrapper{
 }
 
 .boxshaw {
+    background-color: #fff;
     box-shadow: 2px 2px 15px 2px #e3e3e3;
-    /* behavior: url(css/PIE/PIE.htc); */
+    filter: progid:DXImageTransform.Microsoft.Shadow(color='#e3e3e3', Direction=2, Strength=15);
     opacity: 1;
 }
 

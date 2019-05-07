@@ -22,7 +22,7 @@
     height: 35px;
     margin-top: 20px;
     display: inline-block;
-    margin-left: 1%;
+    margin-left: 20%;
     background: url(../img/logo.png)no-repeat;
     background-size: 100% 100%;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/logo.png', sizingMethod='scale');
@@ -31,7 +31,7 @@
 .header_name {
     float: right;
     font-size: 2.4em;
-    margin-right: 4%;
+    margin-right: 20%;
     float: right;
 }
 
@@ -966,7 +966,7 @@ span.see-spa {
     border-radius: 4px;
     position: absolute;
     top: 100%;
-    right: 0%;
+    right: 14%;
     height: auto;
     display: none;
 }
@@ -1026,7 +1026,7 @@ span.see-spa {
     border-radius: 4px;
     position: absolute;
     top: 105%;
-    right: 2%;
+    right: 19%;
     display: none;
 }
 
@@ -1822,10 +1822,7 @@ span.see-spa {
         height: auto;
         display: none;
     }
-    canvas{
-        z-index: -1;
-        display: none;
-    }
+
     .answer_uu li span {
         color: black;
         font-size: 14px;
@@ -1902,7 +1899,7 @@ span.see-spa {
     }
 
     .header_two_uu li {
-        font-size: 13px;
+        font-size: 14px;
         font-family: PingFangSC-Regular;
         font-weight: 400;
         color: rgba(0, 0, 0, 1);

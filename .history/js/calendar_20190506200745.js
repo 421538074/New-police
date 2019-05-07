@@ -59,6 +59,7 @@
                 },false)
             }
             else {
+                console.log(el);
                 el.attachEvent('onclick',function(){
                     switch (window.event.srcElement.id) {
                         case 'nextMonth': 

@@ -13,7 +13,7 @@ ul {
     top: 60px;
     background: #FFFFFF;
     /* background: #00BDFF; */
-    z-index: 55556;
+    z-index: 2;
 }
 
 .schedule-hd {
@@ -82,7 +82,6 @@ div.right-wrapper{
 
 .boxshaw {
     box-shadow: 2px 2px 15px 2px #e3e3e3;
-    /* behavior: url(css/PIE/PIE.htc); */
     opacity: 1;
 }
 

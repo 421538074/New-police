@@ -81,8 +81,8 @@ div.right-wrapper{
 }
 
 .boxshaw {
-    box-shadow: 2px 2px 15px 2px #e3e3e3;
-    /* behavior: url(css/PIE/PIE.htc); */
+    /* box-shadow: 2px 2px 15px 2px #e3e3e3; */
+    behavior: url(css/PIE/PIE.htc);
     opacity: 1;
 }
 
