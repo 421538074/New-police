@@ -442,7 +442,7 @@ var xm = avalon.define({
         _this8.Tpicture = res.data.picture;
         _this8.Tdata_url = res.data.tutorial_url;
         _this8.Tdownload_status = res.data.download_status;
-        sessionStorage.setItem('url', res.data.tutorial_url);
+        sessionStorage.setItem('url', JSON.stringify(res.data.data_url));
       }
     });
   },
