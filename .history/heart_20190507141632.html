@@ -114,7 +114,7 @@
                         <div class="book_right_bot">
                             <ul class="book_uu">
                                 <li class="pointer" ms-for="(index,item) in bookList" ms-click="bookDown(item.id)">
-                                    <span><img ms-attr="{src:(item.picture == null || item.picture == '' ? defaultIcon:('http://police.pzhkj.cn' + item.picture))}" alt=""></span>
+                                    <span><img ms-attr="{src:src == null ? 'img/警徽.png':('http://police.pzhkj.cn' + item.picture)}" alt=""></span>
                                     <p>{{item.name}}</p>
                                 </li>
                                 <div class="no-tools-wrapper" ms-if="bookList.length == 0">
