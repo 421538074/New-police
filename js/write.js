@@ -75,37 +75,37 @@ var vm = avalon.define({
     });
   },
   upChange: function upChange(event) {
-    var target = event.srcElement ? event.srcElement : event.target;
-    console
-
-    $(event.srcElement).find('input.invisible').click();
+    var e = window.event || event;
+    var obj = e.srcElement || e.target
+    $(".form_img").find('input.invisible').click();
   },
   downImg: function downImg() {
-    alert(11)
     var that = this;
-    var img1 = event.target.files[0];
-    console.log(img1);
-    var formData = new FormData();
-    formData.append('file', img1);
-    $.ajax({
+    $("#form").ajaxSubmit({
       type: "post",
       url: "".concat(api, "/index/api/postImage"),
-      data: formData,
       processData: false,
       async: false,
       contentType: false,
-      dataType: "json",
-      success: function success(res) {
+      dataType: 'json',
+      success: function (res) {
+        console.log(res)
         if (res.code == 1) {
           that.show1 = false;
           that.show2 = true;
+          var image = res.res;
+          image = image.replace(".", "");
+          vm.avtar = "".concat(api).concat(image);
         }
 
-        var image = res.res;
-        image = image.replace(".", "");
-        xm.avtar = "".concat(api).concat(image);
+        return false;
+      },
+      error: function (err) {
+        return false;
+        alert(err);
       }
     });
+
   },
   showChange: function showChange() {
     this.tshow = false;
