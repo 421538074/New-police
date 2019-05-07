@@ -3,7 +3,7 @@
 //首页banner
 var indexBanner = {
   template: "\n    <div class=\"index_header\">\n        <div class=\"index_content container\">\n            <div class=\"index_left pointer\" ms-click=\"goHome\">\n            </div>\n            <div class=\"index_right\">\n                <span  ms-for=\"(index,item) in showList\" ms-click=\"goIndex(index)\"\n                ms-class=\"{BannerImg:index == currentIndex}\">\n                {{item}}\n                </span>\n            </div>\n        </div>\n    </div>\n    ",
-  defaults:{
+  defaults: {
     showList: ['首页', '应用中心', '个人中心'],
     currentIndex: 1,
     userName: sessionStorage.getItem('userName') || '',
@@ -29,7 +29,7 @@ var indexBanner = {
     goHome: function goHome() {
       window.location.href = "index.html";
     },
-    onInit:function() {
+    onInit: function () {
       this.currentIndex = sessionStorage.getItem('id');
     }
   }
