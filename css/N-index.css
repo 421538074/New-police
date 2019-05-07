@@ -966,7 +966,7 @@ span.see-spa {
     border-radius: 4px;
     position: absolute;
     top: 100%;
-    right: 14%;
+    right: 0%;
     height: auto;
     display: none;
 }
@@ -1026,7 +1026,7 @@ span.see-spa {
     border-radius: 4px;
     position: absolute;
     top: 105%;
-    right: 19%;
+    right: 2%;
     display: none;
 }
 
@@ -1897,7 +1897,7 @@ span.see-spa {
     }
 
     .header_two_uu li {
-        font-size: 14px;
+        font-size: 13px;
         font-family: PingFangSC-Regular;
         font-weight: 400;
         color: rgba(0, 0, 0, 1);
