@@ -46,10 +46,13 @@
                     <ul class="forum_main_uu">
                         <li>
                             <div class="form_img pointer" ms-click="upChange($event)">
-                                <img  ms-attr="{src:avtar}" alt="" class="backimg" id="OImg">
+                                <img ms-attr="{src:avtar}" alt="" class="backimg" id="OImg">
                                 <img class="Img" src="img/相机.png" alt="" ms-visible="show1">
                                 <span ms-visible="show1">添加题图</span>
-                                <input id="file" hidden type="file" ms-on-change="downImg" class="invisible">
+                                <form id="form">
+                                    <input name="file" hidden type="file" ms-on-change="downImg" class="invisible">
+                                </form>
+
                             </div>
 
                         </li>
@@ -75,6 +78,7 @@
 <script src="js/jquery1.9.0.js"></script>
 <script src="js/avalon/avalon.js"></script>
 <script src="js/placeholder.js"></script>
+<script src="jquery.form.js"></script>
 <!-- <script src="js/vue.js?v=1.0.9"></script> -->
 <script type="text/javascript" src="js/pagejs/zxf_page.js?v=1.0.9"></script>
 <script src="js/api.js?v=1.0.9"></script>
