@@ -594,6 +594,7 @@ p.create-time {
     outline: none;
     padding: 0 0 0 10px;
     vertical-align: middle;
+    line-height: 28px;
 }
 
 .reply_one img {
@@ -617,6 +618,7 @@ p.create-time {
     outline: none;
     padding-left: 10px;
     vertical-align: middle;
+    line-height: 28px;
 }
 
 .comment_inp img {
@@ -918,6 +920,7 @@ span.see-spa {
     border: 1px solid rgba(203, 201, 201, 1);
     outline: none;
     padding-left: 10px;
+    line-height: 28px;
 }
 
 
@@ -1105,6 +1108,7 @@ span.see-spa {
     background: white;
     border: 1px solid #B8B8B8;
     outline: none;
+    line-height: 26px;
 }
 
 .pass_bot p {
@@ -1283,7 +1287,7 @@ span.see-spa {
         border: 0;
         padding: 0 20px;
         font-size: 14px;
-        line-height: 3em;
+        line-height: 2em;
         max-width: 11em;
     }
 
@@ -1676,6 +1680,7 @@ span.see-spa {
         outline: none;
         padding: 0 0 0 10px;
         vertical-align: middle;
+        line-height: 28px;
     }
 
     .reply_one img {
@@ -1699,6 +1704,7 @@ span.see-spa {
         outline: none;
         padding-left: 10px;
         vertical-align: middle;
+        line-height: 28px;
     }
 
     .comment-btn {
