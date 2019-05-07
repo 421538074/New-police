@@ -76,9 +76,9 @@ var vm = avalon.define({
   },
   upChange: function upChange(event) {
     var target = event.srcElement ? event.srcElement : event.target;
-    console.log(target)
+    console
 
-    $("target").find('input.invisible').click();
+    $(event.srcElement).find('input.invisible').click();
   },
   downImg: function downImg() {
     alert(11)
