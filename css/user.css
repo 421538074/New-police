@@ -33,11 +33,9 @@ div.user-test span {
     font-weight: 400;
     color: #C1CFFF;
     cursor: pointer;
+    margin: 0 24px 0 30px;
 }
 
-.user-two {
-    margin: 0 48px 0 75px;
-}
 
 .userColor {
     color: white !important;
