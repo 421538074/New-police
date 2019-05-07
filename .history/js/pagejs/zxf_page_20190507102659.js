@@ -89,7 +89,6 @@
 			current : 1,
 			backfun : function(){}
 		},options);
-		console.log(pageinit);
 		zp.init(this,pageinit);
 	}
 }(jQuery));

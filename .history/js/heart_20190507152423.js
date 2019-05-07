@@ -437,12 +437,11 @@ var xm = avalon.define({
       success: function success(res) {
         _this8.isshade = true;
         _this8.istotur = true;
-        _this8.Tdescription = res.data.description;
         _this8.Tname = res.data.tutorial_name;
         _this8.Tpicture = res.data.picture;
         _this8.Tdata_url = res.data.tutorial_url;
         _this8.Tdownload_status = res.data.download_status;
-        sessionStorage.setItem('url', res.data.tutorial_url);
+        sessionStorage.setItem('url', JSON.stringify(res.data.data_url));
       }
     });
   },

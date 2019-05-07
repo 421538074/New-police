@@ -4787,7 +4787,9 @@ fix select的无法正确匹配value
         /* istanbul ignore if*/
         if (msie < 9) {
             var VBClassPool = {};
-            window.execScript('Function parseVB(code)\n \tExecuteGlobal(code) \nEnd Function','VBScript');   
+            // window.execScript([// jshint ignore:line
+            // 'Function parseVB(code)', '\tExecuteGlobal(code)', 'End Function' //转换一段文本为VB代码
+            // ].join('\n'), 'VBScript');
 
             var VBMediator = function VBMediator(instance, accessors, name, value) {
                 // jshint ignore:line

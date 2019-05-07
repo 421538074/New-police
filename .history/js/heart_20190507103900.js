@@ -14,7 +14,6 @@ var myPlayer = document.getElementById('my-player');
 var myPlayerIE = '';
 var xm = avalon.define({
   $id: "app",
-  defaultIcon:'img/警徽.png',
   isbook: false,
   isplug: false,
   isshade: false,
@@ -442,7 +441,7 @@ var xm = avalon.define({
         _this8.Tpicture = res.data.picture;
         _this8.Tdata_url = res.data.tutorial_url;
         _this8.Tdownload_status = res.data.download_status;
-        sessionStorage.setItem('url', res.data.tutorial_url);
+        sessionStorage.setItem('url', JSON.stringify(res.data.data_url));
       }
     });
   },
@@ -608,7 +607,8 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/toolCenter"),
-      async: false,
+      // async: false,
+      data: {},
       dataType: 'json',
       success: function success(res) {
         // 统计记录数
@@ -639,11 +639,15 @@ var xm = avalon.define({
         if (_this15.totalone < 8) {
           _this15.totalone = 8;
         }
-        avalon.ready(function () {
-          if (!isInitPage) {
-            initPagation();
-          }
-        });
+        if (!isInitPage) {
+          initPagation();
+        }
+        if (!isInitPageBook) {
+          initPagationBook();
+        }
+        if (!isInitPageTeach) {
+          initPagationTeach();
+        }
       }
     });
     // $.ajax({
@@ -669,20 +673,22 @@ $(function () {
       $(this).addClass("blue");
     });
   });
-});
-$(".index_right span").each(function (index) {
-  $(this).click(function () {
-    $("span.BannerImg").removeClass("BannerImg");
-    $(this).addClass("BannerImg");
+  $(".index_right span").each(function (index) {
+    $(this).click(function () {
+      $("span.BannerImg").removeClass("BannerImg");
+      $(this).addClass("BannerImg");
+    });
   });
+  $('.nav_uu').on('click', 'li', function (e) {
+    var target = e.target;
+    var id = $(target).data("to");
+    $('html,body').animate({
+      scrollTop: $('#' + id).offset().top
+    }, 800);
+  }); // 插件
+  jQuery.support.cors = true
+  xm.created();
 });
-$('.nav_uu').on('click', 'li', function (e) {
-  var target = e.target;
-  var id = $(target).data("to");
-  $('html,body').animate({
-    scrollTop: $('#' + id).offset().top
-  }, 800);
-}); // 插件
 
 
 /**
@@ -773,6 +779,3 @@ function initPagationTeach() {
   });
   isInitPageTeach = true;
 }
-
-jQuery.support.cors = true
-xm.created();
