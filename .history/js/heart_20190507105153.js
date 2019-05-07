@@ -642,6 +642,12 @@ var xm = avalon.define({
           if (!isInitPage) {
             initPagation();
           }
+          if (!isInitPageBook) {
+            initPagationBook();
+          }
+          if (!isInitPageTeach) {
+            initPagationTeach();
+          }
         });
       }
     });

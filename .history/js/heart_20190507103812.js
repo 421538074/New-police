@@ -607,7 +607,8 @@ var xm = avalon.define({
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/toolCenter"),
-      async: false,
+      // async: false,
+      data: {},
       dataType: 'json',
       success: function success(res) {
         // 统计记录数
@@ -638,11 +639,15 @@ var xm = avalon.define({
         if (_this15.totalone < 8) {
           _this15.totalone = 8;
         }
-        avalon.ready(function () {
-          if (!isInitPage) {
-            initPagation();
-          }
-        });
+        if (!isInitPage) {
+          initPagation();
+        }
+        if (!isInitPageBook) {
+          initPagationBook();
+        }
+        if (!isInitPageTeach) {
+          initPagationTeach();
+        }
       }
     });
     // $.ajax({
@@ -668,20 +673,22 @@ $(function () {
       $(this).addClass("blue");
     });
   });
-});
-$(".index_right span").each(function (index) {
-  $(this).click(function () {
-    $("span.BannerImg").removeClass("BannerImg");
-    $(this).addClass("BannerImg");
+  $(".index_right span").each(function (index) {
+    $(this).click(function () {
+      $("span.BannerImg").removeClass("BannerImg");
+      $(this).addClass("BannerImg");
+    });
   });
+  $('.nav_uu').on('click', 'li', function (e) {
+    var target = e.target;
+    var id = $(target).data("to");
+    $('html,body').animate({
+      scrollTop: $('#' + id).offset().top
+    }, 800);
+  }); // 插件
+  jQuery.support.cors = true
+  xm.created();
 });
-$('.nav_uu').on('click', 'li', function (e) {
-  var target = e.target;
-  var id = $(target).data("to");
-  $('html,body').animate({
-    scrollTop: $('#' + id).offset().top
-  }, 800);
-}); // 插件
 
 
 /**
@@ -714,7 +721,7 @@ function initPagation() {
         url: "".concat(api, "/index/api/pluginList"),
         data: {
           page: page,
-          tool_id: 1
+          book_id: 1
         },
         dataType: 'json',
         success: function success(res) {
@@ -772,6 +779,3 @@ function initPagationTeach() {
   });
   isInitPageTeach = true;
 }
-
-jQuery.support.cors = true
-xm.created();

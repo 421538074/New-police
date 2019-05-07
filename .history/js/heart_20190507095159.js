@@ -23,6 +23,9 @@ var xm = avalon.define({
   istotur: false,
   ispass: false,
   plugList: [],
+  pluginLength:0,
+  bookLength:0,
+  teachLength:0,
   bookList: [],
   tutorialList: [],
   musicList: [],
@@ -39,10 +42,10 @@ var xm = avalon.define({
   //研判工具
   current1: 0,
   //总记录数
-  totalNums: {
-    plugin: 0,
-    book: 0,
-    teach: 0
+  totalNums:{
+    plugin:0,
+    book:0,
+    teach:0
   },
   number: 0,
   description: '',
@@ -90,9 +93,9 @@ var xm = avalon.define({
     this.Color = musicId;
     this.musicListSelf = [];
 
-    if (isIE()) {
+    if(isIE()) {
       // IE player
-      if (myPlayerIE != '') {
+      if(myPlayerIE != '') {
         myPlayerIE.pause();
       }
       $('body embed').remove();
@@ -100,14 +103,15 @@ var xm = avalon.define({
       myPlayerIE.src = "".concat(api, "/").concat(url);
       myPlayerIE.height = 0;
       document.body.appendChild(myPlayerIE);
-    } else {
+    }
+    else {
       if (myPlayer.src == '' || myPlayer.src != "".concat(api, "/").concat(url)) {
         myPlayer.src = "".concat(api, "/").concat(url);
-
+  
         myPlayer.oncanplay = function () {
           _this.totalTime = myPlayer.duration;
         };
-
+  
         clearInterval(interval);
         this.playedTime = 0;
       }
@@ -116,10 +120,11 @@ var xm = avalon.define({
     this.countInterval(false);
   },
   pauseMusic: function pauseMusic(catId, musicId, url) {
-    if (isIE()) {
+    if(isIE()) {
       // IE player
       myPlayerIE.pause();
-    } else {
+    }
+    else {
       myPlayer.pause();
     }
     this.pausedId = musicId;
@@ -153,7 +158,7 @@ var xm = avalon.define({
     // IE player
     if (isIE()) {
       // 移除embed媒体元素
-      if (myPlayerIE != '') {
+      if(myPlayerIE != '') {
         myPlayerIE.pause();
       }
       $('body embed').remove();
@@ -212,10 +217,11 @@ var xm = avalon.define({
       }
     } else {
       // 暂停/播放
-      if (!isIE()) {
+      if(!isIE()) {
         this.totalTime = myPlayer.duration;
         myPlayer.play();
-      } else {
+      }
+      else {
         // IE player
         myPlayerIE.play();
       }
@@ -298,7 +304,7 @@ var xm = avalon.define({
       }
     });
   },
-  bookChange: function bookChange(book_id, index, num) {
+  bookChange: function bookChange(book_id, index,num) {
     var _this4 = this;
 
     //书籍分类
@@ -323,7 +329,7 @@ var xm = avalon.define({
       }
     });
   },
-  turtorChange: function turtorChange(index, tutorial_id, num) {
+  turtorChange: function turtorChange(index, tutorial_id,num) {
     var _this5 = this;
 
     //教程分类
@@ -495,7 +501,7 @@ var xm = avalon.define({
       }
     });
   },
-  add: function add(id, total) {
+  add: function add(id,total) {
     var _this11 = this;
 
     //音乐下一页
@@ -533,7 +539,7 @@ var xm = avalon.define({
       return;
     }
 
-
+    
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/muisicList"),
@@ -557,7 +563,7 @@ var xm = avalon.define({
     alink.click();
   },
   Osearch: function Osearch(e) {
-    if (e.keyCode != 13) {
+    if(e.keyCode != 13) {
       return;
     }
     var _this13 = this;
@@ -579,7 +585,7 @@ var xm = avalon.define({
     });
   },
   Tsearch: function Tsearch(e) {
-    if (e.keyCode != 13) {
+    if(e.keyCode != 13) {
       return;
     }
     var _this14 = this;
@@ -594,7 +600,7 @@ var xm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
-        _this14.hide = false;
+        _this14.hide =false;
         _this14.tutorialList1 = res.data;
         _this14.totalNums.teach = res.data.length;
         initPagationTeach();
@@ -608,6 +614,7 @@ var xm = avalon.define({
       type: "post",
       url: "".concat(api, "/index/api/toolCenter"),
       async: false,
+      data: {},
       dataType: 'json',
       success: function success(res) {
         // 统计记录数
@@ -638,27 +645,34 @@ var xm = avalon.define({
         if (_this15.totalone < 8) {
           _this15.totalone = 8;
         }
-        avalon.ready(function () {
-          if (!isInitPage) {
-            initPagation();
-          }
-        });
+        _this15.pluginLength = res.data.plugin.length;
+        if(!isInitPage) {
+          initPagation();
+        }
+        _this15.bookLength = res.data.book.list.length;
+        if(!isInitPageBook) {
+          initPagationBook();
+        }
+        _this15.teachLength = res.data.tutorial.list.length;
+        if(!isInitPageTeach) {
+          initPagationTeach();
+        }
       }
     });
-    // $.ajax({
-    //   type: "post",
-    //   url: "".concat(api, "/index/api/pluginList"),
-    //   async: false,
-    //   data: {
-    //     page: 1,
-    //     tool_id: 4
-    //   },
-    //   dataType: 'json',
-    //   success: function success(res) {
-    //     _this15.hide = false;
-    //     _this15.tutorialList1 = res.data;
-    //   }
-    // });
+    $.ajax({
+      type: "post",
+      url: "".concat(api, "/index/api/pluginList"),
+      async: false,
+      data: {
+        page: 1,
+        tool_id: 4
+      },
+      dataType: 'json',
+      success: function success(res) {
+        _this15.hide = false;
+        _this15.tutorialList1 = res.data;
+      }
+    });
   }
 });
 $(function () {
@@ -704,6 +718,7 @@ function isIE() {
  * 初始化分页器
  */
 function initPagation() {
+  console.log(xm.totalNums);
   $(".zxf").createPage({
     pageNum: Math.ceil(xm.totalNums.plugin / 10),
     current: 1,
