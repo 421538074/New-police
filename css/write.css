@@ -200,9 +200,9 @@ input::placeholder {
     position: absolute;
     right: -120px;
     background: white;
-    box-shadow: 0px 0px 6px 1px rgba(91, 91, 91, 0.58);
-    border-radius: 10px;
-    behavior: url(css/PIE/PIE.htc);
+    box-shadow: 0px 0px 6px 1px #5b5b5b;
+    /* behavior: url(css/PIE/PIE.htc); */
+    /* border-radius: 10px; */
     z-index: 9;
 }
 
@@ -475,7 +475,7 @@ css3-container {
         position: absolute;
         right: -120px;
         background: white;
-        box-shadow: 0px 0px 6px 1px rgba(91, 91, 91, 0.58);
+        box-shadow: 0px 0px 6px 1px #5b5b5b;
         border-radius: 10px;
         behavior: url(css/PIE/PIE.htc);
         z-index: 9;
