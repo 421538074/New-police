@@ -1,4 +1,4 @@
-jQuery.support.cors = true;
+// jQuery.support.cors = true;
 var vm = avalon.define({
   $id: "app",
   pIndex: -1,
@@ -1055,3 +1055,8 @@ function getRepairList(strDate) {
     }
   });
 }
+
+
+
+
+

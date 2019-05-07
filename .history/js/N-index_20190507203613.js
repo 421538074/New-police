@@ -1041,6 +1041,7 @@ function getRepairList(strDate) {
       begin: dateRange.start,
       end: dateRange.end
     },
+    async:false,
     type: 'post',
     dataType: 'json',
     success: function success(data) {
@@ -1055,3 +1056,8 @@ function getRepairList(strDate) {
     }
   });
 }
+
+
+
+
+
