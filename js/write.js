@@ -4,7 +4,7 @@ var vm = avalon.define({
   show1: true,
   show2: false,
   tshow: true,
-  ForumCate: [{title:'科技'},{title:'社会'},{title:'社会'}],
+  ForumCate: [{ title: '科技' }, { title: '社会' }, { title: '社会' }],
   //论坛分类
   changeRed: -1,
   Ptitle: '',
@@ -75,7 +75,10 @@ var vm = avalon.define({
     });
   },
   upChange: function upChange(event) {
-    $(event.target).find('input.invisible').click();
+    var target = event.srcElement ? event.srcElement : event.target;
+    console.log(target)
+
+    $("target").find('input.invisible').click();
   },
   downImg: function downImg() {
     alert(11)
@@ -111,35 +114,35 @@ var vm = avalon.define({
     var _this2 = this;
 
     // this.$nextTick(function () {
-      KindEditor.ready(function (K) {
-        _this2.KindEditor = K;
-        window.editor = _this2.KindEditor.create('#Ftext', {
-          allowImageRemote: false,
-          resizeType: 0,
-          uploadJson: './kindeditor/php/upload_json.php',
-          fileManagerJson: './kindeditor/php/file_manager_json.php',
-          allowFileManager: true,
-          items: ['bold', 'italic', 'underline', 'image'],
-          afterFocus: function afterFocus(e) {
-            if (editor.html() == '请输入正文') {
-              editor.html('');
-              $('.ke-edit-iframe').contents().find('.ke-content').css('color', 'black');
-            }
-          },
-          afterBlur: function afterBlur(e) {
-            if (editor.html() == '<br/>' || editor.html() == '') {
-              editor.html('请输入正文');
-              $('.ke-edit-iframe').contents().find('.ke-content').css('color', 'rgba(159, 159, 159, 1)');
-            }
-          },
-          afterCreate: function afterCreate(e) {
-            this.html('请输入正文');
+    KindEditor.ready(function (K) {
+      _this2.KindEditor = K;
+      window.editor = _this2.KindEditor.create('#Ftext', {
+        allowImageRemote: false,
+        resizeType: 0,
+        uploadJson: './kindeditor/php/upload_json.php',
+        fileManagerJson: './kindeditor/php/file_manager_json.php',
+        allowFileManager: true,
+        items: ['bold', 'italic', 'underline', 'image'],
+        afterFocus: function afterFocus(e) {
+          if (editor.html() == '请输入正文') {
+            editor.html('');
+            $('.ke-edit-iframe').contents().find('.ke-content').css('color', 'black');
+          }
+        },
+        afterBlur: function afterBlur(e) {
+          if (editor.html() == '<br/>' || editor.html() == '') {
+            editor.html('请输入正文');
             $('.ke-edit-iframe').contents().find('.ke-content').css('color', 'rgba(159, 159, 159, 1)');
           }
-        });
+        },
+        afterCreate: function afterCreate(e) {
+          this.html('请输入正文');
+          $('.ke-edit-iframe').contents().find('.ke-content').css('color', 'rgba(159, 159, 159, 1)');
+        }
       });
+    });
     // });
-     // 获取论坛分类
+    // 获取论坛分类
 
     $.ajax({
       type: "post",
