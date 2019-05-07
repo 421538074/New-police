@@ -175,35 +175,8 @@
     top: 4em;
 }
 
-css3-container {
-    display: none;
-}
-
-.banner_more span {
-    /* border-style:  dashed  dashed solid dashed; 
-    border-color: transparent;
-    border-top-color: white;
-    border-width: 10px;
-    width: 0;
-    height: 0;
-    display: inline-block;
-    line-height: 0;
-    box-shadow: 4px -2px 2px #ccc;
-    behavior: url(css/PIE/PIE.htc);  */
-
-    /* position: absolute;
-    top: -8px;
-    left: 30px;
-    display: block;
-    width: 0;
-    height: 0px;
-    content: '';
-    border-style: solid;
-    border-width: 11px;
-    border-color: #fff #fff transparent transparent;
-    transform: rotate(-45deg);
-    box-shadow: 4px -2px 2px #ccc;
-    behavior: url(css/PIE/PIE.htc); */
+.show {
+    display: block!important;
 }
 
 .more_uu {
@@ -658,7 +631,7 @@ p.create-time {
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(121, 121, 121, 1);
+    color: #797979;
     line-height: 28px;
 }
 
@@ -670,7 +643,7 @@ p.create-time {
     position: fixed;
     top: 0;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000, endColorstr=#7F000000);
-    background-color: rgba(0, 0, 0, .5);
+    background-color: #00000080;
     z-index: 1111;
 }
 
@@ -822,7 +795,7 @@ p.no-replay {
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(126, 125, 125, 1);
+    color: #7e7d7d;
     line-height: 28px;
 }
 
@@ -831,7 +804,7 @@ p.no-replay {
     font-size: 15px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 28px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -854,7 +827,7 @@ p.no-replay {
     font-size: 15px;
     font-family: PingFangSC-Medium;
     font-weight: 500;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 28px;
 }
 
@@ -876,7 +849,7 @@ span.replay-spa {
     font-size: 15px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 28px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -888,7 +861,7 @@ span.replay-spa {
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(132, 131, 131, 1);
+    color: (132, 131, 131, 1);
     line-height: 28px;
 }
 
@@ -897,7 +870,7 @@ span.replay-spa {
     font-size: 16px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(121, 121, 121, 1);
+    color: #797979;
     margin-right: 30px;
     cursor: pointer;
 }
@@ -916,8 +889,8 @@ span.see-spa {
 .see_inp input {
     width: 84%;
     height: 28px;
-    background: rgba(242, 242, 242, 1);
-    border: 1px solid rgba(203, 201, 201, 1);
+    background: #f2f2f2;
+    border: 1px solid #cbc9c9;
     outline: none;
     padding-left: 10px;
     line-height: 28px;
@@ -928,11 +901,11 @@ span.see-spa {
     display: inline-block;
     width: 63px;
     height: 28px;
-    background: rgba(29, 85, 152, 1);
+    background: #1d5598;
     font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(255, 255, 255, 1);
+    color: white;
     line-height: 28px;
     text-align: center;
     margin-left: 12px;
@@ -961,17 +934,26 @@ span.see-spa {
 
 /* 头部弹框 */
 /* 通知 */
+.box-app {
+    width: 100%;
+    position: fixed;
+    top: 72px;
+}
+.box-wrap {
+    position: relative;
+}
 .answer {
     width: 322px;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 3px 3px 8px 1px rgba(126, 126, 126, 1);
+    background: white;
+    box-shadow: 3px 3px 8px 1px #7e7e7e;
     behavior: url(css/PIE/PIE.htc);
     border-radius: 4px;
     position: absolute;
-    top: 100%;
-    right: 0%;
+    top: -5px;
+    right: -2%;
     height: auto;
     display: none;
+    z-index: 1111;
 }
 
 .answer_uu li span {
@@ -996,7 +978,7 @@ span.see-spa {
     font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(29, 85, 152, 1);
+    color: #1d5598;
     line-height: 23px;
     padding-bottom: 5px;
     border-bottom: 1px solid #B8B8B8;
@@ -1014,7 +996,7 @@ span.see-spa {
     font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 23px;
     text-align: right;
     margin-right: 26px;
@@ -1023,14 +1005,15 @@ span.see-spa {
 
 /* 个人中心 */
 .header_two {
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 3px 3px 8px 1px rgba(126, 126, 126, 1);
+    background: white;
+    box-shadow: 3px 3px 8px 1px #7e7e7e;
     behavior: url(css/PIE/PIE.htc);
     border-radius: 4px;
     position: absolute;
-    top: 105%;
+    top: 0;
     right: 2%;
     display: none;
+    z-index: 111;
 }
 
 .header_two span {
@@ -1053,7 +1036,7 @@ span.see-spa {
     font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
-    color: rgba(0, 0, 0, 1);
+    color: black;
     line-height: 23px;
     margin-bottom: 7px;
     cursor: pointer;
@@ -1162,7 +1145,7 @@ span.see-spa {
         width: 200px;
         height: 30px;
         margin-top: 6px;
-        margin-left: 10%;
+        margin-left: 1%;
         background: url(../img/logo.png)no-repeat;
         background-size: 100% 100%;
         filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/logo.png', sizingMethod='scale');
@@ -1171,7 +1154,7 @@ span.see-spa {
     .header_name {
         float: right;
         font-size: 2.4em;
-        margin-right: 9%;
+        margin-right: 2%;
         height: 100%;
         line-height: 25px;
     }
@@ -1307,7 +1290,7 @@ span.see-spa {
     /*更多 */
     .banner_more {
         background: white;
-        box-shadow: 3px 3px 8px 1px rgba(126, 126, 126, 1);
+        box-shadow: 3px 3px 8px 1px #7e7e7e;
         behavior: url(css/PIE/PIE.htc);
         position: absolute;
         left: 42%;
@@ -1816,15 +1799,23 @@ span.see-spa {
 
     /* 头部弹框 */
     /* 通知 */
+    .box-app {
+        width: 100%;
+        position: fixed;
+        top: 42px;
+    }
+    .box-wrap {
+        position: relative;
+    }
     .answer {
         width: 250px;
-        background: rgba(255, 255, 255, 1);
-        box-shadow: 3px 3px 8px 1px rgba(126, 126, 126, 1);
+        background: white;
+        box-shadow: 3px 3px 8px 1px #7e7e7e;
         behavior: url(css/PIE/PIE.htc);
         border-radius: 4px;
         position: absolute;
-        top: 100%;
-        right: 3%;
+        top: -6px;
+        right: -4%;
         height: auto;
         display: none;
     }
@@ -1854,7 +1845,7 @@ span.see-spa {
         font-size: 14px;
         font-family: PingFangSC-Regular;
         font-weight: 400;
-        color: rgba(29, 85, 152, 1);
+        color: #1d5598;
         line-height: 23px;
         padding-bottom: 5px;
         border-bottom: 1px solid #B8B8B8;
@@ -1872,7 +1863,7 @@ span.see-spa {
         font-size: 14px;
         font-family: PingFangSC-Regular;
         font-weight: 400;
-        color: rgba(0, 0, 0, 1);
+        color: black;
         line-height: 23px;
         text-align: right;
         margin-right: 26px;
@@ -1881,24 +1872,24 @@ span.see-spa {
 
     /* 个人中心 */
     .header_two {
-        background: rgba(255, 255, 255, 1);
-        box-shadow: 3px 3px 8px 1px rgba(126, 126, 126, 1);
+        background: white;
+        box-shadow: 3px 3px 8px 1px #7e7e7e;
         behavior: url(css/PIE/PIE.htc);
         border-radius: 4px;
         position: absolute;
-        top: 115%;
-        right: 7%;
+        top: 0px;
+        right: -1%;
         display: none;
     }
 
     .header_two span {
         position: absolute;
-        top: -14px;
-        right: 30px;
+        top: -10px;
+        right: 25px;
         display: block;
         width: 0;
         height: 0;
-        border-width: 0 9px 15px;
+        border-width: 0 7px 9px;
         border-style: solid;
         border-color: transparent transparent white;
     }
@@ -1908,14 +1899,14 @@ span.see-spa {
     }
 
     .header_two_uu li {
-        font-size: 13px;
+        font-size: 12px;
         font-family: PingFangSC-Regular;
         font-weight: 400;
-        color: rgba(0, 0, 0, 1);
-        line-height: 23px;
+        color: black;
+        line-height: 16px;
         margin-bottom: 7px;
         cursor: pointer;
-        padding: 0 14px 0 11px;
+        padding: 0 10px;
     }
 
 

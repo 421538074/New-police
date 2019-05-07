@@ -6,10 +6,10 @@ var indexBanner = {
   defaults: {
     showList: ['首页', '应用中心', '个人中心'],
     currentIndex: 1,
-    userName: sessionStorage.getItem('userName') || '',
+    userName: sessionStorage.getItem('username') || '',
     goIndex: function goIndex(index) {
-      console.log(index);
-      sessionStorage.setItem('id', index);
+      console.log(this.userName)
+      // sessionStorage.setItem('id', index);
 
       if (index == 0) {
         window.location.href = "index.html";

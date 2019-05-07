@@ -78,6 +78,7 @@ var vm = avalon.define({
     $(event.target).find('input.invisible').click();
   },
   downImg: function downImg() {
+    alert(11)
     var that = this;
     var img1 = event.target.files[0];
     console.log(img1);

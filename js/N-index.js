@@ -188,8 +188,6 @@ var vm = avalon.define({
     //查看评论
     sessionStorage.setItem("postId", postId)
     var _this = this
-    this.currentPostId = postId;
-    this.commentActive = this.commentActive == index ? -1 : index;
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/getForumCommentList"),
@@ -201,6 +199,8 @@ var vm = avalon.define({
       success: function success(res) {
         console.log(res)
         _this.CommentList = res.result;
+        _this.currentPostId = postId;
+        _this.commentActive = _this.commentActive == index ? -1 : index;
       }
     });
 
@@ -389,7 +389,7 @@ var vm = avalon.define({
     var _this7 = this;
     this.currentIndex = 3;
     this.ismore = false;
-    $("css3-container").css("display", "none")
+    // $("css3-container").css("display", "none")
     if (this.userName) {
       this.ip = "";
     }
@@ -436,7 +436,6 @@ var vm = avalon.define({
 
     if (index == 3) {
       this.ismore == true ? this.ismore = false : this.ismore = true;
-      $("css3-container").css("display", "block")
       if (this.ismore) {
         $(".answer").slideUp(200);
         $(".header_two").slideUp(200);
