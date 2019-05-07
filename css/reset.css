@@ -191,3 +191,56 @@ body {
 *{
 	font-family: myFont !important;
 }
+
+
+
+.ms-controller {
+	visibility: hidden
+}
+
+.alert-mask {
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgba(0, 0, 0, 0.3);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000, endColorstr=#7F000000);
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+}
+
+.alert-body {
+	position: relative;
+	width: 500px;
+	background: #fff;
+	margin: 0 auto;
+	border-radius: 5px;
+	top: -280px;
+}
+
+p.alert-title,
+p.alert-msg {
+	font-size: 15px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	width: 100%;
+}
+
+p.alert-title {
+	background: rgba(0, 0, 0, .03);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#1F000000, endColorstr=#1F000000);
+
+}
+
+button.alert-close {
+	width: 100%;
+	border: none;
+	height: 40px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	color: #fff;
+	background: #7ecef4;
+	cursor: pointer;
+	outline: 0;
+}
