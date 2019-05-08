@@ -219,10 +219,10 @@ var vm = avalon.define({
         //     return comments.id == comment_id;
         // })[0];
 
-        for(var i = 0; i < this.titleList.length; i++) {
-            if(post_id == this.titleList[i].id) {
-                for(var j = 0; i < this.titleList[i][0].comment_list.length;i++) {
-                    if(this.titleList[i][0].comment_list[j].id == comment_id) {
+        for (var i = 0; i < this.titleList.length; i++) {
+            if (post_id == this.titleList[i].id) {
+                for (var j = 0; i < this.titleList[i][0].comment_list.length; i++) {
+                    if (this.titleList[i][0].comment_list[j].id == comment_id) {
                         this.currentComment = this.titleList[i][0].comment_list[j];
                         return;
                     }
@@ -508,6 +508,40 @@ var vm = avalon.define({
 })
 jQuery.support.cors = true
 vm.started();
+
+
+avalon.filters.filterTime = function (time) {
+    var date = new Date(time * 1000);
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+
+
+    if (month < 10) {
+        month = "0" + month;
+    }
+
+    if (day < 10) {
+        day = "0" + day;
+    }
+
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+
+    return year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+}
 
 
 $(".read").click(function () {
