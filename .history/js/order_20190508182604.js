@@ -132,7 +132,6 @@ vm.created();
 
 
 function initPagation() {
-  alert(vm.totalNum);
   $(".page-teach").createPage({
     pageNum: Math.ceil(vm.totalNum / 8),
     current: 1,

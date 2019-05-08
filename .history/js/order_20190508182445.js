@@ -15,7 +15,6 @@ var vm = avalon.define({
   totalone: 8,
   // 记录总条数
   currentone: 1,
-  totalNum:0,
   // 当前的页数
   onli: function onli(type) {
     var _this = this;
@@ -36,7 +35,6 @@ var vm = avalon.define({
         success: function success(res) {
           _this.list = res.data.list;
           _this.totalNum = res.data.num;
-          initPagation();
         }
       });
     } else {
@@ -132,9 +130,8 @@ vm.created();
 
 
 function initPagation() {
-  alert(vm.totalNum);
   $(".page-teach").createPage({
-    pageNum: Math.ceil(vm.totalNum / 8),
+    pageNum: Math.ceil(12 / 8),
     current: 1,
     backfun: function backfun(e) {
       var page = e.current;
@@ -142,11 +139,12 @@ function initPagation() {
         type: "post",
         url: "".concat(api, "/index/api/repairLists"),
         data: {
-          page: page
+          page: page,
+          // tutorial_id: 1
         },
         dataType: 'json',
         success: function success(res) {
-          vm.list = res.data.list;
+          console.log(res)
         }
       });
     }

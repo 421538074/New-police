@@ -132,7 +132,6 @@ vm.created();
 
 
 function initPagation() {
-  alert(vm.totalNum);
   $(".page-teach").createPage({
     pageNum: Math.ceil(vm.totalNum / 8),
     current: 1,
@@ -146,7 +145,7 @@ function initPagation() {
         },
         dataType: 'json',
         success: function success(res) {
-          vm.list = res.data.list;
+          console.log(res)
         }
       });
     }
