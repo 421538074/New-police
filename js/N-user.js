@@ -213,11 +213,22 @@ var vm = avalon.define({
         //查看回复
         this.currentPostId = post_id;
         this.currentCommentId = comment_id;
-        this.currentComment = this.titleList.filter(function (posts) {
-            return posts.id == post_id;
-        })[0].comment_list.filter(function (comments) {
-            return comments.id == comment_id;
-        })[0];
+        // this.currentComment = this.titleList.filter(function (posts) {
+        //     return posts.id == post_id;
+        // })[0].comment_list.filter(function (comments) {
+        //     return comments.id == comment_id;
+        // })[0];
+
+        for(var i = 0; i < this.titleList.length; i++) {
+            if(post_id == this.titleList[i].id) {
+                for(var j = 0; i < this.titleList[i][0].comment_list.length;i++) {
+                    if(this.titleList[i][0].comment_list[j].id == comment_id) {
+                        this.currentComment = this.titleList[i][0].comment_list[j];
+                        return;
+                    }
+                }
+            }
+        }
         this.isshade = true;
         this.isspeak = true;
         $.ajax({
