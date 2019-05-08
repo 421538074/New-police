@@ -172,6 +172,12 @@ td {
     cursor: pointer;
 }
 
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
 
 
 
@@ -200,6 +206,7 @@ td {
     .order_banner {
         margin-top: 42px;
     }
+
     .order_nav img {
         width: 107px;
         height: 26px;

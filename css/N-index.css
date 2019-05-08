@@ -636,6 +636,7 @@ p.create-time {
 }
 
 
+
 /* 遮罩 */
 .shade {
     width: 100%;
@@ -643,7 +644,7 @@ p.create-time {
     position: fixed;
     top: 0;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000, endColorstr=#7F000000);
-    background-color: #00000080;
+    background-color: rgba(0, 0, 0, .5);
     z-index: 111111;
 }
 
@@ -995,7 +996,7 @@ span.see-spa {
     overflow: hidden;
 }
 
-.answer p {
+/* .answer p {
     font-size: 14px;
     font-family: PingFangSC-Regular;
     font-weight: 400;
@@ -1004,6 +1005,12 @@ span.see-spa {
     text-align: right;
     margin-right: 26px;
     cursor: pointer;
+} */
+
+p.no-notice {
+    text-align: center;
+    margin: 0 auto;
+    line-height: 28px;
 }
 
 /* 个人中心 */
