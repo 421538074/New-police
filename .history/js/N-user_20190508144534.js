@@ -224,7 +224,7 @@ var vm = avalon.define({
                 for (var j = 0; j < _this3.titleList[i].comment_list.length; j++) {
                     if (_this3.titleList[i].comment_list[j].id == comment_id) {
                         _this3.currentComment = _this3.titleList[i].comment_list[j];
-                        break;
+                        return;
                     }
                 }
             }

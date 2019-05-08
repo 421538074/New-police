@@ -211,26 +211,26 @@ var vm = avalon.define({
         var _this3 = this;
 
         //查看回复
-        _this3.currentPostId = post_id;
-        _this3.currentCommentId = comment_id;
+        this.currentPostId = post_id;
+        this.currentCommentId = comment_id;
         // this.currentComment = this.titleList.filter(function (posts) {
         //     return posts.id == post_id;
         // })[0].comment_list.filter(function (comments) {
         //     return comments.id == comment_id;
         // })[0];
 
-        for (var i = 0; i < _this3.titleList.length; i++) {
-            if (post_id == _this3.titleList[i].id) {
-                for (var j = 0; j < _this3.titleList[i].comment_list.length; j++) {
-                    if (_this3.titleList[i].comment_list[j].id == comment_id) {
-                        _this3.currentComment = _this3.titleList[i].comment_list[j];
-                        break;
+        for (var i = 0; i < this.titleList.length; i++) {
+            if (post_id == this.titleList[i].id) {
+                for (var j = 0; j < this.titleList[i].comment_list.length; j++) {
+                    if (this.titleList[i].comment_list[j].id == comment_id) {
+                        this.currentComment = this.titleList[i].comment_list[j];
+                        return;
                     }
                 }
             }
         }
-        _this3.isshade = true;
-        _this3.isspeak = true;
+        this.isshade = true;
+        this.isspeak = true;
         $.ajax({
             type: "post",
             url: "".concat(api, "/index/api/comments"),
