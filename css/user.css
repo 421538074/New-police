@@ -292,6 +292,7 @@ td {
     height: 14px;
     background: url(../img/cha@2x.png)no-repeat;
     background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/cha@2x.png', sizingMethod='scale');
     margin: 0 9px 0 11px;
 }
 
@@ -301,6 +302,7 @@ td {
     height: 14px;
     background: url(../img/gou@2x.png)no-repeat;
     background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/gou@2x.png', sizingMethod='scale');
 }
 
 
@@ -776,8 +778,8 @@ span.btn-test {
 .see_inp input {
     width: 84%;
     height: 28px;
-    background: rgba(242, 242, 242, 1);
-    border: 1px solid rgba(203, 201, 201, 1);
+    background: #f2f2f2;
+    border: 1px solid #cbc9c9;
     outline: none;
     padding-left: 10px;
 }
@@ -801,6 +803,7 @@ span.btn-test {
     height: 30px;
     background: url(../img/错.png)no-repeat;
     background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/错.png', sizingMethod='scale');
     position: absolute;
     top: 40px;
     right: 50px;
@@ -810,10 +813,6 @@ span.btn-test {
 .list_two {
     padding-left: 62px;
 }
-
-
-
-
 
 p.no-replay {
     color: #8590ab;

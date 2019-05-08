@@ -221,9 +221,9 @@ var vm = avalon.define({
 
         for (var i = 0; i < this.titleList.length; i++) {
             if (post_id == this.titleList[i].id) {
-                for (var j = 0; i < this.titleList[i][0].comment_list.length; i++) {
-                    if (this.titleList[i][0].comment_list[j].id == comment_id) {
-                        this.currentComment = this.titleList[i][0].comment_list[j];
+                for (var j = 0; i < this.titleList[i].comment_list.length; i++) {
+                    if (this.titleList[i].comment_list[j].id == comment_id) {
+                        this.currentComment = this.titleList[i].comment_list[j];
                         return;
                     }
                 }
@@ -466,10 +466,12 @@ var vm = avalon.define({
                 _this8.userlist = res.data.intergrals;
                 _this8.commentList = res.data.comments.comment;
                 _this8.replayList = res.data.comments.replay;
-                _this8.currentSort = _this8.userlist.findIndex(function (item) {
-                    console.log(item);
-                    return item.nickname == sessionStorage.getItem('username');
-                }) + 1;
+                for(var i = 0; i < _this8.userlist.length; i++) {
+                    if(_this8[i].nickname == sessionStorage.getItem('username')) {
+                        _this8.currentSort = i + 1;
+                        return;
+                    }
+                }
 
                 if (res.data.post == 0) {
                     _this8.isthree = true;

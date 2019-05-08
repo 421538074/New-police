@@ -776,8 +776,8 @@
     .see_inp input {
         width: 84%;
         height: 28px;
-        background: rgba(242, 242, 242, 1);
-        border: 1px solid rgba(203, 201, 201, 1);
+        background: #f2f2f2;
+        border: 1px solid #cbc9c9;
         outline: none;
         padding-left: 10px;
     }
@@ -801,6 +801,7 @@
         height: 20px;
         background: url(../img/错.png)no-repeat;
         background-size: 100% 100%;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/错.png', sizingMethod='scale');
         position: absolute;
         top: 40px;
         right: 50px;
