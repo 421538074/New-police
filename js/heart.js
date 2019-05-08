@@ -301,7 +301,6 @@ var xm = avalon.define({
   },
   bookChange: function bookChange(book_id, index, num) {
     var _this4 = this;
-
     //书籍分类
     this.current1 = index;
     _this4.totalNums.book = num;
