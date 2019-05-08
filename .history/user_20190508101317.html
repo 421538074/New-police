@@ -99,8 +99,8 @@
                                     <div ms-if="getCharaLength(item.content)">
                                         <span ms-visible="postIndex != index">阅读全文</span>
                                         <span ms-visible="postIndex == index">收起全文</span>
-                                        <img src="img/icon-01 (2).png" alt="" ms-visible="postIndex != index">
-                                        <img src="img/icon-01 (1).png" alt="" ms-visible="postIndex == index">
+                                        <img src="img/icon-01 (2).png" alt="" ms-if="postIndex != index">
+                                        <img src="img/icon-01 (1).png" alt="" ms-if="postIndex == index">
                                     </div>
                                 </li>
                                 <li ms-click="comChange(index)">
@@ -139,7 +139,7 @@
                                     </span>
                                 </div>
                                 <div class="reply_one clearfix" ms-if="currentActive==index">
-                                    <input type="text" ms-attr="{placeholder:'回复'+comment.nickname+':'}"  ms-duplex="replyComment">
+                                    <input type="text" placeholder="'回复'+comment.nickname+':'" ms-duplex="replyComment">
                                     <span ms-click="commentChange(item.id,comment.id,item.uid)">发布</span>
                                 </div>
                             </div>
