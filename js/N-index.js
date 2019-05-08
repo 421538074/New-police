@@ -511,7 +511,7 @@ var vm = avalon.define({
     if (this.userName) {
       this.ip = "";
     } else {
-      warn.alert("请先登录");
+      // warn.alert("请先登录");
     }
 
     if (comment_id) {
