@@ -1,6 +1,6 @@
 "use strict";
 
-var api = "http://police.pzhkj.cn";
+var api = "http://47.99.241.87";
 
 function getUrlKey(name) {
   return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.href) || [, ""])[1].replace(/\+/g, '%20')) || null;
