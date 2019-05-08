@@ -141,7 +141,7 @@ vm.created();
 
 function initPagation(type) {
   var url = "".concat(api, "/index/api/repairLists");
-  if(type != 0) {
+  if(type != 1) {
     url = "".concat(api, "/index/api/myRepairs");
   }
   $(".zxf_pagediv").createPage({

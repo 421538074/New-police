@@ -37,7 +37,9 @@ var vm = avalon.define({
           _this.list = res.data.list;
           _this.totalNum = res.data.num;
           avalon.ready(function () {
+            if (!isInitPage) {
               initPagation(type);
+            }
           });
         }
       });
@@ -54,7 +56,9 @@ var vm = avalon.define({
         success: function success(res) {
           _this.list1 = res.data;
           avalon.ready(function () {
+            if (!isInitPage) {
               initPagation(type);
+            }
           });
         }
       });
@@ -141,7 +145,7 @@ vm.created();
 
 function initPagation(type) {
   var url = "".concat(api, "/index/api/repairLists");
-  if(type != 0) {
+  if(type != 1) {
     url = "".concat(api, "/index/api/myRepairs");
   }
   $(".zxf_pagediv").createPage({

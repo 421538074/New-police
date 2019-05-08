@@ -60,6 +60,18 @@
                                         <span class="receive">接单</span>
                                     </td>
                                 </tr>
+                                <tr ms-for="(index,item) in list" ms-if="show" ms-class="{'active':index%2==1}">
+                                    <td>{{item.create_at | filterTime}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.content}}</td>
+                                    <td>{{item.user}}</td>
+                                    <td ms-class="{red:item.status==0}">
+                                        {{item.status==0?"未接单":"接单"}}
+                                    </td>
+                                    <td ms-click="Repair(item.id)">
+                                        <span class="receive">接单</span>
+                                    </td>
+                                </tr>
                                 <tr ms-for="(index,item) in list1" ms-if="!show" ms-class="{'active':index%2==1}">
                                     <td>{{item.create_at | filterTime}}</td>
                                     <td>{{item.name}}</td>

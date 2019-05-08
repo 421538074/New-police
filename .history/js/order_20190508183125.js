@@ -37,7 +37,9 @@ var vm = avalon.define({
           _this.list = res.data.list;
           _this.totalNum = res.data.num;
           avalon.ready(function () {
+            if (!isInitPage) {
               initPagation(type);
+            }
           });
         }
       });
@@ -54,7 +56,9 @@ var vm = avalon.define({
         success: function success(res) {
           _this.list1 = res.data;
           avalon.ready(function () {
+            if (!isInitPage) {
               initPagation(type);
+            }
           });
         }
       });
@@ -84,8 +88,7 @@ var vm = avalon.define({
             data: {},
             dataType: 'json',
             success: function success(res) {
-              _this2.list = res.data.list;
-              _this2.totalNum = res.data.num;
+              _this2.list = res.data;
             }
           });
         } else {
@@ -140,8 +143,9 @@ vm.created();
 
 
 function initPagation(type) {
+  console.log('初始化分页');
   var url = "".concat(api, "/index/api/repairLists");
-  if(type != 0) {
+  if(type != 1) {
     url = "".concat(api, "/index/api/myRepairs");
   }
   $(".zxf_pagediv").createPage({
