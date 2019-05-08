@@ -1115,7 +1115,7 @@ span.see-spa {
 
 */
 
-@media only screen and (max-width: 1024px) {
+/* @media only screen and (max-width: 1024px) {
     html {
         font-size: 100%;
     }
@@ -1419,6 +1419,8 @@ span.see-spa {
     div#repair-chart {
         width: 100%;
         height: 11em;
+        z-index: -1;
+        position: relative;
     }
 
     .repair-category-item {
@@ -1966,4 +1968,4 @@ span.see-spa {
         color: white;
         margin: 30px auto 0;
     }
-}
+} */
