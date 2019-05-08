@@ -139,7 +139,7 @@
                                     </span>
                                 </div>
                                 <div class="reply_one clearfix" ms-if="currentActive==index">
-                                    <input type="text"  ms-duplex="replyComment">
+                                    <input type="text" ms-attr="{placeholder:'回复'+comment.nickname+':'}"  ms-duplex="replyComment">
                                     <span ms-click="commentChange(item.id,comment.id,item.uid)">发布</span>
                                 </div>
                             </div>
@@ -172,7 +172,7 @@
                             </ul>
                         </div>
                         <div class="agree_inp" ms-if="currentActive==index && currentType == 0">
-                            <input type="text" ms-duplex="replyComment">
+                            <input ms-attr="{placeholder:'回复' + item.nickname + ':'}" type="text" ms-duplex="replyComment">
                             <span ms-click="commentChange(item.id,item.comment_id,item.uid,1)">发送</span>
                         </div>
                     </div>
