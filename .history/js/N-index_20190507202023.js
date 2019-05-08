@@ -1,4 +1,3 @@
-jQuery.support.cors = true;
 var vm = avalon.define({
   $id: "app",
   pIndex: -1,
@@ -810,10 +809,9 @@ var vm = avalon.define({
   }
 
 });
-
+jQuery.support.cors = true
 vm.created();
-getRepairList(getNowDate());
-initCalendar();
+
 
 avalon.filters.filterTime = function (time) {
   var date = new Date(time * 1000);
@@ -1055,3 +1053,10 @@ function getRepairList(strDate) {
     }
   });
 }
+
+getRepairList(getNowDate());
+initCalendar();
+
+
+
+

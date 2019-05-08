@@ -446,7 +446,7 @@ var xm = avalon.define({
       }
     });
   },
-  onlinePreview:function() {
+  onlinePreview() {
     var url = sessionStorage.getItem('url');
     url = url.replace("\"", "").replace("\"", "");;
     var down = api + "/" + url; // console.log(down)

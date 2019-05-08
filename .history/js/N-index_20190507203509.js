@@ -1032,6 +1032,7 @@ function getNowDate() {
 
 
 function getRepairList(strDate) {
+  console.log(jQuery.support.cors);
   var dateRange = getWeekByDay(strDate);
   var nowDate = new Date(strDate).getTime() / 1000;
   $.ajax({
@@ -1055,3 +1056,8 @@ function getRepairList(strDate) {
     }
   });
 }
+
+
+
+
+
