@@ -30,7 +30,7 @@ var indexBanner = {
       window.location.href = "index.html";
     },
     onInit: function () {
-      this.currentIndex = sessionStorage.getItem('id');
+      // this.currentIndex = sessionStorage.getItem('id');
     }
   }
 }; //分页
