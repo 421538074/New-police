@@ -588,7 +588,7 @@ var vm = avalon.define({
   goHome: function goHome() {
     window.location.href = "index.html";
   },
-  searchChange: function searchChange() {
+  searchChange: function searchChange(e) {
     if (e.keyCode != 13) {
       return;
     }
