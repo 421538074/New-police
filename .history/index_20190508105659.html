@@ -175,6 +175,7 @@
 
                                     <div class="reply_one" ms-visible="currentActive==index">
                                         <input type="text"
+                                            ms-attr="{placeholder:'回复'+(comment.nickname?comment.nickname:'')+':'}"
                                             ms-duplex="replyComment">
                                         <span class="comment-btn"
                                             ms-click="commentChange(comment.post_id,comment.id,comment.uid)">发布</span>
