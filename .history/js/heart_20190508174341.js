@@ -14,7 +14,7 @@ var myPlayer = document.getElementById('my-player');
 var myPlayerIE = '';
 var xm = avalon.define({
   $id: "app",
-  defaultIcon: 'img/警徽.png',
+  defaultIcon:'img/警徽.png',
   isbook: false,
   isplug: false,
   isshade: false,
@@ -92,8 +92,9 @@ var xm = avalon.define({
     this.musicListSelf = [];
     if (isIE()) {
       // IE player
-      if (myPlayerIE != '') {
-        if (myPlayerIE.src != "".concat(api, "/").concat(url)) {
+      if(myPlayerIE != '') {
+        if(myPlayerIE.src == undefined || myPlayerIE.src != "".concat(api, "/").concat(url)) {
+          console.log('不等或undefined');
           myPlayerIE.pause();
           $('body embed').remove();
           myPlayerIE = document.createElement('embed');
@@ -101,20 +102,13 @@ var xm = avalon.define({
           myPlayerIE.height = 0;
           document.body.appendChild(myPlayerIE);
         }
-      } else {
+      }
+      else {
         myPlayerIE = document.createElement('embed');
         myPlayerIE.src = "".concat(api, "/").concat(url);
         myPlayerIE.height = 0;
         document.body.appendChild(myPlayerIE);
-        //获得歌曲时长
-        if (myPlayerIE.duration == undefined || myPlayerIE.duration == 0) {
-          var intervalTemp = setInterval(function () {
-            if (myPlayerIE.duration != undefined && myPlayerIE.duration != 0) {
-              _this.totalTime = myPlayerIE.duration;
-              clearInterval(intervalTemp);
-            }
-          }, 50);
-        }
+        console.log(myPlayerIE.src);
       }
     } else {
       if (myPlayer.src == '' || myPlayer.src != "".concat(api, "/").concat(url)) {
@@ -227,16 +221,15 @@ var xm = avalon.define({
         };
       }
     } else {
-      // 暂停 ==> 播放
+      // 暂停/播放
       if (!isIE()) {
         this.totalTime = myPlayer.duration;
         myPlayer.play();
       } else {
         // IE player
-        setTimeout(function() {
-          myPlayerIE.play();          
-        }, 100);
+        myPlayerIE.play();
       }
+
       if (!interval) {
         interval = setInterval(function () {
           _this2.playedTime += 1;
@@ -383,6 +376,7 @@ var xm = avalon.define({
         success: function success(res) {
           _this5.hide = false;
           _this5.tutorialList1 = res.data;
+          console.log(_this5.tutorialList1);
         }
       });
     }
@@ -461,7 +455,7 @@ var xm = avalon.define({
       }
     });
   },
-  onlinePreview: function () {
+  onlinePreview:function() {
     var url = sessionStorage.getItem('url');
     url = url.replace("\"", "").replace("\"", "");;
     var down = api + "/" + url; // console.log(down)
@@ -570,7 +564,7 @@ var xm = avalon.define({
       }
     });
   },
-  musicDown: function musicDown(name, data_url) {
+  musicDown: function musicDown(name,data_url) {
     //音乐下载
     //必须同源才能下载
     var alink = document.createElement("a");

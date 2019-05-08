@@ -234,7 +234,8 @@ var xm = avalon.define({
       } else {
         // IE player
         setTimeout(function() {
-          myPlayerIE.play();          
+        myPlayerIE.play();
+          
         }, 100);
       }
       if (!interval) {

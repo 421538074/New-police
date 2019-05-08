@@ -108,9 +108,10 @@ var xm = avalon.define({
         document.body.appendChild(myPlayerIE);
         //获得歌曲时长
         if (myPlayerIE.duration == undefined || myPlayerIE.duration == 0) {
+          console.log('计时')
           var intervalTemp = setInterval(function () {
             if (myPlayerIE.duration != undefined && myPlayerIE.duration != 0) {
-              _this.totalTime = myPlayerIE.duration;
+              this.totalTime = myPlayerIE.duration;
               clearInterval(intervalTemp);
             }
           }, 50);
@@ -227,15 +228,14 @@ var xm = avalon.define({
         };
       }
     } else {
+      console.log(_this2.totalTime)
       // 暂停 ==> 播放
       if (!isIE()) {
         this.totalTime = myPlayer.duration;
         myPlayer.play();
       } else {
         // IE player
-        setTimeout(function() {
-          myPlayerIE.play();          
-        }, 100);
+        myPlayerIE.play();
       }
       if (!interval) {
         interval = setInterval(function () {
@@ -383,6 +383,7 @@ var xm = avalon.define({
         success: function success(res) {
           _this5.hide = false;
           _this5.tutorialList1 = res.data;
+          console.log(_this5.tutorialList1);
         }
       });
     }

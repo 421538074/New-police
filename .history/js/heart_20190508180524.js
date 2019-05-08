@@ -227,15 +227,14 @@ var xm = avalon.define({
         };
       }
     } else {
+      console.log(_this2.totalTime)
       // 暂停 ==> 播放
       if (!isIE()) {
         this.totalTime = myPlayer.duration;
         myPlayer.play();
       } else {
         // IE player
-        setTimeout(function() {
-          myPlayerIE.play();          
-        }, 100);
+        myPlayerIE.play();
       }
       if (!interval) {
         interval = setInterval(function () {
@@ -383,6 +382,7 @@ var xm = avalon.define({
         success: function success(res) {
           _this5.hide = false;
           _this5.tutorialList1 = res.data;
+          console.log(_this5.tutorialList1);
         }
       });
     }
