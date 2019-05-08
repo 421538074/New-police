@@ -176,7 +176,7 @@
 }
 
 .show {
-    display: block!important;
+    display: block !important;
 }
 
 .more_uu {
@@ -926,6 +926,7 @@ span.see-spa {
     height: 30px;
     background: url(../img/错.png)no-repeat;
     background-size: 100% 100%;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/错.png', sizingMethod='scale');
     position: absolute;
     top: 40px;
     right: 50px;
@@ -939,9 +940,11 @@ span.see-spa {
     position: fixed;
     top: 72px;
 }
+
 .box-wrap {
     position: relative;
 }
+
 .answer {
     width: 322px;
     background: white;
@@ -1802,9 +1805,11 @@ span.see-spa {
         position: fixed;
         top: 42px;
     }
+
     .box-wrap {
         position: relative;
     }
+
     .answer {
         width: 250px;
         background: white;
@@ -1817,6 +1822,7 @@ span.see-spa {
         height: auto;
         display: none;
     }
+
     .answer_uu li span {
         color: black;
         font-size: 14px;
