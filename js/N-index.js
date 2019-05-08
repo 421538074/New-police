@@ -171,7 +171,7 @@ var vm = avalon.define({
   },
   gouser: function gouser(id) {
     //跳转我的主页
-    sessionStorage.setItem('id', 2);
+    // sessionStorage.setItem('id', 2);
     window.location.href = "user.html";
   },
   readChange: function readChange(item, index, e) {
