@@ -311,28 +311,20 @@ var vm = avalon.define({
     alert(1)
   },
   lookchange: function lookchange(post_id, comment_id, index) {
-    console.log(index)
     var _this5 = this;
 
     //查看回复
     if (this.userName) {
       this.ip = "";
     }
-    $.ajax({
-      type: "post",
-      url: "".concat(api, "/index/api/getForumCommentList"),
-      async: true,
-      data: {
-        id: post_id
-      },
-      dataType: 'json',
-      success: function success(res) {
-        console.log(res)
-        _this5.CommentList1 = res.result[index];
 
+    this.currentCommentId = comment_id;
+    for (var i = 0; i < this.CommentList.length; i++) {
+      if (comment_id == this.CommentList[i].id) {
+        this.currentComment = this.CommentList[i]
+        break;
       }
-    });
-
+    }
     this.isshade = true;
     this.isspeak = true;
     $.ajax({
@@ -588,7 +580,10 @@ var vm = avalon.define({
   goHome: function goHome() {
     window.location.href = "index.html";
   },
-  searchChange: function searchChange() {
+  searchChange: function searchChange(e) {
+    if (e.keyCode != 13) {
+      return;
+    }
     var _this11 = this;
 
     //搜素
