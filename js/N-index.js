@@ -589,6 +589,9 @@ var vm = avalon.define({
     window.location.href = "index.html";
   },
   searchChange: function searchChange() {
+    if (e.keyCode != 13) {
+      return;
+    }
     var _this11 = this;
 
     //搜素
