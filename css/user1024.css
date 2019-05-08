@@ -57,7 +57,7 @@
         height: 52px;
         background: white;
         line-height: 52px;
-        margin-top: 50px;
+        margin-top: 50px!important;
     }
 
     .user_content_left {
@@ -100,7 +100,7 @@
 
     /* user_title */
     .user_title {
-        margin-top: 10px;
+        margin-top: 10px!important;
     }
 
     .user_title_left {

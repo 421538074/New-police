@@ -3,12 +3,6 @@ html {
     /* font-size: 100px; */
 }
 
-@media screen and (max-width:1200px) {
-    body {
-        font-size: 100px;
-    }
-}
-
 .login_logo {
     width: 100%;
     /* height: 100%; */
@@ -41,7 +35,7 @@ html {
     color: white;
     line-height: 36px;
     text-shadow: 0px 8px 14px #231815;
-    
+
 }
 
 .login_bot {
@@ -296,7 +290,7 @@ a.role-a {
         color: white;
         line-height: 20px;
         text-shadow: 0px 8px 14px #231815;
-        
+
     }
 
     .login_bot {
@@ -305,7 +299,7 @@ a.role-a {
         background: white;
         box-shadow: 0px 8px 14px 4px #231815;
         border-radius: 20px;
-        
+
         margin: 34px auto;
         position: relative;
     }
@@ -516,8 +510,273 @@ a.role-a {
     }
 
     .other-one {
-        margin-right:10px;
+        margin-right: 10px;
     }
+
+    .register-wrapper {
+        margin-top: 10px;
+    }
+}
+
+
+@media screen and (min-width:1024px) and (max-width:1366px) {
+
+    body {
+        background: red;
+    }
+
+    .login_logo {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: url(../img/背景.png) no-repeat;
+        background-size: 100% 100%;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/背景.png', sizingMethod='scale');
+    }
+
+    .login_top {
+        text-align: center;
+        padding-top: 66px;
+    }
+
+    .login_top img {
+        width: 73px;
+        height: 74px;
+    }
+
+    .login_top p {
+        font-size: 20px;
+        font-family: FZLTCHK--GBK1-0;
+        font-weight: 600;
+        color: white;
+        line-height: 20px;
+        text-shadow: 0px 8px 14px #231815;
+
+    }
+
+    .login_bot {
+        width: 330px;
+        height: 230px;
+        background: white;
+        box-shadow: 0px 8px 14px 4px #231815;
+        border-radius: 20px;
+
+        margin: 34px auto;
+        position: relative;
+    }
+
+    .bird {
+        width: 38px;
+        height: 35px;
+        background: url(../img/鸟.png) no-repeat;
+        background-size: 100% 100%;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/鸟.png', sizingMethod='scale');
+        position: absolute;
+        top: 14px;
+        right: 8px;
+    }
+
+    /* 选择登录角色 */
+    .role_uu {
+        padding: 72px 0 0 44px;
+    }
+
+    .role_uu li {
+        float: left;
+        text-align: center;
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 500;
+        color: black;
+        line-height: 12px;
+        margin-right: 23px;
+        cursor: pointer;
+    }
+
+    li.role-lis {
+        margin-right: 0 !important;
+    }
+
+    .role_uu li img {
+        width: 64px;
+        height: 64px;
+    }
+
+    /* 警员登录 */
+    .police {
+        padding: 22px 0 0 0;
+        line-height: 0;
+        height: 90%;
+    }
+
+    .police h4 {
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: black;
+        line-height: 24px;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .police_uu {
+        height: 58%;
+        margin-left: 12%;
+    }
+
+    .Pul {
+        margin-left: 36px;
+        height: 53%;
+        padding-top: 10px;
+    }
+
+    .police_uu li {
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: black;
+        line-height: 20px;
+        margin-bottom: 24px;
+    }
+
+    .police_uu li input {
+        width: 155px;
+        height: 17px;
+        background: #F2F2F2;
+        border: 1px solid #CBC9C9;
+        outline: none;
+        padding-left: 10px;
+    }
+
+    .police_uu li label {
+        display: inline-block;
+        width: 53px;
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    .enter {
+        float: left;
+        width: 90px;
+        height: 20px;
+        background: url(../img/圆角矩形.png) no-repeat;
+        background-size: 100% 100%;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/圆角矩形.png', sizingMethod='scale');
+        outline: none;
+        border: 0;
+        cursor: pointer;
+        margin-left: 10%;
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: white;
+        text-align: center;
+        line-height: 20px;
+    }
+
+    .enter:hover,
+    .other:hover,
+    .role-a:hover {
+        color: #71bbf0;
+    }
+
+    .role-a {
+        color: #A9A9A9;
+    }
+
+    .other {
+        float: right;
+        width: 20%;
+        text-align: center;
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: #A9A9A9;
+        line-height: 20px;
+        cursor: pointer;
+        white-space: nowrap;
+    }
+
+    a.role-a {
+        color: #A9A9A9;
+    }
+
+    /* 管理登录 */
+    /* 接单员登录 */
+    .matron,
+    .order {
+        padding: 23px 0 0 0;
+        line-height: 0;
+    }
+
+    .matron h4,
+    .order h4 {
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: black;
+        line-height: 20px;
+        text-align: center;
+        margin-bottom: 36px;
+    }
+
+    .matron_uu {
+        margin-left: 20%;
+    }
+
+    .matron_uu li {
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: black;
+        line-height: 20px;
+        margin-bottom: 36px;
+    }
+
+    .matron_uu li input {
+        width: 133px;
+        height: 15px;
+        background: white;
+        border: 1px solid #CBC9C9;
+        outline: none;
+        padding-left: 10px;
+    }
+
+    .police_uu li input {
+        z-index: 5;
+    }
+
+    .role_register {
+        float: left;
+        width: 24%;
+        text-align: center;
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: #A9A9A9;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    .role {
+        text-align: right;
+    }
+
+    .enterone {
+        margin-left: 36%;
+    }
+
+    .login-wrapper {
+        line-height: 20px;
+    }
+
+    .other-one {
+        margin-right: 10px;
+    }
+
     .register-wrapper {
         margin-top: 10px;
     }
