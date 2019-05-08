@@ -97,10 +97,10 @@
                             <ul class="clearfix">
                                 <li class="read" ms-click="readChange(item,index)">
                                     <div ms-if="getCharaLength(item.content)">
-                                        <span ms-if="postIndex != index">阅读全文</span>
-                                        <span ms-if="postIndex == index">收起全文</span>
-                                        <img src="img/icon-01 (2).png" alt="" ms-if="postIndex != index">
-                                        <img src="img/icon-01 (1).png" alt="" ms-if="postIndex == index">
+                                        <span ms-visible="postIndex != index">阅读全文</span>
+                                        <span ms-visible="postIndex == index">收起全文</span>
+                                        <img src="img/icon-01 (2).png" alt="" ms-visible="postIndex != index">
+                                        <img src="img/icon-01 (1).png" alt="" ms-visible="postIndex == index">
                                     </div>
                                 </li>
                                 <li ms-click="comChange(index)">
