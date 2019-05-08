@@ -265,6 +265,11 @@ css3-container {
 }
 
 
+@media only screen and (max-width: 1024px) {
+    .ke-edit {
+        height: 165px !important;
+    }
+}
 
 /* 
 1024
@@ -348,7 +353,7 @@ css3-container {
         font-size: 40px;
         font-family: PingFangSC-Medium;
         font-weight: 500;
-        color: red;
+        color: #9f9f9f;
     }
 
 
@@ -423,7 +428,7 @@ css3-container {
     }
 
     .ke-edit {
-        height: 280px !important;
+        height: 165px !important;
     }
 
     .ke-toolbar {
@@ -437,7 +442,7 @@ css3-container {
 
     .ke-edit-iframe,
     .ke-edit-textarea {
-        height: 270px !important;
+        height: 185px !important;
     }
 
     .form_img {
