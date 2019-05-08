@@ -643,7 +643,7 @@ p.create-time {
     position: fixed;
     top: 0;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000, endColorstr=#7F000000);
-    background-color: #00000080;
+    background-color: rgba(0, 0, 0, .5);
     z-index: 111111;
 }
 
