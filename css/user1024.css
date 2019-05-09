@@ -22,6 +22,7 @@
         width: 200px;
         height: 30px;
         margin-top: 6px;
+        cursor: pointer;
     }
 
     div.user-test {
@@ -57,7 +58,7 @@
         height: 52px;
         background: white;
         line-height: 52px;
-        margin-top: 50px!important;
+        margin-top: 50px !important;
     }
 
     .user_content_left {
@@ -100,7 +101,7 @@
 
     /* user_title */
     .user_title {
-        margin-top: 10px!important;
+        margin-top: 10px !important;
     }
 
     .user_title_left {
@@ -375,7 +376,7 @@
     .comment ul li img {
         width: 12px;
         height: 10px;
-        margin:0 5px;
+        margin: 0 5px;
     }
 
     /* 评论框 */
@@ -447,6 +448,7 @@
     .reply_one>input {
         float: left;
         width: 78%;
+        line-height: 28px;
         height: 28px;
         background: #F2F2F2;
         border: 1px solid #CBC9C9;
@@ -478,6 +480,7 @@
     .comment_inp input {
         width: 80%;
         height: 28px;
+        line-height: 28px;
         background: #F2F2F2;
         border: 1px solid #CBC9C9;
         outline: none;
@@ -580,6 +583,7 @@
     .agree_inp input {
         width: 80%;
         height: 28px;
+        line-height: 28px;
         background: #F2F2F2;
         border: 1px solid #CBC9C9;
         padding-left: 15px;
@@ -644,7 +648,7 @@
         max-height: 75%;
         background: white;
         border-radius: 10px;
-        behavior: url(css/PIE/PIE.htc);
+        /* behavior: url(css/PIE/PIE.htc); */
         position: absolute;
         top: 15%;
         left: 0;
@@ -775,6 +779,7 @@
 
     .see_inp input {
         width: 84%;
+        line-height: 28px;
         height: 28px;
         background: #f2f2f2;
         border: 1px solid #cbc9c9;
@@ -860,10 +865,11 @@
     }
 
     table {
-        width: 100%;
+        width: 561px;
     }
 
     .Htr {
+        width: 100%;
         height: 30px;
         background: #94D2FF;
     }
@@ -902,4 +908,23 @@
     .Hcolor {
         color: #333 !important;
     }
+
+
+    .td-one {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 200px;
+    }
+
+    td {
+        font-size: 14px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: black;
+        line-height: 36px;
+        text-align: center;
+    }
+
+
 }

@@ -90,7 +90,64 @@ var xm = new Vue({
     tgp: '按总积分排序',
     currentSort: 0,
     currentType: -1,
-    baseList: [],
+    baseList: [
+      {
+        content: "23132313131232132",
+        create_at: "2019-05-09 14:51:32",
+        name: null,
+        police_name: "",
+        status: null,
+        title: "监控设备",
+      },
+      {
+        content: "23132313131232132",
+        create_at: "2019-05-09 14:51:32",
+        name: null,
+        police_name: "",
+        status: null,
+        title: "监控设备",
+      },
+      {
+        content: "23132313131232132",
+        create_at: "2019-05-09 14:51:32",
+        name: null,
+        police_name: "",
+        status: null,
+        title: "监控设备",
+      },
+      {
+        content: "2313231313123213223132313131232132啊哈哈啊哈哈哈哈哈哈哈哈哈",
+        create_at: "2019-05-09 14:51:32",
+        name: null,
+        police_name: "",
+        status: null,
+        title: "监控设备",
+      },
+      {
+        content: "23132313131232132",
+        create_at: "2019-05-09 14:51:32",
+        name: null,
+        police_name: "",
+        status: null,
+        title: "监控设备",
+      },   {
+        content: "23132313131232132啊哈哈啊哈哈哈哈哈哈哈哈哈",
+        create_at: "2019-05-09 14:51:32",
+        name: null,
+        police_name: "",
+        status: null,
+        title: "监控设备",
+      },
+      {
+        content: "23132313131232132",
+        create_at: "2019-05-09 14:51:32",
+        name: null,
+        police_name: "",
+        status: null,
+        title: "监控设备",
+      },
+
+    ],
     isone1: false,
     isone2: false
   },
@@ -454,16 +511,16 @@ var xm = new Vue({
         }
       });
     }
-  }, 
-  "filterImg", function filterImg(value) {
-    if (!value) return '';
+  },
+    "filterImg", function filterImg(value) {
+      if (!value) return '';
 
-    if (value.length > 300) {
-      return value.slice(0, 300) + '...';
-    }
+      if (value.length > 300) {
+        return value.slice(0, 300) + '...';
+      }
 
-    return value;
-  }),
+      return value;
+    }),
   components: {
     "cp-banner": indexBanner
   },

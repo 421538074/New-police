@@ -99,10 +99,10 @@ var vm = avalon.define({
           vm.avtar = "".concat(api).concat(image);
         }
 
-        // return false;
+        return false;
       },
       error: function (err) {
-        // return false;
+        return false;
         alert(err);
       }
     });
