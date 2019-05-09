@@ -455,7 +455,8 @@ var vm = avalon.define({
       dataType: 'json',
       success: function success(res) {
         console.log(res)
-        _this8.postIndex = -1; // this.commentActive = -1
+        _this8.postIndex = -1; 
+        // this.commentActive = -1
         _this8.numIndex = -1;
         _this8.ForumCate[3].title = "更多";
         _this8.titleList = res.result;

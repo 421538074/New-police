@@ -72,8 +72,6 @@ var vm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
-        console.log(res);
-
         if (res.code == 1) {
           $.ajax({
             type: "post",
@@ -121,7 +119,9 @@ var vm = avalon.define({
             type: "post",
             url: "".concat(api, "/index/api/myRepairs"),
             async: true,
-            data: {},
+            data: {
+              page: 1
+            },
             dataType: 'json',
             success: function success(res) {
               _this3.list1 = res.data;

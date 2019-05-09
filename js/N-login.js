@@ -110,6 +110,8 @@ var vm = avalon.define({
                         that.Ggpsw=''
                         // window.location.href = 'index.html';
                         warn.alert(res.msg);
+                    }else{
+                        warn.alert(res.msg);
                     }
                 }
             });
