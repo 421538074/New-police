@@ -898,7 +898,7 @@ span.see-spa {
 }
 
 
-.see_inp span:nth-child(3) {
+.see_inp span {
     display: inline-block;
     width: 63px;
     height: 28px;
