@@ -463,11 +463,11 @@ var xm = avalon.define({
     window.open(down);
   },
   upDown: function upDown() {
-    var that = this;
+    
     var url = sessionStorage.getItem('url');
     url = url.replace("\"", "").replace("\"", "");
     $.get(api+'/'+url,function(data) {
-      download(data,that.name + url.substring(url.indexOf('.')));
+      download(data,this.name + url.substring(url.indexOf('.')));
     });
   },
   pagechange: function pagechange(currentPage) {

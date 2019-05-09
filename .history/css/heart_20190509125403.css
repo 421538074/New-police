@@ -473,7 +473,9 @@ span.pause-icon {
     display: inline-block;
     width: 120px;
     height: 32px;
-    background: url(../img/在线预览.png) no-repeat;
+    <!--[if !IE]>
+        background: url(../img/在线预览.png)no-repeat;
+    <![endif]-->
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/在线预览.png', sizingMethod='scale');
     background-size: 100% 100%;
     margin-right: 32px;
