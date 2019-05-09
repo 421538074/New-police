@@ -468,7 +468,7 @@ var xm = avalon.define({
     url = url.replace("\"", "").replace("\"", "");
     if(isIE(true)) {
       var elemIF = document.createElement("iframe");
-      elemIF.src = api+'/'+url;
+      elemIF.src = url;
       elemIF.style.display = "none";
       document.body.appendChild(elemIF);
       return;
@@ -576,10 +576,9 @@ var xm = avalon.define({
     name = name + data_url.substring(data_url.indexOf('.'));
     if(isIE(true)) {
       var elemIF = document.createElement("iframe");
-      elemIF.src = api+'/'+data_url;
+      elemIF.src = data_url;
       elemIF.style.display = "none";
       document.body.appendChild(elemIF);
-      return;
     }
     $.get(api+'/'+data_url,function(data) {
       download(data,name);

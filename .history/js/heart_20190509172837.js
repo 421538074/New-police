@@ -579,7 +579,6 @@ var xm = avalon.define({
       elemIF.src = api+'/'+data_url;
       elemIF.style.display = "none";
       document.body.appendChild(elemIF);
-      return;
     }
     $.get(api+'/'+data_url,function(data) {
       download(data,name);
