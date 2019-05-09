@@ -65,8 +65,7 @@ var vm = avalon.define({
         picture: this.avtar
       },
       dataType: 'json',
-      success: function success(res) {
-        _this.allList = res.data;
+      success: function success() {
         _this.selectedCatId = '';
         _this.Ptitle = '';
         _this.Pcontent = '';
