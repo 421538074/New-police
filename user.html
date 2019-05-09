@@ -173,7 +173,7 @@
                         </div>
                         <div class="agree_inp" ms-if="currentActive==index && currentType == 0">
                             <input type="text" ms-duplex="replyComment">
-                            <span ms-click="commentChange(item.id,item.comment_id,item.uid,1)">发送</span>
+                            <span ms-click="commentChange(item.post_id,item.comment_id,item.uid,1)">发送</span>
                         </div>
                     </div>
                     <div class="agree_one" ms-for="(index,item) in replayList">
@@ -188,8 +188,8 @@
                             </ul>
                         </div>
                         <div class="agree_inp" ms-if="currentActive==index && currentType == 1">
-                            <input ms-duplex="replyComment" placeholder="'回复' + item.nickname + ':'" type="text">
-                            <span ms-click="commentChange(item.id,item.comment_id,item.uid,1)">发送</span>
+                            <input ms-duplex="replyComment" placeholder="回复" type="text">
+                            <span ms-click="commentChange(item.post_id,item.comment_id,item.uid,1)">发送</span>
                         </div>
                     </div>
                     <!-- 没有回复 -->
