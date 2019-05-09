@@ -463,11 +463,11 @@ var xm = avalon.define({
     window.open(down);
   },
   upDown: function upDown() {
-    var that = this;
+    
     var url = sessionStorage.getItem('url');
     url = url.replace("\"", "").replace("\"", "");
-    $.get(api+'/'+url,function(data) {
-      download(data,that.name + url.substring(url.indexOf('.')));
+    $.get(url,function(data) {
+      download(data,this.name + url.substring(url.indexOf('.')));
     });
   },
   pagechange: function pagechange(currentPage) {
@@ -567,7 +567,7 @@ var xm = avalon.define({
     //音乐下载
     //必须同源才能下载
     name = name + data_url.substring(data_url.indexOf('.'));
-    $.get(api+'/'+data_url,function(data) {
+    $.get(api+data_url,function(data) {
       download(data,name);
     });
   },

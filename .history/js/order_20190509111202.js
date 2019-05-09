@@ -52,8 +52,7 @@ var vm = avalon.define({
         },
         dataType: 'json',
         success: function success(res) {
-          _this.list1 = res.data.list;
-          _this.totalNum = res.data.num;
+          _this.list1 = res.data;
           avalon.ready(function () {
             initPagation(type);
           });
@@ -123,7 +122,7 @@ var vm = avalon.define({
             },
             dataType: 'json',
             success: function success(res) {
-              _this3.list1 = res.data.list;
+              _this3.list1 = res.data;
               _this3.totalNum = res.data.num;
               initPagation(1);
             }
