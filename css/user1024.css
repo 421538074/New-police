@@ -375,7 +375,7 @@
     .comment ul li img {
         width: 12px;
         height: 10px;
-        margin-left: 5px;
+        margin:0 5px;
     }
 
     /* 评论框 */
@@ -657,7 +657,7 @@
     }
 
     .see_main {
-        max-height: 490px;
+        max-height: 370px;
         overflow-y: scroll;
     }
 
