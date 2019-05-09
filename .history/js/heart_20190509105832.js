@@ -467,8 +467,13 @@ var xm = avalon.define({
     var url = sessionStorage.getItem('url');
     url = url.replace("\"", "").replace("\"", "");
     $.get(url,function(data) {
-      download(data,this.name + url.substring(url.indexOf('.')));
+      download(data,this.name);
     });
+    // var downloadLink = document.createElement('a');
+    // downloadLink.href = down;
+    // downloadLink.download = this.name;
+    // document.body.appendChild(downloadLink);
+    // downloadLink.click();
   },
   pagechange: function pagechange(currentPage) {
     var _this9 = this;
