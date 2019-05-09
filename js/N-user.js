@@ -40,18 +40,6 @@ var vm = avalon.define({
     //回复
     // replaylist: [],
     commentList: [
-        {
-            comment_content: "想早点回家",
-            comment_id: 180,
-            content: "中国地图",
-            nickname: "丁毅",
-            post_id: 95,
-            title: "中国地图",
-            type1: 0,
-            type2: 0,
-            type3: 0,
-            uid: 31,
-        }
     ],
     //回复
     msg: "阅读全文",
@@ -471,32 +459,32 @@ var vm = avalon.define({
             data: {},
             dataType: 'json',
             success: function success(res) {
-                _this8.login = res.data.intergral.login == null ? 0 : res.data.intergral.login;
-                _this8.phraise = res.data.intergral.phraise == null ? 0 : res.data.intergral.phraise;
-                _this8.post = res.data.intergral.post == null ? 0 : res.data.intergral.post;
-                _this8.intergrals = parseInt(_this8.login) + parseInt(_this8.phraise) + parseInt(_this8.post);
-                _this8.titleList = res.data.post;
-                _this8.userlist = res.data.intergrals;
-                _this8.commentList = res.data.comments.comment;
-                _this8.replayList = res.data.comments.replay;
-                for (var i = 0; i < _this8.userlist.length; i++) {
-                    if (_this8.userlist[i].nickname == sessionStorage.getItem('username')) {
-                        _this8.currentSort = i + 1;
-                        return;
-                    }
-                }
+                // _this8.login = res.data.intergral.login == null ? 0 : res.data.intergral.login;
+                // _this8.phraise = res.data.intergral.phraise == null ? 0 : res.data.intergral.phraise;
+                // _this8.post = res.data.intergral.post == null ? 0 : res.data.intergral.post;
+                // _this8.intergrals = parseInt(_this8.login) + parseInt(_this8.phraise) + parseInt(_this8.post);
+                // _this8.titleList = res.data.post;
+                // _this8.userlist = res.data.intergrals;
+                // _this8.commentList = res.data.comments.comment;
+                // _this8.replayList = res.data.comments.replay;
+                // for (var i = 0; i < _this8.userlist.length; i++) {
+                //     if (_this8.userlist[i].nickname == sessionStorage.getItem('username')) {
+                //         _this8.currentSort = i + 1;
+                //         return;
+                //     }
+                // }
 
-                if (res.data.post == 0) {
-                    _this8.isthree = true;
-                } else {
-                    _this8.isthree = false;
-                }
+                // if (res.data.post == 0) {
+                //     _this8.isthree = true;
+                // } else {
+                //     _this8.isthree = false;
+                // }
 
-                if (res.data.comments.comment == 0 && res.data.comments.replay == 0) {
-                    _this8.istwo = true;
-                } else {
-                    _this8.istwo = false;
-                }
+                // if (res.data.comments.comment == 0 && res.data.comments.replay == 0) {
+                //     _this8.istwo = true;
+                // } else {
+                //     _this8.istwo = false;
+                // }
             }
         });
         this.userName = sessionStorage.getItem("username");
@@ -507,17 +495,17 @@ var vm = avalon.define({
             $(".User-uu>li:eq(1)").addClass('blue').siblings('li').removeClass('blue');
         }
 
-        $.ajax({
-            type: "post",
-            url: "".concat(api, "/index/api/myRepair"),
-            async: true,
-            data: {},
-            dataType: 'json',
-            success: function success(res) {
-                _this8.baseList = res.data;
-                console.log(res);
-            }
-        });
+        // $.ajax({
+        //     type: "post",
+        //     url: "".concat(api, "/index/api/myRepair"),
+        //     async: true,
+        //     data: {},
+        //     dataType: 'json',
+        //     success: function success(res) {
+        //         _this8.baseList = res.data;
+        //         console.log(res);
+        //     }
+        // });
     },
 
 })

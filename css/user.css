@@ -223,14 +223,7 @@ th {
     text-align: center;
 }
 
-td {
-    font-size: 14px;
-    font-family: PingFangSC-Regular;
-    font-weight: 400;
-    color: black;
-    line-height: 36px;
-    text-align: center;
-}
+
 
 .blue {
     border-bottom: 6px solid #1D5598 !important;
@@ -646,7 +639,7 @@ img.icon-like {
     max-height: 75%;
     background: white;
     border-radius: 10px;
-    behavior: url(css/PIE/PIE.htc);
+    /* behavior: url(css/PIE/PIE.htc); */
     position: absolute;
     top: 15%;
     left: 0;
@@ -862,7 +855,7 @@ img.icon-like {
 }
 
 table {
-    width: 100%;
+    width: 730px;
 }
 
 .Htr {
@@ -895,4 +888,20 @@ table {
 
 .Hcolor {
     color: #333 !important;
+}
+
+.td-one {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    width:180px;
+}
+
+td {
+    font-size: 14px;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: black;
+    line-height: 36px;
+    text-align: center;
 }

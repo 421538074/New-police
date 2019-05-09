@@ -548,13 +548,13 @@ css3-container {
 
 
 .invisible {
-    width:100%;
+    width:30%;
     height: 100%!important;
     position: absolute;
-    top: 0px;
+    top: 20px;
     right: 0px;
     cursor: pointer;
-    opacity: 0;
-    filter: alpha(opacity:0);
+    /* opacity: 0; */
+    /* filter: alpha(opacity:0); */
     z-index: 4;
 }

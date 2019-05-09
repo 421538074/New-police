@@ -139,7 +139,7 @@
                                     </span>
                                 </div>
                                 <div class="reply_one clearfix" ms-if="currentActive==index">
-                                    <input type="text"  ms-duplex="replyComment">
+                                    <input type="text" ms-duplex="replyComment">
                                     <span ms-click="commentChange(item.id,comment.id,item.uid)">发布</span>
                                 </div>
                             </div>
@@ -202,18 +202,18 @@
                 <!-- 报备 -->
                 <div class="base" ms-visible="isone2">
                     <table>
-                        <thead>
+                        <thead style="width:100%">
                             <tr class="Htr">
-                                <th width="20%">报备类型</th>
-                                <th width="30%">报备内容</th>
-                                <th width="30%">报备时间</th>
-                                <th width="20%">报备状态</th>
+                                <th style="width: 20%;">报备类型</th>
+                                <th style="width: 30%;">报备内容</th>
+                                <th style="width: 30%;">报备时间</th>
+                                <th style="width: 20%;">报备状态</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ms-for="(index,item) in baseList" ms-class="{'Tcolor':index%2==1}">
                                 <td>{{item.title}}</td>
-                                <td>{{item.content}}</td>
+                                <td><p class="td-one" ms-attr="{title:item.content}">{{item.content}}</p></td>
                                 <td>{{item.create_at}}</td>
                                 <td>{{item.status==1?"已处理":"未处理"}}</td>
                             </tr>

@@ -57,7 +57,7 @@
         height: 52px;
         background: white;
         line-height: 52px;
-        margin-top: 50px!important;
+        margin-top: 50px !important;
     }
 
     .user_content_left {
@@ -100,7 +100,7 @@
 
     /* user_title */
     .user_title {
-        margin-top: 10px!important;
+        margin-top: 10px !important;
     }
 
     .user_title_left {
@@ -375,7 +375,7 @@
     .comment ul li img {
         width: 12px;
         height: 10px;
-        margin:0 5px;
+        margin: 0 5px;
     }
 
     /* 评论框 */
@@ -644,7 +644,7 @@
         max-height: 75%;
         background: white;
         border-radius: 10px;
-        behavior: url(css/PIE/PIE.htc);
+        /* behavior: url(css/PIE/PIE.htc); */
         position: absolute;
         top: 15%;
         left: 0;
@@ -860,10 +860,11 @@
     }
 
     table {
-        width: 100%;
+        width: 561px;
     }
 
     .Htr {
+        width: 100%;
         height: 30px;
         background: #94D2FF;
     }
@@ -902,4 +903,23 @@
     .Hcolor {
         color: #333 !important;
     }
+
+
+    .td-one {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 200px;
+    }
+
+    td {
+        font-size: 14px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: black;
+        line-height: 36px;
+        text-align: center;
+    }
+
+
 }
