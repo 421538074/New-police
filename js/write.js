@@ -77,7 +77,7 @@ var vm = avalon.define({
   upChange: function upChange(event) {
     var e = window.event || event;
     var obj = e.srcElement || e.target
-    $(".form_img").find('input.invisible').click();
+    // $(".form_img").find('input.invisible').click();
   },
   downImg: function downImg() {
     var that = this;
@@ -99,10 +99,10 @@ var vm = avalon.define({
           vm.avtar = "".concat(api).concat(image);
         }
 
-        // return false;
+        return false;
       },
       error: function (err) {
-        // return false;
+        return false;
         alert(err);
       }
     });

@@ -22,6 +22,7 @@
         width: 200px;
         height: 30px;
         margin-top: 6px;
+        cursor: pointer;
     }
 
     div.user-test {
@@ -447,6 +448,7 @@
     .reply_one>input {
         float: left;
         width: 78%;
+        line-height: 28px;
         height: 28px;
         background: #F2F2F2;
         border: 1px solid #CBC9C9;
@@ -478,6 +480,7 @@
     .comment_inp input {
         width: 80%;
         height: 28px;
+        line-height: 28px;
         background: #F2F2F2;
         border: 1px solid #CBC9C9;
         outline: none;
@@ -580,6 +583,7 @@
     .agree_inp input {
         width: 80%;
         height: 28px;
+        line-height: 28px;
         background: #F2F2F2;
         border: 1px solid #CBC9C9;
         padding-left: 15px;
@@ -775,6 +779,7 @@
 
     .see_inp input {
         width: 84%;
+        line-height: 28px;
         height: 28px;
         background: #f2f2f2;
         border: 1px solid #cbc9c9;

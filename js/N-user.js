@@ -210,16 +210,9 @@ var vm = avalon.define({
     },
     lookchange: function lookchange(post_id, comment_id) {
         var _this3 = this;
-
         //查看回复
         _this3.currentPostId = post_id;
         _this3.currentCommentId = comment_id;
-        // this.currentComment = this.titleList.filter(function (posts) {
-        //     return posts.id == post_id;
-        // })[0].comment_list.filter(function (comments) {
-        //     return comments.id == comment_id;
-        // })[0];
-
         for (var i = 0; i < _this3.titleList.length; i++) {
             if (post_id == _this3.titleList[i].id) {
                 for (var j = 0; j < _this3.titleList[i].comment_list.length; j++) {
@@ -314,19 +307,20 @@ var vm = avalon.define({
                     if (type == 1) {
                         _this4.oneIndex = -1;
                         _this4.twoIndex = -1;
-                        _this4.currentActive = -1; // this.lookchange(this.currentPostId, this.currentCommentId);
+                        _this4.currentActive = -1; 
+                        this.lookchange(this.currentPostId, this.currentCommentId);
 
-                        $.ajax({
-                            type: "post",
-                            url: "".concat(api, "/index/api/myPage"),
-                            async: true,
-                            data: {},
-                            dataType: 'json',
-                            success: function success(res) {
-                                _this4.commentList = res.data.comments.comment;
-                                _this4.replayList = res.data.comments.replay;
-                            }
-                        });
+                        // $.ajax({
+                        //     type: "post",
+                        //     url: "".concat(api, "/index/api/comments"),
+                        //     async: true,
+                        //     data: {},
+                        //     dataType: 'json',
+                        //     success: function success(res) {
+                        //         _this4.commentList = res.data.comments.comment;
+                        //         _this4.replayList = res.data.comments.replay;
+                        //     }
+                        // });
                     } else {
                         _this4.currentActive = -1;
                     }
