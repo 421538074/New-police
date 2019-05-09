@@ -226,14 +226,13 @@ var xm = avalon.define({
     } else {
       // 暂停 ==> 播放
       if (!isIE()) {
-        console.log('开始播放')
-
         this.totalTime = myPlayer.duration;
         myPlayer.play();
       } else {
         // IE player
-        console.log('开始播放-IE')
+        setTimeout(function() {
           myPlayerIE.play();          
+        }, 100);
       }
       if (!interval) {
         interval = setInterval(function () {

@@ -88,7 +88,6 @@ var vm = avalon.define({
             success: function success(res) {
               _this2.list = res.data.list;
               _this2.totalNum = res.data.num;
-              initPagation(0);
             }
           });
         } else {
@@ -125,8 +124,6 @@ var vm = avalon.define({
             dataType: 'json',
             success: function success(res) {
               _this3.list1 = res.data;
-              _this3.totalNum = res.data.num;
-              initPagation(1);
             }
           });
         } else {
