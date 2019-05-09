@@ -39,20 +39,7 @@ var vm = avalon.define({
     replayList: [],
     //回复
     // replaylist: [],
-    commentList: [
-        {
-            comment_content: "想早点回家",
-            comment_id: 180,
-            content: "中国地图",
-            nickname: "丁毅",
-            post_id: 95,
-            title: "中国地图",
-            type1: 0,
-            type2: 0,
-            type3: 0,
-            uid: 31,
-        }
-    ],
+    commentList: [],
     //回复
     msg: "阅读全文",
     num: "123",
@@ -302,7 +289,7 @@ var vm = avalon.define({
     },
     commentChange: function commentChange(post_id, comment_id, uid, type) {
         var _this4 = this;
-        console.log(post_id)
+
         //发布评论
         if (comment_id) {
             if (this.replyComment.trim() == '') {
@@ -479,8 +466,8 @@ var vm = avalon.define({
                 _this8.userlist = res.data.intergrals;
                 _this8.commentList = res.data.comments.comment;
                 _this8.replayList = res.data.comments.replay;
-                for (var i = 0; i < _this8.userlist.length; i++) {
-                    if (_this8.userlist[i].nickname == sessionStorage.getItem('username')) {
+                for(var i = 0; i < _this8.userlist.length; i++) {
+                    if(_this8.userlist[i].nickname == sessionStorage.getItem('username')) {
                         _this8.currentSort = i + 1;
                         return;
                     }

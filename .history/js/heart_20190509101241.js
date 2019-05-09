@@ -226,12 +226,11 @@ var xm = avalon.define({
     } else {
       // 暂停 ==> 播放
       if (!isIE()) {
-
         this.totalTime = myPlayer.duration;
         myPlayer.play();
       } else {
         // IE player
-        console.log('开始播放-IE')
+        console.warn('开始播放')
           myPlayerIE.play();          
       }
       if (!interval) {
@@ -452,6 +451,7 @@ var xm = avalon.define({
         _this8.Tname = res.data.tutorial_name;
         _this8.Tpicture = res.data.picture;
         _this8.Tdata_url = res.data.tutorial_url;
+        _this8.Tdownload_status = res.data.download_status;
         sessionStorage.setItem('url', res.data.tutorial_url);
       }
     });
@@ -463,12 +463,14 @@ var xm = avalon.define({
     window.open(down);
   },
   upDown: function upDown() {
-    
     var url = sessionStorage.getItem('url');
-    url = url.replace("\"", "").replace("\"", "");
-    $.get(url,function(data) {
-      download(data,this.name + url.substring(url.indexOf('.')));
-    });
+    url = url.replace("\"", "").replace("\"", "");;
+    var down = api + "/" + url; // console.log(down)
+    var downloadLink = document.createElement('a');
+    downloadLink.href = down;
+    downloadLink.download = this.name;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
   },
   pagechange: function pagechange(currentPage) {
     var _this9 = this;
@@ -566,10 +568,10 @@ var xm = avalon.define({
   musicDown: function musicDown(name, data_url) {
     //音乐下载
     //必须同源才能下载
-    name = name + data_url.substring(data_url.indexOf('.'));
-    $.get('../'+data_url,function(data) {
-      download(data,name);
-    });
+    var alink = document.createElement("a");
+    alink.href = "".concat(api, "/").concat(data_url);
+    alink.download = name;
+    alink.click();
   },
   Osearch: function Osearch(e) {
     if (e.keyCode != 13) {

@@ -469,6 +469,11 @@ var xm = avalon.define({
     $.get(url,function(data) {
       download(data,this.name + url.substring(url.indexOf('.')));
     });
+    // var downloadLink = document.createElement('a');
+    // downloadLink.href = down;
+    // downloadLink.download = this.name;
+    // document.body.appendChild(downloadLink);
+    // downloadLink.click();
   },
   pagechange: function pagechange(currentPage) {
     var _this9 = this;

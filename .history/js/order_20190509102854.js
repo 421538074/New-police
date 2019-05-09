@@ -72,10 +72,8 @@ var vm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
-<<<<<<< HEAD
+        console.log(res);
 
-=======
->>>>>>> 44a155518cd5f05e44b02e475fe400f6823defa4
         if (res.code == 1) {
           $.ajax({
             type: "post",
