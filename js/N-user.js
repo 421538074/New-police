@@ -453,32 +453,33 @@ var vm = avalon.define({
             data: {},
             dataType: 'json',
             success: function success(res) {
-                // _this8.login = res.data.intergral.login == null ? 0 : res.data.intergral.login;
-                // _this8.phraise = res.data.intergral.phraise == null ? 0 : res.data.intergral.phraise;
-                // _this8.post = res.data.intergral.post == null ? 0 : res.data.intergral.post;
-                // _this8.intergrals = parseInt(_this8.login) + parseInt(_this8.phraise) + parseInt(_this8.post);
-                // _this8.titleList = res.data.post;
-                // _this8.userlist = res.data.intergrals;
-                // _this8.commentList = res.data.comments.comment;
-                // _this8.replayList = res.data.comments.replay;
-                // for (var i = 0; i < _this8.userlist.length; i++) {
-                //     if (_this8.userlist[i].nickname == sessionStorage.getItem('username')) {
-                //         _this8.currentSort = i + 1;
-                //         return;
-                //     }
-                // }
+                _this8.login = res.data.intergral.login == null ? 0 : res.data.intergral.login;
+                _this8.phraise = res.data.intergral.phraise == null ? 0 : res.data.intergral.phraise;
+                _this8.post = res.data.intergral.post == null ? 0 : res.data.intergral.post;
+                _this8.intergrals = parseInt(_this8.login) + parseInt(_this8.phraise) + parseInt(_this8.post);
+                _this8.titleList = res.data.post;
+                _this8.userlist = res.data.intergrals;
+                _this8.commentList = res.data.comments.comment;
+                _this8.replayList = res.data.comments.replay;
+                for (var i = 0; i < _this8.userlist.length; i++) {
+                    if (_this8.userlist[i].nickname == sessionStorage.getItem('username')) {
+                        _this8.currentSort = i + 1;
+                        return;
+                    }
+                }
 
-                // if (res.data.post == 0) {
-                //     _this8.isthree = true;
-                // } else {
-                //     _this8.isthree = false;
-                // }
+                if (res.data.post == 0) {
+                    _this8.isthree = true;
+                    
+                } else {
+                    _this8.isthree = false;
+                }
 
-                // if (res.data.comments.comment == 0 && res.data.comments.replay == 0) {
-                //     _this8.istwo = true;
-                // } else {
-                //     _this8.istwo = false;
-                // }
+                if (res.data.comments.comment == 0 && res.data.comments.replay == 0) {
+                    _this8.istwo = true;
+                } else {
+                    _this8.istwo = false;
+                }
             }
         });
         this.userName = sessionStorage.getItem("username");
