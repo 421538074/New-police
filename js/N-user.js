@@ -283,14 +283,12 @@ var vm = avalon.define({
     },
     commentChange: function commentChange(post_id, comment_id, uid, type) {
         var _this4 = this;
-        console.log(post_id)
         //发布评论
         if (comment_id) {
             if (this.replyComment.trim() == '') {
                 warn.alert('请输入回复内容');
                 return false;
             }
-
             $.ajax({
                 url: "".concat(api, "/index/api/replayComment"),
                 type: 'post',
@@ -308,20 +306,17 @@ var vm = avalon.define({
                         _this4.oneIndex = -1;
                         _this4.twoIndex = -1;
                         _this4.currentActive = -1;
-                        // _this4.lookchange(_this3.currentPostId, _this3.currentCommentId);
-
                         $.ajax({
                             type: "post",
                             url: "".concat(api, "/index/api/comments"),
                             async: true,
                             data: {
-                                post_id: _this3.currentPostId,
-                                comment_id: _this3.currentCommentId
+                                post_id: _this4.currentPostId,
+                                comment_id: _this4.currentCommentId
                             },
                             dataType: 'json',
                             success: function success(res) {
-                                console.log(res);
-                                _this3.seelist = res.data
+                                _this4.seelist = res.data
                             }
                         });
                     } else {
