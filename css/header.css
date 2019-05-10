@@ -2,8 +2,7 @@
     width: 100%;
     background: url(../img/banner.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/banner.png', sizingMethod='scale');
     height: 0.8rem;
     position: fixed;
     z-index: 11;
@@ -18,37 +17,6 @@
     margin-left: 11px;
 }
 
-.index_left span:nth-child(1) {
-    display: inline-block;
-    width: 45px;
-    height: 47px;
-    background: url(../img/警徽.png) no-repeat;
-    background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
-}
-
-
-.index_left span:nth-child(2) {
-    display: inline-block;
-    width: 163px;
-    height: 49px;
-    background: url(../img/创意.png) no-repeat;
-    background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
-    margin: 0 30px 0 25px;
-}
-
-.index_left span:nth-child(3) {
-    display: inline-block;
-    width: 112px;
-    height: 27px;
-    background: url(../img/首页logo.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
-    background-size: 100% 100%;
-}
 
 .index_right {
     float: right;
@@ -230,8 +198,6 @@
         margin-left: 1%;
         background: url(../img/logo.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
     }
 
     .index_right {

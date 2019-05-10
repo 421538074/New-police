@@ -1,66 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="utf-8">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>IE 8 下兼容background-size</title>
+    <style>
+        .parent {
+            width: 400px;
+            height: 320px;
+            /* border: 1px solid #000; */
+        }
+
+        .child {
+            /* width: 200px; */
+            /* height: 150px; */
+            width: 100%;
+            height: 100%;
+            border: 1px solid red;
+            background: url(img/警徽.png);
+            background-size: 100% 100%;
+            /* background-size: cover; */
+            /* 再次引入backgroundsize.min.htc，filter的那段删除 */
+            -ms-behavior: url(css/backgroundsize.htc);
+            behavior: url(css/backgroundsize.htc);
+
+        }
+    </style>
 </head>
-<style>
-    .upload {
-        width: 100px;
-        height: 100px;
-        line-height: 100px;
-        position: relative;
-        border: 1px solid #ddd;
-        background: #f6f6f6;
-        text-align: center;
-        color: #333;
-        /* overflow: hidden; */
-    }
-
-    #fileupload {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        font-size: 100px;
-        height: 130%;
-        width: 1000px;
-        z-index: 1;
-        /* opacity: 0; */
-        /* filter: alpha(opacity=0); */
-    }
-</style>
-
-<!-- <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <title></title>
-    
-</head> -->
 
 <body>
-    <div class="upload">
-        点击上传
-        <input type="file" id="fileupload" size="100" />
+    <div class="parent">
+        <div class="child"></div>
     </div>
 </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<html>
-
 
 </html>

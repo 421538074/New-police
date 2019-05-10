@@ -6,8 +6,9 @@
     top: 0;
     background: url(../img/banner.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/banner.png', sizingMethod='scale');
+    /* -ms-behavior: url(css/backgroundsize.htc);
+	behavior:url(css/backgroundsize.htc); */
 }
 
 .index_content {
@@ -927,14 +928,14 @@ span.see-spa {
 .close {
     width: 30px;
     height: 30px;
-    background: url(../img/错.png) no-repeat;
-    background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
     position: absolute;
     top: 40px;
     right: 50px;
     cursor: pointer;
+}
+.close img {
+    width: 100%;
+    height: 100%;
 }
 
 /* 头部弹框 */
@@ -1140,7 +1141,7 @@ p.no-notice {
         z-index: 11;
         top: 0;
         background: url(../img/banner.png) no-repeat;
-        background-size: 100% 100%;
+        background-size: cover;
         -ms-behavior: url(css/backgroundsize.htc);
         behavior:url(css/backgroundsize.htc);
     }
@@ -1160,8 +1161,9 @@ p.no-notice {
         margin-left: 1%;
         background: url(../img/logo.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/logo.png', sizingMethod='scale');
+        /* -ms-behavior: url(css/backgroundsize.htc);
+        behavior:url(css/backgroundsize.htc); */
     }
 
     .header_name {
@@ -1278,7 +1280,6 @@ p.no-notice {
         height: 2em;
         background-color: #eee;
         border-radius: 25px;
-        /* behavior: url(css/PIE/PIE.htc); */
         outline: none;
         border: 0;
         padding: 0 20px;
@@ -1292,9 +1293,10 @@ p.no-notice {
         width: 1em;
         height: 1em;
         background: url(../img/sousuo.png) no-repeat;
-        background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        background-size: cover;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/logo.png', sizingMethod='scale');
+        /* -ms-behavior: url(css/backgroundsize.htc);
+        behavior:url(css/backgroundsize.htc); */
         position: absolute;
         right: 0.5em;
         top: 0.3em;
@@ -1804,8 +1806,7 @@ p.no-notice {
         height: 28px;
         background: url(../img/去报备.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/去报备.png', sizingMethod='scale');
         margin-left: 34%;
         cursor: pointer;
     }

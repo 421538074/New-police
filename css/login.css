@@ -52,9 +52,10 @@ html {
 .bird {
     width: 72px;
     height: 67px;
-    background: url(../img/鸟.png) no-repeat;
-    background-size: 100% 100%;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/鸟.png', sizingMethod='scale');
+    background: url(../img/鸟.png);
+    background-size: cover;
+    -ms-behavior: url(css/backgroundsize.htc);
+    behavior: url(css/backgroundsize.htc);
     position: absolute;
     top: 28px;
     right: 16px;
@@ -149,8 +150,9 @@ li.role-lis {
     width: 169px;
     height: 37px;
     background: url(../img/圆角矩形.png)no-repeat;
-    background-size: 100% 100%;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/圆角矩形.png', sizingMethod='scale');
+    background-size: cover;
+    -ms-behavior: url(css/backgroundsize.htc);
+    behavior: url(css/backgroundsize.htc);
     outline: none;
     border: 0;
     cursor: pointer;
@@ -399,12 +401,14 @@ a.role-a {
         width: 90px;
         height: 20px;
         background: url(../img/圆角矩形.png) no-repeat;
-        background-size: 100% 100%;
+        /* background-size: cover; */
+        /* -ms-behavior: url(css/backgroundsize.htc);
+        behavior: url(css/backgroundsize.htc); */
         filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/圆角矩形.png', sizingMethod='scale');
         outline: none;
         border: 0;
         cursor: pointer;
-        margin-left: 10%;
+        margin-left: 7%;
         font-size: 12px;
         font-family: PingFangSC-Regular;
         font-weight: 400;
@@ -487,7 +491,7 @@ a.role-a {
 
     .role_register {
         float: left;
-        width: 24%;
+        width: 28%;
         text-align: center;
         font-size: 12px;
         font-family: PingFangSC-Regular;
@@ -640,6 +644,7 @@ a.role-a {
         line-height: 20px;
         margin-bottom: 40px;
     }
+
     .register .police_uu li {
         margin-bottom: 28px;
     }
