@@ -276,10 +276,10 @@
                     <p ms-html="currentComment.content"></p>
                 </div>
                 <div class="see_main">
-                    <div ms-if="seelist.length == 0">
+                    <div ms-visible="seelist.length == 0">
                         <p class="no-replay">暂无回复</p>
                     </div>
-                    <div ms-if="seelist.length != 0">
+                    <div ms-visible="seelist.length != 0">
                         <ul class="see_uu" ms-for="(index,item) in seelist">
                             <li>
                                 <div class="see_uu_one clearfix">
