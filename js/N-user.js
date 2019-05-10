@@ -308,7 +308,7 @@ var vm = avalon.define({
                         _this4.oneIndex = -1;
                         _this4.twoIndex = -1;
                         _this4.currentActive = -1; 
-                        this.lookchange(this.currentPostId, this.currentCommentId);
+                        _this4.lookchange(this.currentPostId, this.currentCommentId);
 
                         // $.ajax({
                         //     type: "post",
