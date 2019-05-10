@@ -232,7 +232,7 @@ span.play-icon {
     display: inline-block;
     height: 13px;
     width: 12px;
-    background: url(../img/开始1.png) no-repeat;
+    background: url(../img/start1.png) no-repeat;
     background-size: 100% 100%;
     -ms-behavior: url(css/backgroundsize.htc);
     behavior: url(css/backgroundsize.htc);
@@ -675,14 +675,15 @@ p.tips-content {
     width: 90px;
     height: 26px;
     float: right;
-    background: url(../img/播放1.png) no-repeat;
+    background: url(../img/music1.png) no-repeat;
+    background-size: cover;
     -ms-behavior: url(css/backgroundsize.htc);
     behavior: url(css/backgroundsize.htc);
-    background-size: 100% 100%;
+    
 }
 
 .all-play:hover {
-    background: url(../img/播放2.png) no-repeat;
+    background: url(../img/music2.png) no-repeat;
     -ms-behavior: url(css/backgroundsize.htc);
     behavior: url(css/backgroundsize.htc);
     background-size: 100% 100%;
@@ -693,14 +694,14 @@ p.tips-content {
     width: 90px;
     height: 26px;
     float: right;
-    background: url(../img/暂停播放.png) no-repeat;
+    background: url(../img/music3.png) no-repeat;
     -ms-behavior: url(css/backgroundsize.htc);
     behavior: url(css/backgroundsize.htc);
     background-size: 100% 100%;
 }
 
 .all-play.pause:hover {
-    background: url(../img/暂停.png) no-repeat;
+    background: url(../img/music4.png) no-repeat;
     -ms-behavior: url(css/backgroundsize.htc);
     behavior: url(css/backgroundsize.htc);
     background-size: 100% 100%;

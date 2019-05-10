@@ -105,12 +105,14 @@ input::placeholder {
 .forum_btn {
     width: 85px;
     height: 22px;
-    background: url(../img/发布按钮.png) no-repeat;
-    background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    line-height: 0;
     margin: 20px auto 11px;
     cursor: pointer;
+}
+
+.forum_btn img {
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -145,6 +147,7 @@ input::placeholder {
 
 .ke-statusbar {
     background-color: white !important;
+    display: none !important;
     border-top: 0 !important;
 }
 
@@ -266,15 +269,8 @@ css3-container {
 }
 
 
-@media only screen and (max-width: 1024px) {
-    .ke-edit {
-        height: 165px !important;
-    }
-}
-
 /* 
 1024
-
 
 */
 
@@ -383,37 +379,24 @@ css3-container {
         text-align: right;
     }
 
+
     .forum_btn {
         width: 85px;
         height: 22px;
-        background: url(../img/发布按钮.png) no-repeat;
-        background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
-        margin: 20px auto 11px;
         cursor: pointer;
+        line-height: 0;
+        margin: 20px auto 11px;
+    }
+
+    .forum_btn img {
+        width: 100%;
+        height: 100%;
     }
 
 
     .iconfont {
         margin-right: 5px;
         cursor: pointer;
-    }
-
-    .forum_content_banner select {
-        margin: 0 16px;
-    }
-
-    .forum_content_banner span:last-child {
-        display: inline-block;
-        width: 21px;
-        height: 16px;
-        font-size: 0;
-    }
-
-    .forum_content_banner span:last-child img {
-        width: 100%;
-        height: 100%;
     }
 
     .ke-container {
@@ -426,11 +409,12 @@ css3-container {
 
     .ke-statusbar {
         background-color: white !important;
+        display: none !important;
         border-top: 0 !important;
     }
 
     .ke-edit {
-        height: 165px !important;
+        height: 115px !important;
     }
 
     .ke-toolbar {
@@ -545,11 +529,20 @@ css3-container {
     css3-container {
         display: none;
     }
+
+    .lis {
+        height: 300px;
+        overflow: hidden;
+    }
 }
 
 
+body {
+    overflow: hidden;
+}
+
 #form {
-    width: 827px;
+    width: 700px;
     height: 221px;
     overflow: hidden;
     position: absolute;

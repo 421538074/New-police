@@ -454,7 +454,6 @@ var vm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
-        console.log(res)
         _this8.postIndex = -1; 
         // this.commentActive = -1
         _this8.numIndex = -1;
@@ -795,7 +794,6 @@ var vm = avalon.define({
       data: {},
       dataType: 'json',
       success: function success(res) {
-        console.log(res.data.replay.length);
         _this15.length = res.data.replay.length;
       }
     });

@@ -307,20 +307,23 @@ var vm = avalon.define({
                     if (type == 1) {
                         _this4.oneIndex = -1;
                         _this4.twoIndex = -1;
-                        _this4.currentActive = -1; 
-                        _this4.lookchange(this.currentPostId, this.currentCommentId);
+                        _this4.currentActive = -1;
+                        // _this4.lookchange(_this3.currentPostId, _this3.currentCommentId);
 
-                        // $.ajax({
-                        //     type: "post",
-                        //     url: "".concat(api, "/index/api/comments"),
-                        //     async: true,
-                        //     data: {},
-                        //     dataType: 'json',
-                        //     success: function success(res) {
-                        //         _this4.commentList = res.data.comments.comment;
-                        //         _this4.replayList = res.data.comments.replay;
-                        //     }
-                        // });
+                        $.ajax({
+                            type: "post",
+                            url: "".concat(api, "/index/api/comments"),
+                            async: true,
+                            data: {
+                                post_id: _this3.currentPostId,
+                                comment_id: _this3.currentCommentId
+                            },
+                            dataType: 'json',
+                            success: function success(res) {
+                                console.log(res);
+                                _this3.seelist = res.data
+                            }
+                        });
                     } else {
                         _this4.currentActive = -1;
                     }
@@ -470,7 +473,7 @@ var vm = avalon.define({
 
                 // if (res.data.post == 0) {
                 //     _this8.isthree = true;
-                    
+
                 // } else {
                 //     _this8.isthree = false;
                 // }
@@ -490,17 +493,16 @@ var vm = avalon.define({
             $(".User-uu>li:eq(1)").addClass('blue').siblings('li').removeClass('blue');
         }
 
-        // $.ajax({
-        //     type: "post",
-        //     url: "".concat(api, "/index/api/myRepair"),
-        //     async: true,
-        //     data: {},
-        //     dataType: 'json',
-        //     success: function success(res) {
-        //         _this8.baseList = res.data;
-        //         console.log(res);
-        //     }
-        // });
+        $.ajax({
+            type: "post",
+            url: "".concat(api, "/index/api/myRepair"),
+            async: true,
+            data: {},
+            dataType: 'json',
+            success: function success(res) {
+                _this8.baseList = res.data;
+            }
+        });
     },
 
 })
@@ -582,8 +584,8 @@ function sortByCat(key) {
     vm.userlist.sort(function (a, b) {
         return b[key] - a[key];
     });
-    for(var i = 0; i < vm.userlist.length; i++) {
-        if(vm.userlist[i].nickname == sessionStorage.getItem('username')) {
+    for (var i = 0; i < vm.userlist.length; i++) {
+        if (vm.userlist[i].nickname == sessionStorage.getItem('username')) {
             vm.currentSort = i + 1;
             return;
         }

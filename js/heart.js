@@ -30,7 +30,10 @@ var xm = avalon.define({
   musicList1: [],
   musicList2: [],
   list: [],
-  musicSort: [],
+  musicSort: [
+    { id: 1, name: "古典音乐", num: 1 },
+    { id: 2, name: "轻音乐", num: 0 },
+    { id: 3, name: "摇滚", num: 0 }],
   //音乐分类
   bookSort: [],
   //书籍分类
@@ -232,7 +235,7 @@ var xm = avalon.define({
       } else {
         // IE player
         console.log('开始播放-IE')
-          myPlayerIE.play();          
+        myPlayerIE.play();
       }
       if (!interval) {
         interval = setInterval(function () {
@@ -466,12 +469,12 @@ var xm = avalon.define({
     var that = this;
     var url = sessionStorage.getItem('url');
     url = url.replace("\"", "").replace("\"", "");
-    if(isIE(true)) {
-      window.open(api+'/'+url,'_blank');
+    if (isIE(true)) {
+      window.open(api + '/' + url, '_blank');
       return;
     }
-    $.get(api+'/'+url,function(data) {
-      download(data,that.name + url.substring(url.indexOf('.')));
+    $.get(api + '/' + url, function (data) {
+      download(data, that.name + url.substring(url.indexOf('.')));
     });
   },
   pagechange: function pagechange(currentPage) {
@@ -571,12 +574,12 @@ var xm = avalon.define({
     //音乐下载
     //必须同源才能下载
     name = name + data_url.substring(data_url.indexOf('.'));
-    if(isIE(true)) {
-      window.open(api+'/'+data_url,'_blank');
+    if (isIE(true)) {
+      window.open(api + '/' + data_url, '_blank');
       return;
     }
-    $.get(api+'/'+data_url,function(data) {
-      download(data,name);
+    $.get(api + '/' + data_url, function (data) {
+      download(data, name);
     });
   },
   Osearch: function Osearch(e) {
@@ -701,7 +704,7 @@ $(".index_right span").each(function (index) {
 $('.nav_uu').on('click', 'li', function (e) {
   var target = e.target;
   var id = $(target).data("to");
-  if(!id) {
+  if (!id) {
     return;
   }
   $('html,body').animate({
@@ -718,7 +721,7 @@ function isIE(mark) {
   var ua = navigator.userAgent.toLowerCase();
   var flag = false;
   if (window.ActiveXObject) {
-    if(mark) {
+    if (mark) {
       return true;
     }
     Sys.ie = ua.match(/msie ([\d.]+)/)[1];
