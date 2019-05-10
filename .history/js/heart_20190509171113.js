@@ -467,8 +467,10 @@ var xm = avalon.define({
     var url = sessionStorage.getItem('url');
     url = url.replace("\"", "").replace("\"", "");
     if(isIE(true)) {
-      window.open(api+'/'+url,'_blank');
-      return;
+      var elemIF = document.createElement("iframe");
+				elemIF.src = url;
+				elemIF.style.display = "none";
+				document.body.appendChild(elemIF);
     }
     $.get(api+'/'+url,function(data) {
       download(data,that.name + url.substring(url.indexOf('.')));
@@ -571,10 +573,6 @@ var xm = avalon.define({
     //音乐下载
     //必须同源才能下载
     name = name + data_url.substring(data_url.indexOf('.'));
-    if(isIE(true)) {
-      window.open(api+'/'+data_url,'_blank');
-      return;
-    }
     $.get(api+'/'+data_url,function(data) {
       download(data,name);
     });

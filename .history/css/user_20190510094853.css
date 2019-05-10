@@ -2,8 +2,8 @@
     width: 100%;
     background: url(../img/banner.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     height: 72px;
     position: fixed;
     z-index: 11;
@@ -173,8 +173,8 @@ div.user-test span {
     height: 10px;
     background: url(../img/切换.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
 }
 
 /* 切换框 */
@@ -288,8 +288,8 @@ th {
     height: 14px;
     background: url(../img/cha@2x.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     margin: 0 9px 0 11px;
 }
 
@@ -299,8 +299,8 @@ th {
     height: 14px;
     background: url(../img/gou@2x.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
 }
 
 
@@ -607,8 +607,8 @@ th {
     height: 159px;
     background: url(../img/fabu.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     margin: 0 auto;
 }
 
@@ -618,8 +618,8 @@ th {
     height: 165px;
     background: url(../img/none.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     margin: 90px auto 0;
 }
 
@@ -638,8 +638,8 @@ img.icon-like {
     height: 100%;
     position: fixed;
     top: 0;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     background-color: rgba(0, 0, 0, .5);
     z-index: 1111;
 }
@@ -808,8 +808,8 @@ span.btn-test {
     height: 30px;
     background: url(../img/错.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     position: absolute;
     top: 40px;
     right: 50px;

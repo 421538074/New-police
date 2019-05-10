@@ -233,8 +233,7 @@ span.pause-icon {
     width: 15px;
     height: 14px;
     background: url(../img/xiazai1.png)  no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/xiazai1.png', sizingMethod='scale');
     background-size: 100% 100%;
     margin: 0 15px 0 14px;
     cursor: pointer;
@@ -246,15 +245,13 @@ span.play-icon {
     width: 12px;
     background: url(../img/开始1.png)  no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/开始1.png', sizingMethod='scale');
 
 }
 
 span.pause-icon {
     background: url(../img/pause.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/pause.png', sizingMethod='scale');
     background-size: 100% 100%;
 }
 
@@ -352,8 +349,7 @@ span.pause-icon {
     height: 24px;
     background: url(../img/sousuo.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/sousuo.png', sizingMethod='scale');
     position: absolute;
     left: 0;
     top: 6px;
@@ -398,8 +394,7 @@ span.pause-icon {
     position: fixed;
     top: 0;
     z-index: 1111;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000, endColorstr=#7F000000);
     background-color: hsla(0, 0%, 0%, 0.502);
     z-index: 1111;
 }
@@ -479,8 +474,7 @@ span.pause-icon {
     width: 120px;
     height: 32px;
     background: url(../img/在线预览.png)  no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/在线预览.png', sizingMethod='scale');
     background-size: 100% 100%;
     margin-right: 32px;
 }
@@ -490,8 +484,7 @@ span.pause-icon {
     width: 120px;
     height: 32px;
     background: url(../img/下载.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/下载.png', sizingMethod='scale');
     background-size: 100% 100%;
 }
 
@@ -504,8 +497,7 @@ span.pause-icon {
     width: 221px;
     height: 32px;
     background: url(../img/下载1.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/下载.png', sizingMethod='scale');
     background-size: 100% 100%;
 }
 
@@ -595,8 +587,7 @@ span.pause-icon {
     width: 30px;
     height: 30px;
     background: url(../img/错.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/错.png', sizingMethod='scale');
     background-size: 100% 100%;
     position: absolute;
     top: 40px;
@@ -688,15 +679,13 @@ p.tips-content {
     height: 26px;
     float: right;
     background: url(../img/播放1.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/播放1.png', sizingMethod='scale');
     background-size: 100% 100%;
 }
 
 .all-play:hover {
     background: url(../img/播放2.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/播放2.png', sizingMethod='scale');
     background-size: 100% 100%;
 }
 
@@ -706,15 +695,13 @@ p.tips-content {
     height: 26px;
     float: right;
     background: url(../img/暂停播放.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/暂停播放.png', sizingMethod='scale');
     background-size: 100% 100%;
 }
 
 .all-play.pause:hover {
     background: url(../img/暂停.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/暂停.png', sizingMethod='scale');
     background-size: 100% 100%;
 }
 @media only screen and (max-width: 1024px) {
@@ -722,8 +709,7 @@ p.tips-content {
         width: 100%;
         background: url(../img/banner.png)  no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/banner.png', sizingMethod='scale');
         height: 42px;
         position: fixed;
         z-index: 11;

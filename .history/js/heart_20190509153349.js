@@ -466,10 +466,6 @@ var xm = avalon.define({
     var that = this;
     var url = sessionStorage.getItem('url');
     url = url.replace("\"", "").replace("\"", "");
-    if(isIE(true)) {
-      window.open(api+'/'+url,'_blank');
-      return;
-    }
     $.get(api+'/'+url,function(data) {
       download(data,that.name + url.substring(url.indexOf('.')));
     });
@@ -571,10 +567,6 @@ var xm = avalon.define({
     //音乐下载
     //必须同源才能下载
     name = name + data_url.substring(data_url.indexOf('.'));
-    if(isIE(true)) {
-      window.open(api+'/'+data_url,'_blank');
-      return;
-    }
     $.get(api+'/'+data_url,function(data) {
       download(data,name);
     });
@@ -713,14 +705,11 @@ $('.nav_uu').on('click', 'li', function (e) {
 /**
  * 测试ie8
  */
-function isIE(mark) {
+function isIE() {
   var Sys = {};
   var ua = navigator.userAgent.toLowerCase();
   var flag = false;
   if (window.ActiveXObject) {
-    if(mark) {
-      return true;
-    }
     Sys.ie = ua.match(/msie ([\d.]+)/)[1];
     //获取版本
     if (Sys.ie.indexOf("8") > -1) {

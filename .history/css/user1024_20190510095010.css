@@ -3,8 +3,8 @@
         width: 100%;
         background: url(../img/banner.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
         height: 42px;
         position: fixed;
         z-index: 11;
@@ -173,8 +173,8 @@
         height: 10px;
         background: url(../img/切换.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
     }
 
     /* 切换框 */
@@ -295,8 +295,8 @@
         height: 11px;
         background: url(../img/cha@2x.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
         margin: 0 9px 0 11px;
     }
 
@@ -306,8 +306,8 @@
         height: 11px;
         background: url(../img/gou@2x.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
     }
 
     .mid_img {
@@ -612,8 +612,8 @@
         height: 159px;
         background: url(../img/fabu.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
         margin: 0 auto;
     }
 
@@ -623,8 +623,8 @@
         height: 165px;
         background: url(../img/none.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
         margin: 90px auto 0;
     }
 
@@ -643,8 +643,8 @@
         height: 100%;
         position: fixed;
         top: 0;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
         background-color: rgba(0, 0, 0, .5);
         z-index: 1111;
     }
@@ -813,8 +813,8 @@
         height: 20px;
         background: url(../img/错.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
         position: absolute;
         top: 40px;
         right: 50px;

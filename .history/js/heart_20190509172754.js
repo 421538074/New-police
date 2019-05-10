@@ -467,7 +467,10 @@ var xm = avalon.define({
     var url = sessionStorage.getItem('url');
     url = url.replace("\"", "").replace("\"", "");
     if(isIE(true)) {
-      window.open(api+'/'+url,'_blank');
+      var elemIF = document.createElement("iframe");
+      elemIF.src = url;
+      elemIF.style.display = "none";
+      document.body.appendChild(elemIF);
       return;
     }
     $.get(api+'/'+url,function(data) {
@@ -572,8 +575,10 @@ var xm = avalon.define({
     //必须同源才能下载
     name = name + data_url.substring(data_url.indexOf('.'));
     if(isIE(true)) {
-      window.open(api+'/'+data_url,'_blank');
-      return;
+      var elemIF = document.createElement("iframe");
+      elemIF.src = data_url;
+      elemIF.style.display = "none";
+      document.body.appendChild(elemIF);
     }
     $.get(api+'/'+data_url,function(data) {
       download(data,name);

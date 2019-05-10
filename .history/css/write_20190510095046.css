@@ -107,8 +107,8 @@ input::placeholder {
     height: 22px;
     background: url(../img/发布按钮.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     margin: 20px auto 11px;
     cursor: pointer;
 }
@@ -388,8 +388,8 @@ css3-container {
         height: 22px;
         background: url(../img/发布按钮.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
         margin: 20px auto 11px;
         cursor: pointer;
     }

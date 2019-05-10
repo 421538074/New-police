@@ -6,8 +6,8 @@
     top: 0;
     background: url(../img/banner.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
 }
 
 .index_content {
@@ -24,8 +24,8 @@
     margin-left: 1%;
     background: url(../img/logo.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
 }
 
 .header_name {
@@ -154,8 +154,8 @@
     height: 1.5em;
     background: url(../img/sousuo.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     position: absolute;
     right: 0.5em;
     top: 0.5em;
@@ -737,8 +737,8 @@ p.create-time {
     height: 28px;
     background: url(../img/去报备.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     margin-left: 34%;
     cursor: pointer;
 }
@@ -929,8 +929,8 @@ span.see-spa {
     height: 30px;
     background: url(../img/错.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     position: absolute;
     top: 40px;
     right: 50px;
@@ -1141,8 +1141,8 @@ p.no-notice {
         top: 0;
         background: url(../img/banner.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
     }
 
     .index_content {
@@ -1160,8 +1160,8 @@ p.no-notice {
         margin-left: 1%;
         background: url(../img/logo.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
     }
 
     .header_name {
@@ -1293,8 +1293,8 @@ p.no-notice {
         height: 1em;
         background: url(../img/sousuo.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
         position: absolute;
         right: 0.5em;
         top: 0.3em;
@@ -1804,8 +1804,8 @@ p.no-notice {
         height: 28px;
         background: url(../img/去报备.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
         margin-left: 34%;
         cursor: pointer;
     }

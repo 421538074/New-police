@@ -136,8 +136,8 @@ div.right-wrapper{
 
 span.pre-year {
     background: url(../img/pre-year.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     background-size: 100% 100%;
     width: 10px;
     cursor:pointer;
@@ -148,8 +148,8 @@ span.pre-year {
 
 span.pre-month {
     background: url(../img/pre-month.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     background-size: 100% 100%;
     width: 10px;
     cursor:pointer;
@@ -159,8 +159,8 @@ span.pre-month {
 
 span.next-month {
     background: url(../img/next-month.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     background-size: 100% 100%;
     width: 10px;
     cursor:pointer;
@@ -170,8 +170,8 @@ span.next-month {
 
 span.next-year {
     background: url(../img/next-year.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     background-size: 100% 100%;
     width: 10px;
     cursor:pointer;

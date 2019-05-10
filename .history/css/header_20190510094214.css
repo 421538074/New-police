@@ -2,8 +2,8 @@
     width: 100%;
     background: url(../img/banner.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     height: 0.8rem;
     position: fixed;
     z-index: 11;
@@ -24,8 +24,8 @@
     height: 47px;
     background: url(../img/警徽.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
 }
 
 
@@ -35,8 +35,8 @@
     height: 49px;
     background: url(../img/创意.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     margin: 0 30px 0 25px;
 }
 
@@ -45,8 +45,8 @@
     width: 112px;
     height: 27px;
     background: url(../img/首页logo.png) no-repeat;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
     background-size: 100% 100%;
 }
 
@@ -210,8 +210,8 @@
     margin-top: 20px;
     background: url(../img/logo.png) no-repeat;
     background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    -ms-behavior: url(css/backgroundsize.min.htc);
+	behavior:url(css/backgroundsize.min.htc);
 }
 
 
@@ -230,8 +230,8 @@
         margin-left: 1%;
         background: url(../img/logo.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
+        -ms-behavior: url(css/backgroundsize.min.htc);
+        behavior:url(css/backgroundsize.min.htc);
     }
 
     .index_right {
