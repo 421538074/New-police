@@ -352,9 +352,7 @@ td {
         display: inline-block;
         width: 58px;
         height: 32px;
-        background: url(../img/jiedan.png) no-repeat;
-        -ms-behavior: url(css/backgroundsize.min.htc);
-        behavior:url(css/backgroundsize.min.htc);
+        background: url(../img/jiedan.png)no-repeat;
         background-size: 100% 100%;
         font-size: 14px;
         font-family: PingFangSC-Regular;

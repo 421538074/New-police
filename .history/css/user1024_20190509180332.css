@@ -3,8 +3,7 @@
         width: 100%;
         background: url(../img/banner.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.min.htc);
-        behavior:url(css/backgroundsize.min.htc);
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/banner.png', sizingMethod='scale');
         height: 42px;
         position: fixed;
         z-index: 11;
@@ -173,8 +172,7 @@
         height: 10px;
         background: url(../img/切换.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.min.htc);
-        behavior:url(css/backgroundsize.min.htc);
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/切换.png', sizingMethod='scale');
     }
 
     /* 切换框 */
@@ -295,8 +293,7 @@
         height: 11px;
         background: url(../img/cha@2x.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.min.htc);
-        behavior:url(css/backgroundsize.min.htc);
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/cha@2x.png', sizingMethod='scale');
         margin: 0 9px 0 11px;
     }
 
@@ -306,8 +303,7 @@
         height: 11px;
         background: url(../img/gou@2x.png) no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.min.htc);
-        behavior:url(css/backgroundsize.min.htc);
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/gou@2x.png', sizingMethod='scale');
     }
 
     .mid_img {
@@ -610,10 +606,9 @@
     .user_none {
         width: 153px;
         height: 159px;
-        background: url(../img/fabu.png) no-repeat;
+        background: url(../img/fabu.png)no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.min.htc);
-        behavior:url(css/backgroundsize.min.htc);
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/fabu.png', sizingMethod='scale');
         margin: 0 auto;
     }
 
@@ -621,10 +616,9 @@
     .agree_none {
         width: 142px;
         height: 165px;
-        background: url(../img/none.png) no-repeat;
+        background: url(../img/none.png)no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.min.htc);
-        behavior:url(css/backgroundsize.min.htc);
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/none.png', sizingMethod='scale');
         margin: 90px auto 0;
     }
 
@@ -643,8 +637,7 @@
         height: 100%;
         position: fixed;
         top: 0;
-        -ms-behavior: url(css/backgroundsize.min.htc);
-        behavior:url(css/backgroundsize.min.htc);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000, endColorstr=#7F000000);
         background-color: rgba(0, 0, 0, .5);
         z-index: 1111;
     }
@@ -811,10 +804,9 @@
     .close {
         width: 20px;
         height: 20px;
-        background: url(../img/错.png) no-repeat;
+        background: url(../img/错.png)no-repeat;
         background-size: 100% 100%;
-        -ms-behavior: url(css/backgroundsize.min.htc);
-        behavior:url(css/backgroundsize.min.htc);
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/错.png', sizingMethod='scale');
         position: absolute;
         top: 40px;
         right: 50px;
