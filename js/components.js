@@ -8,30 +8,23 @@ var indexBanner = {
     currentIndex: 1,
     userName: sessionStorage.getItem('username') || '',
     goIndex: function goIndex(index) {
-      console.log(this.userName)
-      // sessionStorage.setItem('id', index);
-
       if (index == 0) {
         window.location.href = "index.html";
       } else if (index == 1) {
         window.location.href = "heart.html";
       } else if (index == 2) {
+        alert(11)
         if (this.userName) {
+         
           window.location.href = "user.html";
         } else {
           warn.alert("请先登录");
         }
       }
     },
-    goLogin: function goLogin() {
-      this.$emit("go-login");
-    },
     goHome: function goHome() {
       window.location.href = "index.html";
     },
-    onInit: function () {
-      // this.currentIndex = sessionStorage.getItem('id');
-    }
   }
 }; //分页
 

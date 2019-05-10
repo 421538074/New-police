@@ -72,28 +72,30 @@ var xm = new Vue({
       });
     },
     policeEnter: function policeEnter() {
-      //警员登录
-      var that = this;
-      $.ajax({
-        type: "post",
-        url: "".concat(api, "/index/api/policeLogin"),
-        async: true,
-        data: {
-          ip: this.ip,
-          name: this.Pname,
-          password: this.Ppsw
-        },
-        dataType: 'json',
-        success: function success(res) {
-          sessionStorage.setItem("username", that.Pname);
 
-          if (res.code == 1) {
-            window.location.href = 'index.html';
-          } else {
-            warn.alert(res.msg);
-          }
-        }
-      });
+      alert(111111)
+      //警员登录
+      // var that = this;
+      // $.ajax({
+      //   type: "post",
+      //   url: "".concat(api, "/index/api/policeLogin"),
+      //   async: true,
+      //   data: {
+      //     ip: this.ip,
+      //     name: this.Pname,
+      //     password: this.Ppsw
+      //   },
+      //   dataType: 'json',
+      //   success: function success(res) {
+      //     sessionStorage.setItem("username", that.Pname);
+
+      //     if (res.code == 1) {
+      //       window.location.href = 'index.html';
+      //     } else {
+      //       warn.alert(res.msg);
+      //     }
+      //   }
+      // });
     },
     poloceRegister: function () {
       console.log(11)

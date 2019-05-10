@@ -6,9 +6,8 @@
     top: 0;
     background: url(../img/banner.png) no-repeat;
     background-size: 100% 100%;
-    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/banner.png', sizingMethod='scale');
-    /* -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc); */
+    -ms-behavior: url(css/backgroundsize.htc);
+    behavior: url(css/backgroundsize.htc);
 }
 
 .index_content {
@@ -26,7 +25,7 @@
     background: url(../img/logo.png) no-repeat;
     background-size: 100% 100%;
     -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    behavior: url(css/backgroundsize.htc);
 }
 
 .header_name {
@@ -156,7 +155,7 @@
     background: url(../img/sousuo.png) no-repeat;
     background-size: 100% 100%;
     -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    behavior: url(css/backgroundsize.htc);
     position: absolute;
     right: 0.5em;
     top: 0.5em;
@@ -272,6 +271,7 @@
 
 .app_uu li img {
     width: 3.1em;
+    height: 49px;
 }
 
 .app_uu li p {
@@ -626,7 +626,7 @@ p.create-time {
 }
 
 .content_img img {
-    width: 30%;
+    width: 25%;
 }
 
 .content_img p {
@@ -635,6 +635,7 @@ p.create-time {
     font-weight: 400;
     color: #797979;
     line-height: 28px;
+    margin-left: -65px;
 }
 
 
@@ -739,7 +740,7 @@ p.create-time {
     background: url(../img/去报备.png) no-repeat;
     background-size: 100% 100%;
     -ms-behavior: url(css/backgroundsize.htc);
-	behavior:url(css/backgroundsize.htc);
+    behavior: url(css/backgroundsize.htc);
     margin-left: 34%;
     cursor: pointer;
 }
@@ -933,6 +934,7 @@ span.see-spa {
     right: 50px;
     cursor: pointer;
 }
+
 .close img {
     width: 100%;
     height: 100%;
@@ -1142,8 +1144,6 @@ p.no-notice {
         top: 0;
         background: url(../img/banner.png) no-repeat;
         background-size: cover;
-        -ms-behavior: url(css/backgroundsize.htc);
-        behavior:url(css/backgroundsize.htc);
     }
 
     .index_content {
@@ -1384,6 +1384,7 @@ p.no-notice {
 
     .app_uu li img {
         width: 1.6em;
+        height: 26px;
     }
 
     .app_uu li p {

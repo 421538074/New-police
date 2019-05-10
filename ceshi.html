@@ -5,33 +5,95 @@
     <meta charset="UTF-8">
     <title>IE 8 下兼容background-size</title>
     <style>
-        .parent {
-            width: 400px;
-            height: 320px;
-            /* border: 1px solid #000; */
-        }
-
-        .child {
-            /* width: 200px; */
-            /* height: 150px; */
+        .user_header {
             width: 100%;
-            height: 100%;
-            border: 1px solid red;
-            background: url(img/警徽.png);
+            height: 72px;
+            position: fixed;
+            z-index: 11;
+            top: 0;
+            background: url(img/banner.png) no-repeat;
             background-size: 100% 100%;
-            /* background-size: cover; */
-            /* 再次引入backgroundsize.min.htc，filter的那段删除 */
+            /* filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/banner.png', sizingMethod='scale'); */
             -ms-behavior: url(css/backgroundsize.htc);
             behavior: url(css/backgroundsize.htc);
+        }
 
+        .user_banner {
+            width: 1200px;
+            height: 100%;
+            margin: 0 auto;
+            line-height: 72px;
+        }
+
+        img.user-img {
+            float: left;
+            width: 254px;
+            height: 35px;
+            margin-top: 20px;
+            cursor: pointer;
+            z-index: 1111;
+        }
+
+        div.user-test {
+            float: right;
+            cursor: pointer;
+            z-index: 1111;
+        }
+
+        div.user-test span {
+            font-size: 18px;
+            font-family: PingFangSC-Regular;
+            font-weight: 400;
+            color: black;
+            cursor: pointer;
+            margin: 0 24px 0 30px;
+        }
+
+
+        .userColor {
+            color: black !important;
+        }
+
+        .container {
+            width: 800px;
+            margin: 0 auto;
         }
     </style>
 </head>
 
 <body>
-    <div class="parent">
-        <div class="child"></div>
+    <div ms-controller="app" class="user_header">
+        <div class="user_banner container">
+            <img src="img/logo.png" alt="" ms-on-click="Goindex" class="user-img">
+            <div class="user-test">
+                <span ms-click="Goindex">首页</span>
+                <span class="user-two" ms-on-click="Goheat">应用中心</span>
+                <span class="userColor" ms-on-click="gouser">个人中心</span>
+            </div>
+        </div>
     </div>
 </body>
 
 </html>
+<script src="js/avalon/avalon.js"></script>
+<script>
+    var vm = avalon.define({
+        $id: "app",
+        gouser: function gouser() {
+            //跳转我的主页
+            alert(11)
+            // window.location.href = "user.html";
+        },
+        Goindex: function () {
+            alert(22)
+            // window.location.href = "index.html";
+        },
+        Goheat: function () {
+            alert(33)
+            // window.location.href = "heart.html";
+        },
+    })
+    jQuery.support.cors = true
+    vm.started();
+
+</script>

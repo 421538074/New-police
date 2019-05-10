@@ -31,9 +31,7 @@ var xm = avalon.define({
   musicList2: [],
   list: [],
   musicSort: [
-    { id: 1, name: "古典音乐", num: 1 },
-    { id: 2, name: "轻音乐", num: 0 },
-    { id: 3, name: "摇滚", num: 0 }],
+  ],
   //音乐分类
   bookSort: [],
   //书籍分类

@@ -149,7 +149,7 @@ li.role-lis {
     float: left;
     width: 169px;
     height: 37px;
-    background: url(../img/圆角矩形.png)no-repeat;
+    background: url(../img/box.png)no-repeat;
     background-size: cover;
     -ms-behavior: url(css/backgroundsize.htc);
     behavior: url(css/backgroundsize.htc);
@@ -400,11 +400,11 @@ a.role-a {
         float: left;
         width: 90px;
         height: 20px;
-        background: url(../img/圆角矩形.png) no-repeat;
+        background: url(../img/box.png) no-repeat;
         /* background-size: cover; */
         /* -ms-behavior: url(css/backgroundsize.htc);
         behavior: url(css/backgroundsize.htc); */
-        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/圆角矩形.png', sizingMethod='scale');
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/box.png', sizingMethod='scale');
         outline: none;
         border: 0;
         cursor: pointer;
@@ -670,9 +670,9 @@ a.role-a {
         float: left;
         width: 110px;
         height: 30px;
-        background: url(../img/圆角矩形.png) no-repeat;
+        background: url(../img/box.png) no-repeat;
         background-size: 100% 100%;
-        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/圆角矩形.png', sizingMethod='scale');
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/box.png', sizingMethod='scale');
         outline: none;
         border: 0;
         cursor: pointer;

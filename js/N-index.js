@@ -155,14 +155,7 @@ var vm = avalon.define({
     //关闭遮罩
     this.isshade = false;
     this.ispass = false;
-    this.isforum = false;
-    this.isCase = false;
-    this.isCreat = false;
-    this.isCroom = false;
-    this.iscommonly = false;
-    this.isall = false;
-    this.isshade = false;
-    this.isChatting = false;
+    this.isCase = false; 
     this.isspeak = false;
     $("body").removeClass("bod");
   },
@@ -454,7 +447,7 @@ var vm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
-        _this8.postIndex = -1; 
+        _this8.postIndex = -1;
         // this.commentActive = -1
         _this8.numIndex = -1;
         _this8.ForumCate[3].title = "更多";

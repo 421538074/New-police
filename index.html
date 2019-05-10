@@ -26,9 +26,9 @@
                         <img src="img/信息.png" alt="">
                         <span ms-if="length>0?isnum:!isnum">{{length}}</span>
                     </div>
-                    <div class="header_enter" ms-visible="this.userName=='' || this.userName==null">
-                        <a ms-click="Enter">登录 | </a>
-                        <a ms-click="Resgiter">注册</a>
+                    <div class="header_enter" ms-if="this.userName=='' || this.userName==null">
+                        <a href="javascript:void(0);" ms-click="Enter">登录 | </a>
+                        <a href="javascript:void(0);" ms-click="Resgiter">注册</a>
                     </div>
                     <span ms-click="goname" class="name" ms-visible="this.userName">{{userName}}</span>
                 </div>
