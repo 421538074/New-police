@@ -155,7 +155,7 @@ var vm = avalon.define({
     //关闭遮罩
     this.isshade = false;
     this.ispass = false;
-    this.isCase = false; 
+    this.isCase = false;
     this.isspeak = false;
     $("body").removeClass("bod");
   },
@@ -191,7 +191,6 @@ var vm = avalon.define({
       },
       dataType: 'json',
       success: function success(res) {
-        console.log(res)
         _this.CommentList = res.result;
         _this.currentPostId = postId;
         _this.commentActive = _this.commentActive == index ? -1 : index;
@@ -353,7 +352,6 @@ var vm = avalon.define({
         data: {},
         dataType: 'json',
         success: function success(res) {
-          console.log(res);
           _this6.allList = res.data;
         }
       });
@@ -364,7 +362,6 @@ var vm = avalon.define({
         data: {},
         dataType: 'json',
         success: function success(res) {
-          console.log(res);
           _this6.allList = res.data;
         }
       });
@@ -375,19 +372,15 @@ var vm = avalon.define({
     var _this7 = this;
     this.currentIndex = 3;
     this.ismore = false;
-    // $("css3-container").css("display", "none")
     if (this.userName) {
       this.ip = "";
     }
 
     if (index != this.numIndex) {
       this.numIndex = index;
-      console.log('numindex=' + this.numIndex);
     }
 
     this.subId = id;
-    console.log(id);
-    console.log(index);
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/getForumList"),
@@ -558,7 +551,6 @@ var vm = avalon.define({
               },
               dataType: 'json',
               success: function success(res) {
-                console.log(res)
                 _this10.CommentList = res.result;
               }
             });
@@ -673,7 +665,6 @@ var vm = avalon.define({
             },
             dataType: 'json',
             success: function success(res) {
-              console.log(res)
               _this12.CommentList = res.result;
             }
           });
@@ -702,7 +693,6 @@ var vm = avalon.define({
       data: {},
       dataType: 'json',
       success: function success(res) {
-        console.log(res);
         _this13.list = res.data;
       }
     });
@@ -719,7 +709,6 @@ var vm = avalon.define({
       data: {},
       dataType: 'json',
       success: function success(res) {
-        console.log(res);
         _this14.list = res.data;
       }
     });
@@ -734,7 +723,6 @@ var vm = avalon.define({
   },
   goUser1: function goUser1(id) {
     //通知跳转
-    console.log(id);
     $.ajax({
       type: "post",
       url: "".concat(api, "/index/api/clickRead"),
@@ -952,19 +940,15 @@ function initCalendar() {
     },
     nextMonthCb: function nextMonthCb(y, m, d) {
       //下个月
-      console.log(y, m, d);
     },
     nextYeayCb: function nextYeayCb(y, m, d) {
       //下年
-      console.log(y, m, d);
     },
     prevMonthCb: function prevMonthCb(y, m, d) {
       //上一年
-      console.log(y, m, d);
     },
     prevYearCb: function prevYearCb(y, m, d) {
       //上一年
-      console.log(y, m, d);
     }
   });
 }
@@ -1038,7 +1022,6 @@ function getRepairList(strDate) {
       vm.repairInfo.total = data.data.tool;
     },
     error: function error(err) {
-      console.log(JSON.stringify(err));
     }
   });
 }

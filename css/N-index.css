@@ -737,10 +737,12 @@ p.create-time {
     display: inline-block;
     width: 42%;
     height: 28px;
-    background: url(../img/去报备.png) no-repeat;
-    background-size: 100% 100%;
-    -ms-behavior: url(css/backgroundsize.htc);
-    behavior: url(css/backgroundsize.htc);
+    background: #7ecef4;
+    text-align: center;
+    color: white;
+    line-height: 28px;
+    border-radius: 5px;
+    behavior: url(css/PIE/PIE.htc);
     margin-left: 34%;
     cursor: pointer;
 }
@@ -1805,8 +1807,12 @@ p.no-notice {
         display: inline-block;
         width: 42%;
         height: 28px;
-        background: url(../img/去报备.png) no-repeat;
-        background-size: 100% 100%;
+        background: #7ecef4;
+        text-align: center;
+        color: white;
+        line-height: 28px;
+        border-radius: 5px;
+        behavior: url(css/PIE/PIE.htc);
         margin-left: 34%;
         cursor: pointer;
     }
