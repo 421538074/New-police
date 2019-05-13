@@ -14,7 +14,7 @@
     position: relative;
     line-height: 72px;
 }
-
+F
 .index_left {
     float: left;
     width: 254px;
@@ -1807,7 +1807,6 @@ p.no-notice {
         height: 28px;
         background: url(../img/去报备.png) no-repeat;
         background-size: 100% 100%;
-        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='img/去报备.png', sizingMethod='scale');
         margin-left: 34%;
         cursor: pointer;
     }
@@ -1845,7 +1844,7 @@ p.no-notice {
     .answer_uu {
         box-sizing: border-box;
         width: 100%;
-        padding: 11px 20px 0 16px;
+        padding: 11px 14px 0 14px;
         max-height: 225px;
         overflow-y: scroll;
 
@@ -1879,8 +1878,7 @@ p.no-notice {
         font-weight: 400;
         color: black;
         line-height: 23px;
-        text-align: right;
-        margin-right: 26px;
+        text-align: center;
         cursor: pointer;
     }
 
