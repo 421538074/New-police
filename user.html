@@ -177,7 +177,7 @@
                         </div>
                     </div>
                     <div class="agree_one" ms-for="(index,item) in replayList">
-                        <h4>{{item.nickname}}回复我 <span>{{item.comment_content}}</span></h4>
+                        <h4>{{item.nickname == null ? "【未注册用户】" : item.nickname}}回复我 <span>{{item.comment_content}}</span></h4>
                         <p class="pp" ms-html="filterContent(item.content)"></p>
                         <div class="agree_img">
                             <ul class="agree_uu clearfix">
