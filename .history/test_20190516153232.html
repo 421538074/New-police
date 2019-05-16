@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .search {
+            height: 3em;
+            background-color: #eee;
+            border-radius: 25px;
+            outline: none;
+            border: 0;
+            padding: 0 20px;
+            font-size: 14px;
+            line-height: 3em;
+        }
+    </style>
+</head>
+<body>
+    <div ms-controller="app">
+            <input ms-on-keyup="searchChange" class="search" type="text" ms-duplex="@keyWords"
+            placeholder="搜索关键词">
+    </div>
+    <script src="js/avalon/avalon.js"></script>
+    <script>
+    avalon.define({
+        $id:'app',
+        searchChange:function() {
+            console.log('keyup')
+        },
+        keyWords:'aa'
+    });
+    </script>
+</body>
+</html>

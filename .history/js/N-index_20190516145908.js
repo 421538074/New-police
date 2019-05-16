@@ -378,7 +378,6 @@ var vm = avalon.define({
 
     if (index != this.numIndex) {
       this.numIndex = index;
-      this.commentActive = -1;
     }
 
     this.subId = id;
@@ -412,8 +411,8 @@ var vm = avalon.define({
     if (index != this.currentIndex && index != 3) {
       this.currentIndex = index;
       this.currentActive = -1;
-      this.commentActive = -1;
     }
+    // this.commentActive = -1;
     if (index == 3) {
       this.ismore == true ? this.ismore = false : this.ismore = true;
       if (this.ismore) {
@@ -567,7 +566,7 @@ var vm = avalon.define({
     window.location.href = "index.html";
   },
   searchChange: function searchChange(e) {
-    if (e.keyCode != 13 && e.type != 'click') {
+    if (e.keyCode != 13) {
       return;
     }
     var _this11 = this;
@@ -597,9 +596,6 @@ var vm = avalon.define({
         }
       }
     });
-  },
-  setValue:function(e,key) {
-    this[key] = e.target.value || e.srcElement.value;
   },
   //文章点赞
   likePostOrComment: function likePostOrComment(post_id, comment_id, type, typeId) {

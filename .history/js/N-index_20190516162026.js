@@ -598,8 +598,8 @@ var vm = avalon.define({
       }
     });
   },
-  setValue:function(e,key) {
-    this[key] = e.target.value || e.srcElement.value;
+  setValue(e) {
+    console.log(e.target.value);
   },
   //文章点赞
   likePostOrComment: function likePostOrComment(post_id, comment_id, type, typeId) {

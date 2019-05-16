@@ -35,9 +35,6 @@ var vm = avalon.define({
         this.isregister = true;
         this.ispolice = false;
     },
-    setValue:function(e,key) {
-        this[key] = e.target.value || e.srcElement.value;
-      },
     goOrder: function goOrder() {
         this.isrole = false;
         this.isorder = true;

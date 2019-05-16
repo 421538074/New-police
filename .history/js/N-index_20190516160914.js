@@ -567,7 +567,8 @@ var vm = avalon.define({
     window.location.href = "index.html";
   },
   searchChange: function searchChange(e) {
-    if (e.keyCode != 13 && e.type != 'click') {
+    console.log(e)
+    if (e.keyCode != 13) {
       return;
     }
     var _this11 = this;
@@ -597,9 +598,6 @@ var vm = avalon.define({
         }
       }
     });
-  },
-  setValue:function(e,key) {
-    this[key] = e.target.value || e.srcElement.value;
   },
   //文章点赞
   likePostOrComment: function likePostOrComment(post_id, comment_id, type, typeId) {

@@ -139,12 +139,12 @@
                                     </span>
                                 </div>
                                 <div class="reply_one clearfix" ms-if="currentActive==index">
-                                    <input type="text" ms-on-input="setValue($event,'replyComment')">
+                                    <input type="text" ms-duplex="replyComment" ms-on-input="setValue($event,'replyComment')">
                                     <span ms-click="commentChange(item.id,comment.id,item.uid)">发布</span>
                                 </div>
                             </div>
                             <div class="comment_inp">
-                                <input placeholder="想说点什么？" type="text" ms-on-input="setValue($event,'Pcomment')">
+                                <input placeholder="想说点什么？" type="text" ms-duplex="Pcomment">
                                 <span ms-click="commentChange(item.id)">发布</span>
                             </div>
                         </div>
@@ -172,7 +172,7 @@
                             </ul>
                         </div>
                         <div class="agree_inp" ms-if="currentActive==index && currentType == 0">
-                            <input type="text" ms-on-input="setValue($event,'replyComment')">
+                            <input type="text" ms-duplex="replyComment">
                             <span ms-click="commentChange(item.post_id,item.comment_id,item.uid,1)">发送</span>
                         </div>
                     </div>
@@ -188,7 +188,7 @@
                             </ul>
                         </div>
                         <div class="agree_inp" ms-if="currentActive==index && currentType == 1">
-                            <input placeholder="回复" type="text" ms-on-input="setValue($event,'replyComment')">
+                            <input ms-duplex="replyComment" placeholder="回复" type="text">
                             <span ms-click="commentChange(item.post_id,item.comment_id,item.uid,1)">发送</span>
                         </div>
                     </div>
@@ -309,7 +309,7 @@
                                     </div>
                                 </div>
                                 <div class="see_inp" ms-visible="oneIndex == index">
-                                    <input type="text"  ms-on-input="setValue($event,'replyComment')">
+                                    <input ms-duplex="replyComment" type="text">
                                     <span class="pointer-one"
                                         ms-click="commentChange(currentPostId,item.id,item.uid,1)">发布</span>
                                 </div>
@@ -339,7 +339,7 @@
                                     </div>
                                 </div>
                                 <div class="see_inp" ms-visible="twoIndex == index">
-                                    <input type="text" ms-on-input="setValue($event,'replyComment')">
+                                    <input ms-duplex="replyComment" type="text">
                                     <span class="pointer-one"
                                         ms-click="commentChange(currentPostId,item.id,item.uid,1)">发布</span>
                                 </div>

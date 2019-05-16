@@ -77,10 +77,7 @@ var vm = avalon.define({
     // var e = window.event || event;
     // var obj = e.srcElement || e.target
     // $(".form_img").find('input.invisible').click();
-    // document.getElementById('upload-title-img').click();
-  },
-  setValue:function(e,key) {
-    this[key] = e.target.value || e.srcElement.value;
+    document.getElementById('upload-title-img').click();
   },
   downImg: function downImg() {
     var that = this;

@@ -60,11 +60,11 @@
 
                         </li>
                         <li>
-                            <input type="text" class="forum-input"  ms-on-input="setValue($event,'Ptitle')" placeholder="请输入标题">
+                            <input type="text" class="forum-input" ms-duplex="Ptitle" placeholder="请输入标题">
                         </li>
                         <li class="lis">
                             <div class="forum_content" ms-click="showChange">
-                                <textarea placeholder="" ms-on-input="setValue($event,'Pcontent')" id="Ftext" cols="30" rows="10">
+                                <textarea placeholder="" ms-duplex="Pcontent" id="Ftext" cols="30" rows="10">
                                 </textarea>
                             </div>
                         </li>

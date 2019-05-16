@@ -49,7 +49,7 @@
                     <ul class="forum_main_uu">
                         <li>
                             <div class="form_img pointer" ms-click="upChange">
-                                <img ms-visible="avtar != ''" ms-attr="{src:avtar}" class="backimg" id="OImg">
+                                <img ms-attr="{src:avtar}" class="backimg" id="OImg">
                                 <img class="Img" src="img/相机.png"  ms-visible="show1">
                                 <span ms-visible="show1">添加题图</span>
                                 <form id="form">
@@ -60,11 +60,11 @@
 
                         </li>
                         <li>
-                            <input type="text" class="forum-input"  ms-on-input="setValue($event,'Ptitle')" placeholder="请输入标题">
+                            <input type="text" class="forum-input" ms-duplex="Ptitle" placeholder="请输入标题">
                         </li>
                         <li class="lis">
                             <div class="forum_content" ms-click="showChange">
-                                <textarea placeholder="" ms-on-input="setValue($event,'Pcontent')" id="Ftext" cols="30" rows="10">
+                                <textarea placeholder="" ms-duplex="Pcontent" id="Ftext" cols="30" rows="10">
                                 </textarea>
                             </div>
                         </li>

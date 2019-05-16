@@ -599,7 +599,7 @@ var vm = avalon.define({
     });
   },
   setValue:function(e,key) {
-    this[key] = e.target.value || e.srcElement.value;
+    console.log(e,key)
   },
   //文章点赞
   likePostOrComment: function likePostOrComment(post_id, comment_id, type, typeId) {

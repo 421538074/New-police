@@ -73,7 +73,7 @@
                                 {{item.title}}
                             </li>
                             <div class="header_mid">
-                                <input ms-on-keyup="searchChange" class="search" type="text" ms-on-input="setValue($event,'keyWords')"
+                                <input ms-on-keyup="searchChange" class="search" type="text"
                                     placeholder="搜索关键词">
                                 <span ms-click="searchChange"></span>
                             </div>
@@ -174,14 +174,15 @@
                                     </div>
 
                                     <div class="reply_one" ms-visible="currentActive==index">
-                                        <input type="text" ms-on-input="setValue($event,'replyComment')">
+                                        <input type="text"
+                                            ms-duplex="replyComment">
                                         <span class="comment-btn"
                                             ms-click="commentChange(comment.post_id,comment.id,comment.uid)">发布</span>
                                     </div>
                                 </div>
 
                                 <div class="comment_inp">
-                                    <input placeholder="想说点什么？" type="text" ms-on-input="setValue($event,'Pcomment')">
+                                    <input placeholder="想说点什么？" type="text" ms-duplex="Pcomment">
                                     <span class="comment-btn" ms-click="commentChange(item.id)">发布</span>
                                 </div>
                             </div>
@@ -368,7 +369,7 @@
                                     </div>
                                 </div>
                                 <div class="see_inp" ms-visible="oneIndex == index">
-                                    <input ms-on-input="setValue($event,'replyComment')" type="text">
+                                    <input ms-duplex="replyComment" type="text">
                                     <span class="pointer"
                                         ms-click="commentChange(currentPostId,item.id,item.uid,1)">发布</span>
                                 </div>
@@ -398,7 +399,7 @@
                                     </div>
                                 </div>
                                 <div class="see_inp" ms-if="twoIndex == index">
-                                    <input ms-on-input="setValue($event,'replyComment')" type="text">
+                                    <input ms-duplex="replyComment" type="text">
                                     <span class="pointer"
                                         ms-click="commentChange(currentPostId,item.id,item.uid,1)">发布</span>
                                 </div>
@@ -416,15 +417,15 @@
                     <ul class="pass_uu">
                         <li>
                             <span>原密码：</span>
-                            <input type="password" ms-on-input="setValue($event,'Opsw')">
+                            <input type="password" ms-duplex="Opsw">
                         </li>
                         <li>
                             <span>新密码：</span>
-                            <input type="password" ms-on-input="setValue($event,'Npsw')">
+                            <input type="password" ms-duplex="Npsw">
                         </li>
                         <li>
                             <span>重新输入密码：</span>
-                            <input type="password" ms-on-input="setValue($event,'Tpsw')">
+                            <input type="password" ms-duplex="Tpsw">
                         </li>
                     </ul>
                     <p ms-click="editChange">确认</p>

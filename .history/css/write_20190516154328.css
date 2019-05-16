@@ -343,6 +343,7 @@ css3-container {
         height: 80px;
         border: 0;
         outline: none;
+        font-size: 40px;
     }
 
     input::placeholder {
@@ -550,6 +551,7 @@ body {
 }
 
 .invisible {
+    display: none;
     width: 102%;
     height: 100% !important;
     margin-left: -10px;
