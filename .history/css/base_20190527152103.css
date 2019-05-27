@@ -239,7 +239,7 @@ button.alert-close {
 	font-family: 'myFont';
 	src: url(../font/gbk.eot);
 	src: 
-	url(../font/gbk.eot?#iefix) format('embedded-opentype'),
+	url(../font/PingFangSC-Regular.eot?#iefix) format('embedded-opentype'),
 	url(../font/gbk.TTF);
 }
 *{
