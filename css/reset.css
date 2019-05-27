@@ -183,10 +183,16 @@ body {
     height: 0;
     clear: both;
 }
-@font-face {
+/* @font-face {
 	font-family: 'myFont';
 	src: url(../font/PingFangSC-Regular.ttf) format('ttf'),
 	url(../font/PingFangSC-Regular.eot) format('embedded-opentype');
+} */
+@font-face {
+	font-family: 'myFont';
+	src: url(../font/gbk.eot);
+	src: url(../font/gbk.TTF),
+	url(../font/PingFangSC-Regular.eot?#iefix) format('embedded-opentype');
 }
 *{
 	font-family: myFont !important;

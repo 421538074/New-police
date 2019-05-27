@@ -235,6 +235,15 @@ button.alert-close {
 	cursor: pointer;
 	outline: 0;
 }
+@font-face {
+	font-family: 'myFont';
+	src: url(../font/gbk.eot);
+	src: url(../font/gbk.TTF),
+	url(../font/PingFangSC-Regular.eot?#iefix) format('embedded-opentype');
+}
+*{
+	font-family: myFont !important;
+}
 
 /* 禁止选中文本 */
 /* body {
